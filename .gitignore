@@ -1,0 +1,10 @@
+# Auto-sync exclusions (sync-watch.ps1 runs `git add -A`, which honors this file)
+.claude/
+*.bak
+*.bak2
+*.tmp
+*.corrupt.bak
+*~
+~$*
+.DS_Store
+Thumbs.db
