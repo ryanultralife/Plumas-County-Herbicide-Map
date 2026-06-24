@@ -1,0 +1,23 @@
+{
+  "_doc": "Region definitions. Add a region, then run:  python scraper/run_region.py <key>. PUR county codes are CA's standard alphabetical codes (01-58). forest fs_unit_id is the FACTS unit (region+forest, e.g. Plumas=0511).",
+  "regions": {
+    "northern-sierra": {
+      "label": "Northern Sierra / Feather River",
+      "counties": [
+        {"name": "Butte",  "pur": "04", "fips": "06007"},
+        {"name": "Lassen", "pur": "18", "fips": "06035"},
+        {"name": "Plumas", "pur": "32", "fips": "06063"},
+        {"name": "Sierra", "pur": "46", "fips": "06091"},
+        {"name": "Yuba",   "pur": "58", "fips": "06115"}
+      ],
+      "forests": [
+        {"name": "Plumas National Forest", "fs_unit_id": "0511"},
+        {"name": "Lassen National Forest", "fs_unit_id": "0506"},
+        {"name": "Tahoe National Forest",  "fs_unit_id": "0517"}
+      ]
+    }
+  },
+  "_next_regions_template": {
+    "<key>": {"label": "", "counties": [{"name": "", "pur": "", "fips": ""}], "forests": [{"name": "", "fs_unit_id": ""}]}
+  }
+}
