@@ -1,16 +1,26 @@
 # Plumas data — provenance & status
 
-## plumas_nf_herbicide_facts_2020-2025.geojson / .csv  (FEDERAL land — NEW)
+## plumas_nf_herbicide_facts.geojson / .csv  (FEDERAL land — PRIMARY)
 - **Source:** USDA Forest Service EDW, *Activity FACTS Common Attributes* layer
   (`EDW_ActivityFactsCommonAttributes_01/0`).
-- **Filter:** `fs_unit_id='0511'` (Plumas NF) AND `method='Chemical'` AND `fiscal_year_completed >= 2020`.
+- **Filter:** `fs_unit_id='0511'` (Plumas NF) AND `method='Chemical'`, FY2020+.
 - **Pulled:** 2026-06-24.
-- **Records:** 276 unique completed herbicide/chemical treatment points, FY2020–2025.
-- **Completeness:** PARTIAL — this in-app pull captured 311 of 398 completed records
-  (the data API response was capped mid-scrape). It also does **not** yet include
-  acres, NEPA project name, or planned (future) treatments.
-- **Activity mix (of the captured set):** ~61% *Invasives – Pesticide Application*,
-  ~25% *Right of Way Maintenance*, ~14% *Tree Release and Weed*.
+- **Records:** 296 herbicide/chemical treatment points; **109 carry full detail**
+  (acres, NEPA project, ranger district); 6 are planned (not yet completed).
+- **Fields:** activity, year, status (completed/planned), acres, nepa_project,
+  district, detail (full|basic).
+- **Completeness:** PARTIAL — the in-app fetch tool caps response size, so each
+  full-field page truncates (~29 records). This captured 296 of ~398 points and
+  full detail on 109. **Run `scripts/pull_facts.py` on a networked machine for 100%**
+  (all completed + planned, every field). The sandbox here has no outbound network.
+- **NEPA projects seen:** Moonlight Fire Invasive Plant Treatment, PG&E Herbicide
+  Vegetation Management Program, Storrie/Rich Fire invasive plant treatment,
+  Moonlight Fire Area Restoration, Mt. Hough–South Park trail project.
+- **Activity mix:** ~63% *Invasives – Pesticide Application*, ~25% *Right of Way
+  Maintenance*, ~14% *Tree Release and Weed*, plus *Site Prep – Chemical*.
+
+> `plumas_nf_herbicide_facts_2020-2025.geojson/.csv` is the earlier basic-only
+> extract (lat/lon/activity/year). The file above supersedes it.
 
 ### To get the COMPLETE + richer dataset
 Run on any networked machine (no URL/size caps):
