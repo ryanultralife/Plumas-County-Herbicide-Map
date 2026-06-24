@@ -72,8 +72,16 @@ def export_geojson(cx, region, out_path):
 def classify(owner="", activity="", project="", site=""):
     s = " ".join(str(x or "").upper() for x in (owner, activity, project, site))
     if re.search(r"RAILROAD|RAILWAY|UNION PACIFIC|\bBNSF\b|BURLINGTON NORTHERN", s): return "railroad"
-    if re.search(r"PG&E|PACIFIC GAS|EDISON|\bSCE\b|UTILITY|ELECTRIC|TRANSMISSION|POWERLINE|GAS CO", s):
-        return "utility"
+    # local special districts (CSDs, water/irrigation/vector/fire/reclamation, etc.)
+    if re.search(r"COMMUNITY SERVICES? DISTRICT|\bCSD\b|WATER DISTRICT|IRRIGATION DISTRICT|"
+                 r"RECLAMATION DISTRICT|VECTOR CONTROL|MOSQUITO|FIRE PROTECTION DISTRICT|"
+                 r"RESOURCE CONSERVATION DISTRICT|CEMETERY DISTRICT|RECREATION (AND )?PARK|"
+                 r"PUBLIC UTILITY DISTRICT|MUNICIPAL UTILITY DISTRICT|\bPUD\b|\bMUD\b|"
+                 r"SANITATION DISTRICT|FLOOD CONTROL|LEVEE DISTRICT", s):
+        return "special_district"
+    if re.search(r"\bCITY OF\b|\bTOWN OF\b|COUNTY OF|\bMUNICIPAL\b", s):    return "municipal"
+    if re.search(r"PG&E|PACIFIC GAS|EDISON|\bSCE\b|SOUTHERN CALIFORNIA EDISON|ELECTRIC|"
+                 r"TRANSMISSION|POWERLINE|GAS CO|UTILITY", s):             return "utility"
     if re.search(r"CALTRANS|ROADSIDE|RIGHT OF WAY|ROAD MAINT|HIGHWAY", s): return "roadside"
     if re.search(r"FOREST|TIMBER|SILVICULTUR|REFOREST|PLANTATION", s):     return "forestry"
     if re.search(r"RANGE|PASTURE|GRAZ", s):                                return "rangeland"
