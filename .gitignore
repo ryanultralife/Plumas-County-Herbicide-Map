@@ -2,9 +2,15 @@
 .claude/
 *.bak
 *.bak2
+*.bak3
+*.bak4
 *.tmp
 *.corrupt.bak
 *~
 ~$*
 .DS_Store
 Thumbs.db
+
+# Regenerable build intermediates (raw data is in data/, embedded into index.html)
+build/*.json
+build/*.sqlite
