@@ -43,34 +43,62 @@ def summary(cx, region_key):
     print("  by year:  ", dict(sorted((k, v) for k, v in by_year.items() if k)))
 
 
+def export_all(cx, out_path):
+    """Combined statewide GeoJSON across every region."""
+    cur = cx.execute("SELECT * FROM applications")
+    cols = [d[0] for d in cur.description]; feats = []
+    for row in cur:
+        r = dict(zip(cols, row))
+        if r["lat"] is None or r["lon"] is None:
+            continue
+        feats.append({"type": "Feature",
+                      "geometry": {"type": "Point", "coordinates": [r["lon"], r["lat"]]},
+                      "properties": {k: r[k] for k in r if k not in ("lat", "lon")}})
+    os.makedirs(os.path.dirname(out_path), exist_ok=True)
+    json.dump({"type": "FeatureCollection", "name": "california", "features": feats},
+              open(out_path, "w"), separators=(",", ":"))
+    return len(feats)
+
+
+def run_one(cx, key, region, sources):
+    for name in [s.strip() for s in sources.split(",") if s.strip()]:
+        mod = importlib.import_module(f"sources.{name}")
+        print(f"[{name}] {key} ...")
+        lib.upsert(cx, mod.pull(key, region))
+    out = os.path.join(lib.ROOT, "data", "exports", f"{key}.geojson")
+    n = lib.export_geojson(cx, key, out)
+    print(f"  exported {n} -> {os.path.relpath(out, lib.ROOT)}")
+
+
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("region")
+    ap.add_argument("region", help="a region key, or 'all' for the whole state")
     ap.add_argument("--sources", default="facts")
     ap.add_argument("--load-existing")
     ap.add_argument("--no-export", action="store_true")
     args = ap.parse_args()
 
     regions = lib.load_regions()
-    if args.region not in regions:
-        sys.exit(f"unknown region '{args.region}'. Known: {', '.join(regions)}")
-    region = regions[args.region]
     cx = lib.connect()
 
     if args.load_existing:
         print("loading existing:", args.load_existing)
         print("  wrote", load_existing(cx, args.region, args.load_existing))
-    else:
-        for name in [s.strip() for s in args.sources.split(",") if s.strip()]:
-            mod = importlib.import_module(f"sources.{name}")
-            print(f"[{name}] pulling {args.region} ...")
-            lib.upsert(cx, mod.pull(args.region, region))
+        summary(cx, args.region); return
 
-    if not args.no_export:
-        out = os.path.join(lib.ROOT, "data", "exports", f"{args.region}.geojson")
-        print("\n  exported", lib.export_geojson(cx, args.region, out), "features ->",
-              os.path.relpath(out, lib.ROOT))
-    summary(cx, args.region)
+    keys = list(regions) if args.region == "all" else [args.region]
+    for k in keys:
+        if k not in regions:
+            sys.exit(f"unknown region '{k}'. Known: all, {', '.join(regions)}")
+    for k in keys:
+        print(f"\n===== {k} ({regions[k]['label']}) =====")
+        run_one(cx, k, regions[k], args.sources)
+        summary(cx, k)
+
+    if args.region == "all":
+        out = os.path.join(lib.ROOT, "data", "exports", "california.geojson")
+        print(f"\n  STATEWIDE export: {export_all(cx, out)} features -> "
+              f"{os.path.relpath(out, lib.ROOT)}")
 
 
 if __name__ == "__main__":
