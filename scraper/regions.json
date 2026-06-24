@@ -1,0 +1,38 @@
+{
+  "_doc": "All 58 CA counties grouped into regions. PUR codes are CA's standard alphabetical codes (01-58). Federal (FACTS) data is pulled by county within Forest Service Region 05, so no forest IDs are needed. Run one region:  python scraper/run_region.py <key>   |  whole state:  python scraper/run_region.py all",
+  "regions": {
+    "northern-sierra": {"label": "Northern Sierra / Feather River", "counties": [
+      {"name": "Butte", "pur": "04"}, {"name": "Lassen", "pur": "18"}, {"name": "Plumas", "pur": "32"},
+      {"name": "Sierra", "pur": "46"}, {"name": "Yuba", "pur": "58"}]},
+    "north-coast": {"label": "North Coast", "counties": [
+      {"name": "Del Norte", "pur": "08"}, {"name": "Humboldt", "pur": "12"}, {"name": "Mendocino", "pur": "23"},
+      {"name": "Lake", "pur": "17"}, {"name": "Trinity", "pur": "53"}]},
+    "shasta-cascade": {"label": "Shasta-Cascade", "counties": [
+      {"name": "Siskiyou", "pur": "47"}, {"name": "Modoc", "pur": "25"}, {"name": "Shasta", "pur": "45"},
+      {"name": "Tehama", "pur": "52"}, {"name": "Glenn", "pur": "11"}]},
+    "sacramento-valley": {"label": "Sacramento Valley", "counties": [
+      {"name": "Colusa", "pur": "06"}, {"name": "Sutter", "pur": "51"}, {"name": "Sacramento", "pur": "34"},
+      {"name": "Yolo", "pur": "57"}, {"name": "Solano", "pur": "48"}]},
+    "central-sierra": {"label": "Central Sierra / Gold Country", "counties": [
+      {"name": "Nevada", "pur": "29"}, {"name": "Placer", "pur": "31"}, {"name": "El Dorado", "pur": "09"},
+      {"name": "Alpine", "pur": "02"}, {"name": "Amador", "pur": "03"}, {"name": "Calaveras", "pur": "05"},
+      {"name": "Tuolumne", "pur": "55"}, {"name": "Mariposa", "pur": "22"}]},
+    "bay-area": {"label": "San Francisco Bay Area", "counties": [
+      {"name": "Sonoma", "pur": "49"}, {"name": "Napa", "pur": "28"}, {"name": "Marin", "pur": "21"},
+      {"name": "Contra Costa", "pur": "07"}, {"name": "Alameda", "pur": "01"}, {"name": "San Francisco", "pur": "38"},
+      {"name": "San Mateo", "pur": "41"}, {"name": "Santa Clara", "pur": "43"}, {"name": "Santa Cruz", "pur": "44"},
+      {"name": "San Benito", "pur": "35"}]},
+    "san-joaquin-valley": {"label": "San Joaquin Valley", "counties": [
+      {"name": "San Joaquin", "pur": "39"}, {"name": "Stanislaus", "pur": "50"}, {"name": "Merced", "pur": "24"},
+      {"name": "Madera", "pur": "20"}, {"name": "Fresno", "pur": "10"}, {"name": "Kings", "pur": "16"},
+      {"name": "Tulare", "pur": "54"}, {"name": "Kern", "pur": "15"}]},
+    "central-coast": {"label": "Central Coast", "counties": [
+      {"name": "Monterey", "pur": "27"}, {"name": "San Luis Obispo", "pur": "40"},
+      {"name": "Santa Barbara", "pur": "42"}, {"name": "Ventura", "pur": "56"}]},
+    "eastern-sierra": {"label": "Eastern Sierra", "counties": [
+      {"name": "Mono", "pur": "26"}, {"name": "Inyo", "pur": "14"}]},
+    "southern-california": {"label": "Southern California", "counties": [
+      {"name": "Los Angeles", "pur": "19"}, {"name": "Orange", "pur": "30"}, {"name": "Riverside", "pur": "33"},
+      {"name": "San Bernardino", "pur": "36"}, {"name": "San Diego", "pur": "37"}, {"name": "Imperial", "pur": "13"}]}
+  }
+}

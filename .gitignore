@@ -1,5 +1,16 @@
-# Local-only Claude settings (machine-specific permissions)
-.claude/settings.local.json
+# Auto-sync exclusions (sync-watch.ps1 runs `git add -A`, which honors this file)
+.claude/
+*.bak
+*.bak2
+*.bak3
+*.bak4
+*.tmp
+*.corrupt.bak
+*~
+~$*
+.DS_Store
+Thumbs.db
 
-# Regenerable build intermediates (data is embedded in index.html)
+# Regenerable build intermediates (raw data is in data/, embedded into index.html)
 build/*.json
+build/*.sqlite

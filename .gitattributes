@@ -1,0 +1,12 @@
+# Keep the map HTML as CRLF so it stops showing as fully-modified on every commit
+*.html text eol=crlf
+
+# Treat data deliverables as binary (no line-ending churn)
+*.xlsx binary
+*.xls  binary
+*.pdf  binary
+
+# Markdown / data text files normalize normally
+*.md   text
+*.csv  text
+*.json text

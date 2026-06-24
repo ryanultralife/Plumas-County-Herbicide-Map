@@ -1,0 +1,58 @@
+@echo off
+REM ============================================================
+REM  Plumas repo auto-sync  --  batch engine
+REM  Commits every new/changed file in this folder to the repo
+REM  (and pushes to the site) as it appears.
+REM
+REM  RUN IT:  double-click  sync.bat
+REM           sync.bat once       (one sync now, then exit)
+REM           sync.bat install    (auto-start at every logon)
+REM           sync.bat uninstall  (remove auto-start)
+REM
+REM  EDIT CONFIG below. (Windows runs .bat, not .dat, so sync.bat
+REM  is the launcher; this file holds the logic + settings.)
+REM ============================================================
+setlocal EnableDelayedExpansion
+
+REM ---- locate the repo: arg 1 from launcher, else this file's folder ----
+set "REPO=%~dp0"
+set "MODE="
+if exist "%~1\.git" ( set "REPO=%~1" & set "MODE=%~2" ) else ( set "MODE=%~1" )
+cd /d "%REPO%"
+
+REM ================= CONFIG =================
+set "BRANCH=main"
+set "REMOTE=origin"
+set "INTERVAL=15"
+set "AUTOPUSH=1"
+REM =========================================
+
+if /i "%MODE%"=="once"      ( call :sync & exit /b )
+if /i "%MODE%"=="install"   ( call :install & exit /b )
+if /i "%MODE%"=="uninstall" ( schtasks /delete /tn PlumasRepoSync /f >nul 2>&1 & echo Removed PlumasRepoSync. & exit /b )
+
+echo [sync] watching "%REPO%"  every %INTERVAL%s  ^| autopush=%AUTOPUSH%  ^| branch=%BRANCH%
+echo [sync] press Ctrl+C to stop.
+:loop
+call :sync
+ping -n %INTERVAL% 127.0.0.1 >nul
+goto loop
+
+REM ---- one sync pass ----
+:sync
+if exist ".git\index.lock" del /f /q ".git\index.lock" >nul 2>&1
+git add -A
+git diff --cached --quiet && goto :eof
+git commit -m "Auto-sync %date% %time%" >nul
+echo [sync] committed %date% %time%
+if "%AUTOPUSH%"=="1" (
+  git push %REMOTE% %BRANCH% >nul 2>&1
+  echo [sync] pushed -^> %REMOTE%/%BRANCH%
+)
+goto :eof
+
+REM ---- register auto-start at logon ----
+:install
+schtasks /create /tn PlumasRepoSync /tr "cmd /c \"%REPO%sync.bat\"" /sc onlogon /f
+echo Installed PlumasRepoSync - it will run sync.bat at every logon.
+goto :eof
