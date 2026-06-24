@@ -28,7 +28,9 @@ CREATE INDEX IF NOT EXISTS ix_ai     ON applications(active_ingredient);
 """
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-DB_PATH = os.path.join(ROOT, "data", "db", "applications.sqlite")
+# DB path can be overridden via SCRAPER_DB (useful if the repo lives on a network
+# mount where SQLite journaling fails; build locally, then copy the .sqlite in).
+DB_PATH = os.environ.get("SCRAPER_DB") or os.path.join(ROOT, "data", "db", "applications.sqlite")
 
 
 def connect():
