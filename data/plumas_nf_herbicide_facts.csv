@@ -1,297 +1,470 @@
-lat,lon,activity,year,status,acres,nepa_project,district,detail
-40.2378,-120.7526,Invasives - Pesticide Application,2020,completed,0.8,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,full
-39.9612,-121.2774,Invasives - Pesticide Application,2020,completed,,,,basic
-40.0686,-121.1787,Invasives - Pesticide Application,2020,completed,2.9,(PALS)STORRIE AND RICH FIRE AREAS INVASIVE PLANT TREATMENT PROJECT,02,full
-39.8198,-120.3885,Invasives - Pesticide Application,2020,completed,,,,basic
-40.278,-120.6124,Invasives - Pesticide Application,2020,completed,24.0,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,full
-40.1218,-120.6825,Invasives - Pesticide Application,2020,completed,,,,basic
-40.2284,-120.64,Invasives - Pesticide Application,2020,completed,,,,basic
-40.2536,-120.6703,Invasives - Pesticide Application,2020,completed,94.0,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,full
-40.124,-120.643,Invasives - Pesticide Application,2020,completed,26.6,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,full
-40.0102,-120.9916,Invasives - Pesticide Application,2020,completed,,,,basic
-39.9369,-121.3201,Invasives - Pesticide Application,2020,completed,,,,basic
-39.9393,-121.3134,Invasives - Pesticide Application,2020,completed,,,,basic
-40.2419,-120.5791,Invasives - Pesticide Application,2020,completed,1.1,(PALS)WILDCAT FUELS REDUCTION AND VEGETATION MANAGEMENT PROJECT (WILDCAT PROJECT,02,full
-39.8487,-121.3929,Invasives - Pesticide Application,2020,completed,,,,basic
-39.8156,-120.385,Invasives - Pesticide Application,2020,completed,,,,basic
-39.8149,-120.382,Invasives - Pesticide Application,2020,completed,2.4,(PALS)BECKWOURTH RANGER DISTRICT TALL WHITETOP PROJECT,01,full
-39.8189,-120.4028,Invasives - Pesticide Application,2020,completed,1.8,(PALS)BECKWOURTH RANGER DISTRICT TALL WHITETOP PROJECT,01,full
-39.8157,-120.383,Invasives - Pesticide Application,2020,completed,1.9,(PALS)BECKWOURTH RANGER DISTRICT TALL WHITETOP PROJECT,01,full
-39.8186,-120.3848,Invasives - Pesticide Application,2020,completed,,,,basic
-39.8149,-120.3835,Invasives - Pesticide Application,2020,completed,,,,basic
-39.815,-120.4179,Invasives - Pesticide Application,2020,completed,,,,basic
-39.8155,-120.4177,Invasives - Pesticide Application,2020,completed,,,,basic
-39.8184,-120.4035,Invasives - Pesticide Application,2020,completed,17.3,(PALS)BECKWOURTH RANGER DISTRICT TALL WHITETOP PROJECT,01,full
-40.1482,-120.6485,Invasives - Pesticide Application,2020,completed,0.1,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,full
-39.8175,-120.3829,Invasives - Pesticide Application,2020,completed,,,,basic
-40.1865,-120.7047,Invasives - Pesticide Application,2020,completed,7.8,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,full
-39.8188,-120.3906,Invasives - Pesticide Application,2020,completed,1.2,(PALS)BECKWOURTH RANGER DISTRICT TALL WHITETOP PROJECT,01,full
-39.818,-120.3873,Invasives - Pesticide Application,2020,completed,,,,basic
-39.815,-120.4245,Invasives - Pesticide Application,2020,completed,,,,basic
-39.8178,-120.3938,Invasives - Pesticide Application,2020,completed,,,,basic
-40.1695,-120.6541,Invasives - Pesticide Application,2020,completed,0.1,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,full
-39.9601,-121.2786,Invasives - Pesticide Application,2020,completed,0.1,DEFAULT FOR NOT REQUIRED,02,full
-40.0316,-121.0678,Right of Way Maintenance,2020,completed,3.8,(PALS)PG&E HERBICIDE VEGETATION MANAGEMENT PROGRAM,02,full
-39.9918,-121.2794,Right of Way Maintenance,2020,completed,10.9,(PALS)PG&E HERBICIDE VEGETATION MANAGEMENT PROGRAM,02,full
-39.9273,-121.3342,Right of Way Maintenance,2020,completed,7.0,(PALS)PG&E HERBICIDE VEGETATION MANAGEMENT PROGRAM,02,full
-40.0068,-121.2574,Right of Way Maintenance,2020,completed,11.5,(PALS)PG&E HERBICIDE VEGETATION MANAGEMENT PROGRAM,02,full
-40.0056,-121.2669,Right of Way Maintenance,2020,completed,,,,basic
-40.0496,-121.0927,Right of Way Maintenance,2020,completed,,,,basic
-39.8147,-121.4549,Right of Way Maintenance,2020,completed,5.2,(PALS)PG&E HERBICIDE VEGETATION MANAGEMENT PROGRAM,03,full
-39.9546,-121.2994,Right of Way Maintenance,2020,completed,8.5,(PALS)PG&E HERBICIDE VEGETATION MANAGEMENT PROGRAM,02,full
-40.0678,-121.1165,Right of Way Maintenance,2020,completed,,,,basic
-39.8195,-121.4507,Right of Way Maintenance,2020,completed,,,,basic
-39.9213,-121.3411,Right of Way Maintenance,2020,completed,,,,basic
-39.9656,-121.2818,Right of Way Maintenance,2020,completed,,,,basic
-40.0794,-121.1298,Right of Way Maintenance,2020,completed,10.9,(PALS)PG&E HERBICIDE VEGETATION MANAGEMENT PROGRAM,02,full
-39.8831,-121.3732,Right of Way Maintenance,2020,completed,,,,basic
-39.9169,-121.3453,Right of Way Maintenance,2020,completed,,,,basic
-40.2509,-120.6447,Tree Release and Weed,2020,completed,,,,basic
-40.1999,-120.613,Invasives - Pesticide Application,2021,completed,7.6,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,full
-40.0045,-121.2605,Invasives - Pesticide Application,2021,completed,,,,basic
-39.9928,-120.859,Invasives - Pesticide Application,2021,completed,,,,basic
-40.2785,-120.6413,Invasives - Pesticide Application,2021,completed,0.9,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,full
-40.1552,-120.6329,Invasives - Pesticide Application,2021,completed,0.3,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,full
-39.9997,-121.2702,Invasives - Pesticide Application,2021,completed,2.3,DEFAULT FOR NOT REQUIRED,02,full
-39.9601,-121.2804,Invasives - Pesticide Application,2021,completed,29.5,DEFAULT FOR NOT REQUIRED,02,full
-39.9903,-120.8627,Invasives - Pesticide Application,2021,completed,,,,basic
-40.1536,-120.647,Invasives - Pesticide Application,2021,completed,,,,basic
-40.2332,-120.6516,Invasives - Pesticide Application,2021,completed,,,,basic
-39.9899,-120.8622,Invasives - Pesticide Application,2021,completed,0.1,(PALS)MT. HOUGH - SOUTH PARK PROPOSED TRAIL SYSTEM PROJECT,02,full
-39.9945,-120.8386,Invasives - Pesticide Application,2021,completed,,,,basic
-40.3022,-120.7532,Invasives - Pesticide Application,2021,completed,,,,basic
-39.9905,-120.8419,Invasives - Pesticide Application,2021,completed,,,,basic
-40.2924,-120.7843,Invasives - Pesticide Application,2021,completed,,,,basic
-40.316,-120.7597,Invasives - Pesticide Application,2021,completed,,,,basic
-40.1986,-120.6123,Invasives - Pesticide Application,2021,completed,,,,basic
-40.0256,-120.8619,Invasives - Pesticide Application,2021,completed,,,,basic
-40.2316,-120.6585,Invasives - Pesticide Application,2021,completed,,,,basic
-40.0972,-120.6491,Invasives - Pesticide Application,2021,completed,,,,basic
-40.1508,-120.6354,Invasives - Pesticide Application,2021,completed,,,,basic
-40.3046,-120.7516,Invasives - Pesticide Application,2021,completed,,,,basic
-40.3043,-120.7521,Invasives - Pesticide Application,2021,completed,,,,basic
-39.9898,-120.8623,Invasives - Pesticide Application,2021,completed,0.1,(PALS)MT. HOUGH - SOUTH PARK PROPOSED TRAIL SYSTEM PROJECT,02,full
-40.3042,-120.7524,Invasives - Pesticide Application,2021,completed,,,,basic
-40.3025,-120.7533,Invasives - Pesticide Application,2021,completed,,,,basic
-40.304,-120.7528,Invasives - Pesticide Application,2021,completed,,,,basic
-40.1215,-120.7828,Invasives - Pesticide Application,2021,completed,2.3,(PALS)MT. HOUGH - SOUTH PARK PROPOSED TRAIL SYSTEM PROJECT,02,full
-39.9588,-121.2832,Invasives - Pesticide Application,2021,completed,,,,basic
-40.2308,-120.64,Invasives - Pesticide Application,2021,completed,,,,basic
-40.3022,-120.7349,Invasives - Pesticide Application,2021,completed,,,,basic
-40.2716,-120.6364,Invasives - Pesticide Application,2021,completed,,,,basic
-40.1581,-120.6484,Invasives - Pesticide Application,2021,completed,,,,basic
-40.277,-120.7968,Invasives - Pesticide Application,2021,completed,,,,basic
-40.1486,-120.6493,Invasives - Pesticide Application,2021,completed,,,,basic
-40.2429,-120.6574,Invasives - Pesticide Application,2021,completed,20.0,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,full
-40.1647,-120.616,Invasives - Pesticide Application,2021,completed,,,,basic
-40.0941,-120.644,Invasives - Pesticide Application,2021,completed,,,,basic
-40.3,-120.7566,Invasives - Pesticide Application,2021,completed,,,,basic
-40.2168,-120.6394,Invasives - Pesticide Application,2021,completed,,,,basic
-40.2391,-120.7459,Invasives - Pesticide Application,2021,completed,,,,basic
-40.2221,-120.6473,Invasives - Pesticide Application,2021,completed,,,,basic
-40.2193,-120.6502,Invasives - Pesticide Application,2021,completed,,,,basic
-40.2176,-120.6491,Invasives - Pesticide Application,2021,completed,,,,basic
-40.0887,-121.147,Invasives - Pesticide Application,2021,completed,,,,basic
-40.1583,-120.6131,Invasives - Pesticide Application,2021,completed,0.2,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,full
-40.0712,-121.1668,Invasives - Pesticide Application,2021,completed,,,,basic
-40.2419,-120.5791,Invasives - Pesticide Application,2021,completed,,,,basic
-40.3033,-120.7593,Invasives - Pesticide Application,2021,completed,0.1,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,full
-40.2726,-120.6511,Invasives - Pesticide Application,2021,completed,,,,basic
-40.16,-120.6105,Invasives - Pesticide Application,2021,completed,,,,basic
-40.2179,-120.6488,Invasives - Pesticide Application,2021,completed,0.1,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,full
-40.0368,-121.2188,Invasives - Pesticide Application,2021,completed,,,,basic
-40.2533,-120.6048,Invasives - Pesticide Application,2021,completed,0.1,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,full
-40.261,-120.7866,Invasives - Pesticide Application,2021,completed,,,,basic
-40.1499,-120.649,Invasives - Pesticide Application,2021,completed,,,,basic
-40.166,-120.6042,Invasives - Pesticide Application,2021,completed,,,,basic
-40.223,-120.6579,Invasives - Pesticide Application,2021,completed,0.4,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,full
-40.2387,-120.5787,Invasives - Pesticide Application,2021,completed,0.1,(PALS)WILDCAT FUELS REDUCTION AND VEGETATION MANAGEMENT PROJECT (WILDCAT PROJECT,02,full
-40.2069,-120.8168,Invasives - Pesticide Application,2021,completed,0.1,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,full
-40.1553,-120.6477,Invasives - Pesticide Application,2021,completed,,,,basic
-40.1126,-120.6426,Invasives - Pesticide Application,2021,completed,,,,basic
-40.1112,-120.71,Invasives - Pesticide Application,2021,completed,,,,basic
-40.2377,-120.8286,Invasives - Pesticide Application,2021,completed,,,,basic
-40.124,-120.643,Invasives - Pesticide Application,2021,completed,7.5,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,full
-40.1653,-120.6173,Invasives - Pesticide Application,2021,completed,,,,basic
-40.2378,-120.8247,Invasives - Pesticide Application,2021,completed,,,,basic
-40.2732,-120.6357,Invasives - Pesticide Application,2021,completed,0.5,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,full
-40.1113,-120.7173,Invasives - Pesticide Application,2021,completed,0.2,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,full
-40.1642,-120.5998,Invasives - Pesticide Application,2021,completed,,,,basic
-40.1455,-120.6329,Invasives - Pesticide Application,2021,completed,0.2,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,full
-40.1564,-120.6483,Invasives - Pesticide Application,2021,completed,,,,basic
-39.8165,-120.384,Invasives - Pesticide Application,2021,completed,16.2,(PALS)BECKWOURTH RANGER DISTRICT TALL WHITETOP PROJECT,01,full
-40.3109,-120.7519,Invasives - Pesticide Application,2021,completed,0.1,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,full
-40.3035,-120.7347,Invasives - Pesticide Application,2021,completed,,,,basic
-40.1119,-120.7093,Invasives - Pesticide Application,2021,completed,,,,basic
-40.3159,-120.7459,Invasives - Pesticide Application,2021,completed,,,,basic
-39.9912,-120.8411,Invasives - Pesticide Application,2021,completed,0.1,(PALS)MT. HOUGH - SOUTH PARK PROPOSED TRAIL SYSTEM PROJECT,02,full
-39.9907,-120.841,Invasives - Pesticide Application,2021,completed,0.1,(PALS)MT. HOUGH - SOUTH PARK PROPOSED TRAIL SYSTEM PROJECT,02,full
-39.9906,-120.8422,Invasives - Pesticide Application,2021,completed,,,,basic
-40.1482,-120.6485,Invasives - Pesticide Application,2021,completed,,,,basic
-40.2272,-120.6489,Invasives - Pesticide Application,2021,completed,3.3,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,full
-40.1651,-120.6034,Invasives - Pesticide Application,2021,completed,,,,basic
-39.9992,-121.2705,Invasives - Pesticide Application,2021,completed,,,,basic
-40.1266,-120.6574,Invasives - Pesticide Application,2021,completed,0.1,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,full
-39.9549,-121.2945,Invasives - Pesticide Application,2021,completed,,,,basic
-40.2465,-120.7507,Invasives - Pesticide Application,2021,completed,,,,basic
-40.1833,-120.7044,Invasives - Pesticide Application,2021,completed,7.7,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,full
-40.1582,-120.6056,Invasives - Pesticide Application,2021,completed,0.1,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,full
-40.1218,-120.6824,Invasives - Pesticide Application,2021,completed,,,,basic
-40.2134,-120.6389,Invasives - Pesticide Application,2021,completed,,,,basic
-40.1233,-120.6631,Invasives - Pesticide Application,2021,completed,,,,basic
-40.093,-120.641,Invasives - Pesticide Application,2021,completed,,,,basic
-40.2584,-120.6578,Invasives - Pesticide Application,2021,completed,,,,basic
-40.1481,-120.6504,Invasives - Pesticide Application,2021,completed,,,,basic
-39.9908,-120.8423,Invasives - Pesticide Application,2021,completed,,,,basic
-40.3036,-120.7338,Invasives - Pesticide Application,2021,completed,,,,basic
-40.1225,-120.663,Invasives - Pesticide Application,2021,completed,,,,basic
-40.015,-120.8144,Invasives - Pesticide Application,2021,completed,,,,basic
-40.1605,-120.6177,Invasives - Pesticide Application,2021,completed,0.4,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,full
-40.1564,-120.6324,Invasives - Pesticide Application,2021,completed,,,,basic
-40.218,-120.6545,Invasives - Pesticide Application,2021,completed,,,,basic
-40.3062,-120.7531,Invasives - Pesticide Application,2021,completed,,,,basic
-40.1316,-120.6608,Invasives - Pesticide Application,2021,completed,,,,basic
-40.1593,-120.6157,Invasives - Pesticide Application,2021,completed,,,,basic
-40.2832,-120.6514,Invasives - Pesticide Application,2021,completed,,,,basic
-40.2346,-120.7583,Invasives - Pesticide Application,2021,completed,0.2,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,full
-39.9916,-120.8412,Invasives - Pesticide Application,2021,completed,0.1,(PALS)MT. HOUGH - SOUTH PARK PROPOSED TRAIL SYSTEM PROJECT,02,full
-40.2108,-120.6404,Invasives - Pesticide Application,2021,completed,0.3,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,full
-40.2891,-120.7612,Invasives - Pesticide Application,2021,completed,0.2,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,full
-40.2868,-120.7623,Invasives - Pesticide Application,2021,completed,0.2,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,full
-40.0109,-120.8407,Invasives - Pesticide Application,2021,completed,0.1,(PALS)MT. HOUGH - SOUTH PARK PROPOSED TRAIL SYSTEM PROJECT,02,full
-40.2793,-120.5911,Invasives - Pesticide Application,2021,completed,0.1,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,full
-40.2729,-120.6079,Invasives - Pesticide Application,2021,completed,0.2,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,full
-40.2267,-120.66,Invasives - Pesticide Application,2021,completed,0.3,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,full
-40.0883,-121.1468,Right of Way Maintenance,2021,completed,,,,basic
-40.1351,-121.1222,Right of Way Maintenance,2021,completed,,,,basic
-40.204,-120.654,Tree Release and Weed,2021,completed,,,,basic
-40.2353,-120.6591,Tree Release and Weed,2021,completed,,,,basic
-40.2087,-120.6526,Tree Release and Weed,2021,completed,28.2,(PALS)DECISION NOTICE FOR THE MOONLIGHT FIRE AREA RESTORATION PROJECT,02,full
-40.2298,-120.6585,Tree Release and Weed,2021,completed,,,,basic
-40.2078,-120.644,Tree Release and Weed,2021,completed,294.9,(PALS)DECISION NOTICE FOR THE MOONLIGHT FIRE AREA RESTORATION PROJECT,02,full
-40.1749,-120.6605,Tree Release and Weed,2021,completed,123.7,(PALS)DECISION NOTICE FOR THE MOONLIGHT FIRE AREA RESTORATION PROJECT,02,full
-40.1982,-120.643,Tree Release and Weed,2021,completed,117.0,(PALS)DECISION NOTICE FOR THE MOONLIGHT FIRE AREA RESTORATION PROJECT,02,full
-40.219,-120.6585,Tree Release and Weed,2021,completed,,,,basic
-40.186,-120.6599,Tree Release and Weed,2021,completed,,,,basic
-40.1239,-120.643,Invasives - Pesticide Application,2022,completed,,,,basic
-39.9579,-121.2871,Invasives - Pesticide Application,2022,completed,,,,basic
-39.8479,-121.394,Invasives - Pesticide Application,2022,completed,,,,basic
-40.0394,-121.2186,Invasives - Pesticide Application,2022,completed,,,,basic
-39.8425,-121.3954,Invasives - Pesticide Application,2022,completed,,,,basic
-40.277,-120.7968,Invasives - Pesticide Application,2022,completed,,,,basic
-39.9398,-121.3136,Invasives - Pesticide Application,2022,completed,0.8,(PALS)STORRIE AND RICH FIRE AREAS INVASIVE PLANT TREATMENT PROJECT,02,full
-40.0368,-121.2188,Invasives - Pesticide Application,2022,completed,1.4,(PALS)STORRIE AND RICH FIRE AREAS INVASIVE PLANT TREATMENT PROJECT,02,full
-40.1093,-120.8523,Invasives - Pesticide Application,2022,completed,1.4,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,full
-39.6595,-121.3353,Site Preparation for Planting - Chemical,2022,planned,25.2,(PALS)BERRY BRUSH WUI HAZARDOUS FUELS REDUCTION PROJECT,03,full
-39.812,-121.3603,Site Preparation for Planting - Chemical,2022,planned,8.0,(PALS)BIG BAR HAZARDOUS FUELS REDUCTION PROJECT 56140,03,full
-39.8131,-121.3594,Site Preparation for Planting - Chemical,2022,planned,23.4,(PALS)BIG BAR HAZARDOUS FUELS REDUCTION PROJECT 56140,03,full
-40.2734,-120.6626,Tree Release and Weed,2022,completed,163.4,(PALS)DECISION NOTICE FOR THE MOONLIGHT FIRE AREA RESTORATION PROJECT,02,full
-40.2292,-120.7819,Tree Release and Weed,2022,completed,,,,basic
-40.1915,-120.8225,Tree Release and Weed,2022,completed,,,,basic
-40.2255,-120.8219,Tree Release and Weed,2022,completed,,,,basic
-40.2362,-120.7911,Tree Release and Weed,2022,completed,,,,basic
-40.2521,-120.649,Tree Release and Weed,2022,completed,,,,basic
-40.2509,-120.6447,Tree Release and Weed,2022,completed,67.8,(PALS)DECISION NOTICE FOR THE MOONLIGHT FIRE AREA RESTORATION PROJECT,02,full
-40.2315,-120.805,Tree Release and Weed,2022,completed,,,,basic
-40.2461,-120.7733,Tree Release and Weed,2022,completed,29.3,(PALS)DECISION NOTICE FOR THE MOONLIGHT FIRE AREA RESTORATION PROJECT,02,full
-40.1742,-120.6796,Tree Release and Weed,2022,completed,,,,basic
-40.2359,-120.7819,Tree Release and Weed,2022,completed,72.0,(PALS)DECISION NOTICE FOR THE MOONLIGHT FIRE AREA RESTORATION PROJECT,02,full
-40.1455,-120.6329,Invasives - Pesticide Application,2023,completed,,,,basic
-40.1193,-120.6556,Invasives - Pesticide Application,2023,completed,,,,basic
-40.1225,-120.6631,Invasives - Pesticide Application,2023,completed,,,,basic
-39.6028,-121.266,Invasives - Pesticide Application,2023,completed,,,,basic
-40.316,-120.7597,Invasives - Pesticide Application,2023,completed,0.9,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,full
-40.1951,-120.5947,Invasives - Pesticide Application,2023,completed,,,,basic
-40.1508,-120.6354,Invasives - Pesticide Application,2023,completed,0.1,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,full
-40.0493,-120.69,Invasives - Pesticide Application,2023,completed,,,,basic
-40.1463,-120.6991,Invasives - Pesticide Application,2023,completed,,,,basic
-40.3022,-120.7349,Invasives - Pesticide Application,2023,completed,,,,basic
-39.8479,-121.394,Invasives - Pesticide Application,2023,completed,5.9,(PALS)STORRIE AND RICH FIRE AREAS INVASIVE PLANT TREATMENT PROJECT,02,full
-39.9365,-121.3201,Invasives - Pesticide Application,2023,completed,3.5,(PALS)STORRIE AND RICH FIRE AREAS INVASIVE PLANT TREATMENT PROJECT,02,full
-40.0886,-121.1472,Invasives - Pesticide Application,2023,completed,,,,basic
-39.9601,-121.2788,Invasives - Pesticide Application,2023,completed,,,,basic
-40.3036,-120.7339,Invasives - Pesticide Application,2023,completed,,,,basic
-40.3109,-120.7519,Invasives - Pesticide Application,2023,completed,,,,basic
-39.996,-120.8717,Invasives - Pesticide Application,2023,completed,,,,basic
-40.3159,-120.7459,Invasives - Pesticide Application,2023,completed,0.4,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,full
-40.103,-120.6998,Invasives - Pesticide Application,2023,completed,,,,basic
-39.9609,-121.278,Invasives - Pesticide Application,2023,completed,,,,basic
-40.1963,-120.5941,Invasives - Pesticide Application,2023,completed,,,,basic
-40.1549,-120.6718,Invasives - Pesticide Application,2023,completed,,,,basic
-40.1484,-120.6927,Invasives - Pesticide Application,2023,completed,0.2,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,full
-40.1749,-120.6605,Tree Release and Weed,2023,completed,123.7,(PALS)DECISION NOTICE FOR THE MOONLIGHT FIRE AREA RESTORATION PROJECT,02,full
-40.2078,-120.644,Tree Release and Weed,2023,completed,,,,basic
-40.2087,-120.6526,Tree Release and Weed,2023,completed,,,,basic
-40.219,-120.6585,Tree Release and Weed,2023,completed,,,,basic
-40.204,-120.654,Tree Release and Weed,2023,completed,,,,basic
-40.2461,-120.7733,Tree Release and Weed,2023,completed,29.3,(PALS)DECISION NOTICE FOR THE MOONLIGHT FIRE AREA RESTORATION PROJECT,02,full
-40.2353,-120.6591,Tree Release and Weed,2023,completed,,,,basic
-40.162,-120.6672,Tree Release and Weed,2023,completed,,,,basic
-40.186,-120.6599,Tree Release and Weed,2023,completed,75.8,(PALS)DECISION NOTICE FOR THE MOONLIGHT FIRE AREA RESTORATION PROJECT,02,full
-40.1982,-120.643,Tree Release and Weed,2023,completed,,,,basic
-40.2074,-120.7045,Tree Release and Weed,2023,completed,,,,basic
-40.2298,-120.6585,Tree Release and Weed,2023,planned,41.4,(PALS)DECISION NOTICE FOR THE MOONLIGHT FIRE AREA RESTORATION PROJECT,02,full
-39.9019,-121.228,Invasives - Pesticide Application,2024,completed,,,,basic
-39.9089,-121.3256,Invasives - Pesticide Application,2024,completed,,,,basic
-39.8951,-121.2041,Invasives - Pesticide Application,2024,completed,,,,basic
-39.8959,-121.2034,Invasives - Pesticide Application,2024,completed,1.0,DEFAULT FOR NOT REQUIRED,02,full
-39.8955,-121.2757,Invasives - Pesticide Application,2024,completed,1.3,DEFAULT FOR NOT REQUIRED,02,full
-40.011,-121.0614,Right of Way Maintenance,2024,completed,3.8,(PALS)PG&E HERBICIDE VEGETATION MANAGEMENT PROGRAM,02,full
-39.9988,-121.0256,Right of Way Maintenance,2024,completed,,,,basic
-40.0105,-121.0595,Right of Way Maintenance,2024,completed,4.8,(PALS)PG&E HERBICIDE VEGETATION MANAGEMENT PROGRAM,02,full
-40.0017,-121.0361,Right of Way Maintenance,2024,completed,,,,basic
-40.0016,-121.0358,Right of Way Maintenance,2024,completed,,,,basic
-39.9993,-121.0268,Right of Way Maintenance,2024,completed,,,,basic
-40.2359,-120.7819,Tree Release and Weed,2024,completed,102.5,(PALS)DECISION NOTICE FOR THE MOONLIGHT FIRE AREA RESTORATION PROJECT,02,full
-40.2362,-120.7911,Tree Release and Weed,2024,completed,12.2,(PALS)DECISION NOTICE FOR THE MOONLIGHT FIRE AREA RESTORATION PROJECT,02,full
-40.2461,-120.7733,Tree Release and Weed,2024,completed,,,,basic
-40.2255,-120.8219,Tree Release and Weed,2024,completed,,,,basic
-40.1742,-120.6796,Tree Release and Weed,2024,completed,,,,basic
-40.2036,-120.7113,Tree Release and Weed,2024,completed,,,,basic
-40.1915,-120.8225,Tree Release and Weed,2024,completed,,,,basic
-40.2292,-120.7819,Tree Release and Weed,2024,completed,,,,basic
-40.2074,-120.7045,Tree Release and Weed,2024,completed,,,,basic
-40.1986,-120.6422,Tree Release and Weed,2024,planned,86.5,(PALS)DECISION NOTICE FOR THE MOONLIGHT FIRE AREA RESTORATION PROJECT,02,full
-39.8948,-121.279,Invasives - Pesticide Application,2025,completed,0.6,DEFAULT FOR NOT REQUIRED,02,full
-39.8479,-121.394,Invasives - Pesticide Application,2025,completed,,,,basic
-40.0057,-121.2566,Invasives - Pesticide Application,2025,completed,,,,basic
-39.8959,-121.2034,Invasives - Pesticide Application,2025,completed,0.4,DEFAULT FOR NOT REQUIRED,02,full
-40.1492,-120.7861,Invasives - Pesticide Application,2025,completed,,,,basic
-39.8943,-121.3019,Invasives - Pesticide Application,2025,completed,0.6,DEFAULT FOR NOT REQUIRED,02,full
-39.8956,-121.3013,Invasives - Pesticide Application,2025,completed,,,,basic
-39.9024,-121.2497,Invasives - Pesticide Application,2025,completed,,,,basic
-39.9022,-121.2496,Invasives - Pesticide Application,2025,completed,,,,basic
-39.8976,-121.2815,Invasives - Pesticide Application,2025,completed,1.8,DEFAULT FOR NOT REQUIRED,02,full
-40.0492,-121.2103,Invasives - Pesticide Application,2025,completed,2.0,DEFAULT FOR NOT REQUIRED,02,full
-39.9367,-121.3206,Invasives - Pesticide Application,2025,completed,,,,basic
-40.0716,-121.1676,Invasives - Pesticide Application,2025,completed,1.5,DEFAULT FOR NOT REQUIRED,02,full
-39.8934,-121.3006,Invasives - Pesticide Application,2025,completed,,,,basic
-39.9758,-120.8644,Invasives - Pesticide Application,2025,completed,6.0,(PALS)STORRIE AND RICH FIRE AREAS INVASIVE PLANT TREATMENT PROJECT,02,full
-39.9797,-120.9933,Right of Way Maintenance,2025,completed,4.9,(PALS)PG&E HERBICIDE VEGETATION MANAGEMENT PROGRAM,02,full
-39.9712,-120.9821,Right of Way Maintenance,2025,completed,2.7,(PALS)PG&E HERBICIDE VEGETATION MANAGEMENT PROGRAM,02,full
-40.0087,-121.0537,Right of Way Maintenance,2025,completed,,,,basic
-39.9836,-121.0015,Right of Way Maintenance,2025,completed,,,,basic
-39.9687,-120.9785,Right of Way Maintenance,2025,completed,,,,basic
-40.0086,-121.0535,Right of Way Maintenance,2025,completed,,,,basic
-39.5395,-121.3159,Right of Way Maintenance,2025,completed,2.8,DEFAULT FOR NOT REQUIRED,02,full
-39.5397,-121.3157,Right of Way Maintenance,2025,completed,,,,basic
-39.9905,-121.0116,Right of Way Maintenance,2025,completed,,,,basic
-39.5371,-121.3203,Right of Way Maintenance,2025,completed,0.1,DEFAULT FOR NOT REQUIRED,02,full
-39.5341,-121.3257,Right of Way Maintenance,2025,completed,0.2,DEFAULT FOR NOT REQUIRED,02,full
-39.9858,-121.0058,Right of Way Maintenance,2025,completed,3.7,(PALS)PG&E HERBICIDE VEGETATION MANAGEMENT PROGRAM,02,full
-39.9922,-121.0136,Right of Way Maintenance,2025,completed,,,,basic
-39.9652,-120.9722,Right of Way Maintenance,2025,completed,,,,basic
-39.9724,-120.9838,Right of Way Maintenance,2025,completed,,,,basic
-39.9813,-120.9964,Right of Way Maintenance,2025,completed,7.9,(PALS)PG&E HERBICIDE VEGETATION MANAGEMENT PROGRAM,02,full
-39.5396,-121.3158,Right of Way Maintenance,2025,completed,,,,basic
-39.531,-121.3314,Right of Way Maintenance,2025,completed,0.2,DEFAULT FOR NOT REQUIRED,02,full
-39.9672,-120.9759,Right of Way Maintenance,2025,completed,,,,basic
-40.0085,-121.053,Right of Way Maintenance,2025,completed,,,,basic
-39.5318,-121.3298,Right of Way Maintenance,2025,completed,,,,basic
-39.5321,-121.3294,Right of Way Maintenance,2025,completed,,,,basic
-39.9747,-120.987,Right of Way Maintenance,2025,completed,4.7,(PALS)PG&E HERBICIDE VEGETATION MANAGEMENT PROGRAM,02,full
-39.9751,-120.9875,Right of Way Maintenance,2025,completed,,,,basic
-39.5395,-121.316,Right of Way Maintenance,2025,completed,,,,basic
-40.0098,-121.0566,Right of Way Maintenance,2025,completed,,,,basic
-39.9687,-120.9786,Right of Way Maintenance,2025,completed,1.7,(PALS)PG&E HERBICIDE VEGETATION MANAGEMENT PROGRAM,02,full
-39.7655,-121.3094,Site Preparation for Planting - Chemical,2025,planned,13.3,(PALS)ROGERS COW CAMP SALVAGE PROJECT,03,full
+latitude,longitude,activity,treatment_name,method,fiscal_year_completed,fiscal_year_planned,date_completed,nbr_units_accomplished,nbr_units_planned,nepa_project_name,admin_district,county_name,ownership,activity_remarks
+40.0316,-121.0678,Right of Way Maintenance,,Chemical,2020,2016,1597363200000,3.8,3.8,(PALS)PG&E HERBICIDE VEGETATION MANAGEMENT PROGRAM,02,Plumas,FS,
+39.9797,-120.9933,Right of Way Maintenance,,Chemical,2025,2024,1727913600000,4.9,4.9,(PALS)PG&E HERBICIDE VEGETATION MANAGEMENT PROGRAM,02,Plumas,FS,
+40.1508,-120.6354,Invasives - Pesticide Application,,Chemical,2023,2023,1689724800000,0.1,0.1,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+39.9918,-121.2794,Right of Way Maintenance,,Chemical,2020,2016,1596499200000,10.9,10.9,(PALS)PG&E HERBICIDE VEGETATION MANAGEMENT PROGRAM,02,Plumas,FS,
+39.9365,-121.3201,Invasives - Pesticide Application,,Chemical,2023,2023,1684454400000,3.5,3.6,(PALS)STORRIE AND RICH FIRE AREAS INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+40.124,-120.643,Invasives - Pesticide Application,,Chemical,2021,2021,1625788800000,7.5,7.5,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+39.9273,-121.3342,Right of Way Maintenance,,Chemical,2020,2016,1596499200000,7.0,7.0,(PALS)PG&E HERBICIDE VEGETATION MANAGEMENT PROGRAM,02,Plumas,FS,
+39.9398,-121.3136,Invasives - Pesticide Application,,Chemical,2022,2022,1653523200000,0.8,0.9,(PALS)STORRIE AND RICH FIRE AREAS INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+39.6595,-121.3353,Site Preparation for Planting - Chemical,Herbicide,Chemical,,2022,,,25.2,(PALS)BERRY BRUSH WUI HAZARDOUS FUELS REDUCTION PROJECT,03,Butte,FS,
+39.9687,-120.9786,Right of Way Maintenance,,Chemical,2025,2024,1728259200000,1.7,1.7,(PALS)PG&E HERBICIDE VEGETATION MANAGEMENT PROGRAM,02,Plumas,FS,
+40.2734,-120.6626,Tree Release and Weed,,Chemical,2022,2022,1656028800000,163.4,163.4,(PALS)DECISION NOTICE FOR THE MOONLIGHT FIRE AREA RESTORATION PROJECT,02,Plumas,FS,
+39.8157,-120.383,Invasives - Pesticide Application,,Chemical,2020,2020,1595376000000,1.9,2.0,(PALS)BECKWOURTH RANGER DISTRICT TALL WHITETOP PROJECT,01,Plumas,FS,
+40.1484,-120.6927,Invasives - Pesticide Application,,Chemical,2023,2023,1689552000000,0.2,0.2,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+40.1749,-120.6605,Tree Release and Weed,,Chemical,2023,2023,1687132800000,123.7,123.7,(PALS)DECISION NOTICE FOR THE MOONLIGHT FIRE AREA RESTORATION PROJECT,02,Plumas,FS,Two-unit total estimated 111 acres treated due to stream buffers. ~LLS
+39.9907,-120.841,Invasives - Pesticide Application,,Chemical,2021,2021,1626220800000,0.1,0.1,(PALS)MT. HOUGH - SOUTH PARK PROPOSED TRAIL SYSTEM PROJECT,02,Plumas,FS,
+40.011,-121.0614,Right of Way Maintenance,,Chemical,2024,2024,1727308800000,3.8,3.8,(PALS)PG&E HERBICIDE VEGETATION MANAGEMENT PROGRAM,02,Plumas,FS,
+40.0068,-121.2574,Right of Way Maintenance,,Chemical,2020,2016,1598400000000,11.5,11.5,(PALS)PG&E HERBICIDE VEGETATION MANAGEMENT PROGRAM,02,Plumas,FS,
+39.9712,-120.9821,Right of Way Maintenance,,Chemical,2025,2024,1728000000000,2.7,2.7,(PALS)PG&E HERBICIDE VEGETATION MANAGEMENT PROGRAM,02,Plumas,FS,
+40.1655,-120.6546,Invasives - Pesticide Application,,Chemical,2020,2020,1598918400000,0.1,0.1,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+40.2716,-120.6364,Invasives - Pesticide Application,,Chemical,2021,2021,1624924800000,0.1,0.1,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+40.2378,-120.7526,Invasives - Pesticide Application,,Chemical,2020,2020,1591747200000,0.8,0.8,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+39.8895,-121.2796,Invasives - Pesticide Application,,Chemical,2025,2025,1749686400000,0.6,0.8,DEFAULT FOR NOT REQUIRED,02,Plumas,FS,
+39.8479,-121.394,Invasives - Pesticide Application,,Chemical,2022,2022,1654041600000,1.5,1.5,(PALS)STORRIE AND RICH FIRE AREAS INVASIVE PLANT TREATMENT PROJECT,02,Butte,FS,
+40.1499,-120.649,Invasives - Pesticide Application,,Chemical,2021,2021,1625875200000,0.4,0.4,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+40.1999,-120.613,Invasives - Pesticide Application,,Chemical,2021,2021,1632960000000,7.6,7.6,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+40.0087,-121.0537,Right of Way Maintenance,,Chemical,2025,2024,1729123200000,1.6,1.6,(PALS)PG&E HERBICIDE VEGETATION MANAGEMENT PROGRAM,02,Plumas,FS,
+39.9836,-121.0015,Right of Way Maintenance,,Chemical,2025,2024,1727827200000,5.5,5.5,(PALS)PG&E HERBICIDE VEGETATION MANAGEMENT PROGRAM,02,Plumas,FS,
+40.1575,-120.6099,Invasives - Pesticide Application,,Chemical,2021,2021,1626048000000,0.4,0.4,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+40.1492,-120.7861,Invasives - Pesticide Application,,Chemical,2025,2025,1750809600000,9.0,26.5,(PALS)KEDDIE RIDGE HAZARDOUS FUELS REDUCTION PROJECT,02,Plumas,FS,
+40.0123,-120.8391,Invasives - Pesticide Application,,Chemical,2021,2021,1624320000000,0.1,0.1,(PALS)MT. HOUGH - SOUTH PARK PROPOSED TRAIL SYSTEM PROJECT,02,Plumas,FS,
+39.9612,-121.2774,Invasives - Pesticide Application,,Chemical,2020,2020,1594857600000,4.4,4.4,DEFAULT FOR NOT REQUIRED,02,Plumas,FS,
+39.9365,-121.3213,Invasives - Pesticide Application,,Chemical,2021,2021,1623888000000,0.5,0.5,DEFAULT FOR NOT REQUIRED,02,Plumas,FS,
+40.1508,-120.6354,Invasives - Pesticide Application,,Chemical,2021,2021,1625702400000,0.1,0.1,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+40.3036,-120.7339,Invasives - Pesticide Application,,Chemical,2023,2023,1690588800000,0.2,0.2,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+40.2924,-120.7843,Invasives - Pesticide Application,,Chemical,2021,2021,1623628800000,0.1,0.1,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+40.0045,-121.2605,Invasives - Pesticide Application,,Chemical,2021,2021,1620000000000,0.6,0.6,DEFAULT FOR NOT REQUIRED,02,Plumas,FS,
+40.0056,-121.2669,Right of Way Maintenance,,Chemical,2020,2016,1598054400000,5.4,5.4,(PALS)PG&E HERBICIDE VEGETATION MANAGEMENT PROGRAM,02,Plumas,FS,
+39.9988,-121.0256,Right of Way Maintenance,,Chemical,2024,2024,1727654400000,9.6,9.6,(PALS)PG&E HERBICIDE VEGETATION MANAGEMENT PROGRAM,02,Plumas,FS,
+40.1653,-120.6173,Invasives - Pesticide Application,,Chemical,2021,2021,1626048000000,0.5,0.5,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+39.9687,-120.9785,Right of Way Maintenance,,Chemical,2025,2024,1728604800000,2.1,2.1,(PALS)PG&E HERBICIDE VEGETATION MANAGEMENT PROGRAM,02,Plumas,FS,
+40.2185,-120.6478,Invasives - Pesticide Application,,Chemical,2021,2021,1626048000000,0.3,0.4,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+39.9928,-120.859,Invasives - Pesticide Application,,Chemical,2021,2021,1625702400000,0.1,0.1,(PALS)MT. HOUGH - SOUTH PARK PROPOSED TRAIL SYSTEM PROJECT,02,Plumas,FS,
+40.1455,-120.6329,Invasives - Pesticide Application,,Chemical,2023,2023,1689724800000,0.1,0.2,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+40.2078,-120.644,Tree Release and Weed,,Chemical,2023,2023,1686873600000,294.9,294.9,(PALS)DECISION NOTICE FOR THE MOONLIGHT FIRE AREA RESTORATION PROJECT,02,Plumas,FS,
+40.2316,-120.6585,Invasives - Pesticide Application,,Chemical,2021,2021,1626048000000,0.1,0.1,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+40.2168,-120.6394,Invasives - Pesticide Application,,Chemical,2021,2021,1625961600000,0.4,0.4,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+40.1495,-120.6365,Invasives - Pesticide Application,,Chemical,2021,2021,1625616000000,2.6,2.6,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+40.3035,-120.7347,Invasives - Pesticide Application,,Chemical,2021,2021,1626307200000,0.1,0.1,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+40.1193,-120.6556,Invasives - Pesticide Application,,Chemical,2023,2023,1689724800000,0.1,0.1,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+40.2785,-120.6413,Invasives - Pesticide Application,,Chemical,2021,2021,1624924800000,0.9,0.9,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+39.9898,-120.8623,Invasives - Pesticide Application,,Chemical,2021,2021,1622678400000,0.1,0.1,(PALS)MT. HOUGH - SOUTH PARK PROPOSED TRAIL SYSTEM PROJECT,02,Plumas,FS,
+40.1552,-120.6329,Invasives - Pesticide Application,,Chemical,2021,2021,1624838400000,0.3,0.3,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+39.9997,-121.2702,Invasives - Pesticide Application,,Chemical,2021,2021,1620000000000,0.6,0.6,DEFAULT FOR NOT REQUIRED,02,Plumas,FS,
+39.9601,-121.2804,Invasives - Pesticide Application,,Chemical,2021,2021,1623888000000,29.5,29.5,DEFAULT FOR NOT REQUIRED,02,Plumas,FS,
+40.2536,-120.6703,Invasives - Pesticide Application,,Chemical,2020,2020,1596153600000,94.0,94.1,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+40.2359,-120.7819,Tree Release and Weed,,Chemical,2024,2024,1719446400000,102.5,102.5,(PALS)DECISION NOTICE FOR THE MOONLIGHT FIRE AREA RESTORATION PROJECT,02,Plumas,FS,
+40.0686,-121.1787,Invasives - Pesticide Application,,Chemical,2020,2020,1590624000000,2.9,2.9,(PALS)STORRIE AND RICH FIRE AREAS INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+40.2362,-120.7911,Tree Release and Weed,,Chemical,2024,2024,1719360000000,12.2,12.2,(PALS)DECISION NOTICE FOR THE MOONLIGHT FIRE AREA RESTORATION PROJECT,02,Plumas,FS,
+40.124,-120.643,Invasives - Pesticide Application,,Chemical,2020,2020,1600300800000,26.6,26.6,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+40.3033,-120.7593,Invasives - Pesticide Application,,Chemical,2021,2021,1626739200000,0.1,0.1,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+40.0716,-121.1683,Invasives - Pesticide Application,,Chemical,2022,2022,1653436800000,16.8,16.8,(PALS)STORRIE AND RICH FIRE AREAS INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+40.288,-120.7626,Invasives - Pesticide Application,,Chemical,2021,2021,1626307200000,0.1,0.1,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+40.2292,-120.7819,Tree Release and Weed,,Chemical,2022,2022,1655856000000,59.0,60.5,(PALS)DECISION NOTICE FOR THE MOONLIGHT FIRE AREA RESTORATION PROJECT,02,Plumas,FS,
+40.0883,-121.1468,Right of Way Maintenance,,Chemical,2021,2016,1607040000000,4.8,4.8,(PALS)PG&E HERBICIDE VEGETATION MANAGEMENT PROGRAM,02,Plumas,FS,
+40.1915,-120.8225,Tree Release and Weed,,Chemical,2022,2022,1655683200000,152.1,152.1,(PALS)DECISION NOTICE FOR THE MOONLIGHT FIRE AREA RESTORATION PROJECT,02,Plumas,FS,
+40.3,-120.7566,Invasives - Pesticide Application,,Chemical,2021,2021,1626739200000,0.1,0.1,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+40.0496,-121.0927,Right of Way Maintenance,,Chemical,2020,2016,1597795200000,15.6,15.6,(PALS)PG&E HERBICIDE VEGETATION MANAGEMENT PROGRAM,02,Plumas,FS,
+39.8956,-121.3013,Invasives - Pesticide Application,,Chemical,2025,2025,1752537600000,0.6,0.6,DEFAULT FOR NOT REQUIRED,02,Plumas,FS,
+40.1225,-120.6631,Invasives - Pesticide Application,,Chemical,2023,2023,1695686400000,0.3,0.3,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+40.204,-120.654,Tree Release and Weed,,Chemical,2021,2021,1625097600000,14.3,14.3,(PALS)DECISION NOTICE FOR THE MOONLIGHT FIRE AREA RESTORATION PROJECT,02,Plumas,FS,
+39.9903,-120.8627,Invasives - Pesticide Application,,Chemical,2021,2021,1622678400000,0.1,0.1,(PALS)MT. HOUGH - SOUTH PARK PROPOSED TRAIL SYSTEM PROJECT,02,Plumas,FS,
+40.2218,-120.6522,Invasives - Pesticide Application,,Chemical,2021,2021,1626048000000,0.4,0.5,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+40.1536,-120.647,Invasives - Pesticide Application,,Chemical,2021,2021,1625875200000,2.0,2.0,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+40.1176,-120.6836,Invasives - Pesticide Application,,Chemical,2023,2023,1688688000000,0.2,0.2,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+39.9019,-121.228,Invasives - Pesticide Application,,Chemical,2024,2024,1718150400000,0.2,0.4,DEFAULT FOR NOT REQUIRED,02,Plumas,FS,
+39.9601,-121.2788,Invasives - Pesticide Application,,Chemical,2023,2023,1680739200000,2.4,2.4,(PALS)STORRIE AND RICH FIRE AREAS INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+39.8147,-121.4549,Right of Way Maintenance,,Chemical,2020,2016,1597276800000,5.2,5.2,(PALS)PG&E HERBICIDE VEGETATION MANAGEMENT PROGRAM,03,Butte,FS,
+39.9546,-121.2994,Right of Way Maintenance,,Chemical,2020,2016,1595289600000,8.5,8.5,(PALS)PG&E HERBICIDE VEGETATION MANAGEMENT PROGRAM,02,Plumas,FS,
+39.9501,-121.3007,Invasives - Pesticide Application,,Chemical,2021,2021,1623024000000,0.3,0.3,(PALS)STORRIE AND RICH FIRE AREAS INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+39.7688,-121.3152,Site Preparation for Planting - Chemical,Herbicide,Chemical,,2026,,,226.2,(PALS)ROGERS COW CAMP SALVAGE PROJECT,03,Butte,FS,
+39.955,-121.2963,Invasives - Pesticide Application,,Chemical,2020,2020,1590537600000,0.9,0.9,DEFAULT FOR NOT REQUIRED,02,Plumas,FS,
+40.3006,-120.7536,Invasives - Pesticide Application,,Chemical,2021,2021,1626739200000,0.1,0.1,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+40.2353,-120.6591,Tree Release and Weed,,Chemical,2021,2021,1625097600000,32.4,32.4,(PALS)DECISION NOTICE FOR THE MOONLIGHT FIRE AREA RESTORATION PROJECT,02,Plumas,FS,
+40.1112,-120.71,Invasives - Pesticide Application,,Chemical,2021,2021,1624233600000,0.2,0.2,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+40.1642,-120.5998,Invasives - Pesticide Application,,Chemical,2021,2021,1626048000000,0.3,0.3,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+40.1553,-120.6477,Invasives - Pesticide Application,,Chemical,2021,2021,1625875200000,0.5,0.5,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+40.2087,-120.6526,Tree Release and Weed,,Chemical,2023,2023,1686787200000,27.0,27.0,(PALS)DECISION NOTICE FOR THE MOONLIGHT FIRE AREA RESTORATION PROJECT,02,Plumas,FS,
+40.0678,-121.1165,Right of Way Maintenance,,Chemical,2020,2016,1597881600000,2.9,2.9,(PALS)PG&E HERBICIDE VEGETATION MANAGEMENT PROGRAM,02,Plumas,FS,
+40.1351,-121.1222,Right of Way Maintenance,,Chemical,2021,2016,1606435200000,7.6,7.6,(PALS)PG&E HERBICIDE VEGETATION MANAGEMENT PROGRAM,02,Plumas,FS,
+40.2106,-120.6336,Invasives - Pesticide Application,,Chemical,2021,2021,1625961600000,0.1,0.1,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+40.0086,-121.0535,Right of Way Maintenance,,Chemical,2025,2024,1729123200000,1.5,1.5,(PALS)PG&E HERBICIDE VEGETATION MANAGEMENT PROGRAM,02,Plumas,FS,
+40.2255,-120.8219,Tree Release and Weed,,Chemical,2022,2022,1655769600000,23.0,26.8,(PALS)DECISION NOTICE FOR THE MOONLIGHT FIRE AREA RESTORATION PROJECT,02,Plumas,FS,
+40.3025,-120.7533,Invasives - Pesticide Application,,Chemical,2021,2021,1626739200000,0.1,0.1,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+40.1213,-120.6783,Invasives - Pesticide Application,,Chemical,2023,2023,1688688000000,0.3,0.3,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+40.2332,-120.6516,Invasives - Pesticide Application,,Chemical,2021,2021,1625961600000,1.6,1.6,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+40.2362,-120.7911,Tree Release and Weed,,Chemical,2022,2022,1655769600000,6.0,12.2,(PALS)DECISION NOTICE FOR THE MOONLIGHT FIRE AREA RESTORATION PROJECT,02,Plumas,FS,
+40.1986,-120.6422,Tree Release and Weed,,Chemical,,2024,,,86.5,(PALS)DECISION NOTICE FOR THE MOONLIGHT FIRE AREA RESTORATION PROJECT,02,Plumas,FS,
+39.8948,-121.279,Invasives - Pesticide Application,,Chemical,2025,2025,1752537600000,0.6,0.6,DEFAULT FOR NOT REQUIRED,02,Plumas,FS,
+39.9899,-120.8622,Invasives - Pesticide Application,,Chemical,2021,2021,1622678400000,0.1,0.1,(PALS)MT. HOUGH - SOUTH PARK PROPOSED TRAIL SYSTEM PROJECT,02,Plumas,FS,
+40.2087,-120.6526,Tree Release and Weed,,Chemical,2021,2021,1625097600000,27.0,27.0,(PALS)DECISION NOTICE FOR THE MOONLIGHT FIRE AREA RESTORATION PROJECT,02,Plumas,FS,
+40.0105,-121.0595,Right of Way Maintenance,,Chemical,2024,2024,1727308800000,4.8,4.8,(PALS)PG&E HERBICIDE VEGETATION MANAGEMENT PROGRAM,02,Plumas,FS,
+39.8959,-121.2034,Invasives - Pesticide Application,,Chemical,2025,2025,1749600000000,0.4,1.0,DEFAULT FOR NOT REQUIRED,02,Plumas,FS,
+39.9918,-121.2794,Right of Way Maintenance,,Chemical,2020,2016,1596499200000,10.9,10.9,(PALS)PG&E HERBICIDE VEGETATION MANAGEMENT PROGRAM,02,Plumas,FS,
+39.5395,-121.3159,Right of Way Maintenance,,Chemical,2025,2025,1733270400000,2.8,2.8,DEFAULT FOR NOT REQUIRED,02,Butte,FS,
+39.8147,-121.4549,Right of Way Maintenance,,Chemical,2020,2016,1597276800000,5.2,5.2,(PALS)PG&E HERBICIDE VEGETATION MANAGEMENT PROGRAM,03,Butte,FS,
+39.9997,-121.2702,Invasives - Pesticide Application,,Chemical,2021,2021,1620000000000,2.3,2.3,DEFAULT FOR NOT REQUIRED,02,Plumas,FS,
+40.2387,-120.5787,Invasives - Pesticide Application,,Chemical,2021,2021,1624838400000,0.1,0.1,(PALS)WILDCAT FUELS REDUCTION AND VEGETATION MANAGEMENT PROJECT (WILDCAT PROJECT,02,Plumas,FS,
+40.1504,-120.6236,Invasives - Pesticide Application,,Chemical,2020,2020,1598486400000,0.6,0.6,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+40.166,-120.6042,Invasives - Pesticide Application,,Chemical,2021,2021,1626048000000,0.3,0.3,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+40.1239,-120.643,Invasives - Pesticide Application,,Chemical,2022,2022,1659398400000,59.1,59.2,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+39.8198,-120.3885,Invasives - Pesticide Application,,Chemical,2020,2020,1595030400000,6.4,6.4,(PALS)BECKWOURTH RANGER DISTRICT TALL WHITETOP PROJECT,01,Plumas,FS,
+40.3042,-120.7524,Invasives - Pesticide Application,,Chemical,2021,2021,1626739200000,0.1,0.1,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+39.8479,-121.394,Invasives - Pesticide Application,,Chemical,2020,2020,1590537600000,0.2,0.2,DEFAULT FOR NOT REQUIRED,02,Butte,FS,
+40.103,-120.6998,Invasives - Pesticide Application,,Chemical,2020,2020,1591660800000,0.2,0.2,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+39.8195,-121.4507,Right of Way Maintenance,,Chemical,2020,2016,1597190400000,2.5,2.5,(PALS)PG&E HERBICIDE VEGETATION MANAGEMENT PROGRAM,03,Butte,FS,
+40.2521,-120.649,Tree Release and Weed,,Chemical,2022,2022,1655942400000,59.7,59.7,(PALS)DECISION NOTICE FOR THE MOONLIGHT FIRE AREA RESTORATION PROJECT,02,Plumas,FS,
+39.5397,-121.3157,Right of Way Maintenance,,Chemical,2025,2025,1733097600000,1.2,1.2,DEFAULT FOR NOT REQUIRED,02,Butte,FS,
+40.1119,-120.7093,Invasives - Pesticide Application,,Chemical,2021,2021,1624233600000,0.2,0.2,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+39.7686,-121.3048,Site Preparation for Planting - Chemical,Herbicide,Chemical,,2025,,,10.5,(PALS)ROGERS COW CAMP SALVAGE PROJECT,03,Butte,FS,
+39.8479,-121.394,Invasives - Pesticide Application,,Chemical,2020,2020,1596499200000,0.3,0.3,DEFAULT FOR NOT REQUIRED,02,Butte,FS,
+40.1126,-120.6426,Invasives - Pesticide Application,,Chemical,2021,2021,1625702400000,0.1,0.1,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+40.1647,-120.616,Invasives - Pesticide Application,,Chemical,2021,2021,1626048000000,0.1,0.1,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+39.9945,-120.8386,Invasives - Pesticide Application,,Chemical,2021,2021,1625702400000,0.2,0.2,(PALS)MT. HOUGH - SOUTH PARK PROPOSED TRAIL SYSTEM PROJECT,02,Plumas,FS,
+40.1564,-120.6483,Invasives - Pesticide Application,,Chemical,2021,2021,1625875200000,0.4,0.4,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+39.9905,-121.0116,Right of Way Maintenance,,Chemical,2025,2024,1727740800000,7.9,7.9,(PALS)PG&E HERBICIDE VEGETATION MANAGEMENT PROGRAM,02,Plumas,FS,
+39.9546,-121.2994,Right of Way Maintenance,,Chemical,2020,2016,1595289600000,8.5,8.5,(PALS)PG&E HERBICIDE VEGETATION MANAGEMENT PROGRAM,02,Plumas,FS,
+40.0017,-121.0361,Right of Way Maintenance,,Chemical,2024,2024,1727654400000,1.3,1.3,(PALS)PG&E HERBICIDE VEGETATION MANAGEMENT PROGRAM,02,Plumas,FS,
+40.0886,-121.1472,Invasives - Pesticide Application,,Chemical,2023,2023,1683590400000,4.7,4.8,(PALS)STORRIE AND RICH FIRE AREAS INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+39.9213,-121.3411,Right of Way Maintenance,,Chemical,2020,2016,1596585600000,6.5,6.5,(PALS)PG&E HERBICIDE VEGETATION MANAGEMENT PROGRAM,02,Plumas,FS,
+40.1492,-120.7861,Invasives - Pesticide Application,,Chemical,,2025,,9.0,26.5,(PALS)KEDDIE RIDGE HAZARDOUS FUELS REDUCTION PROJECT,02,Plumas,FS,
+40.166,-120.6112,Invasives - Pesticide Application,,Chemical,2021,2021,1626048000000,0.1,0.1,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+40.2128,-120.7192,Invasives - Pesticide Application,,Chemical,2020,2020,1591747200000,0.1,0.1,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+40.3022,-120.7532,Invasives - Pesticide Application,,Chemical,2021,2021,1626739200000,0.1,0.1,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+39.8959,-121.2034,Invasives - Pesticide Application,,Chemical,2025,2025,1749600000000,0.7,1.0,DEFAULT FOR NOT REQUIRED,02,Plumas,FS,
+40.1986,-120.6123,Invasives - Pesticide Application,,Chemical,2021,2021,1626048000000,2.3,2.3,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+39.8155,-120.4177,Invasives - Pesticide Application,,Chemical,2020,2020,1594857600000,3.7,3.7,(PALS)BECKWOURTH RANGER DISTRICT TALL WHITETOP PROJECT,01,Plumas,FS,
+39.9579,-121.2871,Invasives - Pesticide Application,,Chemical,2022,2022,1653609600000,7.6,7.7,(PALS)STORRIE AND RICH FIRE AREAS INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+40.0016,-121.0358,Right of Way Maintenance,,Chemical,2024,2024,1727654400000,0.6,0.6,(PALS)PG&E HERBICIDE VEGETATION MANAGEMENT PROGRAM,02,Plumas,FS,
+40.2429,-120.6574,Invasives - Pesticide Application,,Chemical,2021,2021,1626134400000,20.0,20.0,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+39.9916,-120.8412,Invasives - Pesticide Application,,Chemical,2021,2021,1626220800000,0.1,0.1,(PALS)MT. HOUGH - SOUTH PARK PROPOSED TRAIL SYSTEM PROJECT,02,Plumas,FS,
+40.2108,-120.6404,Invasives - Pesticide Application,,Chemical,2021,2021,1626220800000,0.3,0.3,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+40.2891,-120.7612,Invasives - Pesticide Application,,Chemical,2021,2021,1626307200000,0.2,0.2,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+40.278,-120.6124,Invasives - Pesticide Application,,Chemical,2020,2020,1599609600000,24.0,24.0,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+39.8156,-120.385,Invasives - Pesticide Application,,Chemical,2020,2020,1595030400000,17.7,17.8,(PALS)BECKWOURTH RANGER DISTRICT TALL WHITETOP PROJECT,01,Plumas,FS,
+39.8186,-120.3848,Invasives - Pesticide Application,,Chemical,2020,2020,1595116800000,4.0,4.0,(PALS)BECKWOURTH RANGER DISTRICT TALL WHITETOP PROJECT,01,Plumas,FS,
+40.2261,-120.6471,Invasives - Pesticide Application,,Chemical,2021,2021,1625961600000,0.5,0.5,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+40.2938,-120.757,Invasives - Pesticide Application,,Chemical,2021,2021,1626307200000,0.1,0.1,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+39.9939,-120.8723,Invasives - Pesticide Application,,Chemical,2020,2020,1591660800000,1.2,1.2,(PALS)MT. HOUGH - SOUTH PARK PROPOSED TRAIL SYSTEM PROJECT,02,Plumas,FS,
+39.9746,-120.8714,Invasives - Pesticide Application,,Chemical,2025,2025,1746662400000,7.0,15.1,(PALS)MT. HOUGH - SOUTH PARK PROPOSED TRAIL SYSTEM PROJECT,02,Plumas,FS,
+39.9905,-120.8419,Invasives - Pesticide Application,,Chemical,2021,2021,1626220800000,0.1,0.1,(PALS)MT. HOUGH - SOUTH PARK PROPOSED TRAIL SYSTEM PROJECT,02,Plumas,FS,
+40.3022,-120.7349,Invasives - Pesticide Application,,Chemical,2023,2023,1687996800000,0.4,0.4,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+40.3071,-120.7307,Invasives - Pesticide Application,,Chemical,2021,2021,1626307200000,0.3,0.3,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+39.8479,-121.394,Invasives - Pesticide Application,,Chemical,2025,2025,1758672000000,0.5,0.5,DEFAULT FOR NOT REQUIRED,02,Butte,FS,
+40.0972,-120.6491,Invasives - Pesticide Application,,Chemical,2021,2021,1625788800000,0.1,0.1,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+39.955,-121.2963,Invasives - Pesticide Application,,Chemical,2020,2020,1590537600000,0.9,0.9,DEFAULT FOR NOT REQUIRED,02,Plumas,FS,
+40.2461,-120.7733,Tree Release and Weed,,Chemical,2024,2024,1719446400000,29.3,29.3,(PALS)DECISION NOTICE FOR THE MOONLIGHT FIRE AREA RESTORATION PROJECT,02,Plumas,FS,
+39.5371,-121.3203,Right of Way Maintenance,,Chemical,2025,2025,1733356800000,0.3,0.3,DEFAULT FOR NOT REQUIRED,02,Butte,FS,
+39.9906,-120.8422,Invasives - Pesticide Application,,Chemical,2021,2021,1626220800000,0.1,0.1,(PALS)MT. HOUGH - SOUTH PARK PROPOSED TRAIL SYSTEM PROJECT,02,Plumas,FS,
+39.9555,-121.2938,Invasives - Pesticide Application,,Chemical,2022,2022,1653609600000,3.8,3.9,(PALS)STORRIE AND RICH FIRE AREAS INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+40.3095,-120.7456,Invasives - Pesticide Application,,Chemical,2021,2021,1626739200000,1.6,1.6,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+40.0057,-121.2566,Invasives - Pesticide Application,,Chemical,2025,2025,1746576000000,2.0,5.3,(PALS)NOXIOUS WEED MECHANICAL TREATMENTS PROJECT,02,Plumas,FS,
+40.0941,-120.644,Invasives - Pesticide Application,,Chemical,2021,2021,1625788800000,0.2,0.2,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+39.8175,-120.3829,Invasives - Pesticide Application,,Chemical,2020,2020,1595203200000,12.9,12.9,(PALS)BECKWOURTH RANGER DISTRICT TALL WHITETOP PROJECT,01,Plumas,FS,
+39.9549,-121.2945,Invasives - Pesticide Application,,Chemical,2021,2021,1624579200000,1.2,1.2,DEFAULT FOR NOT REQUIRED,02,Plumas,FS,
+40.2465,-120.7507,Invasives - Pesticide Application,,Chemical,2021,2021,1623628800000,0.5,0.5,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+40.0316,-121.0678,Right of Way Maintenance,,Chemical,2020,2016,1597363200000,3.8,3.8,(PALS)PG&E HERBICIDE VEGETATION MANAGEMENT PROGRAM,02,Plumas,FS,
+40.027,-120.8587,Invasives - Pesticide Application,,Chemical,2021,2021,1624320000000,0.1,0.2,(PALS)MT. HOUGH - SOUTH PARK PROPOSED TRAIL SYSTEM PROJECT,02,Plumas,FS,
+40.1581,-120.6484,Invasives - Pesticide Application,,Chemical,2021,2021,1625875200000,2.8,2.8,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+40.2509,-120.6447,Tree Release and Weed,,Chemical,2020,2020,1593129600000,67.8,16.0,(PALS)DECISION NOTICE FOR THE MOONLIGHT FIRE AREA RESTORATION PROJECT,02,Plumas,FS,
+39.9992,-121.2705,Invasives - Pesticide Application,,Chemical,2021,2021,1620172800000,20.4,20.4,DEFAULT FOR NOT REQUIRED,02,Plumas,FS,
+40.2298,-120.6585,Tree Release and Weed,,Chemical,2021,2021,1625097600000,41.4,41.4,(PALS)DECISION NOTICE FOR THE MOONLIGHT FIRE AREA RESTORATION PROJECT,02,Plumas,FS,
+39.9656,-121.2818,Right of Way Maintenance,,Chemical,2020,2016,1595376000000,26.5,26.5,(PALS)PG&E HERBICIDE VEGETATION MANAGEMENT PROGRAM,02,Plumas,FS,
+40.0068,-121.2574,Right of Way Maintenance,,Chemical,2020,2016,1598400000000,11.5,11.5,(PALS)PG&E HERBICIDE VEGETATION MANAGEMENT PROGRAM,02,Plumas,FS,
+40.2078,-120.644,Tree Release and Weed,,Chemical,2021,2021,1625097600000,294.9,294.9,(PALS)DECISION NOTICE FOR THE MOONLIGHT FIRE AREA RESTORATION PROJECT,02,Plumas,FS,
+40.1749,-120.6605,Tree Release and Weed,,Chemical,2021,2021,1625097600000,123.7,123.7,(PALS)DECISION NOTICE FOR THE MOONLIGHT FIRE AREA RESTORATION PROJECT,02,Plumas,FS,
+40.1865,-120.7047,Invasives - Pesticide Application,,Chemical,2020,2020,1601251200000,7.8,7.8,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+39.9758,-120.8644,Invasives - Pesticide Application,,Chemical,2025,2025,1746748800000,6.0,17.4,(PALS)STORRIE AND RICH FIRE AREAS INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+40.2509,-120.6447,Tree Release and Weed,,Chemical,2022,2022,1655942400000,67.8,16.0,(PALS)DECISION NOTICE FOR THE MOONLIGHT FIRE AREA RESTORATION PROJECT,02,Plumas,FS,
+40.0794,-121.1298,Right of Way Maintenance,,Chemical,2020,2016,1597795200000,10.9,10.9,(PALS)PG&E HERBICIDE VEGETATION MANAGEMENT PROGRAM,02,Plumas,FS,
+40.2272,-120.6489,Invasives - Pesticide Application,,Chemical,2021,2021,1625961600000,3.3,3.3,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+39.9601,-121.2786,Invasives - Pesticide Application,,Chemical,2020,2020,1594857600000,0.1,0.1,DEFAULT FOR NOT REQUIRED,02,Plumas,FS,
+40.2087,-120.6526,Tree Release and Weed,,Chemical,2021,2021,1625097600000,28.2,28.2,(PALS)DECISION NOTICE FOR THE MOONLIGHT FIRE AREA RESTORATION PROJECT,02,Plumas,FS,
+39.8189,-120.4028,Invasives - Pesticide Application,,Chemical,2020,2020,1595376000000,1.8,1.9,(PALS)BECKWOURTH RANGER DISTRICT TALL WHITETOP PROJECT,01,Plumas,FS,
+40.2868,-120.7623,Invasives - Pesticide Application,,Chemical,2021,2021,1626307200000,0.2,0.2,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+40.1833,-120.7044,Invasives - Pesticide Application,,Chemical,2021,2021,1625529600000,7.7,7.7,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+40.1582,-120.6056,Invasives - Pesticide Application,,Chemical,2021,2021,1624924800000,0.1,0.1,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+39.9089,-121.3256,Invasives - Pesticide Application,,Chemical,2024,2024,1724284800000,1.4,1.4,DEFAULT FOR NOT REQUIRED,02,Plumas,FS,
+39.815,-120.4179,Invasives - Pesticide Application,,Chemical,2020,2020,1594771200000,5.0,5.1,(PALS)BECKWOURTH RANGER DISTRICT TALL WHITETOP PROJECT,01,Plumas,FS,
+40.0068,-121.2574,Right of Way Maintenance,,Chemical,2020,2016,1598400000000,11.5,11.5,(PALS)PG&E HERBICIDE VEGETATION MANAGEMENT PROGRAM,02,Plumas,FS,
+39.9625,-121.2773,Invasives - Pesticide Application,,Chemical,2021,2021,1620172800000,0.9,0.9,DEFAULT FOR NOT REQUIRED,02,Plumas,FS,
+40.316,-120.7597,Invasives - Pesticide Application,,Chemical,2021,2021,1626739200000,0.9,0.9,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Lassen,FS,
+40.1218,-120.6824,Invasives - Pesticide Application,,Chemical,2021,2021,1624233600000,0.5,0.5,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+40.3033,-120.7676,Invasives - Pesticide Application,,Chemical,2021,2021,1623628800000,0.1,0.1,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+40.2315,-120.805,Tree Release and Weed,,Chemical,2022,2022,1655510400000,72.5,72.5,(PALS)DECISION NOTICE FOR THE MOONLIGHT FIRE AREA RESTORATION PROJECT,02,Plumas,FS,
+40.2134,-120.6389,Invasives - Pesticide Application,,Chemical,2021,2021,1625961600000,0.2,0.2,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+39.6028,-121.266,Invasives - Pesticide Application,,Chemical,2023,2023,1686268800000,63.0,63.7,(PALS)FEATHER FALLS RESTORATION PROJECT,03,Butte,FS,
+40.103,-120.6998,Invasives - Pesticide Application,,Chemical,2023,2023,1688688000000,0.2,0.2,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+40.2387,-120.7462,Invasives - Pesticide Application,,Chemical,2021,2021,1626652800000,0.4,0.4,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+39.8912,-121.2896,Invasives - Pesticide Application,,Chemical,2024,2024,1718236800000,0.4,0.4,DEFAULT FOR NOT REQUIRED,02,Plumas,FS,
+40.219,-120.6585,Tree Release and Weed,,Chemical,2023,2023,1686700800000,42.1,42.1,(PALS)DECISION NOTICE FOR THE MOONLIGHT FIRE AREA RESTORATION PROJECT,02,Plumas,FS,Estimated 37 acres treated due to stream/riparian buffers. ~LLS
+39.8951,-121.2041,Invasives - Pesticide Application,,Chemical,2024,2024,1718150400000,0.1,0.1,DEFAULT FOR NOT REQUIRED,02,Plumas,FS,
+40.2467,-120.7691,Tree Release and Weed,,Chemical,,2022,,,92.8,(PALS)DECISION NOTICE FOR THE MOONLIGHT FIRE AREA RESTORATION PROJECT,02,Plumas,FS,
+39.9656,-121.2818,Right of Way Maintenance,,Chemical,2020,2016,1595376000000,26.5,26.5,(PALS)PG&E HERBICIDE VEGETATION MANAGEMENT PROGRAM,02,Plumas,FS,
+40.0703,-121.1671,Invasives - Pesticide Application,,Chemical,2025,2025,1752451200000,1.0,2.1,DEFAULT FOR NOT REQUIRED,02,Plumas,FS,
+39.6706,-121.3379,Site Preparation for Planting - Chemical,Herbicide,Chemical,,2022,,17.3,17.3,(PALS)BERRY BRUSH WUI HAZARDOUS FUELS REDUCTION PROJECT,03,Butte,FS,
+39.9609,-121.278,Invasives - Pesticide Application,,Chemical,2023,2023,1685059200000,40.5,40.5,(PALS)STORRIE AND RICH FIRE AREAS INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+40.2732,-120.6493,Invasives - Pesticide Application,,Chemical,2021,2021,1624924800000,0.1,0.1,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+39.9993,-121.0268,Right of Way Maintenance,,Chemical,2024,2024,1727654400000,9.5,9.5,(PALS)PG&E HERBICIDE VEGETATION MANAGEMENT PROGRAM,02,Plumas,FS,
+39.9755,-120.878,Invasives - Pesticide Application,,Chemical,2025,2025,1746662400000,4.0,10.2,(PALS)MT. HOUGH - SOUTH PARK PROPOSED TRAIL SYSTEM PROJECT,02,Plumas,FS,
+40.1233,-120.6631,Invasives - Pesticide Application,,Chemical,2021,2021,1625702400000,0.1,0.1,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+40.1963,-120.5941,Invasives - Pesticide Application,,Chemical,2023,2023,1690761600000,0.1,0.1,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+39.8131,-121.3594,Tree Release and Weed,,Chemical,,2029,,,23.4,(PALS)BIG BAR HAZARDOUS FUELS REDUCTION PROJECT 56140,03,Butte,FS,
+40.1098,-120.7237,Invasives - Pesticide Application,,Chemical,2021,2021,1624233600000,4.4,4.4,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+39.9024,-121.2497,Invasives - Pesticide Application,,Chemical,2025,2025,1749686400000,0.2,0.2,DEFAULT FOR NOT REQUIRED,02,Plumas,FS,
+39.5341,-121.3257,Right of Way Maintenance,,Chemical,2025,2025,1733961600000,0.4,0.4,DEFAULT FOR NOT REQUIRED,02,Butte,FS,
+39.812,-121.3603,Site Preparation for Planting - Chemical,,Chemical,,2022,,,8.0,(PALS)BIG BAR HAZARDOUS FUELS REDUCTION PROJECT 56140,03,Butte,FS,
+39.8479,-121.394,Invasives - Pesticide Application,,Chemical,2023,2023,1687478400000,5.9,5.9,(PALS)STORRIE AND RICH FIRE AREAS INVASIVE PLANT TREATMENT PROJECT,02,Butte,FS,
+40.2732,-120.6357,Invasives - Pesticide Application,,Chemical,2021,2021,1624924800000,0.5,0.5,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+40.0368,-121.2188,Invasives - Pesticide Application,,Chemical,2022,2022,1650326400000,1.4,1.5,(PALS)STORRIE AND RICH FIRE AREAS INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+40.0686,-121.1787,Invasives - Pesticide Application,,Chemical,2020,2020,1590537600000,2.9,2.9,(PALS)STORRIE AND RICH FIRE AREAS INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+39.9858,-121.0058,Right of Way Maintenance,,Chemical,2025,2024,1727827200000,3.7,3.7,(PALS)PG&E HERBICIDE VEGETATION MANAGEMENT PROGRAM,02,Plumas,FS,
+40.316,-120.7597,Invasives - Pesticide Application,,Chemical,2023,2023,1687996800000,0.9,0.9,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Lassen,FS,
+39.9546,-121.2994,Right of Way Maintenance,,Chemical,2020,2016,1595289600000,8.5,8.5,(PALS)PG&E HERBICIDE VEGETATION MANAGEMENT PROGRAM,02,Plumas,FS,
+40.0492,-121.2103,Invasives - Pesticide Application,,Chemical,2025,2025,1752451200000,2.0,5.9,DEFAULT FOR NOT REQUIRED,02,Plumas,FS,
+39.8188,-120.3906,Invasives - Pesticide Application,,Chemical,2020,2020,1594857600000,1.2,1.2,(PALS)BECKWOURTH RANGER DISTRICT TALL WHITETOP PROJECT,01,Plumas,FS,
+40.1982,-120.643,Tree Release and Weed,,Chemical,2021,2021,1625097600000,117.0,117.0,(PALS)DECISION NOTICE FOR THE MOONLIGHT FIRE AREA RESTORATION PROJECT,02,Plumas,FS,
+39.9922,-121.0136,Right of Way Maintenance,,Chemical,2025,2024,1727740800000,8.5,8.5,(PALS)PG&E HERBICIDE VEGETATION MANAGEMENT PROGRAM,02,Plumas,FS,
+40.1218,-120.6825,Invasives - Pesticide Application,,Chemical,2020,2020,1591660800000,2.8,2.8,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+39.8831,-121.3732,Right of Way Maintenance,,Chemical,2020,2016,1595548800000,8.1,8.1,(PALS)PG&E HERBICIDE VEGETATION MANAGEMENT PROGRAM,03,Plumas,FS,
+40.2909,-120.7647,Invasives - Pesticide Application,,Chemical,2021,2021,1626307200000,0.1,0.1,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+39.9037,-121.2531,Invasives - Pesticide Application,,Chemical,2025,2025,1752537600000,0.6,0.6,DEFAULT FOR NOT REQUIRED,02,Plumas,FS,
+40.1482,-120.6485,Invasives - Pesticide Application,,Chemical,2021,2021,1625875200000,0.1,0.1,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+40.0027,-120.8738,Invasives - Pesticide Application,,Chemical,2023,2023,1689120000000,0.1,0.1,(PALS)MT. HOUGH - SOUTH PARK PROPOSED TRAIL SYSTEM PROJECT,02,Plumas,FS,
+40.204,-120.654,Tree Release and Weed,,Chemical,2023,2023,1686787200000,14.3,14.3,(PALS)DECISION NOTICE FOR THE MOONLIGHT FIRE AREA RESTORATION PROJECT,02,Plumas,FS,
+40.3022,-120.7349,Invasives - Pesticide Application,,Chemical,2021,2021,1623628800000,0.4,0.4,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+40.2279,-120.6401,Invasives - Pesticide Application,,Chemical,2021,2021,1632960000000,35.5,36.6,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+40.2218,-120.6445,Invasives - Pesticide Application,,Chemical,2021,2021,1625961600000,0.1,0.1,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+40.1385,-120.6894,Invasives - Pesticide Application,,Chemical,2023,2023,1689552000000,0.1,0.1,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+40.2378,-120.8247,Invasives - Pesticide Application,,Chemical,2021,2021,1626825600000,0.1,0.1,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+40.2087,-120.6526,Tree Release and Weed,,Chemical,2023,2023,1686787200000,28.2,28.2,(PALS)DECISION NOTICE FOR THE MOONLIGHT FIRE AREA RESTORATION PROJECT,02,Plumas,FS,
+39.9588,-121.2832,Invasives - Pesticide Application,,Chemical,2021,2021,1624579200000,5.7,5.7,DEFAULT FOR NOT REQUIRED,02,Plumas,FS,
+39.9601,-121.2786,Invasives - Pesticide Application,,Chemical,2022,2022,1653523200000,0.6,0.6,(PALS)STORRIE AND RICH FIRE AREAS INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+40.0394,-121.2186,Invasives - Pesticide Application,,Chemical,2022,2022,1650240000000,1.2,1.2,(PALS)STORRIE AND RICH FIRE AREAS INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+39.9652,-120.9722,Right of Way Maintenance,,Chemical,2025,2024,1728950400000,3.6,3.6,(PALS)PG&E HERBICIDE VEGETATION MANAGEMENT PROGRAM,02,Plumas,FS,
+40.16,-120.6105,Invasives - Pesticide Application,,Chemical,2021,2021,1624924800000,0.5,0.5,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+39.9369,-121.3201,Invasives - Pesticide Application,,Chemical,2020,2020,1591574400000,1.0,1.0,DEFAULT FOR NOT REQUIRED,02,Plumas,FS,
+39.9546,-121.2994,Right of Way Maintenance,,Chemical,2020,2016,1595289600000,8.5,8.5,(PALS)PG&E HERBICIDE VEGETATION MANAGEMENT PROGRAM,02,Plumas,FS,
+39.9836,-121.2821,Invasives - Pesticide Application,,Chemical,2021,2021,1620000000000,0.6,0.6,DEFAULT FOR NOT REQUIRED,02,Plumas,FS,
+40.2381,-120.7529,Invasives - Pesticide Application,,Chemical,2020,2020,1591747200000,0.1,0.1,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+40.1205,-120.6801,Invasives - Pesticide Application,,Chemical,2021,2021,1624233600000,0.1,0.1,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+39.9724,-120.9838,Right of Way Maintenance,,Chemical,2025,2024,1728259200000,0.1,0.1,(PALS)PG&E HERBICIDE VEGETATION MANAGEMENT PROGRAM,02,Plumas,FS,
+40.3046,-120.7516,Invasives - Pesticide Application,,Chemical,2021,2021,1626739200000,0.1,0.1,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+40.1262,-120.6575,Invasives - Pesticide Application,,Chemical,2021,2021,1625702400000,0.3,0.3,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+40.093,-120.641,Invasives - Pesticide Application,,Chemical,2021,2021,1625788800000,0.2,0.2,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+40.2584,-120.6578,Invasives - Pesticide Application,,Chemical,2021,2021,1624924800000,0.5,0.5,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+40.2255,-120.8219,Tree Release and Weed,,Chemical,2024,2024,1719273600000,26.8,26.8,(PALS)DECISION NOTICE FOR THE MOONLIGHT FIRE AREA RESTORATION PROJECT,02,Plumas,FS,
+40.3109,-120.7519,Invasives - Pesticide Application,,Chemical,2023,2023,1687996800000,0.1,0.1,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+40.2036,-120.7113,Tree Release and Weed,,Chemical,,2023,,,125.2,(PALS)DECISION NOTICE FOR THE MOONLIGHT FIRE AREA RESTORATION PROJECT,02,Plumas,FS,"Release award of 271 acres in fy23, partially treated in fy23 (see SUID -039), with remainder treated fy24 after completion of site prep and planting. --FM"
+40.0056,-121.2669,Right of Way Maintenance,,Chemical,2020,2016,1598054400000,5.4,5.4,(PALS)PG&E HERBICIDE VEGETATION MANAGEMENT PROGRAM,02,Plumas,FS,
+40.2074,-120.7045,Tree Release and Weed,,Chemical,2024,2024,1719446400000,259.4,259.4,(PALS)DECISION NOTICE FOR THE MOONLIGHT FIRE AREA RESTORATION PROJECT,02,Plumas,FS,
+39.5371,-121.3203,Right of Way Maintenance,,Chemical,2025,2025,1733356800000,0.1,0.1,DEFAULT FOR NOT REQUIRED,02,Butte,FS,
+40.2461,-120.7733,Tree Release and Weed,,Chemical,2022,2022,1655856000000,29.3,29.3,(PALS)DECISION NOTICE FOR THE MOONLIGHT FIRE AREA RESTORATION PROJECT,02,Plumas,FS,
+39.8976,-121.2815,Invasives - Pesticide Application,,Chemical,2025,2025,1752537600000,1.8,1.9,DEFAULT FOR NOT REQUIRED,02,Plumas,FS,
+40.2533,-120.6048,Invasives - Pesticide Application,,Chemical,2021,2021,1624838400000,0.1,0.1,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+39.9813,-120.9964,Right of Way Maintenance,,Chemical,2025,2024,1727913600000,7.9,7.9,(PALS)PG&E HERBICIDE VEGETATION MANAGEMENT PROGRAM,02,Plumas,FS,
+39.8943,-121.3019,Invasives - Pesticide Application,,Chemical,2025,2025,1752537600000,0.6,0.6,DEFAULT FOR NOT REQUIRED,02,Plumas,FS,
+39.9912,-120.8411,Invasives - Pesticide Application,,Chemical,2021,2021,1626220800000,0.1,0.1,(PALS)MT. HOUGH - SOUTH PARK PROPOSED TRAIL SYSTEM PROJECT,02,Plumas,FS,
+40.1093,-120.8523,Invasives - Pesticide Application,,Chemical,2022,2022,1664150400000,1.4,1.5,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+40.2461,-120.7733,Tree Release and Weed,,Chemical,2023,2023,1687651200000,29.3,29.3,(PALS)DECISION NOTICE FOR THE MOONLIGHT FIRE AREA RESTORATION PROJECT,02,Plumas,FS,RCD record of 53 ac treated (~20 ac treated last yr) needs verification. ~LLS
+40.2069,-120.8168,Invasives - Pesticide Application,,Chemical,2021,2021,1626825600000,0.1,0.1,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+40.1113,-120.7173,Invasives - Pesticide Application,,Chemical,2021,2021,1624233600000,0.2,0.2,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+40.2419,-120.5791,Invasives - Pesticide Application,,Chemical,2020,2020,1599696000000,1.1,1.1,(PALS)WILDCAT FUELS REDUCTION AND VEGETATION MANAGEMENT PROJECT (WILDCAT PROJECT,02,Plumas,FS,
+39.9273,-121.3342,Right of Way Maintenance,,Chemical,2020,2016,1596499200000,7.0,7.0,(PALS)PG&E HERBICIDE VEGETATION MANAGEMENT PROGRAM,02,Plumas,FS,
+40.3043,-120.7521,Invasives - Pesticide Application,,Chemical,2021,2021,1626739200000,0.1,0.1,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+40.1742,-120.6796,Tree Release and Weed,,Chemical,2024,2024,1719532800000,57.7,57.7,(PALS)DECISION NOTICE FOR THE MOONLIGHT FIRE AREA RESTORATION PROJECT,02,Plumas,FS,
+39.9169,-121.3453,Right of Way Maintenance,,Chemical,2020,2016,1596672000000,2.6,2.6,(PALS)PG&E HERBICIDE VEGETATION MANAGEMENT PROGRAM,02,Plumas,FS,
+40.1093,-120.8523,Invasives - Pesticide Application,,Chemical,2022,2022,1647907200000,1.4,1.5,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+39.9936,-120.8392,Invasives - Pesticide Application,,Chemical,2021,2021,1625702400000,0.1,0.1,(PALS)MT. HOUGH - SOUTH PARK PROPOSED TRAIL SYSTEM PROJECT,02,Plumas,FS,
+39.8479,-121.394,Invasives - Pesticide Application,,Chemical,2022,2022,1654041600000,4.3,4.4,(PALS)STORRIE AND RICH FIRE AREAS INVASIVE PLANT TREATMENT PROJECT,02,Butte,FS,
+40.1463,-120.6991,Invasives - Pesticide Application,,Chemical,2023,2023,1689552000000,9.9,9.9,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+40.1481,-120.6504,Invasives - Pesticide Application,,Chemical,2021,2021,1624579200000,1.8,1.8,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+40.0102,-120.9916,Invasives - Pesticide Application,,Chemical,2020,2020,1593561600000,0.1,0.1,(PALS)BUTTERFLY TWAIN FUELS REDUCTION AND LANDSCAPE RESTORATION PROJECT,02,Plumas,FS,
+40.2074,-120.7045,Tree Release and Weed,,Chemical,2023,2023,1685577600000,259.4,259.4,(PALS)DECISION NOTICE FOR THE MOONLIGHT FIRE AREA RESTORATION PROJECT,02,Plumas,FS,"Release award of 271 acres in fy23, partially treated in fy23, remainder treated fy24 (see SUID -040) after completion of site prep."
+39.9992,-121.2705,Invasives - Pesticide Application,,Chemical,2021,2021,1623888000000,1.7,1.7,DEFAULT FOR NOT REQUIRED,02,Plumas,FS,
+39.9908,-120.8423,Invasives - Pesticide Application,,Chemical,2021,2021,1626220800000,0.1,0.1,(PALS)MT. HOUGH - SOUTH PARK PROPOSED TRAIL SYSTEM PROJECT,02,Plumas,FS,
+40.219,-120.6585,Tree Release and Weed,,Chemical,2021,2021,1625097600000,42.1,42.1,(PALS)DECISION NOTICE FOR THE MOONLIGHT FIRE AREA RESTORATION PROJECT,02,Plumas,FS,
+40.2701,-120.6084,Invasives - Pesticide Application,,Chemical,2021,2021,1624838400000,0.1,0.1,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+39.818,-120.3873,Invasives - Pesticide Application,,Chemical,2020,2020,1594857600000,13.3,13.3,(PALS)BECKWOURTH RANGER DISTRICT TALL WHITETOP PROJECT,01,Plumas,FS,
+39.5396,-121.3158,Right of Way Maintenance,,Chemical,2025,2025,1733270400000,2.5,2.5,DEFAULT FOR NOT REQUIRED,02,Butte,FS,
+40.3036,-120.7338,Invasives - Pesticide Application,,Chemical,2021,2021,1626307200000,0.1,0.1,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+39.531,-121.3314,Right of Way Maintenance,,Chemical,2025,2025,1733788800000,0.2,0.2,DEFAULT FOR NOT REQUIRED,02,Butte,FS,
+40.1225,-120.663,Invasives - Pesticide Application,,Chemical,2021,2021,1625702400000,0.1,0.1,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+40.2036,-120.7113,Tree Release and Weed,,Chemical,2024,2024,1719446400000,125.2,125.2,(PALS)DECISION NOTICE FOR THE MOONLIGHT FIRE AREA RESTORATION PROJECT,02,Plumas,FS,
+40.261,-120.7866,Invasives - Pesticide Application,,Chemical,2021,2021,1626652800000,0.1,0.1,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+40.0429,-120.365,Tree Release and Weed,,Chemical,2025,2025,1750636800000,126.9,126.9,(PALS)BECKWOURTH ROADSIDE REFORESTATION PROJECT,01,Plumas,FS,
+39.9273,-121.3342,Right of Way Maintenance,,Chemical,2020,2016,1596499200000,7.0,7.0,(PALS)PG&E HERBICIDE VEGETATION MANAGEMENT PROGRAM,02,Plumas,FS,
+40.1951,-120.5947,Invasives - Pesticide Application,,Chemical,2023,2023,1690761600000,0.6,0.7,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+39.8894,-121.2796,Invasives - Pesticide Application,,Chemical,2025,2025,1749686400000,0.2,0.5,DEFAULT FOR NOT REQUIRED,02,Plumas,FS,
+39.9672,-120.9759,Right of Way Maintenance,,Chemical,2025,2024,1728604800000,1.4,1.4,(PALS)PG&E HERBICIDE VEGETATION MANAGEMENT PROGRAM,02,Plumas,FS,
+40.3,-120.754,Invasives - Pesticide Application,,Chemical,2021,2021,1626739200000,0.3,0.3,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+40.0678,-121.1165,Right of Way Maintenance,,Chemical,2020,2016,1597881600000,2.9,2.9,(PALS)PG&E HERBICIDE VEGETATION MANAGEMENT PROGRAM,02,Plumas,FS,
+39.9601,-121.2786,Invasives - Pesticide Application,,Chemical,2020,2020,1590624000000,0.1,0.1,DEFAULT FOR NOT REQUIRED,02,Plumas,FS,
+40.0623,-121.1926,Invasives - Pesticide Application,,Chemical,2025,2025,1752451200000,1.0,2.0,DEFAULT FOR NOT REQUIRED,02,Plumas,FS,
+40.0368,-121.2188,Invasives - Pesticide Application,,Chemical,2021,2021,1624752000000,3.1,3.1,(PALS)STORRIE AND RICH FIRE AREAS INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+40.1549,-120.6718,Invasives - Pesticide Application,,Chemical,2023,2023,1689724800000,0.4,0.4,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+40.015,-120.8144,Invasives - Pesticide Application,,Chemical,2021,2021,1624320000000,0.2,0.2,(PALS)MT. HOUGH - SOUTH PARK PROPOSED TRAIL SYSTEM PROJECT,02,Plumas,FS,
+40.0109,-120.8407,Invasives - Pesticide Application,,Chemical,2021,2021,1624320000000,0.1,0.1,(PALS)MT. HOUGH - SOUTH PARK PROPOSED TRAIL SYSTEM PROJECT,02,Plumas,FS,
+40.1266,-120.6574,Invasives - Pesticide Application,,Chemical,2021,2021,1625702400000,0.1,0.1,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+40.2793,-120.5911,Invasives - Pesticide Application,,Chemical,2021,2021,1624838400000,0.1,0.1,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+39.8165,-120.384,Invasives - Pesticide Application,,Chemical,2021,2021,1627257600000,16.2,103.1,(PALS)BECKWOURTH RANGER DISTRICT TALL WHITETOP PROJECT,01,Plumas,FS,"Great Basin Institute 
+
+7/24/2021: After filling packs, crew member got distracted and began spraying at A06 before finishing A05. Had crew finish A06, calculated herbicide used, then had them return to finish A05"
+40.1583,-120.6131,Invasives - Pesticide Application,,Chemical,2021,2021,1626048000000,0.2,0.2,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+40.2298,-120.6585,Tree Release and Weed,,Chemical,,2023,,41.4,41.4,(PALS)DECISION NOTICE FOR THE MOONLIGHT FIRE AREA RESTORATION PROJECT,02,Plumas,FS,Estimated 38 acres treated due to stream buffers. ~LLS
+39.8184,-120.4035,Invasives - Pesticide Application,,Chemical,2020,2020,1595289600000,17.3,17.4,(PALS)BECKWOURTH RANGER DISTRICT TALL WHITETOP PROJECT,01,Plumas,FS,
+39.7655,-121.3094,Site Preparation for Planting - Chemical,Herbicide,Chemical,,2025,,,13.3,(PALS)ROGERS COW CAMP SALVAGE PROJECT,03,Butte,FS,
+39.8959,-121.2034,Invasives - Pesticide Application,,Chemical,2024,2024,1718150400000,1.0,1.0,DEFAULT FOR NOT REQUIRED,02,Plumas,FS,
+40.1605,-120.6177,Invasives - Pesticide Application,,Chemical,2021,2021,1626048000000,0.4,0.4,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+40.2179,-120.6488,Invasives - Pesticide Application,,Chemical,2021,2021,1626048000000,0.1,0.1,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+40.3159,-120.7459,Invasives - Pesticide Application,,Chemical,2023,2023,1687996800000,0.4,0.4,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Lassen,FS,
+40.2419,-120.5791,Invasives - Pesticide Application,,Chemical,2021,2021,1624838400000,1.1,1.1,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+40.1742,-120.6796,Tree Release and Weed,,Chemical,2022,2022,1655942400000,43.0,57.7,(PALS)DECISION NOTICE FOR THE MOONLIGHT FIRE AREA RESTORATION PROJECT,02,Plumas,FS,
+40.2315,-120.805,Tree Release and Weed,,Chemical,2022,2022,1655510400000,98.0,125.5,(PALS)DECISION NOTICE FOR THE MOONLIGHT FIRE AREA RESTORATION PROJECT,02,Plumas,FS,
+40.1351,-121.1222,Right of Way Maintenance,,Chemical,2021,2016,1606435200000,7.6,7.6,(PALS)PG&E HERBICIDE VEGETATION MANAGEMENT PROGRAM,02,Plumas,FS,
+39.8487,-121.3929,Invasives - Pesticide Application,,Chemical,2020,2020,1590537600000,3.5,3.6,DEFAULT FOR NOT REQUIRED,02,Butte,FS,
+40.2176,-120.6491,Invasives - Pesticide Application,,Chemical,2021,2021,1626048000000,0.1,0.1,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+39.5341,-121.3257,Right of Way Maintenance,,Chemical,2025,2025,1733788800000,0.3,0.3,DEFAULT FOR NOT REQUIRED,02,Butte,FS,
+40.2726,-120.6511,Invasives - Pesticide Application,,Chemical,2021,2021,1624924800000,0.1,0.1,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+40.1484,-120.695,Invasives - Pesticide Application,,Chemical,2023,2023,1689552000000,0.3,0.3,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+40.0712,-121.1668,Invasives - Pesticide Application,,Chemical,2021,2021,1620000000000,0.7,0.7,DEFAULT FOR NOT REQUIRED,02,Plumas,FS,
+40.1486,-120.6493,Invasives - Pesticide Application,,Chemical,2021,2021,1625875200000,1.6,1.6,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+40.1564,-120.6324,Invasives - Pesticide Application,,Chemical,2021,2021,1624752000000,1.2,1.2,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+40.0794,-121.1298,Right of Way Maintenance,,Chemical,2020,2016,1597795200000,10.9,10.9,(PALS)PG&E HERBICIDE VEGETATION MANAGEMENT PROGRAM,02,Plumas,FS,
+40.0887,-121.147,Invasives - Pesticide Application,,Chemical,2021,2021,1624492800000,0.6,0.6,DEFAULT FOR NOT REQUIRED,02,Plumas,FS,
+39.955,-121.2963,Invasives - Pesticide Application,,Chemical,2020,2020,1591574400000,0.3,0.3,DEFAULT FOR NOT REQUIRED,02,Plumas,FS,
+39.9393,-121.3134,Invasives - Pesticide Application,,Chemical,2020,2020,1594857600000,0.1,0.1,DEFAULT FOR NOT REQUIRED,02,Plumas,FS,
+40.2308,-120.64,Invasives - Pesticide Application,,Chemical,2021,2021,1632960000000,14.8,14.8,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+39.9656,-121.2818,Right of Way Maintenance,,Chemical,2020,2016,1595376000000,26.5,26.5,(PALS)PG&E HERBICIDE VEGETATION MANAGEMENT PROGRAM,02,Plumas,FS,
+40.0085,-121.053,Right of Way Maintenance,,Chemical,2025,2024,1729123200000,2.3,2.3,(PALS)PG&E HERBICIDE VEGETATION MANAGEMENT PROGRAM,02,Plumas,FS,
+39.5318,-121.3298,Right of Way Maintenance,,Chemical,2025,2025,1733788800000,0.2,0.2,DEFAULT FOR NOT REQUIRED,02,Butte,FS,
+40.1915,-120.8225,Tree Release and Weed,,Chemical,2024,2024,1719187200000,152.1,152.1,(PALS)DECISION NOTICE FOR THE MOONLIGHT FIRE AREA RESTORATION PROJECT,02,Plumas,FS,
+39.8894,-121.2796,Invasives - Pesticide Application,,Chemical,2024,2024,1718150400000,0.5,0.5,DEFAULT FOR NOT REQUIRED,02,Plumas,FS,
+39.815,-120.4245,Invasives - Pesticide Application,,Chemical,2020,2020,1594857600000,8.5,8.5,(PALS)BECKWOURTH RANGER DISTRICT TALL WHITETOP PROJECT,01,Plumas,FS,
+40.0938,-120.6425,Invasives - Pesticide Application,,Chemical,2021,2021,1625788800000,0.1,0.1,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+39.9918,-121.2794,Right of Way Maintenance,,Chemical,2020,2016,1596499200000,10.9,10.9,(PALS)PG&E HERBICIDE VEGETATION MANAGEMENT PROGRAM,02,Plumas,FS,
+40.2221,-120.6473,Invasives - Pesticide Application,,Chemical,2021,2021,1625961600000,1.0,1.0,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+39.5321,-121.3294,Right of Way Maintenance,,Chemical,2025,2025,1733788800000,0.2,0.2,DEFAULT FOR NOT REQUIRED,02,Butte,FS,
+40.2193,-120.6502,Invasives - Pesticide Application,,Chemical,2021,2021,1626048000000,0.8,0.9,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+40.218,-120.6545,Invasives - Pesticide Application,,Chemical,2021,2021,1626048000000,0.3,0.4,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+39.9398,-121.3136,Invasives - Pesticide Application,,Chemical,2020,2020,1591574400000,0.2,0.2,DEFAULT FOR NOT REQUIRED,02,Plumas,FS,
+40.2074,-120.7045,Tree Release and Weed,,Chemical,,2023,,259.4,259.4,(PALS)DECISION NOTICE FOR THE MOONLIGHT FIRE AREA RESTORATION PROJECT,02,Plumas,FS,"Release award of 271 acres in fy23, partially treated in fy23, remainder treated fy24 (see SUID -040) after completion of site prep."
+39.9367,-121.3206,Invasives - Pesticide Application,,Chemical,2025,2025,1750291200000,20.0,20.1,DEFAULT FOR NOT REQUIRED,02,Plumas,FS,
+40.1651,-120.6034,Invasives - Pesticide Application,,Chemical,2021,2021,1626048000000,0.1,0.1,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+39.8425,-121.3954,Invasives - Pesticide Application,,Chemical,2022,2022,1653609600000,31.4,31.5,(PALS)STORRIE AND RICH FIRE AREAS INVASIVE PLANT TREATMENT PROJECT,02,Butte,FS,
+40.3062,-120.7531,Invasives - Pesticide Application,,Chemical,2021,2021,1626739200000,1.2,1.2,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+40.0056,-121.2669,Right of Way Maintenance,,Chemical,2020,2016,1598054400000,5.4,5.4,(PALS)PG&E HERBICIDE VEGETATION MANAGEMENT PROGRAM,02,Plumas,FS,
+39.8149,-120.3835,Invasives - Pesticide Application,,Chemical,2020,2020,1594944000000,7.2,7.7,(PALS)BECKWOURTH RANGER DISTRICT TALL WHITETOP PROJECT,01,Plumas,FS,
+39.9747,-120.987,Right of Way Maintenance,,Chemical,2025,2024,1728000000000,4.7,4.7,(PALS)PG&E HERBICIDE VEGETATION MANAGEMENT PROGRAM,02,Plumas,FS,
+40.1455,-120.6329,Invasives - Pesticide Application,,Chemical,2021,2021,1624665600000,0.2,0.2,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+40.1215,-120.7828,Invasives - Pesticide Application,,Chemical,2021,2021,1625097600000,2.3,2.4,(PALS)MT. HOUGH - SOUTH PARK PROPOSED TRAIL SYSTEM PROJECT,02,Plumas,FS,
+40.0716,-121.1676,Invasives - Pesticide Application,,Chemical,2025,2025,1752451200000,1.5,4.2,DEFAULT FOR NOT REQUIRED,02,Plumas,FS,
+40.223,-120.6579,Invasives - Pesticide Application,,Chemical,2021,2021,1626048000000,0.4,0.4,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+39.9918,-121.2794,Right of Way Maintenance,,Chemical,2020,2016,1596499200000,10.9,10.9,(PALS)PG&E HERBICIDE VEGETATION MANAGEMENT PROGRAM,02,Plumas,FS,
+39.531,-121.3314,Right of Way Maintenance,,Chemical,2025,2025,1733788800000,0.2,0.2,DEFAULT FOR NOT REQUIRED,02,Butte,FS,
+39.9595,-121.2803,Invasives - Pesticide Application,,Chemical,2022,2022,1653523200000,1.0,1.0,(PALS)STORRIE AND RICH FIRE AREAS INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+40.1499,-120.6509,Invasives - Pesticide Application,,Chemical,2021,2021,1625875200000,1.0,1.1,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+40.186,-120.6599,Tree Release and Weed,,Chemical,2021,2021,1625097600000,75.8,75.8,(PALS)DECISION NOTICE FOR THE MOONLIGHT FIRE AREA RESTORATION PROJECT,02,Plumas,FS,
+39.6754,-121.3466,Site Preparation for Planting - Chemical,Herbicide,Chemical,,2022,,28.5,28.5,(PALS)BERRY BRUSH WUI HAZARDOUS FUELS REDUCTION PROJECT,03,Butte,FS,
+40.2353,-120.6591,Tree Release and Weed,,Chemical,2023,2023,1686614400000,32.4,32.4,(PALS)DECISION NOTICE FOR THE MOONLIGHT FIRE AREA RESTORATION PROJECT,02,Plumas,FS,Estimated 30 acres treated due to stream buffers. ~LLS
+40.0068,-121.2574,Right of Way Maintenance,,Chemical,2020,2016,1598400000000,11.5,11.5,(PALS)PG&E HERBICIDE VEGETATION MANAGEMENT PROGRAM,02,Plumas,FS,
+40.1316,-120.6608,Invasives - Pesticide Application,,Chemical,2021,2021,1625702400000,0.5,0.5,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+39.9656,-121.2818,Right of Way Maintenance,,Chemical,2020,2016,1595376000000,26.5,26.5,(PALS)PG&E HERBICIDE VEGETATION MANAGEMENT PROGRAM,02,Plumas,FS,
+39.9273,-121.3342,Right of Way Maintenance,,Chemical,2020,2016,1596499200000,7.0,7.0,(PALS)PG&E HERBICIDE VEGETATION MANAGEMENT PROGRAM,02,Plumas,FS,
+40.277,-120.7968,Invasives - Pesticide Application,,Chemical,2021,2021,1623628800000,0.7,0.7,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+40.2284,-120.64,Invasives - Pesticide Application,,Chemical,2020,2020,1597017600000,118.8,118.8,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+40.304,-120.7528,Invasives - Pesticide Application,,Chemical,2021,2021,1626739200000,0.1,0.1,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+40.0493,-120.69,Invasives - Pesticide Application,,Chemical,2023,2023,1690243200000,0.1,0.1,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+39.9751,-120.9875,Right of Way Maintenance,,Chemical,2025,2024,1728000000000,5.6,5.6,(PALS)PG&E HERBICIDE VEGETATION MANAGEMENT PROGRAM,02,Plumas,FS,
+40.0712,-121.1668,Invasives - Pesticide Application,,Chemical,2021,2021,1614038400000,1.3,1.3,DEFAULT FOR NOT REQUIRED,02,Plumas,FS,
+39.8178,-120.3938,Invasives - Pesticide Application,,Chemical,2020,2020,1595203200000,7.9,8.0,(PALS)BECKWOURTH RANGER DISTRICT TALL WHITETOP PROJECT,01,Plumas,FS,
+40.3022,-120.737,Invasives - Pesticide Application,,Chemical,2021,2021,1626652800000,0.1,0.1,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+39.5395,-121.316,Right of Way Maintenance,,Chemical,2025,2025,1733270400000,2.3,2.3,DEFAULT FOR NOT REQUIRED,02,Butte,FS,
+39.9398,-121.3136,Invasives - Pesticide Application,,Chemical,2023,2023,1684281600000,0.8,0.9,(PALS)STORRIE AND RICH FIRE AREAS INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+40.103,-120.6998,Invasives - Pesticide Application,,Chemical,2021,2021,1624233600000,0.1,0.2,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+40.0098,-121.0566,Right of Way Maintenance,,Chemical,2025,2024,1728864000000,2.4,2.4,(PALS)PG&E HERBICIDE VEGETATION MANAGEMENT PROGRAM,02,Plumas,FS,
+40.162,-120.6672,Tree Release and Weed,,Chemical,2023,2023,1686960000000,259.6,259.6,(PALS)DECISION NOTICE FOR THE MOONLIGHT FIRE AREA RESTORATION PROJECT,02,Plumas,FS,Estimated 228 ac treated due to stream buffers. ~LLS
+39.996,-120.8717,Invasives - Pesticide Application,,Chemical,2023,2023,1689120000000,0.1,0.1,(PALS)MT. HOUGH - SOUTH PARK PROPOSED TRAIL SYSTEM PROJECT,02,Plumas,FS,
+40.1492,-120.7861,Invasives - Pesticide Application,,Chemical,2025,2025,1750636800000,9.0,26.5,(PALS)KEDDIE RIDGE HAZARDOUS FUELS REDUCTION PROJECT,02,Plumas,FS,
+40.2377,-120.8286,Invasives - Pesticide Application,,Chemical,2021,2021,1626825600000,1.3,1.3,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+40.1593,-120.6157,Invasives - Pesticide Application,,Chemical,2021,2021,1626048000000,0.1,0.1,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+40.2832,-120.6514,Invasives - Pesticide Application,,Chemical,2021,2021,1624924800000,0.1,0.1,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+39.8934,-121.3006,Invasives - Pesticide Application,,Chemical,2025,2025,1752537600000,0.6,0.6,DEFAULT FOR NOT REQUIRED,02,Plumas,FS,
+40.3159,-120.7459,Invasives - Pesticide Application,,Chemical,2021,2021,1623628800000,0.4,0.4,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Lassen,FS,
+39.9022,-121.2496,Invasives - Pesticide Application,,Chemical,2024,2024,1718064000000,0.5,0.5,DEFAULT FOR NOT REQUIRED,02,Plumas,FS,
+40.2292,-120.7819,Tree Release and Weed,,Chemical,2024,2024,1719273600000,60.5,60.5,(PALS)DECISION NOTICE FOR THE MOONLIGHT FIRE AREA RESTORATION PROJECT,02,Plumas,FS,
+40.2391,-120.7459,Invasives - Pesticide Application,,Chemical,2021,2021,1626652800000,0.1,0.1,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+39.9022,-121.2496,Invasives - Pesticide Application,,Chemical,2025,2025,1749686400000,0.1,0.1,DEFAULT FOR NOT REQUIRED,02,Plumas,FS,
+39.8955,-121.2757,Invasives - Pesticide Application,,Chemical,2024,2024,1718236800000,1.3,1.3,DEFAULT FOR NOT REQUIRED,02,Plumas,FS,
+40.2346,-120.7583,Invasives - Pesticide Application,,Chemical,2021,2021,1623628800000,0.2,0.2,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+40.186,-120.6599,Tree Release and Weed,,Chemical,2023,2023,1686960000000,75.8,75.8,(PALS)DECISION NOTICE FOR THE MOONLIGHT FIRE AREA RESTORATION PROJECT,02,Plumas,FS,Estimated 40 acres treated due to CA and riparian buffers. ~LLS
+40.1482,-120.6485,Invasives - Pesticide Application,,Chemical,2020,2020,1599091200000,0.1,0.1,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+40.1695,-120.6541,Invasives - Pesticide Application,,Chemical,2020,2020,1598918400000,0.1,0.1,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+39.8149,-120.382,Invasives - Pesticide Application,,Chemical,2020,2020,1595289600000,2.4,2.4,(PALS)BECKWOURTH RANGER DISTRICT TALL WHITETOP PROJECT,01,Plumas,FS,
+40.2729,-120.6079,Invasives - Pesticide Application,,Chemical,2021,2021,1624838400000,0.2,0.2,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+39.5341,-121.3257,Right of Way Maintenance,,Chemical,2025,2025,1733875200000,0.2,0.2,DEFAULT FOR NOT REQUIRED,02,Butte,FS,
+40.3109,-120.7519,Invasives - Pesticide Application,,Chemical,2021,2021,1623628800000,0.1,0.1,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+39.8131,-121.3594,Site Preparation for Planting - Chemical,,Chemical,,2022,,,23.4,(PALS)BIG BAR HAZARDOUS FUELS REDUCTION PROJECT 56140,03,Butte,FS,
+40.2267,-120.66,Invasives - Pesticide Application,,Chemical,2021,2021,1626048000000,0.3,0.3,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+40.2359,-120.7819,Tree Release and Weed,,Chemical,2022,2022,1655856000000,72.0,102.5,(PALS)DECISION NOTICE FOR THE MOONLIGHT FIRE AREA RESTORATION PROJECT,02,Plumas,FS,
+40.0256,-120.8619,Invasives - Pesticide Application,,Chemical,2021,2021,1624320000000,0.1,0.1,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+40.1982,-120.643,Tree Release and Weed,,Chemical,2023,2023,1686873600000,117.0,117.0,(PALS)DECISION NOTICE FOR THE MOONLIGHT FIRE AREA RESTORATION PROJECT,02,Plumas,FS,
+40.277,-120.7968,Invasives - Pesticide Application,,Chemical,2022,2022,1653264000000,0.7,0.7,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+40.0496,-121.0927,Right of Way Maintenance,,Chemical,2020,2016,1597795200000,15.6,15.6,(PALS)PG&E HERBICIDE VEGETATION MANAGEMENT PROGRAM,02,Plumas,FS,
+40.1864,-120.8288,Invasives - Pesticide Application,,Chemical,2022,2022,1655164800000,3.6,3.7,(PALS)MOONLIGHT FIRE INVASIVE PLANT TREATMENT PROJECT,02,Plumas,FS,
+39.4582,-121.1788,Tree Release and Weed,,Chemical,,2020,,,26.3,(PALS)DECISION 2 CENTRAL AND WEST SLOPE (CP-CENTRAL AND WEST SLOPE PROJECT),03,Yuba,FS,
+39.4681,-121.1933,Tree Release and Weed,,Chemical,,2026,,72.5,72.5,(PALS)DECISION 2 CENTRAL AND WEST SLOPE (CP-CENTRAL AND WEST SLOPE PROJECT),03,Yuba,FS,"Sierra Mixed Confer stand type
+"
+39.457,-121.1717,Tree Release and Weed,,Chemical,,2026,,19.7,19.7,(PALS)DECISION 2 CENTRAL AND WEST SLOPE (CP-CENTRAL AND WEST SLOPE PROJECT),03,Yuba,FS,"Sierra Mixed Confer stand type
+"
+39.4547,-121.1717,Tree Release and Weed,,Chemical,,2026,,28.5,28.5,(PALS)DECISION 2 CENTRAL AND WEST SLOPE (CP-CENTRAL AND WEST SLOPE PROJECT),03,Yuba,FS,"Sierra Mixed Confer stand type
+"
+39.457,-121.1717,Tree Release and Weed,,Chemical,,2026,,30.3,30.3,(PALS)DECISION 2 CENTRAL AND WEST SLOPE (CP-CENTRAL AND WEST SLOPE PROJECT),03,Yuba,FS,"Sierra Mixed Confer stand type
+"
+39.4757,-121.2108,Tree Release and Weed,,Chemical,,2026,,33.5,33.5,(PALS)DECISION 2 CENTRAL AND WEST SLOPE (CP-CENTRAL AND WEST SLOPE PROJECT),03,Yuba,FS,"Sierra Mixed Confer stand type
+"
+39.4667,-121.1978,Tree Release and Weed,,Chemical,,2026,,25.0,25.0,(PALS)DECISION 2 CENTRAL AND WEST SLOPE (CP-CENTRAL AND WEST SLOPE PROJECT),03,Yuba,FS,"Sierra Mixed Confer stand type
+"
+39.4667,-121.1978,Tree Release and Weed,,Chemical,,2026,,16.6,16.6,(PALS)DECISION 2 CENTRAL AND WEST SLOPE (CP-CENTRAL AND WEST SLOPE PROJECT),03,Yuba,FS,"Sierra Mixed Confer stand type
+"
+39.4667,-121.1978,Tree Release and Weed,,Chemical,,2026,,6.9,6.9,(PALS)DECISION 2 CENTRAL AND WEST SLOPE (CP-CENTRAL AND WEST SLOPE PROJECT),03,Yuba,FS,"Sierra Mixed Confer stand type
+"
+39.4661,-121.2053,Tree Release and Weed,,Chemical,,2026,,17.2,17.2,(PALS)DECISION 2 CENTRAL AND WEST SLOPE (CP-CENTRAL AND WEST SLOPE PROJECT),03,Yuba,FS,"Sierra Mixed Confer stand type
+"
+39.4602,-121.1801,Tree Release and Weed,,Chemical,,2026,,1.7,1.7,(PALS)DECISION 2 CENTRAL AND WEST SLOPE (CP-CENTRAL AND WEST SLOPE PROJECT),03,Yuba,FS,"Sierra Mixed Confer stand type
+"
+39.4564,-121.1798,Tree Release and Weed,,Chemical,,2026,,10.5,10.5,(PALS)DECISION 2 CENTRAL AND WEST SLOPE (CP-CENTRAL AND WEST SLOPE PROJECT),03,Yuba,FS,"Sierra Mixed Confer stand type
+"
+39.4582,-121.1788,Tree Release and Weed,,Chemical,,2026,,7.6,7.6,(PALS)DECISION 2 CENTRAL AND WEST SLOPE (CP-CENTRAL AND WEST SLOPE PROJECT),03,Yuba,FS,"Sierra Mixed Confer stand type
+"
+39.4757,-121.2108,Tree Release and Weed,,Chemical,,2026,,9.4,9.4,(PALS)DECISION 2 CENTRAL AND WEST SLOPE (CP-CENTRAL AND WEST SLOPE PROJECT),03,Yuba,FS,"Sierra Mixed Confer stand type
+"
+39.4667,-121.1978,Tree Release and Weed,,Chemical,,2026,,4.2,4.2,(PALS)DECISION 2 CENTRAL AND WEST SLOPE (CP-CENTRAL AND WEST SLOPE PROJECT),03,Yuba,FS,"Sierra Mixed Confer stand type
+"
+39.4757,-121.2108,Tree Release and Weed,,Chemical,,2026,,24.1,24.1,(PALS)DECISION 2 CENTRAL AND WEST SLOPE (CP-CENTRAL AND WEST SLOPE PROJECT),03,Yuba,FS,"Sierra Mixed Confer stand type
+"
+39.48,-121.218,Tree Release and Weed,,Chemical,,2026,,68.2,68.2,(PALS)DECISION 2 CENTRAL AND WEST SLOPE (CP-CENTRAL AND WEST SLOPE PROJECT),03,Yuba,FS,"Sierra Mixed Confer stand type
+"
+39.4667,-121.1978,Tree Release and Weed,,Chemical,,2026,,11.0,11.0,(PALS)DECISION 2 CENTRAL AND WEST SLOPE (CP-CENTRAL AND WEST SLOPE PROJECT),03,Yuba,FS,"Sierra Mixed Confer stand type
+"
+39.4582,-121.1788,Tree Release and Weed,,Chemical,,2026,,4.2,4.2,(PALS)DECISION 2 CENTRAL AND WEST SLOPE (CP-CENTRAL AND WEST SLOPE PROJECT),03,Yuba,FS,"Sierra Mixed Confer stand type
+"
+39.4892,-121.2219,Tree Release and Weed,,Chemical,,2026,,4.9,4.9,(PALS)DECISION 2 CENTRAL AND WEST SLOPE (CP-CENTRAL AND WEST SLOPE PROJECT),03,Yuba,FS,"Sierra Mixed Confer stand type
+"
+39.4667,-121.1978,Tree Release and Weed,,Chemical,,2026,,58.2,58.2,(PALS)DECISION 2 CENTRAL AND WEST SLOPE (CP-CENTRAL AND WEST SLOPE PROJECT),03,Yuba,FS,"Sierra Mixed Confer stand type
+"
+39.4906,-121.2238,Tree Release and Weed,,Chemical,,2026,,33.5,33.5,(PALS)DECISION 2 CENTRAL AND WEST SLOPE (CP-CENTRAL AND WEST SLOPE PROJECT),03,Yuba,FS,"Sierra Mixed Confer stand type
+"
+39.4584,-121.2119,Tree Release and Weed,,Chemical,,2026,,16.1,16.1,(PALS)DECISION 2 CENTRAL AND WEST SLOPE (CP-CENTRAL AND WEST SLOPE PROJECT),03,Yuba,FS,"Sierra Mixed Confer stand type
+"
+39.4654,-121.2122,Tree Release and Weed,,Chemical,,2026,,123.6,123.6,(PALS)DECISION 2 CENTRAL AND WEST SLOPE (CP-CENTRAL AND WEST SLOPE PROJECT),03,Yuba,FS,"Sierra Mixed Confer stand type
+"
+39.4726,-121.2155,Tree Release and Weed,,Chemical,,2026,,5.9,5.9,(PALS)DECISION 2 CENTRAL AND WEST SLOPE (CP-CENTRAL AND WEST SLOPE PROJECT),03,Yuba,FS,"Sierra Mixed Confer stand type
+"
+39.461,-121.2122,Tree Release and Weed,,Chemical,,2026,,3.2,3.2,(PALS)DECISION 2 CENTRAL AND WEST SLOPE (CP-CENTRAL AND WEST SLOPE PROJECT),03,Yuba,FS,"Sierra Mixed Confer stand type
+"
+39.511,-121.2,Tree Release and Weed,,Chemical,,2026,,,14.1,(PALS)DECISION 2 CENTRAL AND WEST SLOPE (CP-CENTRAL AND WEST SLOPE PROJECT),03,Yuba,FS,"Sierra Mixed Confer stand type
+"
+39.5108,-121.1996,Tree Release and Weed,,Chemical,,2026,,37.0,37.0,(PALS)DECISION 2 CENTRAL AND WEST SLOPE (CP-CENTRAL AND WEST SLOPE PROJECT),03,Yuba,FS,"Sierra Mixed Confer stand type
+"
