@@ -71,7 +71,7 @@ def export_geojson(cx, region, out_path):
 # ---- land-type classification (shared across sources) ----
 def classify(owner="", activity="", project="", site=""):
     s = " ".join(str(x or "").upper() for x in (owner, activity, project, site))
-    if re.search(r"RAIL|UNION PACIFIC|BNSF|BURLINGTON|RAILWAY", s):       return "railroad"
+    if re.search(r"RAILROAD|RAILWAY|UNION PACIFIC|\bBNSF\b|BURLINGTON NORTHERN", s): return "railroad"
     if re.search(r"PG&E|PACIFIC GAS|EDISON|\bSCE\b|UTILITY|ELECTRIC|TRANSMISSION|POWERLINE|GAS CO", s):
         return "utility"
     if re.search(r"CALTRANS|ROADSIDE|RIGHT OF WAY|ROAD MAINT|HIGHWAY", s): return "roadside"
