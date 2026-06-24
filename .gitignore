@@ -1,0 +1,5 @@
+# Local-only Claude settings (machine-specific permissions)
+.claude/settings.local.json
+
+# Regenerable build intermediates (data is embedded in index.html)
+build/*.json
