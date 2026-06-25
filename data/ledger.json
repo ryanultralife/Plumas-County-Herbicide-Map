@@ -1,0 +1,111 @@
+{
+  "org": "Plumas Waterway Testing (working name)",
+  "updated": "2026-07-20",
+  "currency": "USD",
+  "note": "Public record. Every figure below links to a source document. Figures update when data/ledger.json is published. This is a transparency record, not a substitute for formal accounting at tax time.",
+  "donations": [
+    {
+      "date": "2026-07-01",
+      "source": "Online donor (J. Rivera)",
+      "gross": 100,
+      "fees": 3.2,
+      "type": "Unrestricted",
+      "platform": "Givebutter",
+      "src": "data/receipts/2026-07-01-givebutter-payout.pdf",
+      "srcLabel": "Payout report"
+    },
+    {
+      "date": "2026-07-03",
+      "source": "Community fund grant",
+      "gross": 2500,
+      "fees": 0,
+      "type": "Restricted-Testing",
+      "platform": "Check",
+      "src": "data/receipts/2026-07-03-grant-award-letter.pdf",
+      "srcLabel": "Award letter"
+    },
+    {
+      "date": "2026-07-05",
+      "source": "Anonymous",
+      "gross": 50,
+      "fees": 1.75,
+      "type": "Unrestricted",
+      "platform": "Donorbox",
+      "src": "data/receipts/2026-07-05-donorbox-receipt.pdf",
+      "srcLabel": "Receipt"
+    }
+  ],
+  "expenses": [
+    {
+      "date": "2026-07-10",
+      "payee": "R. Vukich - map dev & data (12.5 hrs)",
+      "bucket": "Operations",
+      "amount": 625,
+      "via": "Bank transfer",
+      "src": "data/receipts/2026-07-10-labor-invoice.pdf",
+      "srcLabel": "Invoice + timesheet"
+    },
+    {
+      "date": "2026-07-15",
+      "payee": "NorCal Analytical Lab - glyphosate panel (3 sites)",
+      "bucket": "Testing",
+      "amount": 480,
+      "via": "Card",
+      "src": "data/receipts/2026-07-15-norcal-lab-invoice.pdf",
+      "srcLabel": "Lab invoice"
+    },
+    {
+      "date": "2026-07-15",
+      "payee": "Givebutter fees (donor-covered)",
+      "bucket": "Admin",
+      "amount": 0,
+      "via": "Auto",
+      "src": "https://givebutter.com/pricing",
+      "srcLabel": "Fee schedule"
+    },
+    {
+      "date": "2026-07-20",
+      "payee": "CA Attorney General registration (CT-1)",
+      "bucket": "Admin",
+      "amount": 50,
+      "via": "Card",
+      "src": "https://oag.ca.gov/charities/initial-reg",
+      "srcLabel": "AG registration"
+    }
+  ],
+  "hours": [
+    {
+      "date": "2026-07-08",
+      "person": "R. Vukich",
+      "task": "Build donate feature + map updates",
+      "role": "Tech/Operations",
+      "hours": 6.5,
+      "rate": 50,
+      "approvedBy": "Board 6/30",
+      "src": "data/receipts/2026-07-10-labor-invoice.pdf",
+      "srcLabel": "Timesheet"
+    },
+    {
+      "date": "2026-07-09",
+      "person": "R. Vukich",
+      "task": "Data scrape + QA of application records",
+      "role": "Data",
+      "hours": 6.0,
+      "rate": 50,
+      "approvedBy": "Board 6/30",
+      "src": "data/receipts/2026-07-10-labor-invoice.pdf",
+      "srcLabel": "Timesheet"
+    },
+    {
+      "date": "2026-07-12",
+      "person": "Volunteer (M. Lee)",
+      "task": "Water sampling, 3 sites (chain-of-custody)",
+      "role": "Field/Testing",
+      "hours": 4.0,
+      "rate": 0,
+      "approvedBy": "Board 6/30",
+      "src": "data/receipts/2026-07-12-chain-of-custody.pdf",
+      "srcLabel": "Chain of custody"
+    }
+  ]
+}
