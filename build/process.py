@@ -153,26 +153,47 @@ vmax = 930.6
 print('\nmap dots:', {k:len(v) for k,v in methods.items()})
 json.dump({'methods':methods,'vmax':vmax}, open(os.path.join(OUT,'methods.json'),'w',encoding='utf-8'), separators=(',',':'))
 
-# ---------------- Tab 4: every record (both tabs), dictionary-encoded ----------------
-df['report'] = df['src'].map({'Forestry (single-job)':'Forestry (single-job)','Other operators (monthly)':'Other operators (monthly)'})
-perms=sorted(set(map(str,df['Permitee'].dropna()))); prods=sorted(set(map(str,df['Product Name'].dropna())))
-apps=sorted(set(map(str,df['appl'].replace('',np.nan).dropna()))); ais=sorted(set(df['ai']))
-units=sorted(set(map(str,df['unit']))); meths=sorted(set(map(str,df['method']))); reports=sorted(set(df['report']))
+# ---------------- Tab 4: every record (private PUR + federal FACTS), dictionary-encoded ----------------
+recs = []
+for _,r in df.iterrows():
+    recs.append({'date':r['date'],'loc':r['mtrs'],'perm':(str(r['Permitee']) if pd.notna(r['Permitee']) else ''),
+                 'prod':(str(r['Product Name']) if pd.notna(r['Product Name']) else ''),
+                 'reg':(str(r['EPA Reg No']) if pd.notna(r['EPA Reg No']) else ''),'ai':r['ai'],'type':r['type'],
+                 'qty':round(float(r['qty']),2),'unit':str(r['unit']),'method':str(r['method']),
+                 'acres':round(float(r['acres']),1),'appl':str(r['appl']),'report':r['src'],
+                 'site':(str(r['Site Name']) if pd.notna(r.get('Site Name')) else '')})
+# federal FACTS records from the scraper's unified export (now in the repo post-merge)
+FACTS_EXPORT = os.path.join(os.path.dirname(SRC), 'exports', 'northern-sierra.geojson')
+n_fed = 0
+if os.path.exists(FACTS_EXPORT):
+    for f in json.load(open(FACTS_EXPORT, encoding='utf-8'))['features']:
+        pr = f['properties']
+        if pr.get('source') != 'facts': continue
+        recs.append({'date':str(pr.get('year') or ''),'loc':(pr.get('county') or '')+' — Plumas NF',
+                     'perm':pr.get('owner') or 'Plumas National Forest','prod':pr.get('activity') or '(federal chemical treatment)',
+                     'reg':'','ai':'(not public — Region 5 FOIA)','type':'X','qty':'','unit':'',
+                     'method':pr.get('method') or 'Chemical','acres':round(pr.get('amount') or 0,1),'appl':'',
+                     'report':'Federal (USFS FACTS)','site':pr.get('project') or ''})
+        n_fed += 1
+
+perms=sorted({r['perm'] for r in recs if r['perm']}); prods=sorted({r['prod'] for r in recs if r['prod']})
+apps=sorted({r['appl'] for r in recs if r['appl']}); ais=sorted({r['ai'] for r in recs})
+units=sorted({r['unit'] for r in recs}); meths=sorted({r['method'] for r in recs}); reports=sorted({r['report'] for r in recs})
 pi={v:i for i,v in enumerate(perms)}; pri={v:i for i,v in enumerate(prods)}; api={v:i for i,v in enumerate(apps)}
 aii={v:i for i,v in enumerate(ais)}; ui={v:i for i,v in enumerate(units)}; mi={v:i for i,v in enumerate(meths)}; ri={v:i for i,v in enumerate(reports)}
-prodMeta=[]
-for p in prods:
-    s=df[df['Product Name'].astype(str)==p].iloc[0]
-    prodMeta.append([str(s['EPA Reg No']) if pd.notna(s['EPA Reg No']) else '', aii[s['ai']], s['type']])
+firstprod={}
+for r in recs:
+    if r['prod'] and r['prod'] not in firstprod: firstprod[r['prod']]=r
+prodMeta=[[firstprod[p]['reg'], aii[firstprod[p]['ai']], firstprod[p]['type']] for p in prods]
 rows=[]
-for _,r in df.iterrows():
-    rows.append([r['date'], r['mtrs'], pi.get(str(r['Permitee']),-1), pri.get(str(r['Product Name']),-1),
-                 round(float(r['qty']),2), ui.get(str(r['unit']),0), mi.get(str(r['method']),0),
-                 api.get(str(r['appl']),-1), (str(r['Site Name']) if pd.notna(r.get('Site Name')) else ''),
-                 round(float(r['acres']),1), ri.get(r['report'],0)])
-tab4={'cols':['Date','Location (MTRS)','Permittee','Product','EPA Reg','Active ingredient','Type','Qty','Units','Method','Acres','Applicator','Report','Site'],
+for r in recs:
+    rows.append([r['date'], r['loc'], pi.get(r['perm'],-1), pri.get(r['prod'],-1),
+                 (round(float(r['qty']),2) if r['qty']!='' else ''), ui.get(r['unit'],0), mi.get(r['method'],0),
+                 api.get(r['appl'],-1), r['site'], r['acres'], ri.get(r['report'],0)])
+alld=[r['date'] for r in recs if r['date']]
+tab4={'cols':['Date','Location','Permittee','Product','EPA Reg','Active ingredient','Type','Qty','Units','Method','Acres','Applicator','Source','Site'],
       'perm':perms,'prod':prods,'prodMeta':prodMeta,'appl':apps,'ai':ais,'unit':units,'meth':meths,'report':reports,
-      'typeName':TYPE_NAME,'rows':rows,'span':[min(_alld), max(_alld)] if (_alld:=[x for x in list(df['date'])+list(df['dend']) if x]) else ['','']}
+      'typeName':{**TYPE_NAME,'X':'Federal activity'},'rows':rows,'span':[min(alld), max(alld)] if alld else ['','']}
 json.dump(tab4, open(os.path.join(OUT,'tab4.json'),'w',encoding='utf-8'), separators=(',',':'))
-print('tab4 rows:', len(rows), '| products:', len(prods), '| span:', tab4['span'])
+print('tab4 rows:', len(rows), '(private', len(recs)-n_fed, '+ federal', n_fed, ') | products:', len(prods), '| span:', tab4['span'])
 print('files:', os.path.getsize(os.path.join(OUT,'methods.json')),'methods,', os.path.getsize(os.path.join(OUT,'tab4.json')),'tab4')
