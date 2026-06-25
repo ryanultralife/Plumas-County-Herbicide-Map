@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>California Pesticide & Herbicide Use — Map</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<style>
+  :root{--bg:#0f1713;--panel:#172019;--ink:#e8efe9;--mut:#9fb0a4;--accent:#2f9e54;--line:#2a3830}
+  *{box-sizing:border-box}
+  html,body{margin:0;height:100%;font:14px/1.4 system-ui,Arial,sans-serif;background:var(--bg);color:var(--ink)}
+  #map{position:absolute;inset:0}
+  #panel{position:absolute;z-index:1000;top:12px;left:12px;width:288px;max-height:calc(100% - 24px);
+    overflow:auto;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px}
+  h1{font-size:15px;margin:0 0 2px}
+  .sub{color:var(--mut);font-size:12px;margin-bottom:10px}
+  .stat{font-size:13px;margin:6px 0 12px;color:var(--ink)}
+  .stat b{color:var(--accent)}
+  fieldset{border:1px solid var(--line);border-radius:8px;margin:0 0 10px;padding:8px 10px}
+  legend{color:var(--mut);font-size:11px;text-transform:uppercase;letter-spacing:.04em;padding:0 4px}
+  label{display:flex;align-items:center;gap:6px;font-size:13px;margin:3px 0;cursor:pointer}
+  .row{display:flex;flex-wrap:wrap;gap:4px 12px}
+  .row label{width:46%}
+  .seg{display:flex;gap:6px;margin-top:4px}
+  .seg button{flex:1;background:#10160f;color:var(--ink);border:1px solid var(--line);border-radius:6px;
+    padding:5px;cursor:pointer;font-size:12px}
+  .seg button.on{background:var(--accent);border-color:var(--accent);color:#06140b;font-weight:600}
+  .mini{font-size:11px;color:var(--mut)}
+  a{color:var(--accent)}
+  .leaflet-popup-content{font-size:13px}
+  .swatch{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:5px;vertical-align:middle}
+</style>
+</head>
+<body>
+<div id="map"></div>
+<div id="panel">
+  <h1>California Pesticide &amp; Herbicide Use</h1>
+  <div class="sub">Point = ~PLSS section. Sources: CA DPR PUR (private/ag) + USFS FACTS (federal). 2020–present.</div>
+  <div class="stat" id="stat">Loading data…</div>
+
+  <fieldset><legend>Pesticide class</legend>
+    <div class="row" id="classes"></div>
+    <div class="seg"><button data-all="classes">All</button><button data-none="classes">None</button></div>
+  </fieldset>
+
+  <fieldset><legend>Year</legend>
+    <div class="row" id="years"></div>
+    <div class="seg"><button data-all="years">All</button><button data-none="years">None</button></div>
+  </fieldset>
+
+  <fieldset><legend>Land type</legend>
+    <div class="row" id="lands"></div>
+    <div class="seg"><button data-all="lands">All</button><button data-none="lands">None</button></div>
+  </fieldset>
+
+  <fieldset><legend>Size points by</legend>
+    <div class="seg" id="metric">
+      <button data-metric="count" class="on">Applications</button>
+      <button data-metric="lbs">Pounds applied</button>
+    </div>
+    <div class="mini" style="margin-top:6px">Showing <b id="shown">0</b> locations · <b id="showntot">0</b> matching records</div>
+  </fieldset>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+const map = L.map('map',{preferCanvas:true}).setView([38.6,-120.0],6);
+L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',
+  {maxZoom:19, attribution:'&copy; OpenStreetMap &copy; CARTO'}).addTo(map);
+const canvas = L.canvas({padding:0.5});
+
+const CLASS_COLORS = {herbicide:'#3fae5a', insecticide:'#e0883b', fungicide:'#3f7fe0',
+  fumigant:'#b85cc8', rodenticide:'#c8513f', growth_regulator:'#cac33f',
+  adjuvant:'#6b8276', other:'#8a8a8a', unknown:'#6a6a6a'};
+
+let features = [];           // raw aggregated features
+const sel = {classes:new Set(), years:new Set(), lands:new Set(), metric:'count'};
+let layer = null;
+
+function buildChecklist(id, values, preset){
+  const box = document.getElementById(id);
+  box.innerHTML='';
+  values.forEach(v=>{
+    const on = preset ? preset(v) : true;
+    if(on) sel[id].add(v);
+    const lab=document.createElement('label');
+    lab.innerHTML=`<input type="checkbox" data-grp="${id}" value="${v}" ${on?'checked':''}>`+
+      (id==='classes'?`<span class="swatch" style="background:${CLASS_COLORS[v]||'#888'}"></span>`:'')+v;
+    box.appendChild(lab);
+  });
+}
+
+function value(props){
+  let cnt=0,lbs=0;
+  for(const k in props.c){
+    const p=k.split('|'), y=p[0], cl=p[1], land=p[2], v=props.c[k];
+    if(sel.classes.size && !sel.classes.has(cl)) continue;
+    if(sel.years.size && !sel.years.has(y)) continue;
+    if(sel.lands.size && !sel.lands.has(land)) continue;
+    if(Array.isArray(v)){cnt+=v[0];lbs+=v[1];} else cnt+=v;
+  }
+  return {cnt,lbs};
+}
+function domClass(props){
+  let best=null,bn=-1;
+  for(const k in props.c){const cl=k.split('|')[1];
+    if(sel.classes.size&&!sel.classes.has(cl))continue;
+    const v=props.c[k], c=Array.isArray(v)?v[0]:v;
+    // tally per class
+    best; }
+  // simpler: pick the class with max count among selected
+  const tally={};
+  for(const k in props.c){const cl=k.split('|')[1];
+    if(sel.classes.size&&!sel.classes.has(cl))continue;
+    const y=k.split('|')[0], land=k.split('|')[2], v=props.c[k];
+    if(sel.years.size&&!sel.years.has(y))continue;
+    if(sel.lands.size&&!sel.lands.has(land))continue;
+    tally[cl]=(tally[cl]||0)+(Array.isArray(v)?v[0]:v);}
+  for(const cl in tally){if(tally[cl]>bn){bn=tally[cl];best=cl;}}
+  return best||'other';
+}
+
+function render(){
+  if(layer) layer.remove();
+  const grp=[]; let shown=0, tot=0, maxv=1;
+  const metric=sel.metric;
+  const vals=[];
+  for(const f of features){
+    const v=value(f.properties); const m = metric==='lbs'? v.lbs : v.cnt;
+    vals.push(m); if(m>maxv)maxv=v.cnt?Math.max(maxv,m):maxv;
+  }
+  features.forEach((f,i)=>{
+    const v=value(f.properties); const m = metric==='lbs'? v.lbs : v.cnt;
+    if(v.cnt<=0) return;
+    shown++; tot+=v.cnt;
+    const r = 2 + Math.sqrt(m)/ (metric==='lbs'?6:1.1);
+    const col = CLASS_COLORS[domClass(f.properties)]||'#888';
+    const mk = L.circleMarker([f.geometry.coordinates[1],f.geometry.coordinates[0]],
+      {renderer:canvas, radius:Math.min(r,22), weight:0, fillColor:col, fillOpacity:0.72});
+    mk.on('click',()=>mk.bindPopup(popup(f.properties,v)).openPopup());
+    grp.push(mk);
+  });
+  layer=L.layerGroup(grp).addTo(map);
+  document.getElementById('shown').textContent=shown.toLocaleString();
+  document.getElementById('showntot').textContent=tot.toLocaleString();
+}
+
+function popup(p,v){
+  const ai=(p.ai||[]).map(a=>`${a[0]} (${a[1]})`).join('<br>')||'—';
+  return `<b>${p.county||'—'} County</b><br>`+
+    `<b>${v.cnt.toLocaleString()}</b> matching applications`+
+    (v.lbs?`<br><b>${v.lbs.toLocaleString()}</b> lbs active ingredient`:'')+
+    `<br><span class="mini">${p.region||''}</span>`+
+    `<hr style="border:0;border-top:1px solid #2a3830;margin:6px 0">`+
+    `<span class="mini">Top active ingredients</span><br>${ai}`;
+}
+
+function wire(){
+  document.querySelectorAll('input[type=checkbox]').forEach(cb=>{
+    cb.addEventListener('change',e=>{
+      const g=e.target.dataset.grp;
+      if(e.target.checked) sel[g].add(e.target.value); else sel[g].delete(e.target.value);
+      render();
+    });
+  });
+  document.querySelectorAll('.seg button[data-all],.seg button[data-none]').forEach(b=>{
+    b.addEventListener('click',()=>{
+      const g=b.dataset.all||b.dataset.none, on=!!b.dataset.all;
+      document.querySelectorAll(`input[data-grp="${g}"]`).forEach(cb=>{cb.checked=on;
+        if(on)sel[g].add(cb.value);else sel[g].delete(cb.value);});
+      render();
+    });
+  });
+  document.querySelectorAll('#metric button').forEach(b=>{
+    b.addEventListener('click',()=>{document.querySelectorAll('#metric button').forEach(x=>x.classList.remove('on'));
+      b.classList.add('on'); sel.metric=b.dataset.metric; render();});
+  });
+}
+
+Promise.all([
+  fetch('data/agg/summary.json').then(r=>r.ok?r.json():null).catch(()=>null),
+  fetch('data/agg/aggregated.geojson').then(r=>r.json())
+]).then(([sum,geo])=>{
+  features=geo.features;
+  const classes=Object.keys(CLASS_COLORS);
+  const years=[...new Set(features.flatMap(f=>Object.keys(f.properties.c).map(k=>k.split('|')[0])))]
+    .filter(Boolean).sort();
+  const lands=[...new Set(features.flatMap(f=>Object.keys(f.properties.c).map(k=>k.split('|')[2])))].sort();
+  buildChecklist('classes',classes, v=>v==='herbicide');   // default: herbicide only
+  buildChecklist('years',years);
+  buildChecklist('lands',lands);
+  const tot = sum? sum.total : features.reduce((a,f)=>a+f.properties.n,0);
+  document.getElementById('stat').innerHTML =
+    `<b>${(tot).toLocaleString()}</b> applications · <b>${features.length.toLocaleString()}</b> locations`;
+  wire(); render();
+}).catch(e=>{
+  document.getElementById('stat').innerHTML =
+    'No data yet. Run <code>python scraper/run_region.py all</code> then <code>python build/aggregate.py</code> to build <code>data/agg/aggregated.geojson</code>.';
+});
+</script>
+</body>
+</html>

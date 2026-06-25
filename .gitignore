@@ -34,6 +34,3 @@ __pycache__/
 
 # Supabase CLI local cache
 supabase/.temp/
-
-# Big aggregated layer (regenerable; map reads Supabase map_agg or this if served)
-data/agg/aggregated.geojson
