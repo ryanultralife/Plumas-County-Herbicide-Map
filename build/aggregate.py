@@ -64,7 +64,7 @@ def main():
     cells = {}
     q = ("SELECT ROUND(lat,?) la, ROUND(lon,?) lo, county, region, year, land_type, source, "
          "active_ingredient, unit, SUM(CASE WHEN amount IS NULL THEN 0 ELSE amount END) amt, COUNT(*) c "
-         "FROM applications WHERE lat IS NOT NULL AND lon IS NOT NULL AND year>=2020 "
+         "FROM applications WHERE lat IS NOT NULL AND lon IS NOT NULL AND year>=2020 AND year<=2026 "
          "GROUP BY la,lo,county,region,year,land_type,source,active_ingredient,unit")
     grp = 0
     for la,lo,county,region,year,land,source,ai,unit,amt,c in cx.execute(q, (PREC,PREC)):
@@ -77,7 +77,7 @@ def main():
         cell["n"] += c
         ck = f"{int(year) if year else ''}|{chem_class(ai)}|{land or 'unknown'}"
         e = cell["c"][ck]; e[0] += c
-        if (unit or "") == "Pounds": e[1] += float(amt or 0)
+        if (unit or "").lower() == "lbs": e[1] += float(amt or 0)
         if is_chem_known(ai): cell["ai"][ai] += c
 
     feats=[]
@@ -94,9 +94,9 @@ def main():
     for c in cells.values():
         for k,v in c["c"].items(): summ["by_class"][k.split("|")[1]] += v[0]
     for col,key in [("year","by_year"),("land_type","by_land"),("region","by_region"),("source","by_source")]:
-        for v,n in cx.execute(f"SELECT {col},COUNT(*) FROM applications WHERE year>=2020 GROUP BY {col}"):
+        for v,n in cx.execute(f"SELECT {col},COUNT(*) FROM applications WHERE year>=2020 AND year<=2026 GROUP BY {col}"):
             summ[key][str(v)] = n
-    summ["total"]=cx.execute("SELECT COUNT(*) FROM applications WHERE year>=2020").fetchone()[0]
+    summ["total"]=cx.execute("SELECT COUNT(*) FROM applications WHERE year>=2020 AND year<=2026").fetchone()[0]
     summ["by_class"]=dict(summ["by_class"])
     json.dump(summ, open(os.path.join(OUT,"summary.json"),"w"), indent=1)
 
@@ -110,7 +110,7 @@ def main():
            "SUM(CASE WHEN active_ingredient IS NOT NULL AND active_ingredient!='' AND active_ingredient NOT LIKE '%FOIA%' AND active_ingredient NOT LIKE '%not public%' THEN 1 ELSE 0 END) chem, "
            "SUM(CASE WHEN amount IS NOT NULL AND amount>0 AND unit IS NOT NULL AND unit!='' THEN 1 ELSE 0 END) amt, "
            "SUM(CASE WHEN lat IS NOT NULL AND lon IS NOT NULL THEN 1 ELSE 0 END) geo, MAX(year) my, COUNT(DISTINCT source) src "
-           f"FROM applications WHERE year>=2020 GROUP BY {cols}")
+           f"FROM applications WHERE year>=2020 AND year<=2026 GROUP BY {cols}")
         out={}
         for row in cx.execute(q):
             *keys,n,chem,amt,geo,my,src=row

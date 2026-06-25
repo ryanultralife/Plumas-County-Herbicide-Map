@@ -1,6 +1,6 @@
 {
  "by_class": {
-  "unknown": 2437093,
+  "unknown": 2437031,
   "herbicide": 1637261,
   "other": 1365612,
   "insecticide": 2441708,
@@ -17,16 +17,13 @@
   "2023": 443,
   "2024": 525,
   "2025": 875,
-  "2026": 172,
-  "2027": 18,
-  "2028": 43,
-  "2029": 1
+  "2026": 172
  },
  "by_land": {
   "ag": 11833702,
-  "federal": 2806,
-  "forestry": 1337,
-  "other": 136,
+  "federal": 2788,
+  "forestry": 1336,
+  "other": 93,
   "rangeland": 16,
   "roadside": 37,
   "utility": 70
@@ -34,18 +31,18 @@
  "by_region": {
   "bay-area": 1191739,
   "central-coast": 2973733,
-  "central-sierra": 132844,
+  "central-sierra": 132842,
   "eastern-sierra": 31,
   "north-coast": 90561,
-  "northern-sierra": 231870,
+  "northern-sierra": 231826,
   "sacramento-valley": 672533,
-  "san-joaquin-valley": 4524176,
+  "san-joaquin-valley": 4524160,
   "shasta-cascade": 278965,
   "southern-california": 1741652
  },
  "by_source": {
-  "facts": 4402,
+  "facts": 4340,
   "pur": 11833702
  },
- "total": 11838104
+ "total": 11838042
 }

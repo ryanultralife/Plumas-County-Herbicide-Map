@@ -13,9 +13,9 @@ with cells as (
   select round(lat::numeric,3) lat, round(lon::numeric,3) lon,
     coalesce(year::text,'')||'|'||coalesce(public.chem_class(active_ingredient),'unknown')||'|'||coalesce(land_type,'unknown') as ck,
     count(*)::int cnt,
-    round(sum(case when unit='Pounds' then coalesce(amount,0) else 0 end)::numeric,1) lbs,
+    round(sum(case when unit='lbs' then coalesce(amount,0) else 0 end)::numeric,1) lbs,
     max(county) county, max(region) region
-  from public.applications where lat is not null and lon is not null and year>=2020
+  from public.applications where lat is not null and lon is not null and year between 2020 and 2026
   group by 1,2,3
 ),
 agg as (
@@ -26,14 +26,14 @@ agg as (
 src_agg as (
   select lat, lon, jsonb_object_agg(source, arr) src from (
     select round(lat::numeric,3) lat, round(lon::numeric,3) lon, coalesce(source,'?') source,
-           array[count(*)::numeric, round(sum(case when unit='Pounds' then coalesce(amount,0) else 0 end)::numeric,1)] arr
-    from public.applications where lat is not null and lon is not null and year>=2020 group by 1,2,3
+           array[count(*)::numeric, round(sum(case when unit='lbs' then coalesce(amount,0) else 0 end)::numeric,1)] arr
+    from public.applications where lat is not null and lon is not null and year between 2020 and 2026 group by 1,2,3
   ) s group by lat, lon
 ),
 ai_ranked as (
   select round(lat::numeric,3) lat, round(lon::numeric,3) lon, active_ingredient ai, count(*) c,
          row_number() over (partition by round(lat::numeric,3),round(lon::numeric,3) order by count(*) desc) rn
-  from public.applications where lat is not null and lon is not null and year>=2020
+  from public.applications where lat is not null and lon is not null and year between 2020 and 2026
     and active_ingredient is not null and active_ingredient<>''
     and active_ingredient not ilike '%FOIA%' and active_ingredient not ilike '%not public%'
   group by 1,2,3
@@ -42,7 +42,7 @@ ai_top as (select lat, lon, jsonb_agg(jsonb_build_array(ai,c) order by c desc) f
 own_ranked as (
   select round(lat::numeric,3) lat, round(lon::numeric,3) lon, owner, count(*) c,
          row_number() over (partition by round(lat::numeric,3),round(lon::numeric,3) order by count(*) desc) rn
-  from public.applications where lat is not null and lon is not null and year>=2020 and owner is not null and owner<>''
+  from public.applications where lat is not null and lon is not null and year between 2020 and 2026 and owner is not null and owner<>''
   group by 1,2,3
 ),
 own_top as (select lat, lon, jsonb_agg(jsonb_build_array(owner,c) order by c desc) filter (where rn<=5) owners from own_ranked group by lat, lon)
