@@ -14,3 +14,11 @@ Thumbs.db
 # Regenerable build intermediates (raw data is in data/, embedded into index.html)
 build/*.json
 build/*.sqlite
+
+# Bulk raw archives downloaded by the scraper (150-260 MB each; keep out of git)
+data/raw/
+
+# Transient SQLite sidecar files
+*.sqlite-journal
+*.sqlite-wal
+*.sqlite-shm
