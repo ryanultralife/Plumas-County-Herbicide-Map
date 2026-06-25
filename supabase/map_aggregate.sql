@@ -11,7 +11,7 @@ with cells as (
     round(lat::numeric, 3)  as lat,
     round(lon::numeric, 3)  as lon,
     coalesce(year::text, '') || '|' ||
-      coalesce(chem_class, 'unknown') || '|' ||
+      coalesce(public.chem_class(active_ingredient), 'unknown') || '|' ||
       coalesce(land_type, 'unknown')  as ck,
     count(*)::int           as cnt,
     round(sum(case when unit = 'Pounds' then coalesce(amount, 0) else 0 end)::numeric, 1) as lbs,
