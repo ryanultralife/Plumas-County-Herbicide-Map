@@ -162,18 +162,17 @@ for _,r in df.iterrows():
                  'qty':round(float(r['qty']),2),'unit':str(r['unit']),'method':str(r['method']),
                  'acres':round(float(r['acres']),1),'appl':str(r['appl']),'report':r['src'],
                  'site':(str(r['Site Name']) if pd.notna(r.get('Site Name')) else '')})
-# federal FACTS records from the scraper's unified export (now in the repo post-merge)
-FACTS_EXPORT = os.path.join(os.path.dirname(SRC), 'exports', 'northern-sierra.geojson')
+# federal FACTS records from the COMPLETE Plumas NF file (scripts/pull_facts.py output)
+FACTS_FILE = os.path.join(os.path.dirname(SRC), 'plumas_nf_herbicide_facts.geojson')
 n_fed = 0
-if os.path.exists(FACTS_EXPORT):
-    for f in json.load(open(FACTS_EXPORT, encoding='utf-8'))['features']:
+if os.path.exists(FACTS_FILE):
+    for f in json.load(open(FACTS_FILE, encoding='utf-8'))['features']:
         pr = f['properties']
-        if pr.get('source') != 'facts': continue
         recs.append({'date':str(pr.get('year') or ''),'loc':(pr.get('county') or '')+' — Plumas NF',
-                     'perm':pr.get('owner') or 'Plumas National Forest','prod':pr.get('activity') or '(federal chemical treatment)',
+                     'perm':pr.get('ownership') or 'USDA Forest Service','prod':pr.get('activity') or '(federal chemical treatment)',
                      'reg':'','ai':'(not public — Region 5 FOIA)','type':'X','qty':'','unit':'',
-                     'method':pr.get('method') or 'Chemical','acres':round(pr.get('amount') or 0,1),'appl':'',
-                     'report':'Federal (USFS FACTS)','site':pr.get('project') or ''})
+                     'method':pr.get('method') or 'Chemical','acres':round(float(pr.get('acres') or 0),1),'appl':'',
+                     'report':'Federal (USFS FACTS)','site':pr.get('nepa_project') or pr.get('project') or ''})
         n_fed += 1
 
 perms=sorted({r['perm'] for r in recs if r['perm']}); prods=sorted({r['prod'] for r in recs if r['prod']})
