@@ -15,41 +15,59 @@ try:
 except ImportError:
     requests = None
 
-# CAL FIRE FRAP Timber Harvest Plans feature service (verify/replace if moved):
-ENDPOINT = ("https://egis.fire.ca.gov/arcgis/rest/services/FRAP/"
-            "Timber_Harvest_Plans/MapServer/0/query")
+# CAL FIRE Timber Harvesting Plans (All) WGS84 hosted feature layer [ds816].
+# Verified 2026-06; fields: COUNTY, THP_YEAR, THP_NUM, TIMBEROWNR/LANDOWNER,
+# GIS_ACRES, SILVI_CAT/SILVI_1 (silviculture), PLAN_STAT, APPROVED.
+ENDPOINT = ("https://services1.arcgis.com/jUJYIo9tSA7EHvfZ/ArcGIS/rest/services/"
+            "CAL_FIRE_Timber_Harvesting_Plans_All_WGS84/FeatureServer/0/query")
+MIN_YEAR = 2020
+
+
+def _page(where, offset):
+    params = {"where": where, "outFields": "*", "returnGeometry": "true",
+              "outSR": "4326", "f": "json", "resultOffset": offset, "resultRecordCount": 1000}
+    r = requests.get(ENDPOINT + "?" + urllib.parse.urlencode(params), timeout=180)
+    r.raise_for_status()
+    return r.json()
 
 
 def pull(region_key, region):
     if requests is None:
         sys.exit("pip install requests")
-    names = "','".join(c["name"].upper() for c in region["counties"])
-    rows, pulled = [], time.strftime("%Y-%m-%d")
-    params = {"where": f"UPPER(COUNTY) IN ('{names}')", "outFields": "*",
-              "returnGeometry": "true", "outSR": "4326", "f": "json"}
-    try:
-        r = requests.get(ENDPOINT + "?" + urllib.parse.urlencode(params), timeout=120)
-        r.raise_for_status()
-        d = r.json()
-    except Exception as e:
-        print(f"  [thp] skipped ({e}); verify ENDPOINT")
-        return rows
-    for ft in d.get("features", []):
-        a = {k.lower(): v for k, v in ft.get("attributes", {}).items()}
-        g = ft.get("geometry", {})
-        lon = lat = None
-        if g.get("rings"):
-            ring = g["rings"][0]
-            lon = sum(p[0] for p in ring) / len(ring)
-            lat = sum(p[1] for p in ring) / len(ring)
-        rows.append({
-            "app_id": f"thp:{a.get('thp_no') or a.get('objectid')}", "source": "thp",
-            "region": region_key, "date": a.get("approval_date") or a.get("submitted"),
-            "year": a.get("year"), "lat": lat, "lon": lon, "county": a.get("county"),
-            "land_type": "forestry", "owner": a.get("timber_owner") or a.get("owner"),
-            "product": None, "active_ingredient": None, "amount": a.get("acres"),
-            "unit": "acres", "method": None, "activity": "Timber Harvest Plan",
-            "project": a.get("thp_no"), "status": a.get("status") or "plan",
-            "url": "https://caltreesplans.resources.ca.gov/caltrees/", "pulled": pulled})
+    # this layer stores COUNTY as a 3-letter code (Plumas->PLU, Butte->BUT, ...)
+    codes = "','".join(c["name"][:3].upper() for c in region["counties"])
+    where = f"COUNTY IN ('{codes}') AND THP_YEAR>={MIN_YEAR}"
+    rows, pulled, offset = [], time.strftime("%Y-%m-%d"), 0
+    while True:
+        try:
+            d = _page(where, offset)
+        except Exception as e:
+            print(f"  [thp] skipped ({e}); verify ENDPOINT")
+            return rows
+        feats = d.get("features", [])
+        for ft in feats:
+            a = {k.lower(): v for k, v in ft.get("attributes", {}).items()}
+            g = ft.get("geometry", {})
+            lon = lat = None
+            if g.get("rings"):
+                ring = g["rings"][0]
+                lon = sum(p[0] for p in ring) / len(ring)
+                lat = sum(p[1] for p in ring) / len(ring)
+            silvi = " / ".join(x for x in (a.get("silvi_cat"), a.get("silvi_1")) if x)
+            rows.append({
+                "app_id": f"thp:{a.get('thp_num') or a.get('objectid')}", "source": "thp",
+                "region": region_key, "date": a.get("approved"), "year": a.get("thp_year"),
+                "lat": lat, "lon": lon, "county": a.get("county"), "land_type": "forestry",
+                "owner": a.get("timberownr") or a.get("landowner"),
+                "product": None, "active_ingredient": None, "amount": a.get("gis_acres"),
+                "unit": "acres", "method": None,
+                "activity": "Timber Harvest Plan" + (f" ({silvi})" if silvi else ""),
+                "project": str(a.get("thp_num") or ""), "status": a.get("plan_stat") or "plan",
+                "url": "https://caltreesplans.resources.ca.gov/caltrees/", "pulled": pulled})
+        if not d.get("exceededTransferLimit") and len(feats) < 1000:
+            break
+        offset += len(feats)
+        if not feats:
+            break
     print(f"  [thp] {len(rows)} plans")
     return rows
