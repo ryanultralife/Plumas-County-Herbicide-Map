@@ -39,3 +39,35 @@ planned chemical treatments, including acres, NEPA project, and ranger district.
 
 The map's existing private-land dots come from CA Pesticide Use Reporting (PUR);
 this federal FACTS layer is the new public-land complement.
+
+## ledger.json  (PUBLIC TRANSPARENCY LEDGER)
+Feeds the **Transparency** tab in `index.html`. The app fetches this file at runtime,
+so updating it (and publishing) updates the live ledger - exactly like the map data.
+
+- **Shape:** `{ org, updated, currency, note, donations[], expenses[], hours[] }`
+  - `donations[]`: `date, source, gross, fees, type (Unrestricted|Restricted-Testing), platform, src, srcLabel`
+  - `expenses[]`:  `date, payee, bucket (Operations|Testing|Admin), amount, via, src, srcLabel`
+  - `hours[]`:     `date, person, task, role, hours, rate, approvedBy, src, srcLabel`
+- **Click-through sources:** every entry may carry `src` (a URL or repo-relative path)
+  and `srcLabel` (link text). These render as verifiable links in the ledger. Put
+  backing documents in `data/receipts/` and reference them with a relative path,
+  e.g. `data/receipts/2026-07-15-norcal-lab-invoice.pdf`.
+- **Computed in the app (do not store):** net = gross - fees; hours $ value = hours x rate;
+  cash on hand = net donations - total expenses. Logged hours are labor record only -
+  the cash paid for them is entered once under Expenses (Operations), so no double-count.
+
+### Update it
+```
+python scripts/ledger_tool.py summary          # show current totals
+python scripts/ledger_tool.py add-donation ...  # see --help for all flags
+python scripts/ledger_tool.py add-expense ...
+python scripts/ledger_tool.py add-hours ...
+```
+Then run `publish-data.ps1` to commit + push (it already stages the whole `data/` folder).
+The standalone `Transparency_Ledger_Template.xlsx` in the repo root is an optional
+offline bookkeeping copy; `data/ledger.json` is the source of truth for the website.
+
+## receipts/  (backing documents)
+Source documents linked from `ledger.json`. The seed entries point to PLACEHOLDER PDFs -
+replace each with the real receipt/invoice/award letter/chain-of-custody form, keeping
+the same filename (or update the `src` path in `ledger.json`).

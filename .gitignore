@@ -18,6 +18,11 @@ build/*.sqlite
 # Bulk raw archives downloaded by the scraper (150-260 MB each; keep out of git)
 data/raw/
 
+# Big data store + per-region per-row exports live in Supabase, not git.
+# (Small map-ready aggregates go in data/agg/ instead.)
+data/db/
+data/exports/
+
 # Transient SQLite sidecar files
 *.sqlite-journal
 *.sqlite-wal
