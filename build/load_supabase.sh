@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # Stream the local SQLite backup straight into Supabase Postgres (no giant CSV file).
-# Prereqs: psql + sqlite3 on PATH; schema applied (supabase db push, or paste the migration).
+# Prereqs: psql + python (uses build/export_csv.py; the sqlite3 CLI is NOT required).
+# Schema must be applied first (supabase db push, or psql -f the migration).
 #
 #   DATABASE_URL='postgresql://postgres.aykhwsermojstiyrfcnv:<DB_PASSWORD>@aws-1-us-west-2.pooler.supabase.com:5432/postgres' \
 #     bash build/load_supabase.sh [path/to/applications.sqlite]
@@ -12,9 +13,9 @@ DB="${1:-/c/Users/ryanv/plumas_db_backup/applications.sqlite}"
 : "${DATABASE_URL:?set DATABASE_URL to the Supabase connection string}"
 COLS="app_id,source,region,date,year,lat,lon,county,land_type,owner,product,active_ingredient,amount,unit,method,activity,project,status,url,pulled"
 
-echo "Rows to load: $(sqlite3 "$DB" 'select count(*) from applications')"
 # (optional) start clean:  psql "$DATABASE_URL" -c "truncate public.applications;"
-sqlite3 -csv -header "$DB" "SELECT $COLS FROM applications;" \
+# Fastest load: drop indexes first, COPY, then recreate (see migration for the index list).
+python build/export_csv.py "$DB" \
   | psql "$DATABASE_URL" -c "\copy public.applications ($COLS) FROM STDIN WITH (FORMAT csv, HEADER true, NULL '')"
 
 echo "Loaded. Verifying + building the map view + scores view:"

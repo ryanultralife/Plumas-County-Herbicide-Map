@@ -177,11 +177,32 @@ function wire(){
   });
 }
 
-Promise.all([
-  fetch('data/agg/summary.json').then(r=>r.ok?r.json():null).catch(()=>null),
-  fetch('data/agg/aggregated.geojson').then(r=>r.json())
-]).then(([sum,geo])=>{
-  features=geo.features;
+// Live from Supabase (read-only anon key; only the aggregated map_agg view is exposed).
+const SB_URL='https://aykhwsermojstiyrfcnv.supabase.co';
+const SB_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImF5a2h3c2VybW9qc3RpeXJmY252Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODIzNTU3MDIsImV4cCI6MjA5NzkzMTcwMn0.XPBmdHPv0CswsHFynPwhjj3DatzlWIXY2DSPGJOz_WQ';
+async function fromSupabase(){
+  const H={apikey:SB_KEY, Authorization:'Bearer '+SB_KEY};
+  const out=[]; let from=0; const step=1000;
+  for(;;){
+    const r=await fetch(`${SB_URL}/rest/v1/map_agg?select=lat,lon,county,region,n,c,ai`,
+      {headers:Object.assign({Range:`${from}-${from+step-1}`}, H)});
+    if(!r.ok) throw new Error('supabase '+r.status);
+    const rows=await r.json();
+    for(const x of rows) out.push({geometry:{coordinates:[x.lon,x.lat]},
+      properties:{county:x.county,region:x.region,n:x.n,c:x.c||{},ai:x.ai||[]}});
+    if(rows.length<step) break;
+    from+=step;
+  }
+  if(!out.length) throw new Error('supabase empty');
+  return out;
+}
+async function fromStatic(){ const g=await (await fetch('data/agg/aggregated.geojson')).json(); return g.features; }
+(async()=>{
+  let src='Supabase (live)';
+  try{ features=await fromSupabase(); }
+  catch(e){ src='static snapshot';
+    try{ features=await fromStatic(); }
+    catch(e2){ document.getElementById('stat').innerHTML='No data available yet.'; return; } }
   const classes=Object.keys(CLASS_COLORS);
   const years=[...new Set(features.flatMap(f=>Object.keys(f.properties.c).map(k=>k.split('|')[0])))]
     .filter(Boolean).sort();
@@ -189,14 +210,12 @@ Promise.all([
   buildChecklist('classes',classes, v=>v==='herbicide');   // default: herbicide only
   buildChecklist('years',years);
   buildChecklist('lands',lands);
-  const tot = sum? sum.total : features.reduce((a,f)=>a+f.properties.n,0);
+  const tot=features.reduce((a,f)=>a+f.properties.n,0);
   document.getElementById('stat').innerHTML =
-    `<b>${(tot).toLocaleString()}</b> applications · <b>${features.length.toLocaleString()}</b> locations`;
+    `<b>${tot.toLocaleString()}</b> applications · <b>${features.length.toLocaleString()}</b> locations `+
+    `<span class="mini">· ${src}</span>`;
   wire(); render();
-}).catch(e=>{
-  document.getElementById('stat').innerHTML =
-    'No data yet. Run <code>python scraper/run_region.py all</code> then <code>python build/aggregate.py</code> to build <code>data/agg/aggregated.geojson</code>.';
-});
+})();
 </script>
 </body>
 </html>
