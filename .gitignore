@@ -31,3 +31,9 @@ data/exports/
 # Python bytecode cache
 __pycache__/
 *.pyc
+
+# Supabase CLI local cache
+supabase/.temp/
+
+# Big aggregated layer (regenerable; map reads Supabase map_agg or this if served)
+data/agg/aggregated.geojson

@@ -1,0 +1,51 @@
+{
+ "by_class": {
+  "unknown": 2437093,
+  "herbicide": 1638722,
+  "other": 1875065,
+  "insecticide/miticide": 1985870,
+  "fungicide": 1462081,
+  "oil/adjuvant": 265417,
+  "fumigant": 20686,
+  "growth regulator": 100141,
+  "rodenticide": 18934
+ },
+ "by_year": {
+  "2020": 4205185,
+  "2021": 3969578,
+  "2022": 3661264,
+  "2023": 443,
+  "2024": 525,
+  "2025": 875,
+  "2026": 172,
+  "2027": 18,
+  "2028": 43,
+  "2029": 1
+ },
+ "by_land": {
+  "ag": 11833702,
+  "federal": 2806,
+  "forestry": 1337,
+  "other": 136,
+  "rangeland": 16,
+  "roadside": 37,
+  "utility": 70
+ },
+ "by_region": {
+  "bay-area": 1191739,
+  "central-coast": 2973733,
+  "central-sierra": 132844,
+  "eastern-sierra": 31,
+  "north-coast": 90561,
+  "northern-sierra": 231870,
+  "sacramento-valley": 672533,
+  "san-joaquin-valley": 4524176,
+  "shasta-cascade": 278965,
+  "southern-california": 1741652
+ },
+ "by_source": {
+  "facts": 4402,
+  "pur": 11833702
+ },
+ "total": 11838104
+}
