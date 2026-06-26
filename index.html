@@ -173,6 +173,16 @@ function loadJuris(){
     .then(function(rows){JURIS=indexJuris(rows);return JURIS;})
     .catch(function(){JURIS=indexJuris([]);return JURIS;});
 }
+var OPNAMES_LOADED=false;
+function loadOperatorNames(){
+  if(OPNAMES_LOADED) return Promise.resolve(OWNER_NAMES);
+  OPNAMES_LOADED=true;
+  var H={apikey:SB_KEY,Authorization:'Bearer '+SB_KEY};
+  return fetch(SB_URL+'/rest/v1/operator_names?select=operator_id,name',{headers:H})
+    .then(function(r){if(!r.ok)throw 0;return r.json();})
+    .then(function(rows){rows.forEach(function(o){if(o.operator_id&&o.name)OWNER_NAMES[o.operator_id]=o.name;});return OWNER_NAMES;})
+    .catch(function(){return OWNER_NAMES;});
+}
 function indexJuris(rows){
   var J={state:null,region:{},county:{}};
   rows.forEach(function(r){if(r.level==='state')J.state=r;else if(r.level==='region')J.region[r.region]=r;else J.county[r.county]=r;});
@@ -237,20 +247,21 @@ function buildMap(){
   function reg(label,builder,on){var g=L.layerGroup();g._builder=builder;overlays[label]=g;if(on){lazy.push(g);}return g;}
   CLASS_ORDER.forEach(function(cl){
     reg('◉ '+cl.replace('_',' '), function(g){scopedCells().forEach(function(p){var cc=_byClass(p.c||{})[cl];if(!cc||!cc[0])return;
-      L.circleMarker([p.lat,p.lon],{renderer:canvas,radius:Math.min(2+Math.sqrt(cc[0])/1.3,20),weight:0,fillColor:CLASS_COLORS[cl],fillOpacity:.72}).bindPopup(cellPopup(p),{maxWidth:330}).addTo(g);});}, cl==='herbicide');
+      L.circleMarker([p.lat,p.lon],{renderer:canvas,radius:Math.min(2+Math.sqrt(cc[0])/1.3,20),weight:0,fillColor:CLASS_COLORS[cl],fillOpacity:.72}).bindPopup(cellPopup(p),{maxWidth:330}).addTo(g);});}, false);
   });
   Object.keys(SRC_META).forEach(function(sk){
     reg('▣ '+SRC_META[sk].label, function(g){scopedCells().forEach(function(p){var n=p.src&&p.src[sk]?_num(p.src[sk]):0;if(!n)return;
       L.circleMarker([p.lat,p.lon],{renderer:canvas,radius:Math.min(2+Math.sqrt(n)/1.3,20),color:SRC_META[sk].color,weight:1,fill:false,opacity:.7}).bindPopup(cellPopup(p),{maxWidth:330}).addTo(g);});});
   });
+  reg('▦ Spray intensity (all)', function(g){scopedCells().forEach(function(p){var t=+p.n||0;if(!t)return;L.circleMarker([p.lat,p.lon],{renderer:canvas,radius:Math.min(3+Math.sqrt(t)/1.2,24),weight:0,fillColor:'#6b4423',fillOpacity:.5}).bindPopup(cellPopup(p),{maxWidth:330}).addTo(g);});}, true);
   overlays['Streams & water (USGS)']=hydro;
-  OVERLAYS=overlays;
+  OVERLAYS=overlays; loadOperatorNames();
   function ensure(g){if(g&&g._builder&&!g._built){g._builder(g);g._built=true;}}
   map.on('overlayadd',function(e){ensure(e.layer);});
   L.control.layers({'Streets (CARTO)':carto,'Topographic':topo,'Satellite':sat},overlays,{collapsed:true}).addTo(map);
   var lg=L.control({position:'bottomright'});lg.onAdd=function(){var d=L.DomUtil.create('div','legend');
     var rows=CLASS_ORDER.map(function(cl){return '<span class="ring" style="background:'+CLASS_COLORS[cl]+';border:0"></span> '+cl.replace('_',' ');}).join('<br>');
-    d.innerHTML='<b>Pesticide class</b> <span style="color:#888">(◉ layers)</span><br>'+rows+'<br><span style="font-size:11px;color:#666">▣ source layers · dot size = count · CA 2020+</span>';return d;};lg.addTo(map);
+    d.innerHTML='<b>Pesticide class</b> <span style="color:#888">(◉ layers)</span><br>'+rows+'<br><span style="font-size:11px;color:#666">▦ brown = total spray intensity · ▣ source layers · dot size = count · CA 2020+</span>';return d;};lg.addTo(map);
   document.getElementById('mapStat')&&(document.getElementById('mapStat').textContent='Loading statewide data…');
   loadCells().then(function(){
     lazy.forEach(function(g){ensure(g);g.addTo(map);});
@@ -293,7 +304,7 @@ var _dataInit=false;
 function renderData(){
   var wrap=document.getElementById('dataWrap'); if(!wrap) return;
   if(!_dataInit){wrap.innerHTML='<p style="color:#777;padding:24px 0">Loading statewide data…</p>';}
-  Promise.all([loadCells(),loadJuris()]).then(function(){
+  Promise.all([loadCells(),loadJuris(),loadOperatorNames()]).then(function(){
     _dataInit=true;
     if(!document.getElementById('scopeRegion')||!document.getElementById('scopeRegion').options.length) populateScopeBar();
     wrap.innerHTML=renderDataHtml();
@@ -534,7 +545,7 @@ function rawCSV(){var rows=rawFiltered(),lines=[RAWCOLS.join(',')];
 function renderSciScope(){
   var el=document.getElementById('sciScope'); if(!el) return;
   el.innerHTML='<p style="color:#777;margin:0">Loading…</p>';
-  Promise.all([loadCells(),loadJuris()]).then(function(){
+  Promise.all([loadCells(),loadJuris(),loadOperatorNames()]).then(function(){
     var cs=scopedCells();
     var where=SCOPE.county?SCOPE.county+' County':SCOPE.region?regionLabel(SCOPE.region):'California';
     if(!cs.length){el.innerHTML='<h2>'+where+'</h2><p class="sub">No mapped applications for this area.</p>';return;}
@@ -571,7 +582,7 @@ function renderRaw(){
   var head=document.getElementById('rawhead'); if(!head) return;
   head.innerHTML=RAWCOLS2.map(function(c,i){return '<th onclick="rawSort('+i+')">'+c+' ⇅</th>';}).join('');
   var b=document.getElementById('rawbody'); if(b) b.innerHTML='<tr><td colspan="9" style="padding:16px;color:#777">Loading records…</td></tr>';
-  loadSamples().then(function(){rawApply();}).catch(function(){var bb=document.getElementById('rawbody'); if(bb) bb.innerHTML='<tr><td colspan="9" style="padding:16px;color:#a00">Records unavailable.</td></tr>';});
+  Promise.all([loadSamples(),loadOperatorNames()]).then(function(){rawApply();}).catch(function(){var bb=document.getElementById('rawbody'); if(bb) bb.innerHTML='<tr><td colspan="9" style="padding:16px;color:#a00">Records unavailable.</td></tr>';});
 }
 function rawFiltered(){
   var q=((document.getElementById('rawq')||{}).value||'').toLowerCase(), sf=((document.getElementById('rawsrc')||{}).value||'');

@@ -11,7 +11,7 @@ drop materialized view if exists public.map_agg;
 create materialized view public.map_agg as
 with cells as (
   select round(lat::numeric,3) lat, round(lon::numeric,3) lon,
-    coalesce(year::text,'')||'|'||coalesce(public.chem_class(active_ingredient),'unknown')||'|'||coalesce(land_type,'unknown') as ck,
+    coalesce(year::text,'')||'|'||coalesce(public.chem_class(active_ingredient, product),'unknown')||'|'||coalesce(land_type,'unknown') as ck,
     count(*)::int cnt,
     round(sum(case when unit='lbs' then coalesce(amount,0) else 0 end)::numeric,1) lbs,
     max(county) county, max(region) region

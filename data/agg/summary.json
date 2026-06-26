@@ -1,14 +1,14 @@
 {
  "by_class": {
-  "unknown": 2437031,
-  "herbicide": 1637261,
-  "other": 1365612,
-  "insecticide": 2441708,
-  "fungicide": 1517213,
-  "adjuvant": 265417,
-  "fumigant": 20686,
-  "growth_regulator": 100085,
-  "rodenticide": 18934
+  "unknown": 1458092,
+  "herbicide": 1789296,
+  "other": 375661,
+  "fungicide": 1978736,
+  "insecticide": 2794346,
+  "adjuvant": 1244356,
+  "fumigant": 25255,
+  "growth_regulator": 118979,
+  "rodenticide": 19226
  },
  "by_year": {
   "2020": 4205185,
