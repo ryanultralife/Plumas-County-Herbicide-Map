@@ -10,9 +10,11 @@ obtained per county, via a Public Records Act (CPRA) request. (See
 ## Workflow
 1. **Generate letters:** `python build/gen_records_requests.py` → `letters/*.md`
    (one per priority county, ordered by spray volume; Plumas included as home county).
-2. **Send** each letter to that county's Agricultural Commissioner (address via
-   https://www.cacasa.org/county-directory/ or CDPR's portal
-   https://cdprca.nextrequest.com). Fill in your reply email first.
+2. **Send** each letter. The recipient (verified county Ag Commissioner email or
+   records portal) and the sender (spraymapca@gmail.com) are already filled in.
+   Counties with no published AgComm email (e.g. Santa Barbara) use a public-records
+   portal — submit there and route the request to the Agricultural Commissioner.
+   Madera's address should be re-confirmed (its county site blocks automated checks).
 3. **When a county replies** with a permit-ID → name file, normalize it to a CSV with
    at least `operator_id,name` (optionally `entity_type,county`) and ingest:
    `DBURL=... python build/ingest_operator_names.py path/to/county.csv --county "Fresno" --source "cac-fresno-2026"`
