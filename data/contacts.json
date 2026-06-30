@@ -1,0 +1,655 @@
+{
+ "dpr": {
+  "phone": "1-877-378-5463",
+  "url": "https://www.cdpr.ca.gov/report-a-pesticide-incident/",
+  "note": "Call 1-87-PestLine (1-877-378-5463) \u2014 routes to your County Agricultural Commissioner."
+ },
+ "reps": {
+  "url": "https://findyourrep.legislature.ca.gov/",
+  "note": "Find your CA state Senator & Assembly Member by address."
+ },
+ "air": {
+  "url": "https://ww2.arb.ca.gov/california-air-districts",
+  "note": "Local air district \u2014 pesticide drift, odor, air quality."
+ },
+ "counties": {
+  "Alameda": {
+   "ag": {
+    "officer": "Cathy Roache",
+    "email": "alameda.ag@acgov.org",
+    "phone": "(510) 670-5232"
+   },
+   "water": {
+    "region": "Region 2 - San Francisco Bay Regional Water Quality Control Board",
+    "url": "https://calepa.ca.gov/enforcement/complaints/"
+   }
+  },
+  "Alpine": {
+   "ag": {
+    "officer": "LeeAnne Mila",
+    "email": "eldcag@edcgov.us",
+    "phone": "(530) 621-5520"
+   },
+   "water": {
+    "region": "Region 6 - Lahontan Regional Water Quality Control Board",
+    "url": "https://calepa.ca.gov/enforcement/complaints/"
+   }
+  },
+  "Amador": {
+   "ag": {
+    "officer": "Eric Mayberry",
+    "email": "agriculture@amadorgov.org",
+    "phone": "(209) 223-6487"
+   },
+   "water": {
+    "region": "Region 5 - Central Valley Regional Water Quality Control Board",
+    "url": "https://calepa.ca.gov/enforcement/complaints/"
+   }
+  },
+  "Butte": {
+   "ag": {
+    "officer": "Katharine Quist",
+    "email": "butteag@buttecounty.ca.gov",
+    "phone": "(530) 552-4100"
+   },
+   "water": {
+    "region": "Region 5 - Central Valley Regional Water Quality Control Board",
+    "url": "https://calepa.ca.gov/enforcement/complaints/"
+   }
+  },
+  "Calaveras": {
+   "ag": {
+    "officer": "Jessica Fowler",
+    "email": "agpublic@calaverascounty.gov",
+    "phone": "(209) 754-6504 x3"
+   },
+   "water": {
+    "region": "Region 5 - Central Valley Regional Water Quality Control Board",
+    "url": "https://calepa.ca.gov/enforcement/complaints/"
+   }
+  },
+  "Colusa": {
+   "ag": {
+    "officer": "Anastacia Allen",
+    "email": "ccag@countyofcolusa.org",
+    "phone": "(530) 458-0580"
+   },
+   "water": {
+    "region": "Region 5 - Central Valley Regional Water Quality Control Board",
+    "url": "https://calepa.ca.gov/enforcement/complaints/"
+   }
+  },
+  "Contra Costa": {
+   "ag": {
+    "officer": "Matt Slattengren",
+    "email": "AGCommissioner@ag.cccounty.us",
+    "phone": "(925) 608-6600"
+   },
+   "water": {
+    "region": "Region 2 - San Francisco Bay Regional Water Quality Control Board",
+    "url": "https://calepa.ca.gov/enforcement/complaints/"
+   }
+  },
+  "Del Norte": {
+   "ag": {
+    "officer": "Justin Riggs",
+    "email": "dnag@co.del-norte.ca.us",
+    "phone": "(707) 464-7235"
+   },
+   "water": {
+    "region": "Region 1 - North Coast Regional Water Quality Control Board",
+    "url": "https://calepa.ca.gov/enforcement/complaints/"
+   }
+  },
+  "El Dorado": {
+   "ag": {
+    "officer": "LeeAnne Mila",
+    "email": "eldcag@edcgov.us",
+    "phone": "(530) 621-5520"
+   },
+   "water": {
+    "region": "Region 5 - Central Valley Regional Water Quality Control Board",
+    "url": "https://calepa.ca.gov/enforcement/complaints/"
+   }
+  },
+  "Fresno": {
+   "ag": {
+    "officer": "Melissa Cregan",
+    "email": "fresnoag@fresnocountyca.gov",
+    "phone": "(559) 600-7510"
+   },
+   "water": {
+    "region": "Region 5 - Central Valley Regional Water Quality Control Board",
+    "url": "https://calepa.ca.gov/enforcement/complaints/"
+   }
+  },
+  "Glenn": {
+   "ag": {
+    "officer": "Marcie Skelton",
+    "email": "agcommr@countyofglenn.net",
+    "phone": "(530) 934-6501"
+   },
+   "water": {
+    "region": "Region 1 - North Coast Regional Water Quality Control Board",
+    "url": "https://calepa.ca.gov/enforcement/complaints/"
+   }
+  },
+  "Humboldt": {
+   "ag": {
+    "officer": "Weylan Shaw",
+    "email": "agcommissioner@co.humboldt.ca.us",
+    "phone": "(707) 441-5260"
+   },
+   "water": {
+    "region": "Region 1 - North Coast Regional Water Quality Control Board",
+    "url": "https://calepa.ca.gov/enforcement/complaints/"
+   }
+  },
+  "Imperial": {
+   "ag": {
+    "officer": "Jolene Dessert",
+    "email": "agcom@co.imperial.ca.us",
+    "phone": "(442) 265-1500"
+   },
+   "water": {
+    "region": "Region 7 - Colorado River Basin Regional Water Quality Control Board",
+    "url": "https://www.waterboards.ca.gov/rwqcb7/resources/file_wq_env_complaint.html"
+   }
+  },
+  "Inyo": {
+   "ag": {
+    "officer": "Nathan Reade",
+    "email": "inyomonoag@gmail.com",
+    "phone": "(760) 873-7860"
+   },
+   "water": {
+    "region": "Region 6 - Lahontan Regional Water Quality Control Board",
+    "url": "https://calepa.ca.gov/enforcement/complaints/"
+   }
+  },
+  "Kern": {
+   "ag": {
+    "officer": "Glenn Fankhauser",
+    "email": "agcomm@kerncounty.com",
+    "phone": "(661) 868-6300"
+   },
+   "water": {
+    "region": "Region 3 - Central Coast Regional Water Quality Control Board",
+    "url": "https://calepa.ca.gov/enforcement/complaints/"
+   }
+  },
+  "Kings": {
+   "ag": {
+    "officer": "Jimmy Hook",
+    "email": "agstaff@co.kings.ca.us",
+    "phone": "(559) 852-2830"
+   },
+   "water": {
+    "region": "Region 5 - Central Valley Regional Water Quality Control Board",
+    "url": "https://calepa.ca.gov/enforcement/complaints/"
+   }
+  },
+  "Lake": {
+   "ag": {
+    "officer": "Katherine Vanderwall",
+    "email": "lakeag@lakecountyca.gov",
+    "phone": "(707) 263-0217"
+   },
+   "water": {
+    "region": "Region 1 - North Coast Regional Water Quality Control Board",
+    "url": "https://calepa.ca.gov/enforcement/complaints/"
+   }
+  },
+  "Lassen": {
+   "ag": {
+    "officer": "Gary Fensler",
+    "email": "agcommissioner@co.lassen.ca.us",
+    "phone": "(530) 251-8110"
+   },
+   "water": {
+    "region": "Region 5 - Central Valley Regional Water Quality Control Board",
+    "url": "https://calepa.ca.gov/enforcement/complaints/"
+   }
+  },
+  "Los Angeles": {
+   "ag": {
+    "officer": "Kurt Floren",
+    "email": "losangag@acwm.lacounty.gov",
+    "phone": "(626) 575-5451"
+   },
+   "water": {
+    "region": "Region 4 - Los Angeles Regional Water Quality Control Board",
+    "url": "https://calepa.ca.gov/enforcement/complaints/"
+   }
+  },
+  "Madera": {
+   "ag": {
+    "officer": "Rusty Lantsberger",
+    "email": "Commissioner@madera-county.com",
+    "phone": "(559) 675-7876"
+   },
+   "water": {
+    "region": "Region 5 - Central Valley Regional Water Quality Control Board",
+    "url": "https://calepa.ca.gov/enforcement/complaints/"
+   }
+  },
+  "Marin": {
+   "ag": {
+    "officer": "Joseph Deviney",
+    "email": "Marin.dept.ag@marincounty.gov",
+    "phone": "(415) 473-6700"
+   },
+   "water": {
+    "region": "Region 1 - North Coast Regional Water Quality Control Board",
+    "url": "https://calepa.ca.gov/enforcement/complaints/"
+   }
+  },
+  "Mariposa": {
+   "ag": {
+    "officer": "Monica Nielsen",
+    "email": "agcomm@mariposacounty.gov",
+    "phone": "(209) 966-2075"
+   },
+   "water": {
+    "region": "Region 5 - Central Valley Regional Water Quality Control Board",
+    "url": "https://calepa.ca.gov/enforcement/complaints/"
+   }
+  },
+  "Mendocino": {
+   "ag": {
+    "officer": "Angela Godwin",
+    "email": "agcomm@mendocinocounty.gov",
+    "phone": "(707) 234-6830"
+   },
+   "water": {
+    "region": "Region 1 - North Coast Regional Water Quality Control Board",
+    "url": "https://calepa.ca.gov/enforcement/complaints/"
+   }
+  },
+  "Merced": {
+   "ag": {
+    "officer": "Sean Runyon",
+    "email": "agdeptemail@co.merced.ca.us",
+    "phone": "(209) 385-7431"
+   },
+   "water": {
+    "region": "Region 5 - Central Valley Regional Water Quality Control Board",
+    "url": "https://calepa.ca.gov/enforcement/complaints/"
+   }
+  },
+  "Modoc": {
+   "ag": {
+    "officer": "Heather Kelly",
+    "email": "agcommissioner@co.modoc.ca.us",
+    "phone": "(530) 233-6401"
+   },
+   "water": {
+    "region": "Region 1 - North Coast Regional Water Quality Control Board",
+    "url": "https://calepa.ca.gov/enforcement/complaints/"
+   }
+  },
+  "Mono": {
+   "ag": {
+    "officer": "Nathan Reade",
+    "email": "inyomonoag@gmail.com",
+    "phone": "(760) 873-7860"
+   },
+   "water": {
+    "region": "Region 6 - Lahontan Regional Water Quality Control Board",
+    "url": "https://calepa.ca.gov/enforcement/complaints/"
+   }
+  },
+  "Monterey": {
+   "ag": {
+    "officer": "Juan Hidalgo",
+    "email": "agcomm@co.monterey.ca.us",
+    "phone": "(831) 759-7325"
+   },
+   "water": {
+    "region": "Region 3 - Central Coast Regional Water Quality Control Board",
+    "url": "https://calepa.ca.gov/enforcement/complaints/"
+   }
+  },
+  "Napa": {
+   "ag": {
+    "officer": "Tracy Cleveland",
+    "email": "agcommissioner@countyofnapa.org",
+    "phone": "(707) 253-4357"
+   },
+   "water": {
+    "region": "Region 2 - San Francisco Bay Regional Water Quality Control Board",
+    "url": "https://calepa.ca.gov/enforcement/complaints/"
+   }
+  },
+  "Nevada": {
+   "ag": {
+    "officer": "Chris deNijs",
+    "email": "agdept@nevadacountyca.gov",
+    "phone": "(530) 470-2690"
+   },
+   "water": {
+    "region": "Region 5 - Central Valley Regional Water Quality Control Board",
+    "url": "https://calepa.ca.gov/enforcement/complaints/"
+   }
+  },
+  "Orange": {
+   "ag": {
+    "officer": "Jose Arriaga",
+    "email": "oc.commissioner@awm.oc.gov",
+    "phone": "(714) 955-0100"
+   },
+   "water": {
+    "region": "Region 8 - Santa Ana Regional Water Quality Control Board",
+    "url": "https://calepa.ca.gov/enforcement/complaints/"
+   }
+  },
+  "Placer": {
+   "ag": {
+    "officer": "Josh Huntsinger",
+    "email": "PlacerAg@placer.ca.gov",
+    "phone": "(530) 889-7372"
+   },
+   "water": {
+    "region": "Region 5 - Central Valley Regional Water Quality Control Board",
+    "url": "https://calepa.ca.gov/enforcement/complaints/"
+   }
+  },
+  "Plumas": {
+   "ag": {
+    "officer": "Willo Vieira",
+    "email": "WilloVieira@countyofplumas.com",
+    "phone": "(530) 283-6365"
+   },
+   "water": {
+    "region": "Region 5 - Central Valley Regional Water Quality Control Board",
+    "url": "https://calepa.ca.gov/enforcement/complaints/"
+   }
+  },
+  "Riverside": {
+   "ag": {
+    "officer": "Delia Cioc",
+    "email": "agdept@rivco.org",
+    "phone": "(951) 955-3045"
+   },
+   "water": {
+    "region": "Region 7 - Colorado River Basin Regional Water Quality Control Board",
+    "url": "https://www.waterboards.ca.gov/rwqcb7/resources/file_wq_env_complaint.html"
+   }
+  },
+  "Sacramento": {
+   "ag": {
+    "officer": "Chris Flores",
+    "email": "agcomm@saccounty.gov",
+    "phone": "(916) 875-6603"
+   },
+   "water": {
+    "region": "Region 5 - Central Valley Regional Water Quality Control Board",
+    "url": "https://calepa.ca.gov/enforcement/complaints/"
+   }
+  },
+  "San Benito": {
+   "ag": {
+    "officer": "Ken Griffin",
+    "email": "kgriffin@cosb.us",
+    "phone": "(831) 637-5344"
+   },
+   "water": {
+    "region": "Region 3 - Central Coast Regional Water Quality Control Board",
+    "url": "https://calepa.ca.gov/enforcement/complaints/"
+   }
+  },
+  "San Bernardino": {
+   "ag": {
+    "officer": "Brady Gergovich",
+    "email": "awm@awm.sbcounty.gov",
+    "phone": "(909) 387-2105"
+   },
+   "water": {
+    "region": "Region 6 - Lahontan Regional Water Quality Control Board",
+    "url": "https://calepa.ca.gov/enforcement/complaints/"
+   }
+  },
+  "San Diego": {
+   "ag": {
+    "officer": "Ha Dang",
+    "email": "sdcawm@sdcounty.ca.gov",
+    "phone": "(858) 694-2778"
+   },
+   "water": {
+    "region": "Region 7 - Colorado River Basin Regional Water Quality Control Board",
+    "url": "https://www.waterboards.ca.gov/rwqcb7/resources/file_wq_env_complaint.html"
+   }
+  },
+  "San Francisco": {
+   "ag": {
+    "officer": "Cree Morgan",
+    "email": "SFAgriculture@sfdph.org",
+    "phone": "(415) 252-3950"
+   },
+   "water": {
+    "region": "Region 2 - San Francisco Bay Regional Water Quality Control Board",
+    "url": "https://calepa.ca.gov/enforcement/complaints/"
+   }
+  },
+  "San Joaquin": {
+   "ag": {
+    "officer": "Kamal Bagri",
+    "email": "stocktonag2@sjgov.org",
+    "phone": "(209) 953-6000"
+   },
+   "water": {
+    "region": "Region 5 - Central Valley Regional Water Quality Control Board",
+    "url": "https://calepa.ca.gov/enforcement/complaints/"
+   }
+  },
+  "San Luis Obispo": {
+   "ag": {
+    "officer": "Martin Settevendemie",
+    "email": "agcommslo@co.slo.ca.us",
+    "phone": "(805) 781-5910"
+   },
+   "water": {
+    "region": "Region 3 - Central Coast Regional Water Quality Control Board",
+    "url": "https://calepa.ca.gov/enforcement/complaints/"
+   }
+  },
+  "San Mateo": {
+   "ag": {
+    "officer": "Koren Widdel",
+    "email": "smateoag@smcgov.org",
+    "phone": "(650) 363-4700"
+   },
+   "water": {
+    "region": "Region 2 - San Francisco Bay Regional Water Quality Control Board",
+    "url": "https://calepa.ca.gov/enforcement/complaints/"
+   }
+  },
+  "Santa Barbara": {
+   "ag": {
+    "officer": "Jose Chang",
+    "email": "agcommissioner@agcommissioner.com",
+    "phone": "(805) 681-5600"
+   },
+   "water": {
+    "region": "Region 3 - Central Coast Regional Water Quality Control Board",
+    "url": "https://calepa.ca.gov/enforcement/complaints/"
+   }
+  },
+  "Santa Clara": {
+   "ag": {
+    "officer": "Priscilla Yeaney",
+    "email": "scc.agriculture@cep.sccgov.org",
+    "phone": "(408) 918-4600"
+   },
+   "water": {
+    "region": "Region 2 - San Francisco Bay Regional Water Quality Control Board",
+    "url": "https://calepa.ca.gov/enforcement/complaints/"
+   }
+  },
+  "Santa Cruz": {
+   "ag": {
+    "officer": "David Sanford",
+    "email": "Agc002@agdept.com",
+    "phone": "(831) 763-8080"
+   },
+   "water": {
+    "region": "Region 3 - Central Coast Regional Water Quality Control Board",
+    "url": "https://calepa.ca.gov/enforcement/complaints/"
+   }
+  },
+  "Shasta": {
+   "ag": {
+    "officer": "John Ingram",
+    "email": "shastaag@shastacounty.gov",
+    "phone": "(530) 224-4949"
+   },
+   "water": {
+    "region": "Region 5 - Central Valley Regional Water Quality Control Board",
+    "url": "https://calepa.ca.gov/enforcement/complaints/"
+   }
+  },
+  "Sierra": {
+   "ag": {
+    "officer": "Willo Vieira",
+    "email": "WilloVieira@countyofplumas.com",
+    "phone": "(530) 283-6365"
+   },
+   "water": {
+    "region": "Region 5 - Central Valley Regional Water Quality Control Board",
+    "url": "https://calepa.ca.gov/enforcement/complaints/"
+   }
+  },
+  "Siskiyou": {
+   "ag": {
+    "officer": "Jim Smith",
+    "email": "jsmith@co.siskiyou.ca.us",
+    "phone": "(530) 841-4033"
+   },
+   "water": {
+    "region": "Region 1 - North Coast Regional Water Quality Control Board",
+    "url": "https://calepa.ca.gov/enforcement/complaints/"
+   }
+  },
+  "Solano": {
+   "ag": {
+    "officer": "Ed King",
+    "email": "agcomm48@SolanoCounty.gov",
+    "phone": "(707) 784-1310"
+   },
+   "water": {
+    "region": "Region 2 - San Francisco Bay Regional Water Quality Control Board",
+    "url": "https://calepa.ca.gov/enforcement/complaints/"
+   }
+  },
+  "Sonoma": {
+   "ag": {
+    "officer": "Andrew Smith",
+    "email": "sonomaag@sonoma-county.org",
+    "phone": "(707) 565-2371"
+   },
+   "water": {
+    "region": "Region 1 - North Coast Regional Water Quality Control Board",
+    "url": "https://calepa.ca.gov/enforcement/complaints/"
+   }
+  },
+  "Stanislaus": {
+   "ag": {
+    "officer": "Linda Pinfold",
+    "email": "agcom50@stancounty.com",
+    "phone": "(209) 525-4730"
+   },
+   "water": {
+    "region": "Region 5 - Central Valley Regional Water Quality Control Board",
+    "url": "https://calepa.ca.gov/enforcement/complaints/"
+   }
+  },
+  "Sutter": {
+   "ag": {
+    "officer": "Lisa Herbert",
+    "email": "sutterag@co.sutter.ca.us",
+    "phone": "(530) 822-7500"
+   },
+   "water": {
+    "region": "Region 5 - Central Valley Regional Water Quality Control Board",
+    "url": "https://calepa.ca.gov/enforcement/complaints/"
+   }
+  },
+  "Tehama": {
+   "ag": {
+    "officer": "Tom Moss",
+    "email": "tmoss@tehama.gov",
+    "phone": "(530) 527-4504"
+   },
+   "water": {
+    "region": "Region 5 - Central Valley Regional Water Quality Control Board",
+    "url": "https://calepa.ca.gov/enforcement/complaints/"
+   }
+  },
+  "Trinity": {
+   "ag": {
+    "officer": "Angela Blanchard",
+    "email": "ablanchard@trinitycounty.org",
+    "phone": "(530) 623-1356"
+   },
+   "water": {
+    "region": "Region 1 - North Coast Regional Water Quality Control Board",
+    "url": "https://calepa.ca.gov/enforcement/complaints/"
+   }
+  },
+  "Tulare": {
+   "ag": {
+    "officer": "Tom Tucker",
+    "email": "aginfo@tularecounty.ca.gov",
+    "phone": "(559) 684-3350"
+   },
+   "water": {
+    "region": "Region 5 - Central Valley Regional Water Quality Control Board",
+    "url": "https://calepa.ca.gov/enforcement/complaints/"
+   }
+  },
+  "Tuolumne": {
+   "ag": {
+    "officer": "Cody Thompson",
+    "email": "AgCommissioner@tuolumnecounty.ca.gov",
+    "phone": "(209) 533-5691"
+   },
+   "water": {
+    "region": "Region 5 - Central Valley Regional Water Quality Control Board",
+    "url": "https://calepa.ca.gov/enforcement/complaints/"
+   }
+  },
+  "Ventura": {
+   "ag": {
+    "officer": "Korinne Bell",
+    "email": "VenturaCountyAg.Commissioner@venturacounty.gov",
+    "phone": "(805) 388-4222"
+   },
+   "water": {
+    "region": "Region 3 - Central Coast Regional Water Quality Control Board",
+    "url": "https://calepa.ca.gov/enforcement/complaints/"
+   }
+  },
+  "Yolo": {
+   "ag": {
+    "officer": "Humberto Izquierdo",
+    "email": "agriculture@yolocounty.org",
+    "phone": "(530) 666-8140"
+   },
+   "water": {
+    "region": "Region 5 - Central Valley Regional Water Quality Control Board",
+    "url": "https://calepa.ca.gov/enforcement/complaints/"
+   }
+  },
+  "Yuba": {
+   "ag": {
+    "officer": "Steve Scheer",
+    "email": "YubaAg@yuba.gov",
+    "phone": "(530) 749-5400"
+   },
+   "water": {
+    "region": "Region 5 - Central Valley Regional Water Quality Control Board",
+    "url": "https://calepa.ca.gov/enforcement/complaints/"
+   }
+  }
+ }
+}

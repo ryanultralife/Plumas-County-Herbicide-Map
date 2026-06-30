@@ -142,6 +142,29 @@ function applicatorInfo(id){
 }
 var APPLICATOR_NOTE='California’s public pesticide-use data identifies operators only by a coded CDPR permit number, not a name — the state does not collect operator names; they are held only by county Agricultural Commissioners. We decode each ID to its county, year and permit type.';
 
+var CONTACTS=null;
+function loadContacts(){
+  if(CONTACTS) return Promise.resolve(CONTACTS);
+  return fetch('data/contacts.json').then(function(r){if(!r.ok)throw 0;return r.json();}).then(function(j){CONTACTS=j;return j;}).catch(function(){return null;});
+}
+function copyEmail(ev,a){ev.preventDefault();ev.stopPropagation();try{navigator.clipboard.writeText(a);var t=ev.target;var o=t.textContent;t.textContent='[copied]';setTimeout(function(){t.textContent=o;},1200);}catch(e){}return false;}
+function buildContacts(county){
+  if(!CONTACTS) return '';
+  var c=CONTACTS.counties&&CONTACTS.counties[county], dpr=CONTACTS.dpr||{}, reps=CONTACTS.reps||{}, air=CONTACTS.air||{};
+  var h='<div style="margin-top:7px;border-top:1px solid #e5e5e5;padding-top:5px;font-size:11.5px;line-height:1.5">';
+  h+='<b>Verify or raise a concern'+(county?' — '+county+' Co.':'')+'</b>';
+  if(c&&c.ag&&c.ag.email){var ag=c.ag;
+    h+='<div title="County Agricultural Commissioner: holds the permit records and investigates pesticide-use complaints. Start here.">'
+      +'<b>Ag Commissioner</b>'+(ag.officer?' ('+ag.officer+')':'')+': '
+      +'<a href="mailto:'+ag.email+'?subject='+encodeURIComponent('SprayMap data question — '+county+' County')+'">'+ag.email+'</a> '
+      +'<a href="#" onclick="return copyEmail(event,\''+ag.email+'\')" style="color:#2E5E3A" title="Copy the address to paste into your own email">[copy]</a>'
+      +(ag.phone?' · '+ag.phone:'')+'</div>';
+  }
+  if(c&&c.water){h+='<div title="Regional Water Quality Control Board: runoff, wells, drinking-water concerns"><b>Water</b>: <a href="'+c.water.url+'" target="_blank" rel="noopener">file a water-quality concern</a> ('+(c.water.region||'').replace(/ ?Regional.*/,'')+')</div>';}
+  h+='<div title="'+(dpr.note||'')+'"><b>State</b>: <a href="'+(dpr.url||'#')+'" target="_blank" rel="noopener">CA DPR</a> · 1-87-PestLine ('+(dpr.phone||'')+')</div>';
+  h+='<div><a href="'+(reps.url||'#')+'" target="_blank" rel="noopener" title="'+(reps.note||'')+'">your state reps</a> · <a href="'+(air.url||'#')+'" target="_blank" rel="noopener" title="'+(air.note||'')+'">air district</a></div>';
+  return h+'</div>';
+}
 function mergeOwners(owners){
   var m={}, order=[];
   (owners||[]).forEach(function(o){var inf=applicatorInfo(o[0]),k=inf.label;
@@ -159,6 +182,7 @@ function cellPopup(p){
   if(p.ai&&p.ai.length){h+='<b>Top active ingredients:</b><br><span style="color:#444">'+p.ai.slice(0,5).map(function(a){return a[0]+' ('+(+a[1]).toLocaleString()+')';}).join('<br>')+'</span><br>';}
   if(p.src&&Object.keys(p.src).length){var sm=[];Object.keys(p.src).forEach(function(k){sm.push((SRC_META[k]?SRC_META[k].label.replace(/ -.*/,''):k)+' '+_num(p.src[k]).toLocaleString());});h+='<b>Source:</b> '+sm.join(' · ')+'<br>';}
   if(p.owners&&p.owners.length){h+='<b>Top applicators:</b><br><span style="color:#444">'+mergeOwners(p.owners).slice(0,5).map(function(o){return o.label+' ('+o.n.toLocaleString()+')';}).join('<br>')+'</span>';}
+  h+=buildContacts(p.county||'');
   return h;
 }
 
@@ -270,7 +294,7 @@ function buildMap(){
   });
   reg('▦ Spray intensity (all)', function(g){scopedCells().forEach(function(p){var t=+p.n||0;if(!t)return;L.circleMarker([p.lat,p.lon],{renderer:canvas,radius:Math.min(3+Math.sqrt(t)/1.2,24),weight:0.6,color:'#ffffff',opacity:.45,fillColor:'#ff5a1f',fillOpacity:.62}).bindPopup(cellPopup(p),{maxWidth:330}).addTo(g);});}, true);
   overlays['Streams & water (USGS)']=hydro;
-  OVERLAYS=overlays; loadOperatorNames();
+  OVERLAYS=overlays; loadOperatorNames(); loadContacts();
   function ensure(g){if(g&&g._builder&&!g._built){g._builder(g);g._built=true;}}
   map.on('overlayadd',function(e){ensure(e.layer);});
   L.control.layers({'Streets (CARTO)':carto,'Topographic':topo,'Satellite':sat},overlays,{collapsed:false}).addTo(map);
