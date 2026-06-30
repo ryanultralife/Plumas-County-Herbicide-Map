@@ -102,7 +102,7 @@ td:first-child,th:first-child{text-align:left}tr.tot td{font-weight:bold;backgro
 var map=null, CELLS=null, JURIS=null, OVERLAYS=null;
 var SB_URL='https://aykhwsermojstiyrfcnv.supabase.co';
 var SB_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImF5a2h3c2VybW9qc3RpeXJmY252Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODIzNTU3MDIsImV4cCI6MjA5NzkzMTcwMn0.XPBmdHPv0CswsHFynPwhjj3DatzlWIXY2DSPGJOz_WQ';
-var SCOPE={region:null,county:null};
+var SCOPE={region:null,county:'Plumas'};  /* default to Plumas to keep the first render small; user can widen */
 var SCOPE_REGIONS=[], SCOPE_RC={}, COUNTY_REGION={};
 var CLASS_COLORS={herbicide:'#3fae5a',insecticide:'#e0883b',fungicide:'#3f7fe0',fumigant:'#b85cc8',rodenticide:'#c8513f',growth_regulator:'#cac33f',adjuvant:'#6b8276',other:'#9a9a9a',unknown:'#6a6a6a'};
 var CLASS_ORDER=['herbicide','insecticide','fungicide','fumigant','rodenticide','growth_regulator','adjuvant','other'];
@@ -207,10 +207,14 @@ function buildScopeLists(){
 function populateScopeBar(){
   if(!CELLS) return;
   buildScopeLists();
+  if(SCOPE.county && !SCOPE.region && COUNTY_REGION[SCOPE.county]) SCOPE.region=COUNTY_REGION[SCOPE.county];
+  if(SCOPE.county && !COUNTY_REGION[SCOPE.county]) {SCOPE.county=null; SCOPE.region=null;}  /* default county not in data -> statewide */
   var rs=document.getElementById('scopeRegion'); if(!rs) return;
   rs.innerHTML='<option value="">All California</option>'+SCOPE_REGIONS.map(function(r){return '<option value="'+r+'">'+regionLabel(r)+'</option>';}).join('');
   rs.value=SCOPE.region||'';
   populateCountyOptions();
+  var note=document.getElementById('scopeNote');
+  if(note) note.textContent=SCOPE.county?(SCOPE.county+' County'):SCOPE.region?regionLabel(SCOPE.region):'Statewide — all 58 counties';
 }
 function populateCountyOptions(){
   var cs=document.getElementById('scopeCounty'); if(!cs) return;
@@ -267,8 +271,8 @@ function buildMap(){
   document.getElementById('mapStat')&&(document.getElementById('mapStat').textContent='Loading statewide data…');
   loadCells().then(function(){
     lazy.forEach(function(g){ensure(g);g.addTo(map);});
-    populateScopeBar(); updateMapStat(); fitScope();
-    setTimeout(function(){map.invalidateSize(true);},80);
+    populateScopeBar(); updateMapStat();
+    setTimeout(function(){map.invalidateSize(true); fitScope();},150);
   }).catch(function(e){var el=document.getElementById('mapStat');if(el)el.textContent='Map data unavailable.';});
 }
 function rebuildLayers(){
@@ -280,8 +284,8 @@ function fitScope(){
   var cs=scopedCells();
   if((SCOPE.region||SCOPE.county)&&cs.length){
     var lats=cs.map(function(p){return p.lat;}), lons=cs.map(function(p){return p.lon;});
-    map.fitBounds([[Math.min.apply(null,lats),Math.min.apply(null,lons)],[Math.max.apply(null,lats),Math.max.apply(null,lons)]],{padding:[28,28],maxZoom:11});
-  } else { map.setView([37.6,-119.6],6); }
+    map.fitBounds([[Math.min.apply(null,lats),Math.min.apply(null,lons)],[Math.max.apply(null,lats),Math.max.apply(null,lons)]],{padding:[28,28],maxZoom:11,animate:false});
+  } else { map.setView([37.6,-119.6],6,{animate:false}); }
 }
 function updateMapStat(){
   var el=document.getElementById('mapStat'); if(!el) return;
