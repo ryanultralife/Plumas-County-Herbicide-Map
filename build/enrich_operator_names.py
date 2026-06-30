@@ -25,7 +25,8 @@ def fetch(url, timeout=120):
     return urllib.request.urlopen(req, timeout=timeout).read()
 
 def norm_perm(v):
-    s = "".join(ch for ch in str(v) if ch.isdigit())
+    s = str(v).split(".")[0]               # handle "3200530.0" float-style ids
+    s = "".join(ch for ch in s if ch.isdigit())
     return s.zfill(7) if s else None
 
 def clean_name(n):
@@ -126,11 +127,26 @@ def san_joaquin():
             n += 1
     return n
 
+# ---------- Plumas (32) + others already obtained: local records-request CSVs ----------
+def plumas_local():
+    n = 0
+    for fn, pcol, ncol in [("data/single_job_pur.csv", "Permit #", "Permitee"),
+                           ("data/prodag_monthly_summary.csv", "Permit #", "Permitee"),
+                           ("data/nonprod_ag_mspur.csv", "Permit #", "Permittee")]:
+        try:
+            with open(fn, newline="", encoding="utf-8-sig") as f:
+                for row in csv.DictReader(f):
+                    add(row.get(pcol), row.get(ncol), "Plumas", "plumas-records-2021-2024")
+                    n += 1
+        except FileNotFoundError:
+            pass
+    return n
+
 def main():
     dburl = os.environ.get("DBURL")
     if not dburl:
         sys.exit("Set DBURL in the environment.")
-    for label, fn in [("monterey", monterey), ("kern", kern),
+    for label, fn in [("plumas_local", plumas_local), ("monterey", monterey), ("kern", kern),
                       ("stanislaus", stanislaus), ("san_joaquin", san_joaquin)]:
         try:
             c = fn(); print(f"  {label}: {c:,} source rows fetched")
