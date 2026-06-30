@@ -246,20 +246,20 @@ function buildMap(){
   var topo=L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png',{maxZoom:17,attribution:'&copy; OpenTopoMap (CC-BY-SA), OpenStreetMap'});
   var carto=L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',{attribution:'&copy; OpenStreetMap &copy; CARTO'});
   var sat=L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',{attribution:'Esri'});
-  map=L.map('map',{center:[37.6,-119.6],zoom:6,preferCanvas:true,layers:[carto]});
+  map=L.map('map',{center:[37.6,-119.6],zoom:6,preferCanvas:true,layers:[sat]});
   var canvas=L.canvas({padding:0.5});
   var hydro=L.tileLayer('https://basemap.nationalmap.gov/arcgis/rest/services/USGSHydroCached/MapServer/tile/{z}/{y}/{x}',{opacity:.85,maxZoom:16,attribution:'USGS National Map - Hydrography'});
   var overlays={}; var lazy=[];
   function reg(label,builder,on){var g=L.layerGroup();g._builder=builder;overlays[label]=g;if(on){lazy.push(g);}return g;}
   CLASS_ORDER.forEach(function(cl){
     reg('◉ '+cl.replace('_',' '), function(g){scopedCells().forEach(function(p){var cc=_byClass(p.c||{})[cl];if(!cc||!cc[0])return;
-      L.circleMarker([p.lat,p.lon],{renderer:canvas,radius:Math.min(2+Math.sqrt(cc[0])/1.3,20),weight:0,fillColor:CLASS_COLORS[cl],fillOpacity:.72}).bindPopup(cellPopup(p),{maxWidth:330}).addTo(g);});}, false);
+      L.circleMarker([p.lat,p.lon],{renderer:canvas,radius:Math.min(2+Math.sqrt(cc[0])/1.3,20),weight:1,color:'#ffffff',opacity:.95,fillColor:CLASS_COLORS[cl],fillOpacity:.95}).bindPopup(cellPopup(p),{maxWidth:330}).addTo(g);});}, false);
   });
   Object.keys(SRC_META).forEach(function(sk){
     reg('▣ '+SRC_META[sk].label, function(g){scopedCells().forEach(function(p){var n=p.src&&p.src[sk]?_num(p.src[sk]):0;if(!n)return;
-      L.circleMarker([p.lat,p.lon],{renderer:canvas,radius:Math.min(2+Math.sqrt(n)/1.3,20),color:SRC_META[sk].color,weight:1,fill:false,opacity:.7}).bindPopup(cellPopup(p),{maxWidth:330}).addTo(g);});});
+      L.circleMarker([p.lat,p.lon],{renderer:canvas,radius:Math.min(2+Math.sqrt(n)/1.3,20),color:SRC_META[sk].color,weight:2.5,fill:false,opacity:.95}).bindPopup(cellPopup(p),{maxWidth:330}).addTo(g);});});
   });
-  reg('▦ Spray intensity (all)', function(g){scopedCells().forEach(function(p){var t=+p.n||0;if(!t)return;L.circleMarker([p.lat,p.lon],{renderer:canvas,radius:Math.min(3+Math.sqrt(t)/1.2,24),weight:0,fillColor:'#6b4423',fillOpacity:.5}).bindPopup(cellPopup(p),{maxWidth:330}).addTo(g);});}, true);
+  reg('▦ Spray intensity (all)', function(g){scopedCells().forEach(function(p){var t=+p.n||0;if(!t)return;L.circleMarker([p.lat,p.lon],{renderer:canvas,radius:Math.min(3+Math.sqrt(t)/1.2,24),weight:0.6,color:'#ffffff',opacity:.45,fillColor:'#ff5a1f',fillOpacity:.62}).bindPopup(cellPopup(p),{maxWidth:330}).addTo(g);});}, true);
   overlays['Streams & water (USGS)']=hydro;
   OVERLAYS=overlays; loadOperatorNames();
   function ensure(g){if(g&&g._builder&&!g._built){g._builder(g);g._built=true;}}
@@ -267,7 +267,7 @@ function buildMap(){
   L.control.layers({'Streets (CARTO)':carto,'Topographic':topo,'Satellite':sat},overlays,{collapsed:false}).addTo(map);
   var lg=L.control({position:'bottomright'});lg.onAdd=function(){var d=L.DomUtil.create('div','legend');
     var rows=CLASS_ORDER.map(function(cl){return '<span class="ring" style="background:'+CLASS_COLORS[cl]+';border:0"></span> '+cl.replace('_',' ');}).join('<br>');
-    d.innerHTML='<b>Pesticide class</b> <span style="color:#888">(◉ layers)</span><br>'+rows+'<br><span style="font-size:11px;color:#666">▦ brown = total spray intensity · ▣ source layers · dot size = count · CA 2020+</span>';return d;};lg.addTo(map);
+    d.innerHTML='<b>Pesticide class</b> <span style="color:#888">(◉ layers)</span><br>'+rows+'<br><span style="font-size:11px;color:#666">▦ orange = total spray intensity · ▣ source layers · dot size = count · CA 2020+</span>';return d;};lg.addTo(map);
   document.getElementById('mapStat')&&(document.getElementById('mapStat').textContent='Loading statewide data…');
   loadCells().then(function(){
     lazy.forEach(function(g){ensure(g);g.addTo(map);});
