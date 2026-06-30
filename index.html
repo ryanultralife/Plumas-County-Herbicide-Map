@@ -142,6 +142,13 @@ function applicatorInfo(id){
 }
 var APPLICATOR_NOTE='California’s public pesticide-use data identifies operators only by a coded CDPR permit number, not a name — the state does not collect operator names; they are held only by county Agricultural Commissioners. We decode each ID to its county, year and permit type.';
 
+function mergeOwners(owners){
+  var m={}, order=[];
+  (owners||[]).forEach(function(o){var inf=applicatorInfo(o[0]),k=inf.label;
+    if(!m[k]){m[k]={label:inf.label,meta:inf.meta,n:0};order.push(k);}
+    m[k].n+=(+o[1]||0);});
+  return order.map(function(k){return m[k];}).sort(function(a,b){return b.n-a.n;});
+}
 function cellPopup(p){
   var byc=_byClass(p.c||{}), yr=_years(p.c||{});
   var h='<b>'+(p.county||'?')+' County</b>'+(p.region?' <span style="color:#777">· '+regionLabel(p.region)+'</span>':'');
@@ -151,7 +158,7 @@ function cellPopup(p){
   h+='</ul>';
   if(p.ai&&p.ai.length){h+='<b>Top active ingredients:</b><br><span style="color:#444">'+p.ai.slice(0,5).map(function(a){return a[0]+' ('+(+a[1]).toLocaleString()+')';}).join('<br>')+'</span><br>';}
   if(p.src&&Object.keys(p.src).length){var sm=[];Object.keys(p.src).forEach(function(k){sm.push((SRC_META[k]?SRC_META[k].label.replace(/ -.*/,''):k)+' '+_num(p.src[k]).toLocaleString());});h+='<b>Source:</b> '+sm.join(' · ')+'<br>';}
-  if(p.owners&&p.owners.length){h+='<b>Top applicators:</b><br><span style="color:#444">'+p.owners.slice(0,5).map(function(o){return applicatorInfo(o[0]).label+' ('+(+o[1]).toLocaleString()+')';}).join('<br>')+'</span>';}
+  if(p.owners&&p.owners.length){h+='<b>Top applicators:</b><br><span style="color:#444">'+mergeOwners(p.owners).slice(0,5).map(function(o){return o.label+' ('+o.n.toLocaleString()+')';}).join('<br>')+'</span>';}
   return h;
 }
 
@@ -180,10 +187,12 @@ function loadOperatorNames(){
   if(OPNAMES_LOADED) return Promise.resolve(OWNER_NAMES);
   OPNAMES_LOADED=true;
   var H={apikey:SB_KEY,Authorization:'Bearer '+SB_KEY};
-  return fetch(SB_URL+'/rest/v1/operator_names?select=operator_id,name',{headers:H})
-    .then(function(r){if(!r.ok)throw 0;return r.json();})
-    .then(function(rows){rows.forEach(function(o){if(o.operator_id&&o.name)OWNER_NAMES[o.operator_id]=o.name;});return OWNER_NAMES;})
-    .catch(function(){return OWNER_NAMES;});
+  function page(from){
+    return fetch(SB_URL+'/rest/v1/operator_names?select=operator_id,name',{headers:Object.assign({Range:from+'-'+(from+999)},H)})
+      .then(function(r){if(!r.ok)throw 0;return r.json();})
+      .then(function(rows){rows.forEach(function(o){if(o.operator_id&&o.name)OWNER_NAMES[o.operator_id]=o.name;});return rows.length<1000?OWNER_NAMES:page(from+1000);});
+  }
+  return page(0).catch(function(){return OWNER_NAMES;});
 }
 function indexJuris(rows){
   var J={state:null,region:{},county:{}};
@@ -362,7 +371,7 @@ function renderDataHtml(){
     topAi.slice(0,15).map(function(a,i){return '<tr><td>'+(i+1)+'</td><td>'+a[0]+'</td><td>'+_fmt(a[1])+'</td></tr>';}).join('')+'</tbody></table></div>');
 
   h.push('<div class="card"><h2>Top applicators</h2><table><thead><tr><th>#</th><th>Operator</th><th>Applications</th></tr></thead><tbody>'+
-    topOwn.slice(0,15).map(function(o,i){var inf=applicatorInfo(o[0]);return '<tr><td>'+(i+1)+'</td><td>'+inf.label+(inf.meta?' <span class="om1">'+inf.meta+'</span>':'')+'</td><td>'+_fmt(o[1])+'</td></tr>';}).join('')+
+    mergeOwners(topOwn).slice(0,15).map(function(o,i){return '<tr><td>'+(i+1)+'</td><td>'+o.label+(o.meta?' <span class="om1">'+o.meta+'</span>':'')+'</td><td>'+_fmt(o.n)+'</td></tr>';}).join('')+
     '</tbody></table><p class="note">'+APPLICATOR_NOTE+'</p></div>');
 
   return h.join('');
