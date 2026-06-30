@@ -23,6 +23,8 @@ table{border-collapse:collapse;width:100%;font-size:12.5px}
 th,td{border:1px solid #dcdcdc;padding:5px 7px;text-align:right}th{background:#2E5E3A;color:#fff}
 td:first-child,th:first-child{text-align:left}tr.tot td{font-weight:bold;background:#eef3ee}
 .legend{background:#fff;padding:8px 10px;border-radius:6px;box-shadow:0 1px 5px rgba(0,0,0,.4);font:13px Arial;line-height:1.5}
+.leaflet-control-layers{max-height:calc(100vh - 170px);overflow-y:auto}
+@media(max-width:560px){.leaflet-control-layers{max-height:52vh;font-size:12px}}
 .legend i{width:14px;height:14px;display:inline-block;margin-right:6px;border:1px solid #555;vertical-align:middle}
 .legend .ring{width:12px;height:12px;border-radius:50%;background:#fd8d3c;display:inline-block;vertical-align:middle}
 .note{font-size:12px;color:#888;margin-top:6px}.datedbanner{background:#fff7e6;border:1px solid #ffd591;border-left:4px solid #fd8d3c;border-radius:8px;padding:10px 12px;margin-bottom:14px;font-size:13px;color:#5c3b00;line-height:1.45}#rawview{position:fixed;top:82px;left:0;right:0;bottom:0;overflow:auto;background:#f4f6f4;display:none;-webkit-overflow-scrolling:touch}.rawctrls{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 8px}.rawctrls input,.rawctrls select,.rawctrls button{font-size:13px;padding:7px 9px;border:1px solid #cfd8cf;border-radius:6px;background:#fff}.rawctrls input{flex:1 1 220px}.rawctrls button{background:#2E5E3A;color:#fff;border-color:#2E5E3A;cursor:pointer;font-weight:bold}.rawtbl{border-collapse:collapse;width:100%;font-size:12px}.rawtbl th,.rawtbl td{border:1px solid #e3e3e3;padding:4px 7px;text-align:left;white-space:nowrap}.rawtbl th{position:sticky;top:0;background:#2E5E3A;color:#fff;cursor:pointer;user-select:none}.rawtbl td{color:#222}.rawtbl tbody tr:nth-child(even){background:#fafbfa}
@@ -258,7 +260,7 @@ function buildMap(){
   OVERLAYS=overlays; loadOperatorNames();
   function ensure(g){if(g&&g._builder&&!g._built){g._builder(g);g._built=true;}}
   map.on('overlayadd',function(e){ensure(e.layer);});
-  L.control.layers({'Streets (CARTO)':carto,'Topographic':topo,'Satellite':sat},overlays,{collapsed:true}).addTo(map);
+  L.control.layers({'Streets (CARTO)':carto,'Topographic':topo,'Satellite':sat},overlays,{collapsed:false}).addTo(map);
   var lg=L.control({position:'bottomright'});lg.onAdd=function(){var d=L.DomUtil.create('div','legend');
     var rows=CLASS_ORDER.map(function(cl){return '<span class="ring" style="background:'+CLASS_COLORS[cl]+';border:0"></span> '+cl.replace('_',' ');}).join('<br>');
     d.innerHTML='<b>Pesticide class</b> <span style="color:#888">(◉ layers)</span><br>'+rows+'<br><span style="font-size:11px;color:#666">▦ brown = total spray intensity · ▣ source layers · dot size = count · CA 2020+</span>';return d;};lg.addTo(map);
