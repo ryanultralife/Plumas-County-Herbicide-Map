@@ -41,17 +41,33 @@ def clean_name(n):
 def _namekey(s):
     return re.sub(r"[^A-Z0-9]", "", s or "")   # for comparing names ignoring punctuation/spacing
 
-rows = {}   # permnum -> [name, county, source, agent]   first non-empty wins
+# CDPR county code for each source county, so we can prefer the permit's HOME county's
+# own roster when a permit turns up in several counties' datasets (the issuing county's
+# name is authoritative; a neighbor's atlas may be stale/aliased).
+COUNTY_CODE = {"Plumas": "32", "Monterey": "27", "Kern": "15", "Stanislaus": "50",
+               "San Joaquin": "39", "Contra Costa": "07", "Riverside": "33",
+               "Santa Barbara": "42", "Fresno": "10", "San Diego": "37", "Napa": "28",
+               "Colusa": "06", "Santa Cruz": "44", "Yolo": "57", "Merced": "24",
+               "Kings": "16", "Sutter": "51"}
+
+def _prio(permnum, county):
+    code = COUNTY_CODE.get(county)
+    return 2 if (code and permnum[:2] == code) else 1   # 2 = permit's home-county roster
+
+rows = {}   # permnum -> [name, county, source, agent, prio]  (home-county source wins the name)
 def add(permnum, name, county, source, agent=None):
     p, nm, ag = norm_perm(permnum), clean_name(name), clean_name(agent)
-    if not p:
+    if not p or not nm:
         return
-    # keep the agent-of-record only when it's meaningfully different from the operator
-    # ("VANG, TRIA" vs "VANG,TRIA" is the same person, not an agent)
-    if nm and p not in rows:
-        rows[p] = [nm, county, source, (ag if ag and _namekey(ag) != _namekey(nm) else None)]
-    elif p in rows and rows[p][3] is None and ag and _namekey(ag) != _namekey(rows[p][0]):
-        rows[p][3] = ag   # backfill agent from a later row for the same permit
+    ag = ag if (ag and _namekey(ag) != _namekey(nm)) else None   # agent only if distinct from operator
+    prio = _prio(p, county)
+    cur = rows.get(p)
+    if cur is None:
+        rows[p] = [nm, county, source, ag, prio]
+    elif prio > cur[4]:                          # home-county roster overrides an earlier name
+        rows[p] = [nm, county, source, ag or cur[3], prio]
+    elif cur[3] is None and ag:                  # keep the current (>= prio) name, backfill agent
+        cur[3] = ag
 
 # ---------- generic ArcGIS paginator (FeatureServer or MapServer /query) ----------
 def arcgis(base, pfield, nfield, county, source, where="1=1", afield=None):
@@ -308,7 +324,7 @@ def main():
 
     tmp = tempfile.NamedTemporaryFile("w", delete=False, newline="", suffix=".csv", encoding="utf-8")
     w = csv.writer(tmp)
-    for p, (nm, cty, src, agent) in rows.items():
+    for p, (nm, cty, src, agent, prio) in rows.items():
         w.writerow([p, nm, cty, src, agent or ""])
     tmp.close()
     n_agents = sum(1 for v in rows.values() if v[3])
