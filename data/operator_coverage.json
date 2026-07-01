@@ -2,12 +2,14 @@
  "generated": null,
  "statewide": {
   "apps": 9809161,
-  "named": 4758657,
-  "pct": 48.5,
+  "named": 5267694,
+  "pct": 53.7,
   "public_counties": [
    "Colusa",
    "Contra Costa",
    "Kern",
+   "Kings",
+   "Merced",
    "Monterey",
    "Napa",
    "Plumas",
@@ -17,6 +19,7 @@
    "Santa Barbara",
    "Santa Cruz",
    "Stanislaus",
+   "Sutter",
    "Yolo"
   ]
  },
@@ -44,8 +47,8 @@
   },
   "Butte": {
    "apps": 136608,
-   "named": 1086,
-   "pct": 0.8,
+   "named": 4775,
+   "pct": 3.5,
    "region": "northern-sierra",
    "access": "request"
   },
@@ -58,8 +61,8 @@
   },
   "Colusa": {
    "apps": 109913,
-   "named": 72366,
-   "pct": 65.8,
+   "named": 73026,
+   "pct": 66.4,
    "region": "sacramento-valley",
    "access": "download"
   },
@@ -86,15 +89,15 @@
   },
   "Fresno": {
    "apps": 985020,
-   "named": 5499,
-   "pct": 0.6,
+   "named": 13584,
+   "pct": 1.4,
    "region": "san-joaquin-valley",
    "access": "request"
   },
   "Glenn": {
    "apps": 115469,
-   "named": 5392,
-   "pct": 4.7,
+   "named": 5548,
+   "pct": 4.8,
    "region": "shasta-cascade",
    "access": "request"
   },
@@ -128,10 +131,10 @@
   },
   "Kings": {
    "apps": 233219,
-   "named": 7519,
-   "pct": 3.2,
+   "named": 74382,
+   "pct": 31.9,
    "region": "san-joaquin-valley",
-   "access": "request"
+   "access": "download"
   },
   "Lake": {
    "apps": 24081,
@@ -156,8 +159,8 @@
   },
   "Madera": {
    "apps": 281722,
-   "named": 2678,
-   "pct": 1.0,
+   "named": 34117,
+   "pct": 12.1,
    "region": "san-joaquin-valley",
    "access": "request"
   },
@@ -184,10 +187,10 @@
   },
   "Merced": {
    "apps": 329493,
-   "named": 47656,
-   "pct": 14.5,
+   "named": 323544,
+   "pct": 98.2,
    "region": "san-joaquin-valley",
-   "access": "request"
+   "access": "download"
   },
   "Modoc": {
    "apps": 11357,
@@ -233,8 +236,8 @@
   },
   "Placer": {
    "apps": 9576,
-   "named": 45,
-   "pct": 0.5,
+   "named": 475,
+   "pct": 5.0,
    "region": "central-sierra",
    "access": "request"
   },
@@ -254,8 +257,8 @@
   },
   "Sacramento": {
    "apps": 111891,
-   "named": 46129,
-   "pct": 41.2,
+   "named": 47446,
+   "pct": 42.4,
    "region": "sacramento-valley",
    "access": "request"
   },
@@ -282,8 +285,8 @@
   },
   "San Francisco": {
    "apps": 4160,
-   "named": 0,
-   "pct": 0.0,
+   "named": 11,
+   "pct": 0.3,
    "region": "bay-area",
    "access": "request"
   },
@@ -317,7 +320,7 @@
   },
   "Santa Clara": {
    "apps": 85959,
-   "named": 87,
+   "named": 111,
    "pct": 0.1,
    "region": "bay-area",
    "access": "request"
@@ -352,8 +355,8 @@
   },
   "Solano": {
    "apps": 75097,
-   "named": 13785,
-   "pct": 18.4,
+   "named": 14265,
+   "pct": 19.0,
    "region": "sacramento-valley",
    "access": "request"
   },
@@ -373,15 +376,15 @@
   },
   "Sutter": {
    "apps": 118756,
-   "named": 9642,
-   "pct": 8.1,
+   "named": 113259,
+   "pct": 95.4,
    "region": "sacramento-valley",
-   "access": "request"
+   "access": "download"
   },
   "Tehama": {
    "apps": 83693,
-   "named": 708,
-   "pct": 0.8,
+   "named": 745,
+   "pct": 0.9,
    "region": "shasta-cascade",
    "access": "request"
   },
@@ -415,15 +418,15 @@
   },
   "Yolo": {
    "apps": 100509,
-   "named": 57558,
-   "pct": 57.3,
+   "named": 57922,
+   "pct": 57.6,
    "region": "sacramento-valley",
    "access": "download"
   },
   "Yuba": {
    "apps": 47782,
-   "named": 500,
-   "pct": 1.0,
+   "named": 16477,
+   "pct": 34.5,
    "region": "northern-sierra",
    "access": "request"
   }

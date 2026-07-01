@@ -255,6 +255,22 @@ def yolo():            # code 57 (Crops_2024 layer 17)
                   "Crops_2024/FeatureServer/17",
                   "permit_num", "permittee", "Yolo", "yolo-crops-2024")
 
+# ---------- county ArcGIS orgs (found 2026-07-01 via org enumeration) ----------
+def merced():          # code 24
+    return arcgis("https://services6.arcgis.com/LYh3hRvKq5ASgAVM/arcgis/rest/services/"
+                  "Commodity/FeatureServer/0",
+                  "PermNumber", "Operator", "Merced", "merced-commodity")
+
+def kings():           # code 16
+    return arcgis("https://services3.arcgis.com/24gLq1DBBzDfd0cZ/arcgis/rest/services/"
+                  "Cotton_Plowdown_Map_WFL1/FeatureServer/0",
+                  "PermNumber", "Operator", "Kings", "kings-permit-map")
+
+def sutter():          # code 51 (on-prem ArcGIS Server MapServer; also carries some Yuba 58)
+    return arcgis("https://gis.suttercounty.org/server/rest/services/TRAKiT/"
+                  "TrakitCommDev/MapServer/43",
+                  "permit_num", "permittee", "Sutter", "sutter-trakit-permits")
+
 def main():
     dburl = os.environ.get("DBURL")
     if not dburl:
@@ -264,7 +280,8 @@ def main():
                       ("contra_costa", contra_costa), ("riverside", riverside),
                       ("santa_barbara", santa_barbara), ("fresno", fresno),
                       ("san_diego", san_diego), ("napa", napa), ("colusa", colusa),
-                      ("santa_cruz", santa_cruz), ("yolo", yolo)]:
+                      ("santa_cruz", santa_cruz), ("yolo", yolo), ("merced", merced),
+                      ("kings", kings), ("sutter", sutter)]:
         try:
             c = fn(); print(f"  {label}: {c:,} source rows fetched")
         except Exception as e:

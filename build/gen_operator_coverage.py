@@ -19,7 +19,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PUBLIC_ROSTER = {
     "Plumas", "Monterey", "Kern", "Stanislaus", "San Joaquin", "Riverside",
     "Santa Barbara", "Contra Costa", "Napa", "San Diego", "Santa Cruz",
-    "Colusa", "Yolo", "Fresno",
+    "Colusa", "Yolo", "Fresno", "Merced", "Kings", "Sutter",
 }
 
 SQL = (
