@@ -86,7 +86,7 @@ def kern():
 def stanislaus():
     base = ("https://services.arcgis.com/EeYBJFxLdUojipYa/arcgis/rest/services/"
             "Permit_Sites_and_Commodities_Open_Data/FeatureServer/7/query")
-    where = urllib.parse.quote("Permit_Type='Op-Id'")
+    where = urllib.parse.quote("Permit_Type IN ('Op-Id','RMP')")
     off, n = 0, 0
     while True:
         url = (base + "?where=" + where + "&outFields=Permit_Number,Operator&returnGeometry=false"
