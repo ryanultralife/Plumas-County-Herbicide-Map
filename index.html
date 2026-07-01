@@ -162,7 +162,16 @@ function buildContacts(county){
   }
   if(c&&c.water){h+='<div title="Regional Water Quality Control Board: runoff, wells, drinking-water concerns"><b>Water</b>: <a href="'+c.water.url+'" target="_blank" rel="noopener">file a water-quality concern</a> ('+(c.water.region||'').replace(/ ?Regional.*/,'')+')</div>';}
   h+='<div title="'+(dpr.note||'')+'"><b>State</b>: <a href="'+(dpr.url||'#')+'" target="_blank" rel="noopener">CA DPR</a> · 1-87-PestLine ('+(dpr.phone||'')+')</div>';
-  h+='<div><a href="'+(reps.url||'#')+'" target="_blank" rel="noopener" title="'+(reps.note||'')+'">your state reps</a> · <a href="'+(air.url||'#')+'" target="_blank" rel="noopener" title="'+(air.note||'')+'">air district</a></div>';
+  var rp=c&&c.reps, fmt=function(m){return '<a href="'+(m.url||'#')+'" target="_blank" rel="noopener">'+m.name+(m.party?' ('+m.party+')':'')+'</a>';};
+  if(rp&&((rp.senate&&rp.senate.length)||(rp.assembly&&rp.assembly.length))){
+    h+='<div title="Your California state legislators. Districts can split a county — confirm exact reps by address."><b>State reps</b>'
+      +((rp.senate&&rp.senate.length)?' · Sen: '+rp.senate.map(fmt).join(', '):'')
+      +((rp.assembly&&rp.assembly.length)?' · Asm: '+rp.assembly.map(fmt).join(', '):'')
+      +' · <a href="'+(reps.url||'#')+'" target="_blank" rel="noopener">by address</a></div>';
+  } else {
+    h+='<div><a href="'+(reps.url||'#')+'" target="_blank" rel="noopener" title="'+(reps.note||'')+'">your state reps</a></div>';
+  }
+  h+='<div><a href="'+(air.url||'#')+'" target="_blank" rel="noopener" title="'+(air.note||'')+'">air district</a></div>';
   return h+'</div>';
 }
 function mergeOwners(owners){

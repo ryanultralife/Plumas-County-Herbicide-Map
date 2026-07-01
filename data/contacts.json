@@ -22,6 +22,66 @@
    "water": {
     "region": "Region 2 - San Francisco Bay Regional Water Quality Control Board",
     "url": "https://calepa.ca.gov/enforcement/complaints/"
+   },
+   "reps": {
+    "senate": [
+     {
+      "name": "Jerry McNerney",
+      "district": 5,
+      "party": "D",
+      "url": "https://sd05.senate.ca.gov/"
+     },
+     {
+      "name": "Jesse Arregu\u00edn",
+      "district": 7,
+      "party": "D",
+      "url": "https://sd07.senate.ca.gov/"
+     },
+     {
+      "name": "Tim Grayson",
+      "district": 9,
+      "party": "D",
+      "url": "https://sd09.senate.ca.gov/"
+     },
+     {
+      "name": "Aisha Wahab",
+      "district": 10,
+      "party": "D",
+      "url": "https://sd10.senate.ca.gov/"
+     }
+    ],
+    "assembly": [
+     {
+      "name": "Buffy Wicks",
+      "district": 14,
+      "party": "D",
+      "url": "https://www.assembly.ca.gov/assemblymembers/14"
+     },
+     {
+      "name": "Rebecca Bauer-Kahan",
+      "district": 16,
+      "party": "D",
+      "url": "https://www.assembly.ca.gov/assemblymembers/16"
+     },
+     {
+      "name": "Mia Bonta",
+      "district": 18,
+      "party": "D",
+      "url": "https://www.assembly.ca.gov/assemblymembers/18"
+     },
+     {
+      "name": "Liz Ortega",
+      "district": 20,
+      "party": "D",
+      "url": "https://www.assembly.ca.gov/assemblymembers/20"
+     },
+     {
+      "name": "Alex Lee",
+      "district": 24,
+      "party": "D",
+      "url": "https://www.assembly.ca.gov/assemblymembers/24"
+     }
+    ]
    }
   },
   "Alpine": {
@@ -33,6 +93,24 @@
    "water": {
     "region": "Region 6 - Lahontan Regional Water Quality Control Board",
     "url": "https://calepa.ca.gov/enforcement/complaints/"
+   },
+   "reps": {
+    "senate": [
+     {
+      "name": "Marie Alvarado-Gil",
+      "district": 4,
+      "party": "R",
+      "url": "https://sd04.senate.ca.gov/"
+     }
+    ],
+    "assembly": [
+     {
+      "name": "Heather Hadwick",
+      "district": 1,
+      "party": "R",
+      "url": "https://www.assembly.ca.gov/assemblymembers/01"
+     }
+    ]
    }
   },
   "Amador": {
@@ -44,6 +122,30 @@
    "water": {
     "region": "Region 5 - Central Valley Regional Water Quality Control Board",
     "url": "https://calepa.ca.gov/enforcement/complaints/"
+   },
+   "reps": {
+    "senate": [
+     {
+      "name": "Marie Alvarado-Gil",
+      "district": 4,
+      "party": "R",
+      "url": "https://sd04.senate.ca.gov/"
+     }
+    ],
+    "assembly": [
+     {
+      "name": "Heather Hadwick",
+      "district": 1,
+      "party": "R",
+      "url": "https://www.assembly.ca.gov/assemblymembers/01"
+     },
+     {
+      "name": "Heath Flora",
+      "district": 9,
+      "party": "R",
+      "url": "https://www.assembly.ca.gov/assemblymembers/09"
+     }
+    ]
    }
   },
   "Butte": {
@@ -55,6 +157,17 @@
    "water": {
     "region": "Region 5 - Central Valley Regional Water Quality Control Board",
     "url": "https://calepa.ca.gov/enforcement/complaints/"
+   },
+   "reps": {
+    "senate": [
+     {
+      "name": "Megan Dahle",
+      "district": 1,
+      "party": "R",
+      "url": "https://sd01.senate.ca.gov/"
+     }
+    ],
+    "assembly": []
    }
   },
   "Calaveras": {
@@ -66,6 +179,30 @@
    "water": {
     "region": "Region 5 - Central Valley Regional Water Quality Control Board",
     "url": "https://calepa.ca.gov/enforcement/complaints/"
+   },
+   "reps": {
+    "senate": [
+     {
+      "name": "Marie Alvarado-Gil",
+      "district": 4,
+      "party": "R",
+      "url": "https://sd04.senate.ca.gov/"
+     }
+    ],
+    "assembly": [
+     {
+      "name": "David Tangipa",
+      "district": 8,
+      "party": "R",
+      "url": "https://www.assembly.ca.gov/assemblymembers/08"
+     },
+     {
+      "name": "Heath Flora",
+      "district": 9,
+      "party": "R",
+      "url": "https://www.assembly.ca.gov/assemblymembers/09"
+     }
+    ]
    }
   },
   "Colusa": {
@@ -77,6 +214,24 @@
    "water": {
     "region": "Region 5 - Central Valley Regional Water Quality Control Board",
     "url": "https://calepa.ca.gov/enforcement/complaints/"
+   },
+   "reps": {
+    "senate": [
+     {
+      "name": "Megan Dahle",
+      "district": 1,
+      "party": "R",
+      "url": "https://sd01.senate.ca.gov/"
+     }
+    ],
+    "assembly": [
+     {
+      "name": "Cecilia Aguiar-Curry",
+      "district": 4,
+      "party": "D",
+      "url": "https://www.assembly.ca.gov/assemblymembers/04"
+     }
+    ]
    }
   },
   "Contra Costa": {
@@ -88,6 +243,54 @@
    "water": {
     "region": "Region 2 - San Francisco Bay Regional Water Quality Control Board",
     "url": "https://calepa.ca.gov/enforcement/complaints/"
+   },
+   "reps": {
+    "senate": [
+     {
+      "name": "Christopher Cabaldon",
+      "district": 3,
+      "party": "D",
+      "url": "https://sd03.senate.ca.gov/"
+     },
+     {
+      "name": "Jesse Arregu\u00edn",
+      "district": 7,
+      "party": "D",
+      "url": "https://sd07.senate.ca.gov/"
+     },
+     {
+      "name": "Tim Grayson",
+      "district": 9,
+      "party": "D",
+      "url": "https://sd09.senate.ca.gov/"
+     }
+    ],
+    "assembly": [
+     {
+      "name": "Lori Wilson",
+      "district": 11,
+      "party": "D",
+      "url": "https://www.assembly.ca.gov/assemblymembers/11"
+     },
+     {
+      "name": "Buffy Wicks",
+      "district": 14,
+      "party": "D",
+      "url": "https://www.assembly.ca.gov/assemblymembers/14"
+     },
+     {
+      "name": "Anamarie \u00c1vila Far\u00edas",
+      "district": 15,
+      "party": "D",
+      "url": "https://www.assembly.ca.gov/assemblymembers/15"
+     },
+     {
+      "name": "Rebecca Bauer-Kahan",
+      "district": 16,
+      "party": "D",
+      "url": "https://www.assembly.ca.gov/assemblymembers/16"
+     }
+    ]
    }
   },
   "Del Norte": {
@@ -99,6 +302,24 @@
    "water": {
     "region": "Region 1 - North Coast Regional Water Quality Control Board",
     "url": "https://calepa.ca.gov/enforcement/complaints/"
+   },
+   "reps": {
+    "senate": [
+     {
+      "name": "Mike McGuire",
+      "district": 2,
+      "party": "D",
+      "url": "https://sd02.senate.ca.gov/"
+     }
+    ],
+    "assembly": [
+     {
+      "name": "Chris Rogers",
+      "district": 2,
+      "party": "D",
+      "url": "https://a02.asmdc.org/"
+     }
+    ]
    }
   },
   "El Dorado": {
@@ -110,6 +331,30 @@
    "water": {
     "region": "Region 5 - Central Valley Regional Water Quality Control Board",
     "url": "https://calepa.ca.gov/enforcement/complaints/"
+   },
+   "reps": {
+    "senate": [
+     {
+      "name": "Marie Alvarado-Gil",
+      "district": 4,
+      "party": "R",
+      "url": "https://sr04.senate.ca.gov/"
+     }
+    ],
+    "assembly": [
+     {
+      "name": "Heather Hadwick",
+      "district": 1,
+      "party": "R",
+      "url": "https://ad01.asmrc.org/"
+     },
+     {
+      "name": "Joe Patterson",
+      "district": 5,
+      "party": "R",
+      "url": "https://www.assembly.ca.gov/assemblymembers/05"
+     }
+    ]
    }
   },
   "Fresno": {
@@ -121,6 +366,54 @@
    "water": {
     "region": "Region 5 - Central Valley Regional Water Quality Control Board",
     "url": "https://calepa.ca.gov/enforcement/complaints/"
+   },
+   "reps": {
+    "senate": [
+     {
+      "name": "Anna M. Caballero",
+      "district": 14,
+      "party": "D",
+      "url": "https://sd14.senate.ca.gov/"
+     },
+     {
+      "name": "Shannon Grove",
+      "district": 12,
+      "party": "R",
+      "url": "https://sr12.senate.ca.gov/"
+     },
+     {
+      "name": "Melissa Hurtado",
+      "district": 16,
+      "party": "D",
+      "url": "https://sd16.senate.ca.gov/"
+     }
+    ],
+    "assembly": [
+     {
+      "name": "David J. Tangipa",
+      "district": 8,
+      "party": "R",
+      "url": "https://ad08.asmrc.org/"
+     },
+     {
+      "name": "Esmeralda Z. Soria",
+      "district": 27,
+      "party": "D",
+      "url": "https://a27.asmdc.org/"
+     },
+     {
+      "name": "Joaquin Arambula",
+      "district": 31,
+      "party": "D",
+      "url": "https://a31.asmdc.org/"
+     },
+     {
+      "name": "Alexandra M. Macedo",
+      "district": 33,
+      "party": "R",
+      "url": "https://ad33.asmrc.org/"
+     }
+    ]
    }
   },
   "Glenn": {
@@ -132,6 +425,24 @@
    "water": {
     "region": "Region 1 - North Coast Regional Water Quality Control Board",
     "url": "https://calepa.ca.gov/enforcement/complaints/"
+   },
+   "reps": {
+    "senate": [
+     {
+      "name": "Megan Dahle",
+      "district": 1,
+      "party": "R",
+      "url": "https://sr01.senate.ca.gov/"
+     }
+    ],
+    "assembly": [
+     {
+      "name": "James Gallagher",
+      "district": 3,
+      "party": "R",
+      "url": "https://www.assembly.ca.gov/assemblymembers/03"
+     }
+    ]
    }
   },
   "Humboldt": {
@@ -143,6 +454,24 @@
    "water": {
     "region": "Region 1 - North Coast Regional Water Quality Control Board",
     "url": "https://calepa.ca.gov/enforcement/complaints/"
+   },
+   "reps": {
+    "senate": [
+     {
+      "name": "Mike McGuire",
+      "district": 2,
+      "party": "D",
+      "url": "https://sd02.senate.ca.gov/"
+     }
+    ],
+    "assembly": [
+     {
+      "name": "Chris Rogers",
+      "district": 2,
+      "party": "D",
+      "url": "https://a02.asmdc.org/"
+     }
+    ]
    }
   },
   "Imperial": {
@@ -154,6 +483,24 @@
    "water": {
     "region": "Region 7 - Colorado River Basin Regional Water Quality Control Board",
     "url": "https://www.waterboards.ca.gov/rwqcb7/resources/file_wq_env_complaint.html"
+   },
+   "reps": {
+    "senate": [
+     {
+      "name": "Steve Padilla",
+      "district": 18,
+      "party": "D",
+      "url": "https://sd18.senate.ca.gov/"
+     }
+    ],
+    "assembly": [
+     {
+      "name": "Jeff Gonzalez",
+      "district": 36,
+      "party": "R",
+      "url": "https://www.assembly.ca.gov/assemblymembers/36"
+     }
+    ]
    }
   },
   "Inyo": {
@@ -165,6 +512,24 @@
    "water": {
     "region": "Region 6 - Lahontan Regional Water Quality Control Board",
     "url": "https://calepa.ca.gov/enforcement/complaints/"
+   },
+   "reps": {
+    "senate": [
+     {
+      "name": "Marie Alvarado-Gil",
+      "district": 4,
+      "party": "R",
+      "url": "https://sr04.senate.ca.gov/"
+     }
+    ],
+    "assembly": [
+     {
+      "name": "David J. Tangipa",
+      "district": 8,
+      "party": "R",
+      "url": "https://ad08.asmrc.org/"
+     }
+    ]
    }
   },
   "Kern": {
@@ -176,6 +541,42 @@
    "water": {
     "region": "Region 3 - Central Coast Regional Water Quality Control Board",
     "url": "https://calepa.ca.gov/enforcement/complaints/"
+   },
+   "reps": {
+    "senate": [
+     {
+      "name": "Shannon Grove",
+      "district": 12,
+      "party": "R",
+      "url": "https://sd12.senate.ca.gov/"
+     },
+     {
+      "name": "Melissa Hurtado",
+      "district": 16,
+      "party": "D",
+      "url": "https://sd16.senate.ca.gov/"
+     }
+    ],
+    "assembly": [
+     {
+      "name": "Stan Ellis",
+      "district": 32,
+      "party": "R",
+      "url": "https://www.assembly.ca.gov/assemblymembers/32"
+     },
+     {
+      "name": "Tom Lackey",
+      "district": 34,
+      "party": "R",
+      "url": "https://www.assembly.ca.gov/assemblymembers/34"
+     },
+     {
+      "name": "Jasmeet Bains",
+      "district": 35,
+      "party": "D",
+      "url": "https://www.assembly.ca.gov/assemblymembers/35"
+     }
+    ]
    }
   },
   "Kings": {
@@ -187,6 +588,24 @@
    "water": {
     "region": "Region 5 - Central Valley Regional Water Quality Control Board",
     "url": "https://calepa.ca.gov/enforcement/complaints/"
+   },
+   "reps": {
+    "senate": [
+     {
+      "name": "Melissa Hurtado",
+      "district": 16,
+      "party": "D",
+      "url": "https://sd16.senate.ca.gov/"
+     }
+    ],
+    "assembly": [
+     {
+      "name": "Alexandra M. Macedo",
+      "district": 33,
+      "party": "R",
+      "url": "https://www.assembly.ca.gov/assemblymembers/33"
+     }
+    ]
    }
   },
   "Lake": {
@@ -198,6 +617,24 @@
    "water": {
     "region": "Region 1 - North Coast Regional Water Quality Control Board",
     "url": "https://calepa.ca.gov/enforcement/complaints/"
+   },
+   "reps": {
+    "senate": [
+     {
+      "name": "Mike McGuire",
+      "district": 2,
+      "party": "D",
+      "url": "https://sd02.senate.ca.gov/"
+     }
+    ],
+    "assembly": [
+     {
+      "name": "Cecilia M. Aguiar-Curry",
+      "district": 4,
+      "party": "D",
+      "url": "https://www.assembly.ca.gov/assemblymembers/04"
+     }
+    ]
    }
   },
   "Lassen": {
@@ -209,6 +646,24 @@
    "water": {
     "region": "Region 5 - Central Valley Regional Water Quality Control Board",
     "url": "https://calepa.ca.gov/enforcement/complaints/"
+   },
+   "reps": {
+    "senate": [
+     {
+      "name": "Megan Dahle",
+      "district": 1,
+      "party": "R",
+      "url": "https://sd01.senate.ca.gov/"
+     }
+    ],
+    "assembly": [
+     {
+      "name": "Heather Hadwick",
+      "district": 1,
+      "party": "R",
+      "url": "https://www.assembly.ca.gov/assemblymembers/01"
+     }
+    ]
    }
   },
   "Los Angeles": {
@@ -220,6 +675,234 @@
    "water": {
     "region": "Region 4 - Los Angeles Regional Water Quality Control Board",
     "url": "https://calepa.ca.gov/enforcement/complaints/"
+   },
+   "reps": {
+    "senate": [
+     {
+      "name": "Caroline Menjivar",
+      "district": 20,
+      "party": "D",
+      "url": "https://sd20.senate.ca.gov/"
+     },
+     {
+      "name": "Susan Rubio",
+      "district": 22,
+      "party": "D",
+      "url": "https://sd22.senate.ca.gov/"
+     },
+     {
+      "name": "Suzette Martinez Valladares",
+      "district": 23,
+      "party": "R",
+      "url": "https://sd23.senate.ca.gov/"
+     },
+     {
+      "name": "Benjamin Allen",
+      "district": 24,
+      "party": "D",
+      "url": "https://sd24.senate.ca.gov/"
+     },
+     {
+      "name": "Sasha Ren\u00e9e P\u00e9rez",
+      "district": 25,
+      "party": "D",
+      "url": "https://sd25.senate.ca.gov/"
+     },
+     {
+      "name": "Maria Elena Durazo",
+      "district": 26,
+      "party": "D",
+      "url": "https://sd26.senate.ca.gov/"
+     },
+     {
+      "name": "Henry Stern",
+      "district": 27,
+      "party": "D",
+      "url": "https://sd27.senate.ca.gov/"
+     },
+     {
+      "name": "Lola Smallwood-Cuevas",
+      "district": 28,
+      "party": "D",
+      "url": "https://sd28.senate.ca.gov/"
+     },
+     {
+      "name": "Bob Archuleta",
+      "district": 30,
+      "party": "D",
+      "url": "https://sd30.senate.ca.gov/"
+     },
+     {
+      "name": "Lena Gonzalez",
+      "district": 33,
+      "party": "D",
+      "url": "https://sd33.senate.ca.gov/"
+     },
+     {
+      "name": "Thomas Umberg",
+      "district": 34,
+      "party": "D",
+      "url": "https://sd34.senate.ca.gov/"
+     },
+     {
+      "name": "Laura Richardson",
+      "district": 35,
+      "party": "D",
+      "url": "https://sd35.senate.ca.gov/"
+     },
+     {
+      "name": "Tony Strickland",
+      "district": 36,
+      "party": "R",
+      "url": "https://sd36.senate.ca.gov/"
+     }
+    ],
+    "assembly": [
+     {
+      "name": "Tom Lackey",
+      "district": 34,
+      "party": "R",
+      "url": "https://www.assembly.ca.gov/assemblymembers/34"
+     },
+     {
+      "name": "Juan Carrillo",
+      "district": 39,
+      "party": "D",
+      "url": "https://www.assembly.ca.gov/assemblymembers/39"
+     },
+     {
+      "name": "Pilar Schiavo",
+      "district": 40,
+      "party": "D",
+      "url": "https://www.assembly.ca.gov/assemblymembers/40"
+     },
+     {
+      "name": "John Harabedian",
+      "district": 41,
+      "party": "D",
+      "url": "https://www.assembly.ca.gov/assemblymembers/41"
+     },
+     {
+      "name": "Jacqui Irwin",
+      "district": 42,
+      "party": "D",
+      "url": "https://www.assembly.ca.gov/assemblymembers/42"
+     },
+     {
+      "name": "Celeste Rodriguez",
+      "district": 43,
+      "party": "D",
+      "url": "https://www.assembly.ca.gov/assemblymembers/43"
+     },
+     {
+      "name": "Nick Schultz",
+      "district": 44,
+      "party": "D",
+      "url": "https://www.assembly.ca.gov/assemblymembers/44"
+     },
+     {
+      "name": "Jesse Gabriel",
+      "district": 46,
+      "party": "D",
+      "url": "https://www.assembly.ca.gov/assemblymembers/46"
+     },
+     {
+      "name": "Blanca E. Rubio",
+      "district": 48,
+      "party": "D",
+      "url": "https://www.assembly.ca.gov/assemblymembers/48"
+     },
+     {
+      "name": "Mike Fong",
+      "district": 49,
+      "party": "D",
+      "url": "https://www.assembly.ca.gov/assemblymembers/49"
+     },
+     {
+      "name": "Rick Chavez Zbur",
+      "district": 51,
+      "party": "D",
+      "url": "https://www.assembly.ca.gov/assemblymembers/51"
+     },
+     {
+      "name": "Jessica M. Caloza",
+      "district": 52,
+      "party": "D",
+      "url": "https://www.assembly.ca.gov/assemblymembers/52"
+     },
+     {
+      "name": "Michelle Rodriguez",
+      "district": 53,
+      "party": "D",
+      "url": "https://www.assembly.ca.gov/assemblymembers/53"
+     },
+     {
+      "name": "Mark Gonz\u00e1lez",
+      "district": 54,
+      "party": "D",
+      "url": "https://www.assembly.ca.gov/assemblymembers/54"
+     },
+     {
+      "name": "Isaac G. Bryan",
+      "district": 55,
+      "party": "D",
+      "url": "https://www.assembly.ca.gov/assemblymembers/55"
+     },
+     {
+      "name": "Lisa Calderon",
+      "district": 56,
+      "party": "D",
+      "url": "https://www.assembly.ca.gov/assemblymembers/56"
+     },
+     {
+      "name": "Sade Elhawary",
+      "district": 57,
+      "party": "D",
+      "url": "https://www.assembly.ca.gov/assemblymembers/57"
+     },
+     {
+      "name": "Tina S. McKinnor",
+      "district": 61,
+      "party": "D",
+      "url": "https://www.assembly.ca.gov/assemblymembers/61"
+     },
+     {
+      "name": "Jos\u00e9 Luis Solache Jr.",
+      "district": 62,
+      "party": "D",
+      "url": "https://www.assembly.ca.gov/assemblymembers/62"
+     },
+     {
+      "name": "Blanca Pacheco",
+      "district": 64,
+      "party": "D",
+      "url": "https://www.assembly.ca.gov/assemblymembers/64"
+     },
+     {
+      "name": "Mike A. Gipson",
+      "district": 65,
+      "party": "D",
+      "url": "https://www.assembly.ca.gov/assemblymembers/65"
+     },
+     {
+      "name": "Al Muratsuchi",
+      "district": 66,
+      "party": "D",
+      "url": "https://www.assembly.ca.gov/assemblymembers/66"
+     },
+     {
+      "name": "Sharon Quirk-Silva",
+      "district": 67,
+      "party": "D",
+      "url": "https://www.assembly.ca.gov/assemblymembers/67"
+     },
+     {
+      "name": "Josh Lowenthal",
+      "district": 69,
+      "party": "D",
+      "url": "https://www.assembly.ca.gov/assemblymembers/69"
+     }
+    ]
    }
   },
   "Madera": {
@@ -231,6 +914,36 @@
    "water": {
     "region": "Region 5 - Central Valley Regional Water Quality Control Board",
     "url": "https://calepa.ca.gov/enforcement/complaints/"
+   },
+   "reps": {
+    "senate": [
+     {
+      "name": "Marie Alvarado-Gil",
+      "district": 4,
+      "party": "R",
+      "url": "https://sd04.senate.ca.gov/"
+     },
+     {
+      "name": "Anna Caballero",
+      "district": 14,
+      "party": "D",
+      "url": "https://sd14.senate.ca.gov/"
+     }
+    ],
+    "assembly": [
+     {
+      "name": "David J. Tangipa",
+      "district": 8,
+      "party": "R",
+      "url": "https://www.assembly.ca.gov/assemblymembers/08"
+     },
+     {
+      "name": "Esmeralda Z. Soria",
+      "district": 27,
+      "party": "D",
+      "url": "https://www.assembly.ca.gov/assemblymembers/27"
+     }
+    ]
    }
   },
   "Marin": {
@@ -242,6 +955,24 @@
    "water": {
     "region": "Region 1 - North Coast Regional Water Quality Control Board",
     "url": "https://calepa.ca.gov/enforcement/complaints/"
+   },
+   "reps": {
+    "senate": [
+     {
+      "name": "Mike McGuire",
+      "district": 2,
+      "party": "D",
+      "url": "https://sd02.senate.ca.gov/"
+     }
+    ],
+    "assembly": [
+     {
+      "name": "Damon Connolly",
+      "district": 12,
+      "party": "D",
+      "url": "https://www.assembly.ca.gov/assemblymembers/12"
+     }
+    ]
    }
   },
   "Mariposa": {
@@ -253,6 +984,24 @@
    "water": {
     "region": "Region 5 - Central Valley Regional Water Quality Control Board",
     "url": "https://calepa.ca.gov/enforcement/complaints/"
+   },
+   "reps": {
+    "senate": [
+     {
+      "name": "Marie Alvarado-Gil",
+      "district": 4,
+      "party": "R",
+      "url": "https://sr04.senate.ca.gov/"
+     }
+    ],
+    "assembly": [
+     {
+      "name": "David Tangipa",
+      "district": 8,
+      "party": "R",
+      "url": "https://www.assembly.ca.gov/assemblymembers/08"
+     }
+    ]
    }
   },
   "Mendocino": {
@@ -264,6 +1013,24 @@
    "water": {
     "region": "Region 1 - North Coast Regional Water Quality Control Board",
     "url": "https://calepa.ca.gov/enforcement/complaints/"
+   },
+   "reps": {
+    "senate": [
+     {
+      "name": "Mike McGuire",
+      "district": 2,
+      "party": "D",
+      "url": "https://sd02.senate.ca.gov/"
+     }
+    ],
+    "assembly": [
+     {
+      "name": "Chris Rogers",
+      "district": 2,
+      "party": "D",
+      "url": "https://www.assembly.ca.gov/assemblymembers/02"
+     }
+    ]
    }
   },
   "Merced": {
@@ -275,6 +1042,36 @@
    "water": {
     "region": "Region 5 - Central Valley Regional Water Quality Control Board",
     "url": "https://calepa.ca.gov/enforcement/complaints/"
+   },
+   "reps": {
+    "senate": [
+     {
+      "name": "Marie Alvarado-Gil",
+      "district": 4,
+      "party": "R",
+      "url": "https://sr04.senate.ca.gov/"
+     },
+     {
+      "name": "Anna Caballero",
+      "district": 14,
+      "party": "D",
+      "url": "https://sd14.senate.ca.gov/"
+     }
+    ],
+    "assembly": [
+     {
+      "name": "Juan Alanis",
+      "district": 22,
+      "party": "R",
+      "url": "https://www.assembly.ca.gov/assemblymembers/22"
+     },
+     {
+      "name": "Esmeralda Soria",
+      "district": 27,
+      "party": "D",
+      "url": "https://www.assembly.ca.gov/assemblymembers/27"
+     }
+    ]
    }
   },
   "Modoc": {
@@ -286,6 +1083,24 @@
    "water": {
     "region": "Region 1 - North Coast Regional Water Quality Control Board",
     "url": "https://calepa.ca.gov/enforcement/complaints/"
+   },
+   "reps": {
+    "senate": [
+     {
+      "name": "Megan Dahle",
+      "district": 1,
+      "party": "R",
+      "url": "https://sr01.senate.ca.gov/"
+     }
+    ],
+    "assembly": [
+     {
+      "name": "Heather Hadwick",
+      "district": 1,
+      "party": "R",
+      "url": "https://www.assembly.ca.gov/assemblymembers/01"
+     }
+    ]
    }
   },
   "Mono": {
@@ -297,6 +1112,24 @@
    "water": {
     "region": "Region 6 - Lahontan Regional Water Quality Control Board",
     "url": "https://calepa.ca.gov/enforcement/complaints/"
+   },
+   "reps": {
+    "senate": [
+     {
+      "name": "Marie Alvarado-Gil",
+      "district": 4,
+      "party": "R",
+      "url": "https://sr04.senate.ca.gov/"
+     }
+    ],
+    "assembly": [
+     {
+      "name": "David Tangipa",
+      "district": 8,
+      "party": "R",
+      "url": "https://www.assembly.ca.gov/assemblymembers/08"
+     }
+    ]
    }
   },
   "Monterey": {
@@ -308,6 +1141,30 @@
    "water": {
     "region": "Region 3 - Central Coast Regional Water Quality Control Board",
     "url": "https://calepa.ca.gov/enforcement/complaints/"
+   },
+   "reps": {
+    "senate": [
+     {
+      "name": "John Laird",
+      "district": 17,
+      "party": "D",
+      "url": "https://sd17.senate.ca.gov/"
+     }
+    ],
+    "assembly": [
+     {
+      "name": "Robert Rivas",
+      "district": 29,
+      "party": "D",
+      "url": "https://www.assembly.ca.gov/assemblymembers/29"
+     },
+     {
+      "name": "Dawn Addis",
+      "district": 30,
+      "party": "D",
+      "url": "https://www.assembly.ca.gov/assemblymembers/30"
+     }
+    ]
    }
   },
   "Napa": {
@@ -319,6 +1176,24 @@
    "water": {
     "region": "Region 2 - San Francisco Bay Regional Water Quality Control Board",
     "url": "https://calepa.ca.gov/enforcement/complaints/"
+   },
+   "reps": {
+    "senate": [
+     {
+      "name": "Christopher Cabaldon",
+      "district": 3,
+      "party": "D",
+      "url": "https://sd03.senate.ca.gov/"
+     }
+    ],
+    "assembly": [
+     {
+      "name": "Cecilia Aguiar-Curry",
+      "district": 4,
+      "party": "D",
+      "url": "https://www.assembly.ca.gov/assemblymembers/04"
+     }
+    ]
    }
   },
   "Nevada": {
@@ -330,6 +1205,30 @@
    "water": {
     "region": "Region 5 - Central Valley Regional Water Quality Control Board",
     "url": "https://calepa.ca.gov/enforcement/complaints/"
+   },
+   "reps": {
+    "senate": [
+     {
+      "name": "Megan Dahle",
+      "district": 1,
+      "party": "R",
+      "url": "https://sr01.senate.ca.gov/"
+     },
+     {
+      "name": "Marie Alvarado-Gil",
+      "district": 4,
+      "party": "R",
+      "url": "https://sr04.senate.ca.gov/"
+     }
+    ],
+    "assembly": [
+     {
+      "name": "Heather Hadwick",
+      "district": 1,
+      "party": "R",
+      "url": "https://www.assembly.ca.gov/assemblymembers/01"
+     }
+    ]
    }
   },
   "Orange": {
@@ -341,6 +1240,102 @@
    "water": {
     "region": "Region 8 - Santa Ana Regional Water Quality Control Board",
     "url": "https://calepa.ca.gov/enforcement/complaints/"
+   },
+   "reps": {
+    "senate": [
+     {
+      "name": "Bob Archuleta",
+      "district": 30,
+      "party": "D",
+      "url": "https://sd30.senate.ca.gov/"
+     },
+     {
+      "name": "Kelly Seyarto",
+      "district": 32,
+      "party": "R",
+      "url": "https://sr32.senate.ca.gov/"
+     },
+     {
+      "name": "Tom Umberg",
+      "district": 34,
+      "party": "D",
+      "url": "https://sd34.senate.ca.gov/"
+     },
+     {
+      "name": "Tony Strickland",
+      "district": 36,
+      "party": "R",
+      "url": "https://sr36.senate.ca.gov/"
+     },
+     {
+      "name": "Steven Choi",
+      "district": 37,
+      "party": "R",
+      "url": "https://sr37.senate.ca.gov/"
+     },
+     {
+      "name": "Catherine Blakespear",
+      "district": 38,
+      "party": "D",
+      "url": "https://sd38.senate.ca.gov/"
+     }
+    ],
+    "assembly": [
+     {
+      "name": "Phillip Chen",
+      "district": 59,
+      "party": "R",
+      "url": "https://www.assembly.ca.gov/assemblymembers/59"
+     },
+     {
+      "name": "Blanca Pacheco",
+      "district": 64,
+      "party": "D",
+      "url": "https://www.assembly.ca.gov/assemblymembers/64"
+     },
+     {
+      "name": "Sharon Quirk-Silva",
+      "district": 67,
+      "party": "D",
+      "url": "https://www.assembly.ca.gov/assemblymembers/67"
+     },
+     {
+      "name": "Avelino Valencia",
+      "district": 68,
+      "party": "D",
+      "url": "https://www.assembly.ca.gov/assemblymembers/68"
+     },
+     {
+      "name": "Tri Ta",
+      "district": 70,
+      "party": "R",
+      "url": "https://www.assembly.ca.gov/assemblymembers/70"
+     },
+     {
+      "name": "Kate Sanchez",
+      "district": 71,
+      "party": "R",
+      "url": "https://www.assembly.ca.gov/assemblymembers/71"
+     },
+     {
+      "name": "Diane Dixon",
+      "district": 72,
+      "party": "R",
+      "url": "https://www.assembly.ca.gov/assemblymembers/72"
+     },
+     {
+      "name": "Cottie Petrie-Norris",
+      "district": 73,
+      "party": "D",
+      "url": "https://www.assembly.ca.gov/assemblymembers/73"
+     },
+     {
+      "name": "Laurie Davies",
+      "district": 74,
+      "party": "R",
+      "url": "https://www.assembly.ca.gov/assemblymembers/74"
+     }
+    ]
    }
   },
   "Placer": {
@@ -352,6 +1347,48 @@
    "water": {
     "region": "Region 5 - Central Valley Regional Water Quality Control Board",
     "url": "https://calepa.ca.gov/enforcement/complaints/"
+   },
+   "reps": {
+    "senate": [
+     {
+      "name": "Megan Dahle",
+      "district": 1,
+      "party": "R",
+      "url": "https://sr01.senate.ca.gov/"
+     },
+     {
+      "name": "Marie Alvarado-Gil",
+      "district": 4,
+      "party": "R",
+      "url": "https://sr04.senate.ca.gov/"
+     },
+     {
+      "name": "Roger Niello",
+      "district": 6,
+      "party": "R",
+      "url": "https://sr06.senate.ca.gov/"
+     }
+    ],
+    "assembly": [
+     {
+      "name": "Heather Hadwick",
+      "district": 1,
+      "party": "R",
+      "url": "https://www.assembly.ca.gov/assemblymembers/01"
+     },
+     {
+      "name": "Vacant (District 3; James Gallagher (R) resigned June 9, 2026)",
+      "district": 3,
+      "party": null,
+      "url": "https://www.assembly.ca.gov/assemblymembers/03"
+     },
+     {
+      "name": "Joe Patterson",
+      "district": 5,
+      "party": "R",
+      "url": "https://www.assembly.ca.gov/assemblymembers/05"
+     }
+    ]
    }
   },
   "Plumas": {
@@ -363,6 +1400,24 @@
    "water": {
     "region": "Region 5 - Central Valley Regional Water Quality Control Board",
     "url": "https://calepa.ca.gov/enforcement/complaints/"
+   },
+   "reps": {
+    "senate": [
+     {
+      "name": "Megan Dahle",
+      "district": 1,
+      "party": "R",
+      "url": "https://sr01.senate.ca.gov/"
+     }
+    ],
+    "assembly": [
+     {
+      "name": "Heather Hadwick",
+      "district": 1,
+      "party": "R",
+      "url": "https://www.assembly.ca.gov/assemblymembers/01"
+     }
+    ]
    }
   },
   "Riverside": {
@@ -374,6 +1429,72 @@
    "water": {
     "region": "Region 7 - Colorado River Basin Regional Water Quality Control Board",
     "url": "https://www.waterboards.ca.gov/rwqcb7/resources/file_wq_env_complaint.html"
+   },
+   "reps": {
+    "senate": [
+     {
+      "name": "Steve Padilla",
+      "district": 18,
+      "party": "D",
+      "url": "https://sd18.senate.ca.gov/"
+     },
+     {
+      "name": "Rosilicie Ochoa Bogh",
+      "district": 19,
+      "party": "R",
+      "url": "https://sr19.senate.ca.gov/"
+     },
+     {
+      "name": "Sabrina Cervantes",
+      "district": 31,
+      "party": "D",
+      "url": "https://sd31.senate.ca.gov/"
+     },
+     {
+      "name": "Kelly Seyarto",
+      "district": 32,
+      "party": "R",
+      "url": "https://sr32.senate.ca.gov/"
+     }
+    ],
+    "assembly": [
+     {
+      "name": "Jeff Gonzalez",
+      "district": 36,
+      "party": "R",
+      "url": "https://www.assembly.ca.gov/assemblymembers/36"
+     },
+     {
+      "name": "Greg Wallis",
+      "district": 47,
+      "party": "R",
+      "url": "https://www.assembly.ca.gov/assemblymembers/47"
+     },
+     {
+      "name": "Leticia Castillo",
+      "district": 58,
+      "party": "R",
+      "url": "https://www.assembly.ca.gov/assemblymembers/58"
+     },
+     {
+      "name": "Corey Jackson",
+      "district": 60,
+      "party": "D",
+      "url": "https://www.assembly.ca.gov/assemblymembers/60"
+     },
+     {
+      "name": "Natasha Johnson",
+      "district": 63,
+      "party": "R",
+      "url": "https://www.assembly.ca.gov/assemblymembers/63"
+     },
+     {
+      "name": "Kate Sanchez",
+      "district": 71,
+      "party": "R",
+      "url": "https://www.assembly.ca.gov/assemblymembers/71"
+     }
+    ]
    }
   },
   "Sacramento": {
@@ -385,6 +1506,60 @@
    "water": {
     "region": "Region 5 - Central Valley Regional Water Quality Control Board",
     "url": "https://calepa.ca.gov/enforcement/complaints/"
+   },
+   "reps": {
+    "senate": [
+     {
+      "name": "Christopher Cabaldon",
+      "district": 3,
+      "party": "D",
+      "url": "https://sd03.senate.ca.gov/"
+     },
+     {
+      "name": "Roger Niello",
+      "district": 6,
+      "party": "R",
+      "url": "https://sr06.senate.ca.gov/"
+     },
+     {
+      "name": "Angelique Ashby",
+      "district": 8,
+      "party": "D",
+      "url": "https://sd08.senate.ca.gov/"
+     }
+    ],
+    "assembly": [
+     {
+      "name": "Maggy Krell",
+      "district": 6,
+      "party": "D",
+      "url": "https://www.assembly.ca.gov/assemblymembers/06"
+     },
+     {
+      "name": "Josh Hoover",
+      "district": 7,
+      "party": "R",
+      "url": "https://www.assembly.ca.gov/assemblymembers/07"
+     },
+     {
+      "name": "Heath Flora",
+      "district": 9,
+      "party": "R",
+      "url": "https://www.assembly.ca.gov/assemblymembers/09"
+     },
+     {
+      "name": "Stephanie Nguyen",
+      "district": 10,
+      "party": "D",
+      "url": "https://www.assembly.ca.gov/assemblymembers/10"
+     },
+     {
+      "name": "Lori Wilson",
+      "district": 11,
+      "party": "D",
+      "url": "https://www.assembly.ca.gov/assemblymembers/11"
+     }
+    ]
    }
   },
   "San Benito": {
@@ -396,6 +1571,24 @@
    "water": {
     "region": "Region 3 - Central Coast Regional Water Quality Control Board",
     "url": "https://calepa.ca.gov/enforcement/complaints/"
+   },
+   "reps": {
+    "senate": [
+     {
+      "name": "John Laird",
+      "district": 17,
+      "party": "D",
+      "url": "https://sd17.senate.ca.gov/"
+     }
+    ],
+    "assembly": [
+     {
+      "name": "Robert Rivas",
+      "district": 29,
+      "party": "D",
+      "url": "https://www.assembly.ca.gov/assemblymembers/29"
+     }
+    ]
    }
   },
   "San Bernardino": {
@@ -407,6 +1600,120 @@
    "water": {
     "region": "Region 6 - Lahontan Regional Water Quality Control Board",
     "url": "https://calepa.ca.gov/enforcement/complaints/"
+   },
+   "reps": {
+    "senate": [
+     {
+      "name": "Steve Padilla",
+      "district": 18,
+      "party": "D",
+      "url": "https://sd18.senate.ca.gov/"
+     },
+     {
+      "name": "Rosilicie Ochoa Bogh",
+      "district": 19,
+      "party": "R",
+      "url": "https://sr19.senate.ca.gov/"
+     },
+     {
+      "name": "Susan Rubio",
+      "district": 22,
+      "party": "D",
+      "url": "https://sd22.senate.ca.gov/"
+     },
+     {
+      "name": "Suzette Martinez Valladares",
+      "district": 23,
+      "party": "R",
+      "url": "https://sr23.senate.ca.gov/"
+     },
+     {
+      "name": "Sasha Ren\u00e9e P\u00e9rez",
+      "district": 25,
+      "party": "D",
+      "url": "https://sd25.senate.ca.gov/"
+     },
+     {
+      "name": "Eloise G\u00f3mez Reyes",
+      "district": 29,
+      "party": "D",
+      "url": "https://sd29.senate.ca.gov/"
+     },
+     {
+      "name": "Sabrina Cervantes",
+      "district": 31,
+      "party": "D",
+      "url": "https://sd31.senate.ca.gov/"
+     },
+     {
+      "name": "Kelly Seyarto",
+      "district": 32,
+      "party": "R",
+      "url": "https://sr32.senate.ca.gov/"
+     }
+    ],
+    "assembly": [
+     {
+      "name": "Tom Lackey",
+      "district": 34,
+      "party": "R",
+      "url": "https://www.assembly.ca.gov/assemblymembers/34"
+     },
+     {
+      "name": "Jeff Gonzalez",
+      "district": 36,
+      "party": "R",
+      "url": "https://www.assembly.ca.gov/assemblymembers/36"
+     },
+     {
+      "name": "Juan Carrillo",
+      "district": 39,
+      "party": "D",
+      "url": "https://www.assembly.ca.gov/assemblymembers/39"
+     },
+     {
+      "name": "John Harabedian",
+      "district": 41,
+      "party": "D",
+      "url": "https://www.assembly.ca.gov/assemblymembers/41"
+     },
+     {
+      "name": "James C. Ramos",
+      "district": 45,
+      "party": "D",
+      "url": "https://www.assembly.ca.gov/assemblymembers/45"
+     },
+     {
+      "name": "Greg Wallis",
+      "district": 47,
+      "party": "R",
+      "url": "https://www.assembly.ca.gov/assemblymembers/47"
+     },
+     {
+      "name": "Robert Garcia",
+      "district": 50,
+      "party": "D",
+      "url": "https://www.assembly.ca.gov/assemblymembers/50"
+     },
+     {
+      "name": "Michelle Rodriguez",
+      "district": 53,
+      "party": "D",
+      "url": "https://www.assembly.ca.gov/assemblymembers/53"
+     },
+     {
+      "name": "Leticia Castillo",
+      "district": 58,
+      "party": "R",
+      "url": "https://www.assembly.ca.gov/assemblymembers/58"
+     },
+     {
+      "name": "Phillip Chen",
+      "district": 59,
+      "party": "R",
+      "url": "https://www.assembly.ca.gov/assemblymembers/59"
+     }
+    ]
    }
   },
   "San Diego": {
@@ -418,6 +1725,90 @@
    "water": {
     "region": "Region 7 - Colorado River Basin Regional Water Quality Control Board",
     "url": "https://www.waterboards.ca.gov/rwqcb7/resources/file_wq_env_complaint.html"
+   },
+   "reps": {
+    "senate": [
+     {
+      "name": "Steve Padilla",
+      "district": 18,
+      "party": "D",
+      "url": "https://sd18.senate.ca.gov/"
+     },
+     {
+      "name": "Kelly Seyarto",
+      "district": 32,
+      "party": "R",
+      "url": "https://sr32.senate.ca.gov/"
+     },
+     {
+      "name": "Catherine S. Blakespear",
+      "district": 38,
+      "party": "D",
+      "url": "https://sd38.senate.ca.gov/"
+     },
+     {
+      "name": "Akilah Weber Pierson",
+      "district": 39,
+      "party": "D",
+      "url": "https://sd39.senate.ca.gov/"
+     },
+     {
+      "name": "Brian W. Jones",
+      "district": 40,
+      "party": "R",
+      "url": "https://sr40.senate.ca.gov/"
+     }
+    ],
+    "assembly": [
+     {
+      "name": "Kate Sanchez",
+      "district": 71,
+      "party": "R",
+      "url": "https://www.assembly.ca.gov/assemblymembers/71"
+     },
+     {
+      "name": "Laurie Davies",
+      "district": 74,
+      "party": "R",
+      "url": "https://www.assembly.ca.gov/assemblymembers/74"
+     },
+     {
+      "name": "Carl DeMaio",
+      "district": 75,
+      "party": "R",
+      "url": "https://www.assembly.ca.gov/assemblymembers/75"
+     },
+     {
+      "name": "Darshana R. Patel",
+      "district": 76,
+      "party": "D",
+      "url": "https://www.assembly.ca.gov/assemblymembers/76"
+     },
+     {
+      "name": "Tasha Boerner",
+      "district": 77,
+      "party": "D",
+      "url": "https://www.assembly.ca.gov/assemblymembers/77"
+     },
+     {
+      "name": "Christopher M. Ward",
+      "district": 78,
+      "party": "D",
+      "url": "https://www.assembly.ca.gov/assemblymembers/78"
+     },
+     {
+      "name": "LaShae Sharp-Collins",
+      "district": 79,
+      "party": "D",
+      "url": "https://www.assembly.ca.gov/assemblymembers/79"
+     },
+     {
+      "name": "David A. Alvarez",
+      "district": 80,
+      "party": "D",
+      "url": "https://www.assembly.ca.gov/assemblymembers/80"
+     }
+    ]
    }
   },
   "San Francisco": {
@@ -429,6 +1820,30 @@
    "water": {
     "region": "Region 2 - San Francisco Bay Regional Water Quality Control Board",
     "url": "https://calepa.ca.gov/enforcement/complaints/"
+   },
+   "reps": {
+    "senate": [
+     {
+      "name": "Scott Wiener",
+      "district": 11,
+      "party": "D",
+      "url": "https://sd11.senate.ca.gov/"
+     }
+    ],
+    "assembly": [
+     {
+      "name": "Matt Haney",
+      "district": 17,
+      "party": "D",
+      "url": "https://www.assembly.ca.gov/assemblymembers/17"
+     },
+     {
+      "name": "Catherine Stefani",
+      "district": 19,
+      "party": "D",
+      "url": "https://www.assembly.ca.gov/assemblymembers/19"
+     }
+    ]
    }
   },
   "San Joaquin": {
@@ -440,6 +1855,30 @@
    "water": {
     "region": "Region 5 - Central Valley Regional Water Quality Control Board",
     "url": "https://calepa.ca.gov/enforcement/complaints/"
+   },
+   "reps": {
+    "senate": [
+     {
+      "name": "Jerry McNerney",
+      "district": 5,
+      "party": "D",
+      "url": "https://sd05.senate.ca.gov/"
+     }
+    ],
+    "assembly": [
+     {
+      "name": "Heath Flora",
+      "district": 9,
+      "party": "R",
+      "url": "https://www.assembly.ca.gov/assemblymembers/09"
+     },
+     {
+      "name": "Rhodesia Ransom",
+      "district": 13,
+      "party": "D",
+      "url": "https://www.assembly.ca.gov/assemblymembers/13"
+     }
+    ]
    }
   },
   "San Luis Obispo": {
@@ -451,6 +1890,36 @@
    "water": {
     "region": "Region 3 - Central Coast Regional Water Quality Control Board",
     "url": "https://calepa.ca.gov/enforcement/complaints/"
+   },
+   "reps": {
+    "senate": [
+     {
+      "name": "John Laird",
+      "district": 17,
+      "party": "D",
+      "url": "https://sd17.senate.ca.gov/"
+     },
+     {
+      "name": "Monique Lim\u00f3n",
+      "district": 21,
+      "party": "D",
+      "url": "https://sd21.senate.ca.gov/"
+     }
+    ],
+    "assembly": [
+     {
+      "name": "Dawn Addis",
+      "district": 30,
+      "party": "D",
+      "url": "https://www.assembly.ca.gov/assemblymembers/30"
+     },
+     {
+      "name": "Gregg Hart",
+      "district": 37,
+      "party": "D",
+      "url": "https://www.assembly.ca.gov/assemblymembers/37"
+     }
+    ]
    }
   },
   "San Mateo": {
@@ -462,6 +1931,42 @@
    "water": {
     "region": "Region 2 - San Francisco Bay Regional Water Quality Control Board",
     "url": "https://calepa.ca.gov/enforcement/complaints/"
+   },
+   "reps": {
+    "senate": [
+     {
+      "name": "Scott Wiener",
+      "district": 11,
+      "party": "D",
+      "url": "https://sd11.senate.ca.gov/"
+     },
+     {
+      "name": "Josh Becker",
+      "district": 13,
+      "party": "D",
+      "url": "https://sd13.senate.ca.gov/"
+     }
+    ],
+    "assembly": [
+     {
+      "name": "Catherine Stefani",
+      "district": 19,
+      "party": "D",
+      "url": "https://www.assembly.ca.gov/assemblymembers/19"
+     },
+     {
+      "name": "Diane Papan",
+      "district": 21,
+      "party": "D",
+      "url": "https://www.assembly.ca.gov/assemblymembers/21"
+     },
+     {
+      "name": "Marc Berman",
+      "district": 23,
+      "party": "D",
+      "url": "https://www.assembly.ca.gov/assemblymembers/23"
+     }
+    ]
    }
   },
   "Santa Barbara": {
@@ -473,6 +1978,24 @@
    "water": {
     "region": "Region 3 - Central Coast Regional Water Quality Control Board",
     "url": "https://calepa.ca.gov/enforcement/complaints/"
+   },
+   "reps": {
+    "senate": [
+     {
+      "name": "Monique Lim\u00f3n",
+      "district": 21,
+      "party": "D",
+      "url": "https://sd21.senate.ca.gov/"
+     }
+    ],
+    "assembly": [
+     {
+      "name": "Gregg Hart",
+      "district": 37,
+      "party": "D",
+      "url": "https://www.assembly.ca.gov/assemblymembers/37"
+     }
+    ]
    }
   },
   "Santa Clara": {
@@ -484,6 +2007,72 @@
    "water": {
     "region": "Region 2 - San Francisco Bay Regional Water Quality Control Board",
     "url": "https://calepa.ca.gov/enforcement/complaints/"
+   },
+   "reps": {
+    "senate": [
+     {
+      "name": "Aisha Wahab",
+      "district": 10,
+      "party": "D",
+      "url": "https://sd10.senate.ca.gov/"
+     },
+     {
+      "name": "Josh Becker",
+      "district": 13,
+      "party": "D",
+      "url": "https://sd13.senate.ca.gov/"
+     },
+     {
+      "name": "Dave Cortese",
+      "district": 15,
+      "party": "D",
+      "url": "https://sd15.senate.ca.gov/"
+     },
+     {
+      "name": "John Laird",
+      "district": 17,
+      "party": "D",
+      "url": "https://sd17.senate.ca.gov/"
+     }
+    ],
+    "assembly": [
+     {
+      "name": "Marc Berman",
+      "district": 23,
+      "party": "D",
+      "url": "https://www.assembly.ca.gov/assemblymembers/23"
+     },
+     {
+      "name": "Alex Lee",
+      "district": 24,
+      "party": "D",
+      "url": "https://www.assembly.ca.gov/assemblymembers/24"
+     },
+     {
+      "name": "Ash Kalra",
+      "district": 25,
+      "party": "D",
+      "url": "https://www.assembly.ca.gov/assemblymembers/25"
+     },
+     {
+      "name": "Patrick J. Ahrens",
+      "district": 26,
+      "party": "D",
+      "url": "https://www.assembly.ca.gov/assemblymembers/26"
+     },
+     {
+      "name": "Gail Pellerin",
+      "district": 28,
+      "party": "D",
+      "url": "https://www.assembly.ca.gov/assemblymembers/28"
+     },
+     {
+      "name": "Robert Rivas",
+      "district": 29,
+      "party": "D",
+      "url": "https://www.assembly.ca.gov/assemblymembers/29"
+     }
+    ]
    }
   },
   "Santa Cruz": {
@@ -495,6 +2084,42 @@
    "water": {
     "region": "Region 3 - Central Coast Regional Water Quality Control Board",
     "url": "https://calepa.ca.gov/enforcement/complaints/"
+   },
+   "reps": {
+    "senate": [
+     {
+      "name": "Dave Cortese",
+      "district": 15,
+      "party": "D",
+      "url": "https://sd15.senate.ca.gov/"
+     },
+     {
+      "name": "John Laird",
+      "district": 17,
+      "party": "D",
+      "url": "https://sd17.senate.ca.gov/"
+     }
+    ],
+    "assembly": [
+     {
+      "name": "Gail Pellerin",
+      "district": 28,
+      "party": "D",
+      "url": "https://www.assembly.ca.gov/assemblymembers/28"
+     },
+     {
+      "name": "Robert Rivas",
+      "district": 29,
+      "party": "D",
+      "url": "https://www.assembly.ca.gov/assemblymembers/29"
+     },
+     {
+      "name": "Dawn Addis",
+      "district": 30,
+      "party": "D",
+      "url": "https://www.assembly.ca.gov/assemblymembers/30"
+     }
+    ]
    }
   },
   "Shasta": {
@@ -506,6 +2131,24 @@
    "water": {
     "region": "Region 5 - Central Valley Regional Water Quality Control Board",
     "url": "https://calepa.ca.gov/enforcement/complaints/"
+   },
+   "reps": {
+    "senate": [
+     {
+      "name": "Megan Dahle",
+      "district": 1,
+      "party": "R",
+      "url": "https://sr01.senate.ca.gov/"
+     }
+    ],
+    "assembly": [
+     {
+      "name": "Heather Hadwick",
+      "district": 1,
+      "party": "R",
+      "url": "https://www.assembly.ca.gov/assemblymembers/01"
+     }
+    ]
    }
   },
   "Sierra": {
@@ -517,6 +2160,24 @@
    "water": {
     "region": "Region 5 - Central Valley Regional Water Quality Control Board",
     "url": "https://calepa.ca.gov/enforcement/complaints/"
+   },
+   "reps": {
+    "senate": [
+     {
+      "name": "Megan Dahle",
+      "district": 1,
+      "party": "R",
+      "url": "https://sr01.senate.ca.gov/"
+     }
+    ],
+    "assembly": [
+     {
+      "name": "Heather Hadwick",
+      "district": 1,
+      "party": "R",
+      "url": "https://www.assembly.ca.gov/assemblymembers/01"
+     }
+    ]
    }
   },
   "Siskiyou": {
@@ -528,6 +2189,24 @@
    "water": {
     "region": "Region 1 - North Coast Regional Water Quality Control Board",
     "url": "https://calepa.ca.gov/enforcement/complaints/"
+   },
+   "reps": {
+    "senate": [
+     {
+      "name": "Megan Dahle",
+      "district": 1,
+      "party": "R",
+      "url": "https://sr01.senate.ca.gov/"
+     }
+    ],
+    "assembly": [
+     {
+      "name": "Heather Hadwick",
+      "district": 1,
+      "party": "R",
+      "url": "https://www.assembly.ca.gov/assemblymembers/01"
+     }
+    ]
    }
   },
   "Solano": {
@@ -539,6 +2218,30 @@
    "water": {
     "region": "Region 2 - San Francisco Bay Regional Water Quality Control Board",
     "url": "https://calepa.ca.gov/enforcement/complaints/"
+   },
+   "reps": {
+    "senate": [
+     {
+      "name": "Christopher Cabaldon",
+      "district": 3,
+      "party": "D",
+      "url": "https://sd03.senate.ca.gov/"
+     }
+    ],
+    "assembly": [
+     {
+      "name": "Cecilia M. Aguiar-Curry",
+      "district": 4,
+      "party": "D",
+      "url": "https://www.assembly.ca.gov/assemblymembers/04"
+     },
+     {
+      "name": "Lori D. Wilson",
+      "district": 11,
+      "party": "D",
+      "url": "https://www.assembly.ca.gov/assemblymembers/11"
+     }
+    ]
    }
   },
   "Sonoma": {
@@ -550,6 +2253,42 @@
    "water": {
     "region": "Region 1 - North Coast Regional Water Quality Control Board",
     "url": "https://calepa.ca.gov/enforcement/complaints/"
+   },
+   "reps": {
+    "senate": [
+     {
+      "name": "Mike McGuire",
+      "district": 2,
+      "party": "D",
+      "url": "https://sd02.senate.ca.gov/"
+     },
+     {
+      "name": "Christopher Cabaldon",
+      "district": 3,
+      "party": "D",
+      "url": "https://sd03.senate.ca.gov/"
+     }
+    ],
+    "assembly": [
+     {
+      "name": "Chris Rogers",
+      "district": 2,
+      "party": "D",
+      "url": "https://www.assembly.ca.gov/assemblymembers/02"
+     },
+     {
+      "name": "Cecilia M. Aguiar-Curry",
+      "district": 4,
+      "party": "D",
+      "url": "https://www.assembly.ca.gov/assemblymembers/04"
+     },
+     {
+      "name": "Damon Connolly",
+      "district": 12,
+      "party": "D",
+      "url": "https://www.assembly.ca.gov/assemblymembers/12"
+     }
+    ]
    }
   },
   "Stanislaus": {
@@ -561,6 +2300,30 @@
    "water": {
     "region": "Region 5 - Central Valley Regional Water Quality Control Board",
     "url": "https://calepa.ca.gov/enforcement/complaints/"
+   },
+   "reps": {
+    "senate": [
+     {
+      "name": "Marie Alvarado-Gil",
+      "district": 4,
+      "party": "R",
+      "url": "https://sr04.senate.ca.gov/"
+     }
+    ],
+    "assembly": [
+     {
+      "name": "Heath Flora",
+      "district": 9,
+      "party": "R",
+      "url": "https://www.assembly.ca.gov/assemblymembers/09"
+     },
+     {
+      "name": "Juan Alanis",
+      "district": 22,
+      "party": "R",
+      "url": "https://www.assembly.ca.gov/assemblymembers/22"
+     }
+    ]
    }
   },
   "Sutter": {
@@ -572,6 +2335,24 @@
    "water": {
     "region": "Region 5 - Central Valley Regional Water Quality Control Board",
     "url": "https://calepa.ca.gov/enforcement/complaints/"
+   },
+   "reps": {
+    "senate": [
+     {
+      "name": "Megan Dahle",
+      "district": 1,
+      "party": "R",
+      "url": "https://sr01.senate.ca.gov/"
+     }
+    ],
+    "assembly": [
+     {
+      "name": "Vacant (seat formerly held by James Gallagher, R, who resigned June 9, 2026 upon election to Congress)",
+      "district": 3,
+      "party": null,
+      "url": "https://www.assembly.ca.gov/assemblymembers/03"
+     }
+    ]
    }
   },
   "Tehama": {
@@ -583,6 +2364,24 @@
    "water": {
     "region": "Region 5 - Central Valley Regional Water Quality Control Board",
     "url": "https://calepa.ca.gov/enforcement/complaints/"
+   },
+   "reps": {
+    "senate": [
+     {
+      "name": "Megan Dahle",
+      "district": 1,
+      "party": "R",
+      "url": "https://sr01.senate.ca.gov/"
+     }
+    ],
+    "assembly": [
+     {
+      "name": "Vacant (seat formerly held by James Gallagher, R, who resigned June 9, 2026 upon election to Congress)",
+      "district": 3,
+      "party": null,
+      "url": "https://www.assembly.ca.gov/assemblymembers/03"
+     }
+    ]
    }
   },
   "Trinity": {
@@ -594,6 +2393,24 @@
    "water": {
     "region": "Region 1 - North Coast Regional Water Quality Control Board",
     "url": "https://calepa.ca.gov/enforcement/complaints/"
+   },
+   "reps": {
+    "senate": [
+     {
+      "name": "Mike McGuire",
+      "district": 2,
+      "party": "D",
+      "url": "https://sr02.senate.ca.gov/"
+     }
+    ],
+    "assembly": [
+     {
+      "name": "Chris Rogers",
+      "district": 2,
+      "party": "D",
+      "url": "https://www.assembly.ca.gov/assemblymembers/02"
+     }
+    ]
    }
   },
   "Tulare": {
@@ -605,6 +2422,36 @@
    "water": {
     "region": "Region 5 - Central Valley Regional Water Quality Control Board",
     "url": "https://calepa.ca.gov/enforcement/complaints/"
+   },
+   "reps": {
+    "senate": [
+     {
+      "name": "Shannon Grove",
+      "district": 12,
+      "party": "R",
+      "url": "https://sr12.senate.ca.gov/"
+     },
+     {
+      "name": "Melissa Hurtado",
+      "district": 16,
+      "party": "D",
+      "url": "https://sr16.senate.ca.gov/"
+     }
+    ],
+    "assembly": [
+     {
+      "name": "Stan Ellis",
+      "district": 32,
+      "party": "R",
+      "url": "https://www.assembly.ca.gov/assemblymembers/32"
+     },
+     {
+      "name": "Alexandra Macedo",
+      "district": 33,
+      "party": "R",
+      "url": "https://www.assembly.ca.gov/assemblymembers/33"
+     }
+    ]
    }
   },
   "Tuolumne": {
@@ -616,6 +2463,24 @@
    "water": {
     "region": "Region 5 - Central Valley Regional Water Quality Control Board",
     "url": "https://calepa.ca.gov/enforcement/complaints/"
+   },
+   "reps": {
+    "senate": [
+     {
+      "name": "Marie Alvarado-Gil",
+      "district": 4,
+      "party": "R",
+      "url": "https://sr04.senate.ca.gov/"
+     }
+    ],
+    "assembly": [
+     {
+      "name": "David Tangipa",
+      "district": 8,
+      "party": "R",
+      "url": "https://www.assembly.ca.gov/assemblymembers/08"
+     }
+    ]
    }
   },
   "Ventura": {
@@ -627,6 +2492,42 @@
    "water": {
     "region": "Region 3 - Central Coast Regional Water Quality Control Board",
     "url": "https://calepa.ca.gov/enforcement/complaints/"
+   },
+   "reps": {
+    "senate": [
+     {
+      "name": "Monique Lim\u00f3n",
+      "district": 21,
+      "party": "D",
+      "url": "https://sr21.senate.ca.gov/"
+     },
+     {
+      "name": "Henry Stern",
+      "district": 27,
+      "party": "D",
+      "url": "https://sr27.senate.ca.gov/"
+     }
+    ],
+    "assembly": [
+     {
+      "name": "Steve Bennett",
+      "district": 38,
+      "party": "D",
+      "url": "https://www.assembly.ca.gov/assemblymembers/38"
+     },
+     {
+      "name": "Jacqui Irwin",
+      "district": 42,
+      "party": "D",
+      "url": "https://www.assembly.ca.gov/assemblymembers/42"
+     },
+     {
+      "name": "Jesse Gabriel",
+      "district": 46,
+      "party": "D",
+      "url": "https://www.assembly.ca.gov/assemblymembers/46"
+     }
+    ]
    }
   },
   "Yolo": {
@@ -638,6 +2539,24 @@
    "water": {
     "region": "Region 5 - Central Valley Regional Water Quality Control Board",
     "url": "https://calepa.ca.gov/enforcement/complaints/"
+   },
+   "reps": {
+    "senate": [
+     {
+      "name": "Christopher Cabaldon",
+      "district": 3,
+      "party": "D",
+      "url": "https://sr03.senate.ca.gov/"
+     }
+    ],
+    "assembly": [
+     {
+      "name": "Cecilia Aguiar-Curry",
+      "district": 4,
+      "party": "D",
+      "url": "https://www.assembly.ca.gov/assemblymembers/04"
+     }
+    ]
    }
   },
   "Yuba": {
@@ -649,6 +2568,24 @@
    "water": {
     "region": "Region 5 - Central Valley Regional Water Quality Control Board",
     "url": "https://calepa.ca.gov/enforcement/complaints/"
+   },
+   "reps": {
+    "senate": [
+     {
+      "name": "Megan Dahle",
+      "district": 1,
+      "party": "R",
+      "url": "https://sr01.senate.ca.gov/"
+     }
+    ],
+    "assembly": [
+     {
+      "name": "Vacant (seat formerly held by James Gallagher, R, who resigned June 9, 2026 upon election to Congress)",
+      "district": 3,
+      "party": null,
+      "url": "https://www.assembly.ca.gov/assemblymembers/03"
+     }
+    ]
    }
   }
  }
