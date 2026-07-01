@@ -34,3 +34,16 @@ __pycache__/
 
 # Supabase CLI local cache
 supabase/.temp/
+
+# Never auto-commit secrets or local env files (defensive: sync.bat runs `git add -A`,
+# which honors this file — anything credential-shaped must never reach the public repo)
+.env
+.env.*
+*.pem
+*.key
+*.pfx
+*.p12
+*.sqlite
+.pg_dburl
+*credentials*
+*secret*
