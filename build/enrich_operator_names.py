@@ -44,6 +44,44 @@ def add(permnum, name, county, source):
     if p and nm and p not in rows:
         rows[p] = (nm, county, source)
 
+# ---------- generic ArcGIS paginator (FeatureServer or MapServer /query) ----------
+def arcgis(base, pfield, nfield, county, source, where="1=1"):
+    """base = a layer URL ending in /FeatureServer/<n> or /MapServer/<n> (no /query).
+    Pages by objectIds (robust across hosted/enterprise/MapServer); falls back to
+    resultOffset paging if the service won't return an id list."""
+    fields = pfield + "," + nfield
+    qbase = base + "/query?where=" + urllib.parse.quote(where)
+    try:
+        idj = json.loads(fetch(qbase + "&returnIdsOnly=true&f=json"))
+        oids = idj.get("objectIds") or []
+    except Exception:
+        oids = []
+    n = 0
+    if oids:
+        for i in range(0, len(oids), 250):
+            chunk = oids[i:i + 250]
+            d = json.loads(fetch(base + "/query?objectIds=" + ",".join(str(x) for x in chunk) +
+                                 "&outFields=" + urllib.parse.quote(fields) +
+                                 "&returnGeometry=false&f=json"))
+            for f in d.get("features", []):
+                a = f.get("attributes", {})
+                add(a.get(pfield), a.get(nfield), county, source); n += 1
+        return n
+    off = 0                                            # fallback: offset paging
+    while True:
+        d = json.loads(fetch(qbase + "&outFields=" + urllib.parse.quote(fields) +
+                             "&returnGeometry=false&f=json&resultRecordCount=2000&resultOffset=" + str(off)))
+        feats = d.get("features", [])
+        if not feats:
+            break
+        for f in feats:
+            a = f.get("attributes", {})
+            add(a.get(pfield), a.get(nfield), county, source); n += 1
+        off += len(feats)
+        if not d.get("exceededTransferLimit") and len(feats) < 2000:
+            break
+    return n
+
 # ---------- Monterey (27): ArcGIS FeatureServer ----------
 def monterey():
     base = ("https://services2.arcgis.com/nOGTdfb4kF4dZljH/arcgis/rest/services/"
@@ -186,6 +224,37 @@ def santa_barbara():
     return _xlsx_permit_name(raw, "Permit Number", "Operator", "Santa Barbara",
                              "santabarbara-permits")
 
+# ---------- ArcGIS-hosted county permit rosters (found 2026-07-01) ----------
+def fresno():          # code 10
+    return arcgis("https://services.arcgis.com/0xnwbwUttaTjns4i/arcgis/rest/services/"
+                  "Fresno_County_permit_data/FeatureServer/0",
+                  "Permit_Number", "Operator", "Fresno", "fresno-permit-data")
+
+def san_diego():       # code 37 (MapServer layer 6)
+    return arcgis("https://gis-public.sandiegocounty.gov/arcgis/rest/services/"
+                  "AWM/AWM_Basemap/MapServer/6",
+                  "permit_num", "permittee", "San Diego", "sandiego-awm-caps")
+
+def napa():            # code 28
+    return arcgis("https://gis.napacounty.gov/arcgis/rest/services/Hosted/"
+                  "CalAgPermits_Field_Boundaries/FeatureServer/0",
+                  "permit_number", "permittee", "Napa", "napa-calagpermits")
+
+def colusa():          # code 06 (multi-county walnut map; also feeds Sutter etc.)
+    return arcgis("https://services3.arcgis.com/zbiy4hH0vAQCfqtS/arcgis/rest/services/"
+                  "WalnutMap/FeatureServer/0",
+                  "permit__4", "permittee", "Colusa", "colusa-walnutmap")
+
+def santa_cruz():      # code 44
+    return arcgis("https://services1.arcgis.com/jJfZghspGKh8J9Jm/arcgis/rest/services/"
+                  "Agricultural_Fields/FeatureServer/0",
+                  "permit_num", "permittee", "Santa Cruz", "santacruz-ag-fields")
+
+def yolo():            # code 57 (Crops_2024 layer 17)
+    return arcgis("https://services2.arcgis.com/RETsakmE0SJfZXCd/arcgis/rest/services/"
+                  "Crops_2024/FeatureServer/17",
+                  "permit_num", "permittee", "Yolo", "yolo-crops-2024")
+
 def main():
     dburl = os.environ.get("DBURL")
     if not dburl:
@@ -193,7 +262,9 @@ def main():
     for label, fn in [("plumas_local", plumas_local), ("monterey", monterey), ("kern", kern),
                       ("stanislaus", stanislaus), ("san_joaquin", san_joaquin),
                       ("contra_costa", contra_costa), ("riverside", riverside),
-                      ("santa_barbara", santa_barbara)]:
+                      ("santa_barbara", santa_barbara), ("fresno", fresno),
+                      ("san_diego", san_diego), ("napa", napa), ("colusa", colusa),
+                      ("santa_cruz", santa_cruz), ("yolo", yolo)]:
         try:
             c = fn(); print(f"  {label}: {c:,} source rows fetched")
         except Exception as e:
