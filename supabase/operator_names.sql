@@ -10,6 +10,9 @@ create table if not exists public.operator_names(
   entity_type text,   -- government | grower | commercial-applicator | district | utility | ...
   source      text,   -- e.g. 'cac-fresno-2026', 'license', 'manual'
   county      text,
-  updated     text
+  updated     text,
+  agent       text    -- permit "agent of record" (PCA / farm manager) when the county
+                      -- roster names one distinct from the operator; see enrich_operator_names.py
 );
+alter table public.operator_names add column if not exists agent text;
 grant select on public.operator_names to anon;  -- names are public records

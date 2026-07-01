@@ -110,6 +110,7 @@ var SRC_META={pur:{label:'Private - CA PUR',color:'#d6604d'},facts:{label:'Feder
 var CA_COUNTY={'01':'Alameda','02':'Alpine','03':'Amador','04':'Butte','05':'Calaveras','06':'Colusa','07':'Contra Costa','08':'Del Norte','09':'El Dorado','10':'Fresno','11':'Glenn','12':'Humboldt','13':'Imperial','14':'Inyo','15':'Kern','16':'Kings','17':'Lake','18':'Lassen','19':'Los Angeles','20':'Madera','21':'Marin','22':'Mariposa','23':'Mendocino','24':'Merced','25':'Modoc','26':'Mono','27':'Monterey','28':'Napa','29':'Nevada','30':'Orange','31':'Placer','32':'Plumas','33':'Riverside','34':'Sacramento','35':'San Benito','36':'San Bernardino','37':'San Diego','38':'San Francisco','39':'San Joaquin','40':'San Luis Obispo','41':'San Mateo','42':'Santa Barbara','43':'Santa Clara','44':'Santa Cruz','45':'Shasta','46':'Sierra','47':'Siskiyou','48':'Solano','49':'Sonoma','50':'Stanislaus','51':'Sutter','52':'Tehama','53':'Trinity','54':'Tulare','55':'Tuolumne','56':'Ventura','57':'Yolo','58':'Yuba'};
 // optional resolved-name crosswalk (license / county-CAC), filled in as we confirm names:
 var OWNER_NAMES={};
+var OWNER_AGENTS={};   // operator_id -> permit "agent of record" (PCA / farm manager), where a county roster names one
 
 function _byClass(c){var o={};for(var k in c){var cl=k.split('|')[1],v=c[k],n=Array.isArray(v)?v[0]:v,lb=Array.isArray(v)?v[1]:0;if(!o[cl])o[cl]=[0,0];o[cl][0]+=n;o[cl][1]+=lb;}return o;}
 function _years(c){var ys=[];for(var k in c){var y=k.split('|')[0];if(y)ys.push(+y);}return ys.length?[Math.min.apply(null,ys),Math.max.apply(null,ys)]:null;}
@@ -130,7 +131,7 @@ function decodeGrowerId(id){
 function applicatorInfo(id){
   if(id==null||id===''){return {label:'Operator not disclosed in public records',meta:'',tier:'none'};}
   var s=''+id;
-  if(OWNER_NAMES[s]){return {label:OWNER_NAMES[s],meta:'name via license / county records',tier:'named'};}
+  if(OWNER_NAMES[s]){return {label:OWNER_NAMES[s],meta:'name via license / county records',tier:'named',agent:OWNER_AGENTS[s]||null};}
   if(/FOIA|NOT PUBLIC/i.test(s)){return {label:'Operator not disclosed in public records',meta:'',tier:'none'};}
   if(/[A-Za-z]{3,}/.test(s) && !/^\d/.test(s)){return {label:s,meta:'',tier:'named'};}   // e.g. USDA Forest Service
   var d=decodeGrowerId(s);
@@ -214,7 +215,8 @@ function buildContacts(county){
 function mergeOwners(owners){
   var m={}, order=[];
   (owners||[]).forEach(function(o){var inf=applicatorInfo(o[0]),k=inf.label;
-    if(!m[k]){m[k]={label:inf.label,meta:inf.meta,n:0};order.push(k);}
+    if(!m[k]){m[k]={label:inf.label,meta:inf.meta,n:0,agent:inf.agent||null};order.push(k);}
+    if(!m[k].agent&&inf.agent)m[k].agent=inf.agent;
     m[k].n+=(+o[1]||0);});
   return order.map(function(k){return m[k];}).sort(function(a,b){return b.n-a.n;});
 }
@@ -227,7 +229,7 @@ function cellPopup(p){
   h+='</ul>';
   if(p.ai&&p.ai.length){h+='<b>Top active ingredients:</b><br><span style="color:#444">'+p.ai.slice(0,5).map(function(a){return a[0]+' ('+(+a[1]).toLocaleString()+')';}).join('<br>')+'</span><br>';}
   if(p.src&&Object.keys(p.src).length){var sm=[];Object.keys(p.src).forEach(function(k){sm.push((SRC_META[k]?SRC_META[k].label.replace(/ -.*/,''):k)+' '+_num(p.src[k]).toLocaleString());});h+='<b>Source:</b> '+sm.join(' · ')+'<br>';}
-  if(p.owners&&p.owners.length){h+='<b>Top applicators:</b><br><span style="color:#444">'+mergeOwners(p.owners).slice(0,5).map(function(o){return o.label+' ('+o.n.toLocaleString()+')';}).join('<br>')+'</span>';}
+  if(p.owners&&p.owners.length){h+='<b>Top applicators:</b><br><span style="color:#444">'+mergeOwners(p.owners).slice(0,5).map(function(o){return o.label+' ('+o.n.toLocaleString()+')'+(o.agent?'<br><span style="color:#777;font-size:11px">&nbsp;&nbsp;↳ agent of record: '+o.agent+'</span>':'');}).join('<br>')+'</span>';}
   h+=buildContacts(p.county||'');
   return h;
 }
@@ -258,9 +260,9 @@ function loadOperatorNames(){
   OPNAMES_LOADED=true;
   var H={apikey:SB_KEY,Authorization:'Bearer '+SB_KEY};
   function page(from){
-    return fetch(SB_URL+'/rest/v1/operator_names?select=operator_id,name',{headers:Object.assign({Range:from+'-'+(from+999)},H)})
+    return fetch(SB_URL+'/rest/v1/operator_names?select=operator_id,name,agent',{headers:Object.assign({Range:from+'-'+(from+999)},H)})
       .then(function(r){if(!r.ok)throw 0;return r.json();})
-      .then(function(rows){rows.forEach(function(o){if(o.operator_id&&o.name)OWNER_NAMES[o.operator_id]=o.name;});return rows.length<1000?OWNER_NAMES:page(from+1000);});
+      .then(function(rows){rows.forEach(function(o){if(o.operator_id&&o.name){OWNER_NAMES[o.operator_id]=o.name;if(o.agent)OWNER_AGENTS[o.operator_id]=o.agent;}});return rows.length<1000?OWNER_NAMES:page(from+1000);});
   }
   return page(0).catch(function(){return OWNER_NAMES;});
 }
@@ -442,9 +444,10 @@ function renderDataHtml(){
 
   h.push(opCoverageCard());
 
-  h.push('<div class="card"><h2>Top applicators</h2><table><thead><tr><th>#</th><th>Operator</th><th>Applications</th></tr></thead><tbody>'+
-    mergeOwners(topOwn).slice(0,15).map(function(o,i){return '<tr><td>'+(i+1)+'</td><td>'+o.label+(o.meta?' <span class="om1">'+o.meta+'</span>':'')+'</td><td>'+_fmt(o.n)+'</td></tr>';}).join('')+
-    '</tbody></table><p class="note">'+APPLICATOR_NOTE+'</p></div>');
+  var mo=mergeOwners(topOwn).slice(0,15), anyAgent=mo.some(function(o){return o.agent;});
+  h.push('<div class="card"><h2>Top applicators</h2><table><thead><tr><th>#</th><th>Operator</th>'+(anyAgent?'<th>Agent of record</th>':'')+'<th>Applications</th></tr></thead><tbody>'+
+    mo.map(function(o,i){return '<tr><td>'+(i+1)+'</td><td>'+o.label+(o.meta?' <span class="om1">'+o.meta+'</span>':'')+'</td>'+(anyAgent?'<td>'+(o.agent||'<span style="color:#bbb">—</span>')+'</td>':'')+'<td>'+_fmt(o.n)+'</td></tr>';}).join('')+
+    '</tbody></table><p class="note">'+APPLICATOR_NOTE+(anyAgent?' <b>Agent of record</b> is the person named on the county permit as authorized to act for the operator (often a pest-control adviser or farm manager); shown where a county roster lists one distinct from the operator.':'')+'</p></div>');
 
   return h.join('');
 }

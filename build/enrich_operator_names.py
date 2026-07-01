@@ -38,19 +38,32 @@ def clean_name(n):
     n = " ".join(str(n or "").split()).strip().strip(",").upper()
     return n if n and n not in ("NULL", "NONE", "N/A") else None
 
-rows = {}   # permnum -> (name, county, source)   first non-empty wins
-def add(permnum, name, county, source):
-    p, nm = norm_perm(permnum), clean_name(name)
-    if p and nm and p not in rows:
-        rows[p] = (nm, county, source)
+def _namekey(s):
+    return re.sub(r"[^A-Z0-9]", "", s or "")   # for comparing names ignoring punctuation/spacing
+
+rows = {}   # permnum -> [name, county, source, agent]   first non-empty wins
+def add(permnum, name, county, source, agent=None):
+    p, nm, ag = norm_perm(permnum), clean_name(name), clean_name(agent)
+    if not p:
+        return
+    # keep the agent-of-record only when it's meaningfully different from the operator
+    # ("VANG, TRIA" vs "VANG,TRIA" is the same person, not an agent)
+    if nm and p not in rows:
+        rows[p] = [nm, county, source, (ag if ag and _namekey(ag) != _namekey(nm) else None)]
+    elif p in rows and rows[p][3] is None and ag and _namekey(ag) != _namekey(rows[p][0]):
+        rows[p][3] = ag   # backfill agent from a later row for the same permit
 
 # ---------- generic ArcGIS paginator (FeatureServer or MapServer /query) ----------
-def arcgis(base, pfield, nfield, county, source, where="1=1"):
+def arcgis(base, pfield, nfield, county, source, where="1=1", afield=None):
     """base = a layer URL ending in /FeatureServer/<n> or /MapServer/<n> (no /query).
     Pages by objectIds (robust across hosted/enterprise/MapServer); falls back to
-    resultOffset paging if the service won't return an id list."""
-    fields = pfield + "," + nfield
+    resultOffset paging if the service won't return an id list. afield = optional
+    agent/applicator-of-record field; request all fields when set so a missing
+    afield can't error the query."""
+    fields = "*" if afield else pfield + "," + nfield
     qbase = base + "/query?where=" + urllib.parse.quote(where)
+    def take(a):
+        add(a.get(pfield), a.get(nfield), county, source, a.get(afield) if afield else None)
     try:
         idj = json.loads(fetch(qbase + "&returnIdsOnly=true&f=json"))
         oids = idj.get("objectIds") or []
@@ -64,8 +77,7 @@ def arcgis(base, pfield, nfield, county, source, where="1=1"):
                                  "&outFields=" + urllib.parse.quote(fields) +
                                  "&returnGeometry=false&f=json"))
             for f in d.get("features", []):
-                a = f.get("attributes", {})
-                add(a.get(pfield), a.get(nfield), county, source); n += 1
+                take(f.get("attributes", {})); n += 1
         return n
     off = 0                                            # fallback: offset paging
     while True:
@@ -75,8 +87,7 @@ def arcgis(base, pfield, nfield, county, source, where="1=1"):
         if not feats:
             break
         for f in feats:
-            a = f.get("attributes", {})
-            add(a.get(pfield), a.get(nfield), county, source); n += 1
+            take(f.get("attributes", {})); n += 1
         off += len(feats)
         if not d.get("exceededTransferLimit") and len(feats) < 2000:
             break
@@ -132,15 +143,15 @@ def stanislaus():
     where = urllib.parse.quote("Permit_Type IN ('Op-Id','RMP')")
     off, n = 0, 0
     while True:
-        url = (base + "?where=" + where + "&outFields=Permit_Number,Operator&returnGeometry=false"
-               "&f=json&resultRecordCount=2000&resultOffset=" + str(off))
+        url = (base + "?where=" + where + "&outFields=Permit_Number,Operator,Agent_Name"
+               "&returnGeometry=false&f=json&resultRecordCount=2000&resultOffset=" + str(off))
         d = json.loads(fetch(url))
         feats = d.get("features", [])
         if not feats:
             break
         for f in feats:
             a = f.get("attributes", {})
-            add(a.get("Permit_Number"), a.get("Operator"), "Stanislaus", "stanislaus-permits")
+            add(a.get("Permit_Number"), a.get("Operator"), "Stanislaus", "stanislaus-permits", a.get("Agent_Name"))
         n += len(feats); off += len(feats)
         if not d.get("exceededTransferLimit") and len(feats) < 2000:
             break
@@ -157,18 +168,20 @@ def san_joaquin():
                 "pur-business-lic/permits/permits-2024-.xlsx?sfvrsn=8d6c9a21_6")
     wb = openpyxl.load_workbook(io.BytesIO(raw), read_only=True, data_only=True)
     ws = wb.active
-    hdr = None; pi = oi = None; n = 0
+    hdr = None; pi = oi = ai = None; n = 0
     for row in ws.iter_rows(values_only=True):
         if hdr is None:
             hdr = [str(c or "").strip() for c in row]
             for i, h in enumerate(hdr):
                 if h == "Permit Number": pi = i
                 if h == "Operator": oi = i
+                if h == "Agent Name": ai = i
             if pi is None or oi is None:
                 hdr = None
             continue
         if pi < len(row) and oi < len(row):
-            add(row[pi], row[oi], "San Joaquin", "sanjoaquin-permits-2024")
+            add(row[pi], row[oi], "San Joaquin", "sanjoaquin-permits-2024",
+                row[ai] if (ai is not None and ai < len(row)) else None)
             n += 1
     return n
 
@@ -188,21 +201,23 @@ def plumas_local():
     return n
 
 # ---------- shared xlsx permit->name scanner ----------
-def _xlsx_permit_name(raw, pcol, ncol, county, source, sheet=None):
+def _xlsx_permit_name(raw, pcol, ncol, county, source, sheet=None, acol=None):
     import openpyxl
     wb = openpyxl.load_workbook(io.BytesIO(raw), read_only=True, data_only=True)
     ws = wb[sheet] if (sheet and sheet in wb.sheetnames) else wb.active
-    hdr = None; pi = oi = None; n = 0
+    hdr = None; pi = oi = ai = None; n = 0
     for row in ws.iter_rows(values_only=True):
         if hdr is None:
             hdr = [str(c or "").strip() for c in row]
             if pcol in hdr and ncol in hdr:
                 pi = hdr.index(pcol); oi = hdr.index(ncol)
+                ai = hdr.index(acol) if (acol and acol in hdr) else None
             else:
                 hdr = None
             continue
         if pi < len(row) and oi < len(row):
-            add(row[pi], row[oi], county, source); n += 1
+            add(row[pi], row[oi], county, source,
+                row[ai] if (ai is not None and ai < len(row)) else None); n += 1
     return n
 
 # ---------- Contra Costa (07): DocumentCenter XLSX (permits carry trailing letter) ----------
@@ -210,7 +225,8 @@ def contra_costa():
     raw = fetch("https://www.contracosta.ca.gov/DocumentCenter/View/91252/"
                 "2026-Permittees-and-Operators-in-Contra-Costa-as-of-April-2026")
     return _xlsx_permit_name(raw, "Permit Number", "Operator", "Contra Costa",
-                             "contracosta-permits-2026", sheet="PermitSiteCommSearchResults")
+                             "contracosta-permits-2026", sheet="PermitSiteCommSearchResults",
+                             acol="Agent Name")
 
 # ---------- Riverside (33): rivcoawm PUR XLSX ----------
 def riverside():
@@ -222,13 +238,13 @@ def santa_barbara():
     raw = fetch("https://cosantabarbara.app.box.com/index.php?rm=box_download_shared_file"
                 "&shared_name=jdt95fy7gst3g8649l9t3ukrorr5xeh9&file_id=f_1821024891639")
     return _xlsx_permit_name(raw, "Permit Number", "Operator", "Santa Barbara",
-                             "santabarbara-permits")
+                             "santabarbara-permits", acol="Agent Name")
 
 # ---------- ArcGIS-hosted county permit rosters (found 2026-07-01) ----------
 def fresno():          # code 10
     return arcgis("https://services.arcgis.com/0xnwbwUttaTjns4i/arcgis/rest/services/"
                   "Fresno_County_permit_data/FeatureServer/0",
-                  "Permit_Number", "Operator", "Fresno", "fresno-permit-data")
+                  "Permit_Number", "Operator", "Fresno", "fresno-permit-data", afield="Agent_Name")
 
 def san_diego():       # code 37 (MapServer layer 6)
     return arcgis("https://gis-public.sandiegocounty.gov/arcgis/rest/services/"
@@ -243,7 +259,7 @@ def napa():            # code 28
 def colusa():          # code 06 (multi-county walnut map; also feeds Sutter etc.)
     return arcgis("https://services3.arcgis.com/zbiy4hH0vAQCfqtS/arcgis/rest/services/"
                   "WalnutMap/FeatureServer/0",
-                  "permit__4", "permittee", "Colusa", "colusa-walnutmap")
+                  "permit__4", "permittee", "Colusa", "colusa-walnutmap", afield="agent_name")
 
 def santa_cruz():      # code 44
     return arcgis("https://services1.arcgis.com/jJfZghspGKh8J9Jm/arcgis/rest/services/"
@@ -259,12 +275,12 @@ def yolo():            # code 57 (Crops_2024 layer 17)
 def merced():          # code 24
     return arcgis("https://services6.arcgis.com/LYh3hRvKq5ASgAVM/arcgis/rest/services/"
                   "Commodity/FeatureServer/0",
-                  "PermNumber", "Operator", "Merced", "merced-commodity")
+                  "PermNumber", "Operator", "Merced", "merced-commodity", afield="Agent")
 
 def kings():           # code 16
     return arcgis("https://services3.arcgis.com/24gLq1DBBzDfd0cZ/arcgis/rest/services/"
                   "Cotton_Plowdown_Map_WFL1/FeatureServer/0",
-                  "PermNumber", "Operator", "Kings", "kings-permit-map")
+                  "PermNumber", "Operator", "Kings", "kings-permit-map", afield="Agent")
 
 def sutter():          # code 51 (on-prem ArcGIS Server MapServer; also carries some Yuba 58)
     return arcgis("https://gis.suttercounty.org/server/rest/services/TRAKiT/"
@@ -292,21 +308,25 @@ def main():
 
     tmp = tempfile.NamedTemporaryFile("w", delete=False, newline="", suffix=".csv", encoding="utf-8")
     w = csv.writer(tmp)
-    for p, (nm, cty, src) in rows.items():
-        w.writerow([p, nm, cty, src])
+    for p, (nm, cty, src, agent) in rows.items():
+        w.writerow([p, nm, cty, src, agent or ""])
     tmp.close()
+    n_agents = sum(1 for v in rows.values() if v[3])
+    print(f"  (of which {n_agents:,} carry an agent-of-record name)")
 
     sql = f"""
-create temp table _perm (permnum text, name text, county text, source text);
+create temp table _perm (permnum text, name text, county text, source text, agent text);
 \\copy _perm from '{tmp.name.replace(os.sep,'/')}' csv
-insert into public.operator_names (operator_id, name, entity_type, source, county, updated)
-select a.owner, p.name, null, p.source, p.county, current_date::text
+update _perm set agent=null where agent='';
+insert into public.operator_names (operator_id, name, entity_type, source, county, updated, agent)
+select a.owner, p.name, null, p.source, p.county, current_date::text, p.agent
 from (select distinct owner from public.applications
       where owner is not null and length(owner)>=7 and owner ~ '[0-9]') a
 join _perm p on right(a.owner,7) = p.permnum
 on conflict (operator_id) do update set
-  name=excluded.name, source=excluded.source, county=excluded.county, updated=excluded.updated;
-select count(*) as operator_ids_named from public.operator_names;
+  name=excluded.name, source=excluded.source, county=excluded.county,
+  updated=excluded.updated, agent=excluded.agent;
+select count(*) as operator_ids_named, count(agent) as with_agent from public.operator_names;
 """
     sqlf = tempfile.NamedTemporaryFile("w", delete=False, suffix=".sql", encoding="utf-8")
     sqlf.write("set statement_timeout=0;\n" + sql)
