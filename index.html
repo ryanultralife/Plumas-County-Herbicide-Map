@@ -147,6 +147,43 @@ function loadContacts(){
   if(CONTACTS) return Promise.resolve(CONTACTS);
   return fetch('data/contacts.json').then(function(r){if(!r.ok)throw 0;return r.json();}).then(function(j){CONTACTS=j;return j;}).catch(function(){return null;});
 }
+var OPCOV=null;
+function loadOperatorCoverage(){
+  if(OPCOV) return Promise.resolve(OPCOV);
+  return fetch('data/operator_coverage.json').then(function(r){if(!r.ok)throw 0;return r.json();}).then(function(j){OPCOV=j;return j;}).catch(function(){return null;});
+}
+function opCoverage(){
+  if(!OPCOV) return null;
+  if(SCOPE.county){var e=OPCOV.counties[SCOPE.county];return e?{apps:e.apps,named:e.named,pct:e.pct,access:e.access,scope:'county'}:null;}
+  var apps=0,named=0;
+  for(var c in OPCOV.counties){var e2=OPCOV.counties[c];if(SCOPE.region&&e2.region!==SCOPE.region)continue;apps+=e2.apps;named+=e2.named;}
+  if(!apps) return null;
+  return {apps:apps,named:named,pct:Math.round(1000*named/apps)/10,scope:SCOPE.region?'region':'state'};
+}
+function opCoverageCard(){
+  var cov=opCoverage(); if(!cov) return '';
+  var pct=cov.pct, wid=Math.max(2,Math.min(100,pct));
+  var meter='<div style="height:10px;border-radius:5px;background:#e6e9e6;overflow:hidden;margin:8px 0 10px"><div style="height:100%;width:'+wid+'%;background:#2E5E3A"></div></div>';
+  var whereTxt=SCOPE.county?('in '+SCOPE.county+' County'):(SCOPE.region?('in the '+regionLabel(SCOPE.region)+' region'):'statewide');
+  var msg,extra='';
+  if(cov.scope==='county'){
+    if(cov.access==='download'){
+      msg=SCOPE.county+' County publishes its permit-holder roster as a public download, so most applicators here can be named directly from county records.';
+    } else {
+      msg=SCOPE.county+' County does not post an open permit-holder roster. The names shown come mostly from operators permitted in other counties; the rest are on record with the County Agricultural Commissioner and obtainable by a public-records (CPRA) request.';
+      var cc=CONTACTS&&CONTACTS.counties&&CONTACTS.counties[SCOPE.county];
+      if(cc&&cc.ag&&cc.ag.email){extra='<p class="note">Request the roster from '+(cc.ag.officer?cc.ag.officer+', ':'')+SCOPE.county+' County Ag Commissioner: <a href="mailto:'+cc.ag.email+'?subject='+encodeURIComponent('Public Records Act request — pesticide permit holder names ('+SCOPE.county+' County)')+'">'+cc.ag.email+'</a> <a href="#" onclick="return copyEmail(event,\''+cc.ag.email+'\')" style="color:#2E5E3A">[copy]</a></p>';}
+    }
+  } else if(cov.scope==='region'){
+    msg='Across this region, names come from public county rosters where available and from operators permitted in neighboring counties; the remainder are obtainable only by public-records request.';
+  } else {
+    var np=(OPCOV.statewide.public_counties||[]).length;
+    msg=np+' counties publish a public permit-holder roster we ingest directly; elsewhere names come from cross-county matches and public-records requests. California itself does not collect operator names — only county Agricultural Commissioners hold them.';
+  }
+  return '<div class="card"><h2>Operator identification</h2>'+
+    '<p class="sub"><b>'+pct+'%</b> of mapped applications '+whereTxt+' list an operator we could identify by name ('+_fmt(cov.named)+' of '+_fmt(cov.apps)+').</p>'+
+    meter+'<p class="note">'+msg+'</p>'+extra+'</div>';
+}
 function copyEmail(ev,a){ev.preventDefault();ev.stopPropagation();try{navigator.clipboard.writeText(a);var t=ev.target;var o=t.textContent;t.textContent='[copied]';setTimeout(function(){t.textContent=o;},1200);}catch(e){}return false;}
 function buildContacts(county){
   if(!CONTACTS) return '';
@@ -352,7 +389,7 @@ var _dataInit=false;
 function renderData(){
   var wrap=document.getElementById('dataWrap'); if(!wrap) return;
   if(!_dataInit){wrap.innerHTML='<p style="color:#777;padding:24px 0">Loading statewide data…</p>';}
-  Promise.all([loadCells(),loadJuris(),loadOperatorNames()]).then(function(){
+  Promise.all([loadCells(),loadJuris(),loadOperatorNames(),loadOperatorCoverage(),loadContacts()]).then(function(){
     _dataInit=true;
     if(!document.getElementById('scopeRegion')||!document.getElementById('scopeRegion').options.length) populateScopeBar();
     wrap.innerHTML=renderDataHtml();
@@ -402,6 +439,8 @@ function renderDataHtml(){
 
   h.push('<div class="card"><h2>Top active ingredients</h2><table><thead><tr><th>#</th><th>Active ingredient</th><th>Applications</th></tr></thead><tbody>'+
     topAi.slice(0,15).map(function(a,i){return '<tr><td>'+(i+1)+'</td><td>'+a[0]+'</td><td>'+_fmt(a[1])+'</td></tr>';}).join('')+'</tbody></table></div>');
+
+  h.push(opCoverageCard());
 
   h.push('<div class="card"><h2>Top applicators</h2><table><thead><tr><th>#</th><th>Operator</th><th>Applications</th></tr></thead><tbody>'+
     mergeOwners(topOwn).slice(0,15).map(function(o,i){return '<tr><td>'+(i+1)+'</td><td>'+o.label+(o.meta?' <span class="om1">'+o.meta+'</span>':'')+'</td><td>'+_fmt(o.n)+'</td></tr>';}).join('')+

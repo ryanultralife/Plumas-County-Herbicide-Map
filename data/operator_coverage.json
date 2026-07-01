@@ -1,0 +1,431 @@
+{
+ "generated": null,
+ "statewide": {
+  "apps": 9809161,
+  "named": 4758657,
+  "pct": 48.5,
+  "public_counties": [
+   "Colusa",
+   "Contra Costa",
+   "Kern",
+   "Monterey",
+   "Napa",
+   "Plumas",
+   "Riverside",
+   "San Diego",
+   "San Joaquin",
+   "Santa Barbara",
+   "Santa Cruz",
+   "Stanislaus",
+   "Yolo"
+  ]
+ },
+ "counties": {
+  "Alameda": {
+   "apps": 30554,
+   "named": 0,
+   "pct": 0.0,
+   "region": "bay-area",
+   "access": "request"
+  },
+  "Alpine": {
+   "apps": 48,
+   "named": 12,
+   "pct": 25.0,
+   "region": "central-sierra",
+   "access": "request"
+  },
+  "Amador": {
+   "apps": 13163,
+   "named": 6,
+   "pct": 0.0,
+   "region": "central-sierra",
+   "access": "request"
+  },
+  "Butte": {
+   "apps": 136608,
+   "named": 1086,
+   "pct": 0.8,
+   "region": "northern-sierra",
+   "access": "request"
+  },
+  "Calaveras": {
+   "apps": 5318,
+   "named": 240,
+   "pct": 4.5,
+   "region": "central-sierra",
+   "access": "request"
+  },
+  "Colusa": {
+   "apps": 109913,
+   "named": 72366,
+   "pct": 65.8,
+   "region": "sacramento-valley",
+   "access": "download"
+  },
+  "Contra Costa": {
+   "apps": 33547,
+   "named": 14585,
+   "pct": 43.5,
+   "region": "bay-area",
+   "access": "download"
+  },
+  "Del Norte": {
+   "apps": 8226,
+   "named": 0,
+   "pct": 0.0,
+   "region": "north-coast",
+   "access": "request"
+  },
+  "El Dorado": {
+   "apps": 19712,
+   "named": 5474,
+   "pct": 27.8,
+   "region": "central-sierra",
+   "access": "request"
+  },
+  "Fresno": {
+   "apps": 985020,
+   "named": 5499,
+   "pct": 0.6,
+   "region": "san-joaquin-valley",
+   "access": "request"
+  },
+  "Glenn": {
+   "apps": 115469,
+   "named": 5392,
+   "pct": 4.7,
+   "region": "shasta-cascade",
+   "access": "request"
+  },
+  "Humboldt": {
+   "apps": 11871,
+   "named": 432,
+   "pct": 3.6,
+   "region": "north-coast",
+   "access": "request"
+  },
+  "Imperial": {
+   "apps": 265655,
+   "named": 1693,
+   "pct": 0.6,
+   "region": "southern-california",
+   "access": "request"
+  },
+  "Inyo": {
+   "apps": 110,
+   "named": 0,
+   "pct": 0.0,
+   "region": "eastern-sierra",
+   "access": "request"
+  },
+  "Kern": {
+   "apps": 595564,
+   "named": 523816,
+   "pct": 88.0,
+   "region": "san-joaquin-valley",
+   "access": "download"
+  },
+  "Kings": {
+   "apps": 233219,
+   "named": 7519,
+   "pct": 3.2,
+   "region": "san-joaquin-valley",
+   "access": "request"
+  },
+  "Lake": {
+   "apps": 24081,
+   "named": 2064,
+   "pct": 8.6,
+   "region": "north-coast",
+   "access": "request"
+  },
+  "Lassen": {
+   "apps": 4970,
+   "named": 264,
+   "pct": 5.3,
+   "region": "northern-sierra",
+   "access": "request"
+  },
+  "Los Angeles": {
+   "apps": 33191,
+   "named": 794,
+   "pct": 2.4,
+   "region": "southern-california",
+   "access": "request"
+  },
+  "Madera": {
+   "apps": 281722,
+   "named": 2678,
+   "pct": 1.0,
+   "region": "san-joaquin-valley",
+   "access": "request"
+  },
+  "Marin": {
+   "apps": 1248,
+   "named": 1,
+   "pct": 0.1,
+   "region": "bay-area",
+   "access": "request"
+  },
+  "Mariposa": {
+   "apps": 817,
+   "named": 0,
+   "pct": 0.0,
+   "region": "central-sierra",
+   "access": "request"
+  },
+  "Mendocino": {
+   "apps": 26203,
+   "named": 1275,
+   "pct": 4.9,
+   "region": "north-coast",
+   "access": "request"
+  },
+  "Merced": {
+   "apps": 329493,
+   "named": 47656,
+   "pct": 14.5,
+   "region": "san-joaquin-valley",
+   "access": "request"
+  },
+  "Modoc": {
+   "apps": 11357,
+   "named": 0,
+   "pct": 0.0,
+   "region": "shasta-cascade",
+   "access": "request"
+  },
+  "Mono": {
+   "apps": 20,
+   "named": 0,
+   "pct": 0.0,
+   "region": "eastern-sierra",
+   "access": "request"
+  },
+  "Monterey": {
+   "apps": 1774041,
+   "named": 1722438,
+   "pct": 97.1,
+   "region": "central-coast",
+   "access": "download"
+  },
+  "Napa": {
+   "apps": 171714,
+   "named": 170510,
+   "pct": 99.3,
+   "region": "bay-area",
+   "access": "download"
+  },
+  "Nevada": {
+   "apps": 1232,
+   "named": 168,
+   "pct": 13.6,
+   "region": "central-sierra",
+   "access": "request"
+  },
+  "Orange": {
+   "apps": 10657,
+   "named": 3734,
+   "pct": 35.0,
+   "region": "southern-california",
+   "access": "request"
+  },
+  "Placer": {
+   "apps": 9576,
+   "named": 45,
+   "pct": 0.5,
+   "region": "central-sierra",
+   "access": "request"
+  },
+  "Plumas": {
+   "apps": 2444,
+   "named": 1397,
+   "pct": 57.2,
+   "region": "northern-sierra",
+   "access": "download"
+  },
+  "Riverside": {
+   "apps": 283672,
+   "named": 265380,
+   "pct": 93.6,
+   "region": "southern-california",
+   "access": "download"
+  },
+  "Sacramento": {
+   "apps": 111891,
+   "named": 46129,
+   "pct": 41.2,
+   "region": "sacramento-valley",
+   "access": "request"
+  },
+  "San Benito": {
+   "apps": 175988,
+   "named": 16843,
+   "pct": 9.6,
+   "region": "bay-area",
+   "access": "request"
+  },
+  "San Bernardino": {
+   "apps": 18769,
+   "named": 0,
+   "pct": 0.0,
+   "region": "southern-california",
+   "access": "request"
+  },
+  "San Diego": {
+   "apps": 247093,
+   "named": 223469,
+   "pct": 90.4,
+   "region": "southern-california",
+   "access": "download"
+  },
+  "San Francisco": {
+   "apps": 4160,
+   "named": 0,
+   "pct": 0.0,
+   "region": "bay-area",
+   "access": "request"
+  },
+  "San Joaquin": {
+   "apps": 525789,
+   "named": 511824,
+   "pct": 97.3,
+   "region": "san-joaquin-valley",
+   "access": "download"
+  },
+  "San Luis Obispo": {
+   "apps": 239857,
+   "named": 51285,
+   "pct": 21.4,
+   "region": "central-coast",
+   "access": "request"
+  },
+  "San Mateo": {
+   "apps": 15220,
+   "named": 7,
+   "pct": 0.0,
+   "region": "bay-area",
+   "access": "request"
+  },
+  "Santa Barbara": {
+   "apps": 493683,
+   "named": 440411,
+   "pct": 89.2,
+   "region": "central-coast",
+   "access": "download"
+  },
+  "Santa Clara": {
+   "apps": 85959,
+   "named": 87,
+   "pct": 0.1,
+   "region": "bay-area",
+   "access": "request"
+  },
+  "Santa Cruz": {
+   "apps": 116275,
+   "named": 94002,
+   "pct": 80.8,
+   "region": "bay-area",
+   "access": "download"
+  },
+  "Shasta": {
+   "apps": 12931,
+   "named": 2929,
+   "pct": 22.7,
+   "region": "shasta-cascade",
+   "access": "request"
+  },
+  "Sierra": {
+   "apps": 369,
+   "named": 200,
+   "pct": 54.2,
+   "region": "northern-sierra",
+   "access": "request"
+  },
+  "Siskiyou": {
+   "apps": 19054,
+   "named": 18,
+   "pct": 0.1,
+   "region": "shasta-cascade",
+   "access": "request"
+  },
+  "Solano": {
+   "apps": 75097,
+   "named": 13785,
+   "pct": 18.4,
+   "region": "sacramento-valley",
+   "access": "request"
+  },
+  "Sonoma": {
+   "apps": 189106,
+   "named": 7422,
+   "pct": 3.9,
+   "region": "bay-area",
+   "access": "request"
+  },
+  "Stanislaus": {
+   "apps": 410267,
+   "named": 410153,
+   "pct": 100.0,
+   "region": "san-joaquin-valley",
+   "access": "download"
+  },
+  "Sutter": {
+   "apps": 118756,
+   "named": 9642,
+   "pct": 8.1,
+   "region": "sacramento-valley",
+   "access": "request"
+  },
+  "Tehama": {
+   "apps": 83693,
+   "named": 708,
+   "pct": 0.8,
+   "region": "shasta-cascade",
+   "access": "request"
+  },
+  "Trinity": {
+   "apps": 958,
+   "named": 499,
+   "pct": 52.1,
+   "region": "north-coast",
+   "access": "request"
+  },
+  "Tulare": {
+   "apps": 858949,
+   "named": 7968,
+   "pct": 0.9,
+   "region": "san-joaquin-valley",
+   "access": "request"
+  },
+  "Tuolumne": {
+   "apps": 2652,
+   "named": 0,
+   "pct": 0.0,
+   "region": "central-sierra",
+   "access": "request"
+  },
+  "Ventura": {
+   "apps": 323919,
+   "named": 6694,
+   "pct": 2.1,
+   "region": "central-coast",
+   "access": "request"
+  },
+  "Yolo": {
+   "apps": 100509,
+   "named": 57558,
+   "pct": 57.3,
+   "region": "sacramento-valley",
+   "access": "download"
+  },
+  "Yuba": {
+   "apps": 47782,
+   "named": 500,
+   "pct": 1.0,
+   "region": "northern-sierra",
+   "access": "request"
+  }
+ }
+}
