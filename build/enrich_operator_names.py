@@ -16,7 +16,7 @@ Source Data), overriding the coded ID.
 
 Usage:  DBURL="postgres://..." python build/enrich_operator_names.py
 """
-import os, sys, csv, io, json, zipfile, urllib.request, urllib.parse, subprocess, tempfile
+import os, sys, csv, io, json, re, zipfile, urllib.request, urllib.parse, subprocess, tempfile
 
 UA = {"User-Agent": "Mozilla/5.0 (SprayMap transparency project)"}
 
@@ -25,9 +25,14 @@ def fetch(url, timeout=120):
     return urllib.request.urlopen(req, timeout=timeout).read()
 
 def norm_perm(v):
-    s = str(v).split(".")[0]               # handle "3200530.0" float-style ids
-    s = "".join(ch for ch in s if ch.isdigit())
-    return s.zfill(7) if s else None
+    # Produce the 7-char permit key that equals right(owner,7). Most counties use
+    # a numeric permit; Contra Costa's carry a trailing permit-type letter
+    # (e.g. 070125C), and GROWER_IDs preserve that letter, so keep [0-9A-Z].
+    s = str(v).strip().upper().split(".")[0]   # handle "3200530.0" float-style ids
+    s = re.sub(r"[^0-9A-Z]", "", s)
+    if not s:
+        return None
+    return s[-7:] if len(s) >= 7 else s.zfill(7)
 
 def clean_name(n):
     n = " ".join(str(n or "").split()).strip().strip(",").upper()
@@ -144,12 +149,51 @@ def plumas_local():
             pass
     return n
 
+# ---------- shared xlsx permit->name scanner ----------
+def _xlsx_permit_name(raw, pcol, ncol, county, source, sheet=None):
+    import openpyxl
+    wb = openpyxl.load_workbook(io.BytesIO(raw), read_only=True, data_only=True)
+    ws = wb[sheet] if (sheet and sheet in wb.sheetnames) else wb.active
+    hdr = None; pi = oi = None; n = 0
+    for row in ws.iter_rows(values_only=True):
+        if hdr is None:
+            hdr = [str(c or "").strip() for c in row]
+            if pcol in hdr and ncol in hdr:
+                pi = hdr.index(pcol); oi = hdr.index(ncol)
+            else:
+                hdr = None
+            continue
+        if pi < len(row) and oi < len(row):
+            add(row[pi], row[oi], county, source); n += 1
+    return n
+
+# ---------- Contra Costa (07): DocumentCenter XLSX (permits carry trailing letter) ----------
+def contra_costa():
+    raw = fetch("https://www.contracosta.ca.gov/DocumentCenter/View/91252/"
+                "2026-Permittees-and-Operators-in-Contra-Costa-as-of-April-2026")
+    return _xlsx_permit_name(raw, "Permit Number", "Operator", "Contra Costa",
+                             "contracosta-permits-2026", sheet="PermitSiteCommSearchResults")
+
+# ---------- Riverside (33): rivcoawm PUR XLSX ----------
+def riverside():
+    raw = fetch("https://rivcoawm.org/sites/g/files/aldnop221/files/2024-06/PUR-2024.xlsx")
+    return _xlsx_permit_name(raw, "Permit #", "Permitee", "Riverside", "riverside-pur-2024")
+
+# ---------- Santa Barbara (42): Box-hosted XLSX ----------
+def santa_barbara():
+    raw = fetch("https://cosantabarbara.app.box.com/index.php?rm=box_download_shared_file"
+                "&shared_name=jdt95fy7gst3g8649l9t3ukrorr5xeh9&file_id=f_1821024891639")
+    return _xlsx_permit_name(raw, "Permit Number", "Operator", "Santa Barbara",
+                             "santabarbara-permits")
+
 def main():
     dburl = os.environ.get("DBURL")
     if not dburl:
         sys.exit("Set DBURL in the environment.")
     for label, fn in [("plumas_local", plumas_local), ("monterey", monterey), ("kern", kern),
-                      ("stanislaus", stanislaus), ("san_joaquin", san_joaquin)]:
+                      ("stanislaus", stanislaus), ("san_joaquin", san_joaquin),
+                      ("contra_costa", contra_costa), ("riverside", riverside),
+                      ("santa_barbara", santa_barbara)]:
         try:
             c = fn(); print(f"  {label}: {c:,} source rows fetched")
         except Exception as e:
