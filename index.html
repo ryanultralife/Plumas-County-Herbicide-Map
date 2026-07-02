@@ -7,6 +7,8 @@
 <meta property="og:url" content="https://plumas-county-herbicide-map.vercel.app/">
 <meta name="twitter:card" content="summary">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%232E5E3A'/%3E%3Ccircle cx='16' cy='14' r='6' fill='%23ff5a1f'/%3E%3Crect x='14.5' y='19' width='3' height='8' rx='1.5' fill='%23fff'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://aykhwsermojstiyrfcnv.supabase.co" crossorigin>
+<link rel="preconnect" href="https://server.arcgisonline.com">
 <link rel="stylesheet" href="vendor/leaflet/leaflet.css"/>
 <script src="vendor/leaflet/leaflet.js"></script>
 <style>html,body{height:100%;margin:0;padding:0;font-family:Arial,Helvetica,sans-serif}
@@ -274,17 +276,46 @@ function pagedFetch(url){
     });
   });
 }
+/* ----- IndexedDB cache: repeat visits paint from the cached dataset instantly,
+   revalidated against the live row count in the background ----- */
+function idbOpen(){return new Promise(function(res,rej){var q=indexedDB.open('spraymap',1);q.onupgradeneeded=function(){q.result.createObjectStore('kv');};q.onsuccess=function(){res(q.result);};q.onerror=function(){rej(q.error);};});}
+function idbGet(k){return idbOpen().then(function(db){return new Promise(function(res){var t=db.transaction('kv').objectStore('kv').get(k);t.onsuccess=function(){res(t.result||null);};t.onerror=function(){res(null);};});}).catch(function(){return null;});}
+function idbPut(k,v){return idbOpen().then(function(db){return new Promise(function(res){var t=db.transaction('kv','readwrite');t.objectStore('kv').put(v,k);t.oncomplete=function(){res();};t.onerror=function(){res();};});}).catch(function(){});}
+function liveCount(url){ /* row count only: Range 0-0 + exact count header */
+  return fetch(url,{headers:{apikey:SB_KEY,Authorization:'Bearer '+SB_KEY,Range:'0-0',Prefer:'count=exact'}})
+    .then(function(r){return parseInt(((r.headers.get('content-range')||'').split('/')[1]),10)||0;});
+}
+
 /* Loaders cache the IN-FLIGHT promise (not a boolean) so concurrent callers all wait for
    real completion, and clear it on failure so a transient error can be retried later. */
-var CELLS_P=null, CELLS_FALLBACK=false;
+var CELLS_URL=SB_URL+'/rest/v1/map_agg?select=lat,lon,county,region,n,lbs,c,ai,src,owners';
+var CELLS_KEY='map_agg:v1:n,lbs,c,ai,src,owners';
+var CELLS_P=null, CELLS_PARTIAL=null, CELLS_FALLBACK=false;
+function adoptCells(rows){CELLS=rows;CELLS_PARTIAL=null;return CELLS;}
+function revalidateCells(cachedTotal){
+  liveCount(CELLS_URL).then(function(total){
+    if(!(total>0)||total===cachedTotal) return;
+    pagedFetch(CELLS_URL).then(function(rows){
+      if(!rows.length) return;
+      adoptCells(rows); idbPut(CELLS_KEY,{rows:rows,total:rows.length});
+      if(typeof map!=='undefined'&&map){rebuildLayers();updateMapStat();}
+    }).catch(function(){});
+  }).catch(function(){});
+}
 function loadCells(){
   if(CELLS) return Promise.resolve(CELLS);
   if(CELLS_P) return CELLS_P;
-  CELLS_P=pagedFetch(SB_URL+'/rest/v1/map_agg?select=lat,lon,county,region,n,lbs,c,ai,src,owners')
-    .then(function(rows){if(!rows.length)throw 0;CELLS=rows;return CELLS;})
+  CELLS_P=idbGet(CELLS_KEY).then(function(hit){
+    if(hit&&hit.rows&&hit.rows.length){revalidateCells(hit.total||hit.rows.length);return adoptCells(hit.rows);}
+    return pagedFetch(CELLS_URL).then(function(rows){
+      if(!rows.length)throw 0;
+      idbPut(CELLS_KEY,{rows:rows,total:rows.length});
+      return adoptCells(rows);
+    });
+  })
     .catch(function(){return fetch('data/agg/aggregated.geojson').then(function(r){return r.json();}).then(function(g){
       CELLS_FALLBACK=true;
-      CELLS=g.features.map(function(f){var o=Object.assign({},f.properties);o.lat=f.geometry.coordinates[1];o.lon=f.geometry.coordinates[0];return o;});return CELLS;});})
+      return adoptCells(g.features.map(function(f){var o=Object.assign({},f.properties);o.lat=f.geometry.coordinates[1];o.lon=f.geometry.coordinates[0];return o;}));});})
     .catch(function(e){CELLS_P=null;throw e;});
   return CELLS_P;
 }
@@ -298,14 +329,22 @@ function loadJuris(){
     .catch(function(){JURIS_P=null;return indexJuris([]);});   /* transient empty; retried next call */
   return JURIS_P;
 }
+var NAMES_URL=SB_URL+'/rest/v1/operator_names?select=operator_id,name,agent';
+var NAMES_KEY='operator_names:v1:name,agent';
 var OPNAMES_P=null;
+function applyNames(rows){rows.forEach(function(o){if(o.operator_id&&o.name){OWNER_NAMES[o.operator_id]=o.name;if(o.agent)OWNER_AGENTS[o.operator_id]=o.agent;}});return OWNER_NAMES;}
+function revalidateNames(cachedTotal){
+  liveCount(NAMES_URL).then(function(total){
+    if(!(total>0)||total===cachedTotal) return;
+    pagedFetch(NAMES_URL).then(function(rows){if(rows.length){applyNames(rows);idbPut(NAMES_KEY,{rows:rows,total:rows.length});}}).catch(function(){});
+  }).catch(function(){});
+}
 function loadOperatorNames(){
   if(OPNAMES_P) return OPNAMES_P;
-  OPNAMES_P=pagedFetch(SB_URL+'/rest/v1/operator_names?select=operator_id,name,agent')
-    .then(function(rows){
-      rows.forEach(function(o){if(o.operator_id&&o.name){OWNER_NAMES[o.operator_id]=o.name;if(o.agent)OWNER_AGENTS[o.operator_id]=o.agent;}});
-      return OWNER_NAMES;
-    })
+  OPNAMES_P=idbGet(NAMES_KEY).then(function(hit){
+    if(hit&&hit.rows&&hit.rows.length){revalidateNames(hit.total||hit.rows.length);return applyNames(hit.rows);}
+    return pagedFetch(NAMES_URL).then(function(rows){idbPut(NAMES_KEY,{rows:rows,total:rows.length});return applyNames(rows);});
+  })
     .catch(function(){OPNAMES_P=null;return OWNER_NAMES;});
   return OPNAMES_P;
 }
@@ -360,10 +399,35 @@ function setScope(region,county){
   var sv=document.getElementById('sciview'); if(sv&&sv.style.display!=='none') renderSciScope();
 }
 function scopedCells(){
-  if(!CELLS) return [];
-  if(SCOPE.county) return CELLS.filter(function(p){return p.county===SCOPE.county;});
-  if(SCOPE.region) return CELLS.filter(function(p){return p.region===SCOPE.region;});
-  return CELLS;
+  var base=CELLS||CELLS_PARTIAL;   /* partial = scoped-first paint while statewide streams in */
+  if(!base) return [];
+  if(SCOPE.county) return base.filter(function(p){return p.county===SCOPE.county;});
+  if(SCOPE.region) return base.filter(function(p){return p.region===SCOPE.region;});
+  return base;
+}
+/* Render level-of-detail: building 28k canvas markers per layer makes statewide scope
+   janky. Above THIN_LIMIT cells: zoomed in -> draw only the (padded) viewport; zoomed
+   out -> draw the busiest THIN_LIMIT sections (the big dots dominate visually anyway)
+   and say so in the status pill. Popups stay per-cell exact — nothing is aggregated. */
+var THIN_LIMIT=6000, DRAW_NOTE='';
+function drawSet(){
+  var cs=scopedCells(); DRAW_NOTE='';
+  if(cs.length<=THIN_LIMIT) return cs;
+  /* viewport filter only when the map is actually laid out — a hidden/zero-size map
+     yields degenerate point-bounds that would match nothing and draw an empty layer */
+  if(map&&map.getZoom()>=8){
+    var sz=map.getSize();
+    if(sz&&sz.x>50&&sz.y>50){
+      var b=map.getBounds().pad(0.5), sw=b.getSouthWest(), ne=b.getNorthEast();
+      if(ne.lat>sw.lat&&ne.lng>sw.lng){
+        var inb=cs.filter(function(p){return b.contains([p.lat,p.lon]);});
+        if(inb.length&&inb.length<=THIN_LIMIT*2){DRAW_NOTE=' · showing this view';return inb;}
+        if(inb.length){cs=inb;DRAW_NOTE=' · busiest '+THIN_LIMIT.toLocaleString()+' sections in this view — zoom in for all';}
+      }
+    }
+  }
+  if(!DRAW_NOTE) DRAW_NOTE=' · busiest '+THIN_LIMIT.toLocaleString()+' sections shown — zoom in for all';
+  return cs.slice().sort(function(a,b){return (+b.n||0)-(+a.n||0);}).slice(0,THIN_LIMIT);
 }
 
 function buildMap(){
@@ -381,30 +445,52 @@ function buildMap(){
   function bindCell(m,p){return m.bindPopup(function(){return cellPopup(p);},POPUP_OPTS);}
   function reg(label,builder,on){var g=L.layerGroup();g._builder=builder;overlays[label]=g;if(on){lazy.push(g);}return g;}
   CLASS_ORDER.forEach(function(cl){
-    reg('◉ '+cl.replace('_',' '), function(g){scopedCells().forEach(function(p){var cc=_byClass(p.c||{})[cl];if(!cc||!cc[0])return;
+    reg('◉ '+cl.replace('_',' '), function(g){drawSet().forEach(function(p){var cc=_byClass(p.c||{})[cl];if(!cc||!cc[0])return;
       bindCell(L.circleMarker([p.lat,p.lon],{renderer:canvas,radius:Math.min(2+Math.sqrt(cc[0])/1.3,20),weight:1,color:'#ffffff',opacity:.95,fillColor:CLASS_COLORS[cl],fillOpacity:.95}),p).addTo(g);});}, false);
   });
   Object.keys(SRC_META).forEach(function(sk){
-    reg('▣ '+SRC_META[sk].label, function(g){scopedCells().forEach(function(p){var n=p.src&&p.src[sk]?_num(p.src[sk]):0;if(!n)return;
+    reg('▣ '+SRC_META[sk].label, function(g){drawSet().forEach(function(p){var n=p.src&&p.src[sk]?_num(p.src[sk]):0;if(!n)return;
       bindCell(L.circleMarker([p.lat,p.lon],{renderer:canvas,radius:Math.min(2+Math.sqrt(n)/1.3,20),color:SRC_META[sk].color,weight:2.5,fill:false,opacity:.95}),p).addTo(g);});});
   });
-  reg('▦ Spray intensity (all)', function(g){scopedCells().forEach(function(p){var t=+p.n||0;if(!t)return;bindCell(L.circleMarker([p.lat,p.lon],{renderer:canvas,radius:Math.min(3+Math.sqrt(t)/1.2,24),weight:0.6,color:'#ffffff',opacity:.45,fillColor:'#ff5a1f',fillOpacity:.62}),p).addTo(g);});}, true);
+  reg('▦ Spray intensity (all)', function(g){drawSet().forEach(function(p){var t=+p.n||0;if(!t)return;bindCell(L.circleMarker([p.lat,p.lon],{renderer:canvas,radius:Math.min(3+Math.sqrt(t)/1.2,24),weight:0.6,color:'#ffffff',opacity:.45,fillColor:'#ff5a1f',fillOpacity:.62}),p).addTo(g);});}, true);
   overlays['Streams & water (USGS)']=hydro;
-  OVERLAYS=overlays; loadOperatorNames(); loadContacts();
+  OVERLAYS=overlays; loadContacts();
   function ensure(g){if(g&&g._builder&&!g._built){g._builder(g);g._built=true;}}
   map.on('overlayadd',function(e){ensure(e.layer);});
+  /* re-apply level-of-detail after pan/zoom when the scope is bigger than the draw limit */
+  var _mvT=null;
+  map.on('moveend',function(){
+    if(scopedCells().length<=THIN_LIMIT) return;
+    clearTimeout(_mvT); _mvT=setTimeout(function(){rebuildLayers();updateMapStat();},300);
+  });
   /* Always expanded on desktop (user preference); collapsed to the tap-to-open icon on
      phones where the open panel would cover half the map. */
   L.control.layers({'Streets (CARTO)':carto,'Topographic':topo,'Satellite':sat},overlays,{collapsed:window.innerWidth<600}).addTo(map);
   var lg=L.control({position:'bottomright'});lg.onAdd=function(){var d=L.DomUtil.create('div','legend');
     var rows=CLASS_ORDER.map(function(cl){return '<span class="ring" style="background:'+CLASS_COLORS[cl]+';border:0"></span> '+cl.replace('_',' ');}).join('<br>');
     d.innerHTML='<b>Pesticide class</b> <span style="color:#888">(◉ layers)</span><br>'+rows+'<br><span style="font-size:11px;color:#666">▦ orange = total spray intensity · ▣ source layers · dot size = count · CA 2020+</span>';return d;};lg.addTo(map);
-  document.getElementById('mapStat')&&(document.getElementById('mapStat').textContent='Loading statewide data…');
-  loadCells().then(function(){
+  var ms0=document.getElementById('mapStat');
+  if(ms0) ms0.textContent='Loading '+(SCOPE.county?SCOPE.county+' County':'map')+'…';
+  var firstPaint=false;
+  function paint(){
+    if(firstPaint){rebuildLayers();updateMapStat();return;}
+    firstPaint=true;
     lazy.forEach(function(g){ensure(g);g.addTo(map);});
-    populateScopeBar(); updateMapStat();
+    updateMapStat();
     setTimeout(function(){map.invalidateSize(true); fitScope();},150);
-  }).catch(function(e){var el=document.getElementById('mapStat');if(el)el.textContent='Map data unavailable.';});
+  }
+  /* Stage 1: paint the default county from ONE small request while the statewide set streams. */
+  if(SCOPE.county){
+    fetch(CELLS_URL+'&county=eq.'+encodeURIComponent(SCOPE.county),{headers:{apikey:SB_KEY,Authorization:'Bearer '+SB_KEY}})
+      .then(function(r){if(!r.ok)throw 0;return r.json();})
+      .then(function(rows){if(!CELLS&&rows.length&&!firstPaint){CELLS_PARTIAL=rows;paint();}})
+      .catch(function(){});
+  }
+  /* Stage 2: full statewide set (from IndexedDB cache when available). */
+  loadCells().then(function(){
+    paint(); populateScopeBar();
+    loadOperatorNames();   /* names load after cells so they don't contend with first paint */
+  }).catch(function(e){var el=document.getElementById('mapStat');if(el&&!firstPaint)el.textContent='Map data unavailable.';});
 }
 function rebuildLayers(){
   if(!OVERLAYS) return;
@@ -426,7 +512,7 @@ function updateMapStat(){
   var el=document.getElementById('mapStat'); if(!el) return;
   var cs=scopedCells(), tot=cs.reduce(function(a,p){return a+(+p.n||0);},0);
   var where=SCOPE.county?SCOPE.county+' County':SCOPE.region?regionLabel(SCOPE.region):'statewide';
-  el.innerHTML='<b>'+tot.toLocaleString()+'</b> applications · <b>'+cs.length.toLocaleString()+'</b> mapped sections · '+where+' · 2020+';
+  el.innerHTML='<b>'+tot.toLocaleString()+'</b> applications · <b>'+cs.length.toLocaleString()+'</b> mapped sections · '+where+' · 2020+'+(cs.length>THIN_LIMIT?DRAW_NOTE:'');
 }
 
 /* ----- Data & Trends (statewide + scoped) ----- */
