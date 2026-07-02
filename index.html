@@ -333,17 +333,28 @@ var NAMES_URL=SB_URL+'/rest/v1/operator_names?select=operator_id,name,agent';
 var NAMES_KEY='operator_names:v1:name,agent';
 var OPNAMES_P=null;
 function applyNames(rows){rows.forEach(function(o){if(o.operator_id&&o.name){OWNER_NAMES[o.operator_id]=o.name;if(o.agent)OWNER_AGENTS[o.operator_id]=o.agent;}});return OWNER_NAMES;}
-function revalidateNames(cachedTotal){
-  liveCount(NAMES_URL).then(function(total){
-    if(!(total>0)||total===cachedTotal) return;
-    pagedFetch(NAMES_URL).then(function(rows){if(rows.length){applyNames(rows);idbPut(NAMES_KEY,{rows:rows,total:rows.length});}}).catch(function(){});
+function namesStamp(){ /* count + latest `updated` value: catches count-neutral name corrections */
+  var H={apikey:SB_KEY,Authorization:'Bearer '+SB_KEY};
+  return Promise.all([
+    liveCount(NAMES_URL),
+    fetch(SB_URL+'/rest/v1/operator_names?select=updated&order=updated.desc.nullslast&limit=1',{headers:H})
+      .then(function(r){return r.json();}).then(function(j){return (j[0]&&j[0].updated)||'';}).catch(function(){return '';})
+  ]).then(function(v){return {total:v[0],updated:v[1]};});
+}
+function revalidateNames(cached){
+  namesStamp().then(function(s){
+    if(!(s.total>0)) return;
+    if(s.total===cached.total&&s.updated===cached.updated) return;
+    pagedFetch(NAMES_URL).then(function(rows){if(rows.length){applyNames(rows);idbPut(NAMES_KEY,{rows:rows,total:rows.length,updated:s.updated});}}).catch(function(){});
   }).catch(function(){});
 }
 function loadOperatorNames(){
   if(OPNAMES_P) return OPNAMES_P;
   OPNAMES_P=idbGet(NAMES_KEY).then(function(hit){
-    if(hit&&hit.rows&&hit.rows.length){revalidateNames(hit.total||hit.rows.length);return applyNames(hit.rows);}
-    return pagedFetch(NAMES_URL).then(function(rows){idbPut(NAMES_KEY,{rows:rows,total:rows.length});return applyNames(rows);});
+    if(hit&&hit.rows&&hit.rows.length){revalidateNames({total:hit.total||hit.rows.length,updated:hit.updated||''});return applyNames(hit.rows);}
+    return namesStamp().catch(function(){return {updated:''};}).then(function(s){
+      return pagedFetch(NAMES_URL).then(function(rows){idbPut(NAMES_KEY,{rows:rows,total:rows.length,updated:s.updated||''});return applyNames(rows);});
+    });
   })
     .catch(function(){OPNAMES_P=null;return OWNER_NAMES;});
   return OPNAMES_P;
