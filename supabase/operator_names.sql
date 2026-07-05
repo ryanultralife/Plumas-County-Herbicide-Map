@@ -15,4 +15,11 @@ create table if not exists public.operator_names(
                       -- roster names one distinct from the operator; see enrich_operator_names.py
 );
 alter table public.operator_names add column if not exists agent text;
+
+-- Public READ-ONLY. Supabase's default privileges GRANT ALL on new public tables to
+-- anon/authenticated, which would let the public anon key INSERT/UPDATE/DELETE/TRUNCATE
+-- this table (found + closed 2026-07-01 during the launch audit). Grant only SELECT and
+-- explicitly revoke every write privilege. The enrichment pipeline writes via the
+-- privileged DBURL, not the anon role.
+revoke insert, update, delete, truncate, references, trigger on public.operator_names from anon, authenticated;
 grant select on public.operator_names to anon;  -- names are public records

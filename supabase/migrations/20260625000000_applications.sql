@@ -54,6 +54,10 @@ create index if not exists ix_app_ll     on public.applications(lat, lon);
 -- Keep the raw table PRIVATE (RLS, no anon grant). The public map reads only the
 -- aggregated map_agg view (created in map_aggregate.sql) via the anon key.
 alter table public.applications enable row level security;
+-- RLS hides SELECTed rows but does NOT govern TRUNCATE, and Supabase default privileges
+-- GRANT ALL on new public tables to anon/authenticated. Revoke every write privilege so
+-- the public anon key cannot INSERT/UPDATE/DELETE/TRUNCATE the raw table (audit 2026-07-01).
+revoke insert, update, delete, truncate, references, trigger on public.applications from anon, authenticated;
 
 -- Fast bulk load: create table only (no indexes), COPY, then create indexes + the view.
 --   \copy public.applications (app_id,source,region,date,year,lat,lon,county,land_type,owner,product,active_ingredient,amount,unit,method,activity,project,status,url,pulled) FROM 'applications.csv' CSV HEADER
