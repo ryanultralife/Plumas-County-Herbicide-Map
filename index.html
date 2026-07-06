@@ -237,7 +237,7 @@ function cellPopup(p){
   var byc=_byClass(p.c||{}), yr=_years(p.c||{});
   var h='<b>'+(p.county||'?')+' County</b>'+(p.region?' <span style="color:#777">· '+regionLabel(p.region)+'</span>':'');
   h+='<br><b>'+(+p.n||0).toLocaleString()+'</b> applications'+((+p.lbs)?' · <b>'+(+p.lbs).toLocaleString()+'</b> lb':'')+(yr?' · '+(yr[0]===yr[1]?yr[0]:yr[0]+'–'+yr[1]):'');
-  h+='<div style="font-size:11px;color:#777;margin:3px 0 1px" title="California publishes each pesticide use only to its ~1-square-mile Public Land Survey section, not the exact field, to protect site privacy. This marker sits at that section&rsquo;s center, so near shorelines and county edges it can fall on water or the wrong side of a line.">📍 Located to the ~1 sq-mi survey section, not the exact field.</div>';
+  h+='<div style="font-size:11px;color:#777;margin:3px 0 1px" title="California publishes each pesticide use only to its ~1-square-mile Public Land Survey section — never an exact field or address. This dot marks that reported square mile (kept on its land portion when the section touches water). Homes, roads or shoreline under the dot do NOT mean they were sprayed; the application was somewhere within this square mile.">📍 '+(+p.lat).toFixed(3)+', '+(+p.lon).toFixed(3)+' — marks the reported ~1 sq-mi survey section, <u>not</u> an exact address. <span style="color:#a66">Terrain under the dot may not be what was treated.</span></div>';
   h+='<b>By type:</b><ul style="margin:2px 0 3px 15px;padding:0;list-style:none">';
   CLASS_ORDER.concat(['unknown']).forEach(function(cl){if(byc[cl]&&byc[cl][0]){h+='<li><span style="color:'+(CLASS_COLORS[cl]||'#888')+'">●</span> '+cl.replace('_',' ')+' — '+byc[cl][0].toLocaleString()+(byc[cl][1]?' ('+byc[cl][1].toLocaleString()+' lb)':'')+'</li>';}});
   h+='</ul>';
@@ -294,7 +294,7 @@ function liveCount(url){ /* row count only: Range 0-0 + exact count header */
 /* Loaders cache the IN-FLIGHT promise (not a boolean) so concurrent callers all wait for
    real completion, and clear it on failure so a transient error can be retried later. */
 var CELLS_URL=SB_URL+'/rest/v1/map_agg?select=lat,lon,county,region,n,lbs,c,ai,src,owners';
-var CELLS_KEY='map_agg:v2-coordfix:n,lbs,c,ai,src,owners';
+var CELLS_KEY='map_agg:v3-watersafe:n,lbs,c,ai,src,owners';
 var CELLS_P=null, CELLS_PARTIAL=null, CELLS_FALLBACK=false;
 function adoptCells(rows){CELLS=rows;CELLS_PARTIAL=null;return CELLS;}
 function revalidateCells(cachedTotal){
