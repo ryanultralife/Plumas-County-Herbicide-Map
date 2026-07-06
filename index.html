@@ -237,7 +237,8 @@ function cellPopup(p){
   var byc=_byClass(p.c||{}), yr=_years(p.c||{});
   var h='<b>'+(p.county||'?')+' County</b>'+(p.region?' <span style="color:#777">· '+regionLabel(p.region)+'</span>':'');
   h+='<br><b>'+(+p.n||0).toLocaleString()+'</b> applications'+((+p.lbs)?' · <b>'+(+p.lbs).toLocaleString()+'</b> lb':'')+(yr?' · '+(yr[0]===yr[1]?yr[0]:yr[0]+'–'+yr[1]):'');
-  h+='<br><b>By type:</b><ul style="margin:2px 0 3px 15px;padding:0;list-style:none">';
+  h+='<div style="font-size:11px;color:#777;margin:3px 0 1px" title="California publishes each pesticide use only to its ~1-square-mile Public Land Survey section, not the exact field, to protect site privacy. This marker sits at that section&rsquo;s center, so near shorelines and county edges it can fall on water or the wrong side of a line.">📍 Located to the ~1 sq-mi survey section, not the exact field.</div>';
+  h+='<b>By type:</b><ul style="margin:2px 0 3px 15px;padding:0;list-style:none">';
   CLASS_ORDER.concat(['unknown']).forEach(function(cl){if(byc[cl]&&byc[cl][0]){h+='<li><span style="color:'+(CLASS_COLORS[cl]||'#888')+'">●</span> '+cl.replace('_',' ')+' — '+byc[cl][0].toLocaleString()+(byc[cl][1]?' ('+byc[cl][1].toLocaleString()+' lb)':'')+'</li>';}});
   h+='</ul>';
   if(p.ai&&p.ai.length){h+='<b>Top active ingredients:</b><br><span style="color:#444">'+p.ai.slice(0,5).map(function(a){return _esc(a[0])+' ('+(+a[1]).toLocaleString()+')';}).join('<br>')+'</span><br>';}
@@ -483,7 +484,7 @@ function buildMap(){
   L.control.layers({'Streets (CARTO)':carto,'Topographic':topo,'Satellite':sat},overlays,{collapsed:window.innerWidth<600}).addTo(map);
   var lg=L.control({position:'bottomright'});lg.onAdd=function(){var d=L.DomUtil.create('div','legend');
     var rows=CLASS_ORDER.map(function(cl){return '<span class="ring" style="background:'+CLASS_COLORS[cl]+';border:0"></span> '+cl.replace('_',' ');}).join('<br>');
-    d.innerHTML='<b>Pesticide class</b> <span style="color:#888">(◉ layers)</span><br>'+rows+'<br><span style="font-size:11px;color:#666">▦ orange = total spray intensity · ▣ source layers · dot size = count · CA 2020+</span>';return d;};lg.addTo(map);
+    d.innerHTML='<b>Pesticide class</b> <span style="color:#888">(◉ layers)</span><br>'+rows+'<br><span style="font-size:11px;color:#666">▦ orange = total spray intensity · ▣ source layers · dot size = count · CA 2020+<br>Dots mark the ~1 sq-mi survey section, not the exact field.</span>';return d;};lg.addTo(map);
   var ms0=document.getElementById('mapStat');
   if(ms0) ms0.textContent='Loading '+(SCOPE.county?SCOPE.county+' County':'map')+'…';
   var firstPaint=false;

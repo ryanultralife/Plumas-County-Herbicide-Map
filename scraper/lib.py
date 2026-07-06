@@ -131,7 +131,11 @@ def comtrs_centroid(base_mer, twp, twp_dir, rng, rng_dir, sec):
         if str(twp_dir).upper().startswith("S"): north_mi = -north_mi
         if str(rng_dir).upper().startswith("W"): east_mi = -east_mi
         lat = blat + north_mi / 69.0
-        lon = blon + east_mi / (69.0 * math.cos(math.radians(blat)))
+        # Longitude scale must use the POINT's latitude, not the meridian base latitude —
+        # cos(blat) drifts east-west with distance from the origin (median ~1 mi, up to many
+        # miles at the zone edges), pushing shoreline sections onto water. cos(lat) matches
+        # the original validated Plumas reconstruction (process.py, ~0.3 mi to known dots).
+        lon = blon + east_mi / (69.0 * math.cos(math.radians(lat)))
         return (round(lat, 5), round(lon, 5))
     except Exception:
         return (None, None)
