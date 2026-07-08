@@ -711,7 +711,7 @@ window.addEventListener('orientationchange',function(){setTimeout(fix,250);setTi
 setTimeout(fix,300);
 
 /* ===== Transparency ledger (added) ===== */
-var LEDGER_SEED={"sample":true,"org":"Plumas Waterway Testing (working name)","updated":"2026-07-20","currency":"USD","note":"SAMPLE data illustrating the ledger format. When the organization begins taking real donations, this page will list actual transactions, each linked to a genuine source document.","donations":[{"date":"2026-07-01","source":"Online donor (J. Rivera)","gross":100,"fees":3.2,"type":"Unrestricted","platform":"Givebutter","src":"data/receipts/2026-07-01-givebutter-payout.pdf","srcLabel":"Payout report"},{"date":"2026-07-03","source":"Community fund grant","gross":2500,"fees":0,"type":"Restricted-Testing","platform":"Check","src":"data/receipts/2026-07-03-grant-award-letter.pdf","srcLabel":"Award letter"},{"date":"2026-07-05","source":"Anonymous","gross":50,"fees":1.75,"type":"Unrestricted","platform":"Donorbox","src":"data/receipts/2026-07-05-donorbox-receipt.pdf","srcLabel":"Receipt"}],"expenses":[{"date":"2026-07-10","payee":"R. Vukich - map dev & data (12.5 hrs)","bucket":"Operations","amount":625,"via":"Bank transfer","src":"data/receipts/2026-07-10-labor-invoice.pdf","srcLabel":"Invoice + timesheet"},{"date":"2026-07-15","payee":"NorCal Analytical Lab - glyphosate panel (3 sites)","bucket":"Testing","amount":480,"via":"Card","src":"data/receipts/2026-07-15-norcal-lab-invoice.pdf","srcLabel":"Lab invoice"},{"date":"2026-07-15","payee":"Givebutter fees (donor-covered)","bucket":"Admin","amount":0,"via":"Auto","src":"https://givebutter.com/pricing","srcLabel":"Fee schedule"},{"date":"2026-07-20","payee":"CA Attorney General registration (CT-1)","bucket":"Admin","amount":50,"via":"Card","src":"https://oag.ca.gov/charities/initial-reg","srcLabel":"AG registration"}],"hours":[{"date":"2026-07-08","person":"R. Vukich","task":"Build donate feature + map updates","role":"Tech/Operations","hours":6.5,"rate":50,"approvedBy":"Board 6/30","src":"data/receipts/2026-07-10-labor-invoice.pdf","srcLabel":"Timesheet"},{"date":"2026-07-09","person":"R. Vukich","task":"Data scrape + QA of application records","role":"Data","hours":6.0,"rate":50,"approvedBy":"Board 6/30","src":"data/receipts/2026-07-10-labor-invoice.pdf","srcLabel":"Timesheet"},{"date":"2026-07-12","person":"Volunteer (M. Lee)","task":"Water sampling, 3 sites (chain-of-custody)","role":"Field/Testing","hours":4.0,"rate":0,"approvedBy":"Board 6/30","src":"data/receipts/2026-07-12-chain-of-custody.pdf","srcLabel":"Chain of custody"}]};
+var LEDGER_SEED={"sample":false,"org":"Plumas Grassroots Cooperative","updated":"2026-07-08","currency":"USD","note":"Donations open soon. Until then this page tracks the project's real startup costs — each bill listed with its reference. Founder-covered costs are marked; once giving is live and the cooperative holds funds, every donation and reimbursement will appear here too.","donations":[],"expenses":[{"date":"2026-07-08","payee":"GoDaddy — spraymapca.org domain registration, 1 yr (founder-paid)","bucket":"Operations","amount":10.19,"via":"Card (R. Vukich)","src":"","srcLabel":"GoDaddy order #4131715574"}],"hours":[]};
 var _ledgerLoaded=false;
 function loadLedger(){
   if(_ledgerLoaded) return; _ledgerLoaded=true;
@@ -797,20 +797,21 @@ function renderLedger(d){
 
 /* ===== Donate feature (added) ===== */
 window.DONATE_CONFIG = {
+  comingSoon: true,   /* donations not open yet — days away. Flip to false once a platform below is set. */
   platform: 'givebutter',
   givebutterCampaignUrl: '',
   givebutterAccount: '',
   givebutterWidgetId: '',
   donorboxUrl: '',
-  title: 'Support Plumas Waterway Testing',
-  blurb: 'Donations fund independent water-quality testing in Plumas County. Operating hours are billed transparently; the rest goes straight to testing.'
+  title: 'Support Plumas Grassroots Cooperative',
+  blurb: 'Donations will fund independent water-quality testing and this public transparency map for Plumas County.'
 };
 (function(){
   var C = window.DONATE_CONFIG;
   var bubble = document.createElement('button');
   bubble.id = 'donateBubble'; bubble.type = 'button';
   bubble.setAttribute('aria-label','Donate');
-  bubble.innerHTML = '<span class="dheart">&#10084;</span> Donate';
+  bubble.innerHTML = '<span class="dheart">&#10084;</span> Donate &middot; coming soon';
   bubble.onclick = openDonate;
   document.body.appendChild(bubble);
   var overlay = document.createElement('div');
@@ -832,6 +833,14 @@ window.DONATE_CONFIG = {
     var body = document.getElementById('donateBody');
     document.getElementById('donateTitle').textContent = C.title;
     document.getElementById('donateBlurb').textContent = C.blurb;
+    var _foot=document.getElementById('donateFoot');
+    if (C.comingSoon){
+      body.innerHTML='<div class="donateSetup" style="border-left-color:#2E5E3A"><b>Donations open soon.</b>'+
+        '<p>We&rsquo;re only days from launch. When giving goes live you&rsquo;ll be able to donate right here &mdash; and every dollar in and every bill out will be listed, with its receipt, on the <b>Transparency</b> tab.</p></div>';
+      if(_foot) _foot.style.display='none';
+      return;
+    }
+    if(_foot) _foot.style.display='';
     if (C.platform === 'givebutter' && C.givebutterAccount && C.givebutterWidgetId){
       if(!loaded){
         var sc=document.createElement('script');
