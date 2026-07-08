@@ -39,21 +39,25 @@ own_g as (
   select
     case when grouping(region)=1 then 'state'
          when grouping(county)=1 then 'region' else 'county' end as level,
-    region, county, owner, count(*)::bigint c
+    region, county, owner, count(*)::bigint c,
+    round(sum(case when unit='lbs' then coalesce(amount,0) else 0 end)::numeric,1) lbs
   from public.applications
   where year between 2020 and 2026 and lat is not null and lon is not null
     and owner is not null and owner<>''
   group by grouping sets ((owner),(region,owner),(region,county,owner))
 ),
+-- keep the top operators by BOTH metrics (count and pounds) so the Data & Trends
+-- table can sort either way without missing a high-pounds/low-count operator.
 own_r as (
-  select level, region, county, owner, c,
-         row_number() over (partition by level, region, county order by c desc, owner) rn
+  select level, region, county, owner, c, lbs,
+         row_number() over (partition by level, region, county order by c desc, owner) rn_c,
+         row_number() over (partition by level, region, county order by lbs desc, owner) rn_l
   from own_g
 ),
 own_t as (
   select level, region, county,
-         jsonb_agg(jsonb_build_array(owner,c) order by c desc) filter (where rn<=20) top_owners
-  from own_r where rn<=20 group by level, region, county
+         jsonb_agg(jsonb_build_array(owner,c,lbs) order by c desc) top_owners
+  from own_r where rn_c<=25 or rn_l<=25 group by level, region, county
 )
 select
   coalesce(a.level,o.level) level,

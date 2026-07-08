@@ -240,11 +240,26 @@ function buildContacts(county, hasFederal){
 function mergeOwners(owners){
   var m={}, order=[];
   (owners||[]).forEach(function(o){var inf=applicatorInfo(o[0]),k=inf.label;
-    if(!m[k]){m[k]={label:inf.label,meta:inf.meta,n:0,agent:inf.agent||null};order.push(k);}
+    if(!m[k]){m[k]={label:inf.label,meta:inf.meta,n:0,lbs:0,agent:inf.agent||null};order.push(k);}
     if(!m[k].agent&&inf.agent)m[k].agent=inf.agent;
-    m[k].n+=(+o[1]||0);});
+    m[k].n+=(+o[1]||0); m[k].lbs+=(+o[2]||0);});   /* o[2]=pounds (juris top_owners); absent in map-cell owners */
   return order.map(function(k){return m[k];}).sort(function(a,b){return b.n-a.n;});
 }
+/* Top-operators table sorting (Data & Trends): by pounds applied (default) or by
+   application count. Re-sorts client-side from the merged rows. */
+var _OPROWS=[], _OPAGENT=false, _OPSORT='lbs';
+function opRowsHtml(){
+  var rows=(_OPROWS||[]).slice().sort(function(a,b){
+    return _OPSORT==='lbs' ? ((+b.lbs||0)-(+a.lbs||0)) : ((+b.n||0)-(+a.n||0));
+  }).slice(0,15);
+  return rows.map(function(o,i){return '<tr><td>'+(i+1)+'</td><td>'+_esc(o.label)+(o.meta?' <span class="om1">'+_esc(o.meta)+'</span>':'')+'</td>'
+    +(_OPAGENT?'<td>'+(o.agent?_esc(o.agent):'<span style="color:#bbb">—</span>')+'</td>':'')
+    +'<td style="text-align:right">'+_fmt(o.n)+'</td>'
+    +'<td style="text-align:right">'+(o.lbs?_lbs(o.lbs)+' lb':'<span style="color:#bbb">—</span>')+'</td></tr>';}).join('');
+}
+function setOpSort(k){_OPSORT=(k==='n'?'n':'lbs'); var tb=document.getElementById('opBody'); if(tb) tb.innerHTML=opRowsHtml();
+  var an=document.querySelector('.opar-n'), al=document.querySelector('.opar-lbs');
+  if(an) an.textContent=(_OPSORT==='n'?' ▾':' ⇅'); if(al) al.textContent=(_OPSORT==='lbs'?' ▾':' ⇅'); return false;}
 function cellPopup(p){
   var byc=_byClass(p.c||{}), yr=_years(p.c||{});
   var h='<b>'+(p.county||'?')+' County</b>'+(p.region?' <span style="color:#777">· '+regionLabel(p.region)+'</span>':'');
@@ -669,10 +684,12 @@ function renderDataHtml(){
 
   h.push(opCoverageCard());
 
-  var mo=mergeOwners(topOwn).slice(0,15), anyAgent=mo.some(function(o){return o.agent;});
-  h.push('<div class="card"><h2>Top operators</h2><table><thead><tr><th>#</th><th>Operator</th>'+(anyAgent?'<th>Agent of record</th>':'')+'<th>Applications</th></tr></thead><tbody>'+
-    mo.map(function(o,i){return '<tr><td>'+(i+1)+'</td><td>'+_esc(o.label)+(o.meta?' <span class="om1">'+_esc(o.meta)+'</span>':'')+'</td>'+(anyAgent?'<td>'+(o.agent?_esc(o.agent):'<span style="color:#bbb">—</span>')+'</td>':'')+'<td>'+_fmt(o.n)+'</td></tr>';}).join('')+
-    '</tbody></table><p class="note">'+APPLICATOR_NOTE+(anyAgent?' <b>Agent of record</b> is the person named on the county permit as authorized to act for the operator (often a pest-control adviser or farm manager); shown where a county roster lists one distinct from the operator.':'')+'</p></div>');
+  _OPROWS=mergeOwners(topOwn); _OPAGENT=_OPROWS.some(function(o){return o.agent;});
+  h.push('<div class="card"><h2>Top operators</h2><table><thead><tr><th>#</th><th>Operator</th>'+(_OPAGENT?'<th>Agent of record</th>':'')
+    +'<th onclick="setOpSort(\'n\')" style="cursor:pointer;text-align:right" title="Sort by number of applications">Applications<span class="opar-n">'+(_OPSORT==='n'?' ▾':' ⇅')+'</span></th>'
+    +'<th onclick="setOpSort(\'lbs\')" style="cursor:pointer;text-align:right" title="Sort by pounds of active ingredient applied">Amount<span class="opar-lbs">'+(_OPSORT==='lbs'?' ▾':' ⇅')+'</span></th>'
+    +'</tr></thead><tbody id="opBody">'+opRowsHtml()+'</tbody></table>'
+    +'<p class="note">Ranked by pounds applied by default &mdash; tap <b>Applications</b> or <b>Amount</b> to re-sort. '+APPLICATOR_NOTE+(_OPAGENT?' <b>Agent of record</b> is the person named on the county permit as authorized to act for the operator (often a pest-control adviser or farm manager); shown where a county roster lists one distinct from the operator.':'')+'</p></div>');
 
   return h.join('');
 }
