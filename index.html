@@ -585,6 +585,30 @@ function mergeTops(cs,key){
   return Object.keys(m).map(function(k){return [k,m[k]];}).sort(function(a,b){return b[1]-a[1];}).slice(0,20);
 }
 var _dataInit=false;
+/* Mobile only: let each content card roll up (tap its heading) so the long
+   Data/Science/Transparency screens aren't a wall of infographics. Collapsed by
+   default on phones; a no-op on wider screens. Idempotent (safe to re-run). */
+function collapsifyCards(root){
+  if(!root || window.innerWidth>=600) return;
+  var cards=root.querySelectorAll('.card');
+  for(var i=0;i<cards.length;i++){
+    var card=cards[i];
+    if(card.getAttribute('data-clps')) continue;
+    var head=card.querySelector('h2, .ltitle'); if(!head) continue;
+    card.setAttribute('data-clps','1');
+    var body=document.createElement('div'), n=head.nextSibling;
+    while(n){var nx=n.nextSibling; body.appendChild(n); n=nx;}
+    card.appendChild(body);
+    head.style.cursor='pointer'; head.setAttribute('role','button');
+    var car=document.createElement('span'); car.textContent=' ▸';
+    car.style.cssText='float:right;color:#8aa;font-weight:normal';
+    head.appendChild(car);
+    body.style.display='none';
+    (function(b,c,hd){hd.addEventListener('click',function(){
+      var open=b.style.display!=='none'; b.style.display=open?'none':''; c.textContent=open?' ▸':' ▾';
+    });})(body,car,head);
+  }
+}
 function renderData(){
   var wrap=document.getElementById('dataWrap'); if(!wrap) return;
   if(!_dataInit){wrap.innerHTML='<p style="color:#777;padding:24px 0">Loading statewide data…</p>';}
@@ -592,6 +616,7 @@ function renderData(){
     _dataInit=true;
     if(!document.getElementById('scopeRegion')||!document.getElementById('scopeRegion').options.length) populateScopeBar();
     wrap.innerHTML=renderDataHtml();
+    collapsifyCards(wrap);
   }).catch(function(){wrap.innerHTML='<p style="color:#a00;padding:24px 0">Data unavailable. Try reloading.</p>';});
 }
 function renderDataHtml(){
@@ -658,7 +683,7 @@ function show(v){
  if(v==='raw')renderRaw();
  if(v==='ledger')loadLedger();
  if(v==='data')renderData();
- if(v==='sci')renderSciScope();
+ if(v==='sci'){renderSciScope(); collapsifyCards(document.getElementById('sciview'));}
  if(v==='map'){if(!map)buildMap();setTimeout(function(){map.invalidateSize(true);},100);}}
 buildMap();
 function fix(){if(map)map.invalidateSize(true);}
@@ -748,6 +773,7 @@ function renderLedger(d){
   h+='</table></div>';
   h+='<div class="card"><p class="note">'+_esc(d.note||'')+'</p></div>';
   document.getElementById('ledgerWrap').innerHTML=h;
+  collapsifyCards(document.getElementById('ledgerWrap'));
 }
 
 /* ===== Donate feature (added) ===== */
