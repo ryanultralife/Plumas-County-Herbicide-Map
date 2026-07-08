@@ -37,6 +37,7 @@ th,td{border:1px solid #dcdcdc;padding:5px 7px;text-align:right}th{background:#2
 td:first-child,th:first-child{text-align:left}tr.tot td{font-weight:bold;background:#eef3ee}
 .legend{background:#fff;padding:8px 10px;border-radius:6px;box-shadow:0 1px 5px rgba(0,0,0,.4);font:13px Arial;line-height:1.5}
 .leaflet-control-layers{max-height:calc(100vh - 170px);overflow-y:auto}
+#mapStat{cursor:pointer}#mapStat .msfull{display:none}#mapStat:hover .msfull,#mapStat.msopen .msfull{display:inline}#mapStat .msi{font-weight:bold;color:#2E5E3A}
 @media(max-width:560px){.leaflet-control-layers{max-height:52vh;font-size:12px}#mapStat{white-space:normal!important;max-width:86vw;text-align:center;line-height:1.35;font-size:12px}}
 .legend i{width:14px;height:14px;display:inline-block;margin-right:6px;border:1px solid #555;vertical-align:middle}
 .legend .ring{width:12px;height:12px;border-radius:50%;background:#fd8d3c;display:inline-block;vertical-align:middle}
@@ -514,7 +515,7 @@ function buildMap(){
       bindCell(L.circleMarker([p.lat,p.lon],{renderer:canvas,radius:rAmt(sl),color:SRC_META[sk].color,weight:2.5,fill:false,opacity:.95}),p).addTo(g);});});
   });
   reg('▦ Total intensity (all products)', function(g){drawSet().forEach(function(p){var t=+p.n||0;if(!t)return;bindCell(L.circleMarker([p.lat,p.lon],{renderer:canvas,radius:rAmt(+p.lbs||0),weight:0.6,color:'#ffffff',opacity:.45,fillColor:'#ff5a1f',fillOpacity:.62}),p).addTo(g);});}, false);
-  overlays['Streams & water (USGS)']=hydro;
+  hydro.addTo(map);   /* streams & waterways always on (under the dots); intentionally NOT a toggle in the layer control */
   OVERLAYS=overlays; loadContacts();
   function ensure(g){if(g&&g._builder&&!g._built){g._builder(g);g._built=true;}}
   map.on('overlayadd',function(e){ensure(e.layer);});
@@ -544,7 +545,7 @@ function buildMap(){
     h.addEventListener('click',function(){var open=b.style.display!=='none'; b.style.display=open?'none':'block'; car.textContent=open?'▸':'▾';});
     return d;};lg.addTo(map);
   var ms0=document.getElementById('mapStat');
-  if(ms0) ms0.textContent='Loading '+(SCOPE.county?SCOPE.county+' County':'map')+'…';
+  if(ms0){ ms0.textContent='Loading '+(SCOPE.county?SCOPE.county+' County':'map')+'…'; ms0.addEventListener('click',function(){this.classList.toggle('msopen');}); }
   var firstPaint=false;
   function paint(){
     if(firstPaint){rebuildLayers();updateMapStat();return;}
@@ -586,7 +587,7 @@ function updateMapStat(){
   var el=document.getElementById('mapStat'); if(!el) return;
   var cs=scopedCells(), tot=cs.reduce(function(a,p){return a+(+p.n||0);},0);
   var where=SCOPE.county?SCOPE.county+' County':SCOPE.region?regionLabel(SCOPE.region):'statewide';
-  el.innerHTML='<b>'+tot.toLocaleString()+'</b> applications · <b>'+cs.length.toLocaleString()+'</b> mapped sections · '+where+' · 2020+'+(cs.length>THIN_LIMIT?DRAW_NOTE:'');
+  el.innerHTML='<span class="msi" title="Map totals — hover or tap to read">&#9432;</span><span class="msfull"> <b>'+tot.toLocaleString()+'</b> applications · <b>'+cs.length.toLocaleString()+'</b> mapped sections · '+where+' · 2020+'+(cs.length>THIN_LIMIT?DRAW_NOTE:'')+'</span>';
 }
 
 /* ----- Data & Trends (statewide + scoped) ----- */
