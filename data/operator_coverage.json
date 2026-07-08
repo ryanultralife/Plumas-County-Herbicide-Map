@@ -1,12 +1,13 @@
 {
  "generated": null,
  "statewide": {
-  "apps": 9809161,
-  "named": 5267694,
-  "pct": 53.7,
+  "apps": 9945689,
+  "named": 6278863,
+  "pct": 63.1,
   "public_counties": [
    "Colusa",
    "Contra Costa",
+   "Fresno",
    "Kern",
    "Kings",
    "Merced",
@@ -46,9 +47,9 @@
    "access": "request"
   },
   "Butte": {
-   "apps": 136608,
-   "named": 4775,
-   "pct": 3.5,
+   "apps": 214519,
+   "named": 8231,
+   "pct": 3.8,
    "region": "northern-sierra",
    "access": "request"
   },
@@ -81,18 +82,18 @@
    "access": "request"
   },
   "El Dorado": {
-   "apps": 19712,
+   "apps": 19692,
    "named": 5474,
    "pct": 27.8,
    "region": "central-sierra",
    "access": "request"
   },
   "Fresno": {
-   "apps": 985020,
-   "named": 13584,
-   "pct": 1.4,
+   "apps": 984477,
+   "named": 980492,
+   "pct": 99.6,
    "region": "san-joaquin-valley",
-   "access": "request"
+   "access": "download"
   },
   "Glenn": {
    "apps": 115469,
@@ -131,8 +132,8 @@
   },
   "Kings": {
    "apps": 233219,
-   "named": 74382,
-   "pct": 31.9,
+   "named": 77611,
+   "pct": 33.3,
    "region": "san-joaquin-valley",
    "access": "download"
   },
@@ -144,23 +145,23 @@
    "access": "request"
   },
   "Lassen": {
-   "apps": 4970,
-   "named": 264,
-   "pct": 5.3,
+   "apps": 8715,
+   "named": 457,
+   "pct": 5.2,
    "region": "northern-sierra",
    "access": "request"
   },
   "Los Angeles": {
-   "apps": 33191,
+   "apps": 31621,
    "named": 794,
-   "pct": 2.4,
+   "pct": 2.5,
    "region": "southern-california",
    "access": "request"
   },
   "Madera": {
-   "apps": 281722,
-   "named": 34117,
-   "pct": 12.1,
+   "apps": 281685,
+   "named": 49277,
+   "pct": 17.5,
    "region": "san-joaquin-valley",
    "access": "request"
   },
@@ -235,28 +236,28 @@
    "access": "request"
   },
   "Placer": {
-   "apps": 9576,
+   "apps": 9567,
    "named": 475,
    "pct": 5.0,
    "region": "central-sierra",
    "access": "request"
   },
   "Plumas": {
-   "apps": 2444,
-   "named": 1397,
-   "pct": 57.2,
+   "apps": 4521,
+   "named": 3478,
+   "pct": 76.9,
    "region": "northern-sierra",
    "access": "download"
   },
   "Riverside": {
-   "apps": 283672,
-   "named": 265380,
+   "apps": 283394,
+   "named": 265144,
    "pct": 93.6,
    "region": "southern-california",
    "access": "download"
   },
   "Sacramento": {
-   "apps": 111891,
+   "apps": 111889,
    "named": 47446,
    "pct": 42.4,
    "region": "sacramento-valley",
@@ -299,13 +300,13 @@
   },
   "San Luis Obispo": {
    "apps": 239857,
-   "named": 51285,
+   "named": 51310,
    "pct": 21.4,
    "region": "central-coast",
    "access": "request"
   },
   "San Mateo": {
-   "apps": 15220,
+   "apps": 15204,
    "named": 7,
    "pct": 0.0,
    "region": "bay-area",
@@ -326,23 +327,23 @@
    "access": "request"
   },
   "Santa Cruz": {
-   "apps": 116275,
-   "named": 94002,
+   "apps": 116070,
+   "named": 93805,
    "pct": 80.8,
    "region": "bay-area",
    "access": "download"
   },
   "Shasta": {
-   "apps": 12931,
+   "apps": 12930,
    "named": 2929,
    "pct": 22.7,
    "region": "shasta-cascade",
    "access": "request"
   },
   "Sierra": {
-   "apps": 369,
-   "named": 200,
-   "pct": 54.2,
+   "apps": 663,
+   "named": 457,
+   "pct": 68.9,
    "region": "northern-sierra",
    "access": "request"
   },
@@ -368,8 +369,8 @@
    "access": "request"
   },
   "Stanislaus": {
-   "apps": 410267,
-   "named": 410153,
+   "apps": 409219,
+   "named": 409105,
    "pct": 100.0,
    "region": "san-joaquin-valley",
    "access": "download"
@@ -382,9 +383,9 @@
    "access": "download"
   },
   "Tehama": {
-   "apps": 83693,
-   "named": 745,
-   "pct": 0.9,
+   "apps": 139923,
+   "named": 1621,
+   "pct": 1.2,
    "region": "shasta-cascade",
    "access": "request"
   },
@@ -397,8 +398,8 @@
   },
   "Tulare": {
    "apps": 858949,
-   "named": 7968,
-   "pct": 0.9,
+   "named": 28433,
+   "pct": 3.3,
    "region": "san-joaquin-valley",
    "access": "request"
   },
