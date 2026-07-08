@@ -41,7 +41,10 @@ create table if not exists public.applications (
   project           text,
   status            text,
   url               text,
-  pulled            text
+  pulled            text,
+  acres             double precision   -- acres treated (PUR AREA/ACRES_TREATED). Populated for the
+                                       -- 5 Northern Sierra counties from the CDPR CPRA extract (2020-2024);
+                                       -- statewide backfill pending a re-derive from the PUR archives.
 );
 create index if not exists ix_app_region on public.applications(region);
 create index if not exists ix_app_county on public.applications(county);

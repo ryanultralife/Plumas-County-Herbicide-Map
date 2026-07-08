@@ -14,13 +14,15 @@ with cells as (
     coalesce(year::text,'')||'|'||coalesce(public.chem_class(active_ingredient, product),'unknown')||'|'||coalesce(land_type,'unknown') as ck,
     count(*)::int cnt,
     round(sum(case when unit='lbs' then coalesce(amount,0) else 0 end)::numeric,1) lbs,
+    round(sum(coalesce(acres,0))::numeric,1) acres,
     max(county) county, max(region) region
   from public.applications where lat is not null and lon is not null and year between 2020 and 2026
   group by 1,2,3
 ),
 agg as (
   select lat, lon, max(county) county, max(region) region, sum(cnt)::int n,
-         round(sum(lbs)::numeric,1) lbs, jsonb_object_agg(ck, to_jsonb(array[cnt::numeric,lbs])) c
+         round(sum(lbs)::numeric,1) lbs, round(sum(acres)::numeric,1) acres,
+         jsonb_object_agg(ck, to_jsonb(array[cnt::numeric,lbs])) c
   from cells group by lat, lon
 ),
 src_agg as (
@@ -46,7 +48,7 @@ own_ranked as (
   group by 1,2,3
 ),
 own_top as (select lat, lon, jsonb_agg(jsonb_build_array(owner,c) order by c desc) filter (where rn<=5) owners from own_ranked group by lat, lon)
-select a.lat, a.lon, a.county, a.region, a.n, a.lbs, a.c,
+select a.lat, a.lon, a.county, a.region, a.n, a.lbs, a.acres, a.c,
        coalesce(t.ai,'[]'::jsonb) ai, coalesce(s.src,'{}'::jsonb) src, coalesce(o.owners,'[]'::jsonb) owners
 from agg a
   left join ai_top  t using (lat, lon)
