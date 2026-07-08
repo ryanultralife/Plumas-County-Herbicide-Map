@@ -216,6 +216,21 @@ def plumas_local():
             pass
     return n
 
+# ---------- Fresno (10): CPRA "PermitSearchResults-ALL" export (more complete than the
+# ArcGIS layer: all permit types, back to 2018). Downloaded to data/raw/cpra/. ----------
+def fresno_local():
+    fn = "data/raw/cpra/fresno_permits.csv"
+    try:
+        n = 0
+        with open(fn, newline="", encoding="utf-8") as f:
+            for row in csv.DictReader(f):
+                add(row.get("Permit Number"), row.get("Operator"), "Fresno",
+                    "fresno-cpra-permits-2026", row.get("Agent Name"))
+                n += 1
+        return n
+    except FileNotFoundError:
+        return 0
+
 # ---------- shared xlsx permit->name scanner ----------
 def _xlsx_permit_name(raw, pcol, ncol, county, source, sheet=None, acol=None):
     import openpyxl
@@ -307,7 +322,8 @@ def main():
     dburl = os.environ.get("DBURL")
     if not dburl:
         sys.exit("Set DBURL in the environment.")
-    for label, fn in [("plumas_local", plumas_local), ("monterey", monterey), ("kern", kern),
+    for label, fn in [("plumas_local", plumas_local), ("fresno_local", fresno_local),
+                      ("monterey", monterey), ("kern", kern),
                       ("stanislaus", stanislaus), ("san_joaquin", san_joaquin),
                       ("contra_costa", contra_costa), ("riverside", riverside),
                       ("santa_barbara", santa_barbara), ("fresno", fresno),
