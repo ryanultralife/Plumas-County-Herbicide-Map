@@ -159,7 +159,7 @@ var APPLICATOR_NOTE='California’s raw pesticide-use reports identify operators
 var CONTACTS=null;
 function loadContacts(){
   if(CONTACTS) return Promise.resolve(CONTACTS);
-  return fetch('data/contacts.json').then(function(r){if(!r.ok)throw 0;return r.json();}).then(function(j){CONTACTS=j;return j;}).catch(function(){return null;});
+  return fetch('data/contacts.json',{cache:'no-store'}).then(function(r){if(!r.ok)throw 0;return r.json();}).then(function(j){CONTACTS=j;return j;}).catch(function(){return null;});
 }
 var OPCOV=null;
 function loadOperatorCoverage(){
@@ -199,7 +199,7 @@ function opCoverageCard(){
     meter+'<p class="note">'+msg+'</p>'+extra+'</div>';
 }
 function copyEmail(ev,a){ev.preventDefault();ev.stopPropagation();try{navigator.clipboard.writeText(a);var t=ev.target;var o=t.textContent;t.textContent='[copied]';setTimeout(function(){t.textContent=o;},1200);}catch(e){}return false;}
-function buildContacts(county){
+function buildContacts(county, hasFederal){
   if(!CONTACTS) return '<div style="margin-top:7px;border-top:1px solid #e5e5e5;padding-top:5px;font-size:11.5px"><b>Verify or raise a concern:</b> your County Agricultural Commissioner, or CA DPR — 1-87-PestLine (1-877-378-5463) · <a href="https://www.cdpr.ca.gov/docs/dept/comguide/how_to_file.htm" target="_blank" rel="noopener">file a complaint</a></div>';
   var c=CONTACTS.counties&&CONTACTS.counties[county], dpr=CONTACTS.dpr||{}, reps=CONTACTS.reps||{}, air=CONTACTS.air||{};
   var h='<div style="margin-top:7px;border-top:1px solid #e5e5e5;padding-top:5px;font-size:11.5px;line-height:1.5">';
@@ -213,6 +213,18 @@ function buildContacts(county){
   }
   if(c&&c.water){h+='<div title="Regional Water Quality Control Board: runoff, wells, drinking-water concerns"><b>Water</b>: <a href="'+c.water.url+'" target="_blank" rel="noopener">file a water-quality concern</a> ('+(c.water.region||'').replace(/ ?Regional.*/,'')+')</div>';}
   h+='<div title="'+(dpr.note||'')+'"><b>State</b>: <a href="'+(dpr.url||'#')+'" target="_blank" rel="noopener">CA DPR</a> · 1-87-PestLine ('+(dpr.phone||'')+')</div>';
+  if(hasFederal && CONTACTS.federal){
+    var fed=CONTACTS.federal, r5=fed.region5||{};
+    var fk=fed.countyForest&&fed.countyForest[county], f=fk&&fed.forests&&fed.forests[fk];
+    var fe=(r5.foiaEmail||'').replace(/[^\w.@+-]/g,'');
+    h+='<div title="On national-forest land the U.S. Forest Service is the operator of record for these applications. Contact the forest supervisor&#39;s office, and file federal records (FOIA) requests through the Pacific Southwest Region (Region 5) service center.">'
+      +'<b>Federal (USFS)</b>: ';
+    if(f){ h+='<a href="'+_esc(f.website||'#')+'" target="_blank" rel="noopener">'+_esc(f.name)+'</a>'+(f.phone?' · '+_esc(f.phone):''); }
+    else { h+='<a href="'+_esc(r5.website||'#')+'" target="_blank" rel="noopener">USDA Forest Service (Region 5)</a>'; }
+    if(fe){ h+=' · records: <a href="mailto:'+fe+'?subject='+encodeURIComponent('USFS records (FOIA) request — SprayMap')+'">FOIA</a>'
+      +' <a href="#" onclick="return copyEmail(event,\''+fe+'\')" style="color:#2E5E3A" title="Copy the Region 5 FOIA address">[copy]</a>'; }
+    h+='</div>';
+  }
   var rp=c&&c.reps, fmt=function(m){return '<a href="'+(m.url||'#')+'" target="_blank" rel="noopener">'+m.name+(m.party?' ('+m.party+')':'')+'</a>';};
   if(rp&&((rp.senate&&rp.senate.length)||(rp.assembly&&rp.assembly.length))){
     h+='<div title="Your California state legislators. Districts can split a county — confirm exact reps by address."><b>State reps</b>'
@@ -244,7 +256,7 @@ function cellPopup(p){
   if(p.ai&&p.ai.length){h+='<b>Top active ingredients:</b><br><span style="color:#444">'+p.ai.slice(0,5).map(function(a){return _esc(a[0])+' ('+(+a[1]).toLocaleString()+')';}).join('<br>')+'</span><br>';}
   if(p.src&&Object.keys(p.src).length){var sm=[];Object.keys(p.src).forEach(function(k){sm.push(_esc(SRC_META[k]?SRC_META[k].label.replace(/ -.*/,''):k)+' '+_num(p.src[k]).toLocaleString());});h+='<b>Source:</b> '+sm.join(' · ')+'<br>';}
   if(p.owners&&p.owners.length){h+='<b>Top operators:</b><br><span style="color:#444">'+mergeOwners(p.owners).slice(0,5).map(function(o){return _esc(o.label)+' ('+o.n.toLocaleString()+')'+(o.agent?'<br><span style="color:#777;font-size:11px">&nbsp;&nbsp;↳ agent of record: '+_esc(o.agent)+'</span>':'');}).join('<br>')+'</span>';}
-  h+=buildContacts(p.county||'');
+  h+=buildContacts(p.county||'', !!(p.src&&p.src.facts));
   return h;
 }
 
