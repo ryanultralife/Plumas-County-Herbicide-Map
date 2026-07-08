@@ -684,6 +684,18 @@ function renderLedger(d){
   var dUn=0,dRe=0; don.forEach(function(x){var n=(+x.gross||0)-(+x.fees||0); if(x.type==='Restricted-Testing')dRe+=n; else dUn+=n;});
   function pct(a){return spent>0?(100*a/spent).toFixed(1)+'%':'0.0%';}
   var h='';
+  /* Who's behind the project — mission & vision (Plumas Grassroots Cooperative). */
+  h+='<div class="card" style="border-left:4px solid #2E5E3A">';
+  h+='<div class="ltitle">Plumas Grassroots Cooperative</div>';
+  h+='<div class="lsub">The community effort behind SprayMap California &mdash; organizing as a California nonprofit.</div>';
+  h+='<p><b>Mission.</b> A community-based organization dedicated to promoting environmental stewardship, public health, civic engagement, and sustainable land management in Plumas County. Through education, research, collaboration, and community action, we work to empower residents to participate in decisions affecting the future of our forests, watersheds, wildlife, and communities.</p>';
+  h+='<p><b>Vision.</b> A healthy and resilient Plumas County where informed citizens, thriving ecosystems, and strong local communities work together for future generations.</p>';
+  h+='<p style="margin-bottom:6px"><b>Core values</b></p><div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px">'
+   +['Transparency','Community participation','Scientific integrity','Environmental stewardship','Local leadership','Respectful dialogue','Accountability']
+      .map(function(v){return '<span class="bdg" style="background:#2E5E3A">'+v+'</span>';}).join('')+'</div>';
+  h+='<p><b>What we do.</b> Environmental monitoring &mdash; tracking herbicide &amp; pesticide applications, monitoring water, and maintaining publicly accessible data resources like this map &mdash; alongside community education, forest &amp; watershed stewardship, civic engagement, and youth leadership.</p>';
+  h+='<p class="note" style="font-style:italic;margin-top:8px">Local Voices. Healthy Lands. Strong Communities.</p>';
+  h+='</div>';
   h+='<div class="ltitle">Transparency Ledger</div>';
   if(d.sample){
     h+='<div style="background:#fff3cd;border:2px solid #d9a400;border-radius:8px;padding:10px 14px;margin:10px 0;font-weight:600;color:#6b5200">SAMPLE DATA &mdash; the entries below are illustrative placeholders showing the format this ledger will use, <u>not real transactions</u>. Linked documents are stubs. This banner comes down when real donations and receipts are published.</div>';
