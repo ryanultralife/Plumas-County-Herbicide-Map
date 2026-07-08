@@ -495,16 +495,24 @@ function buildMap(){
     if(scopedCells().length<=THIN_LIMIT) return;
     clearTimeout(_mvT); _mvT=setTimeout(function(){rebuildLayers();updateMapStat();},300);
   });
-  /* Always expanded on desktop (user preference); collapsed to the tap-to-open icon on
-     phones where the open panel would cover half the map. */
-  L.control.layers({'Streets (CARTO)':carto,'Topographic':topo,'Satellite':sat},overlays,{collapsed:window.innerWidth<600}).addTo(map);
+  /* Rolled up to the tap/hover icon by default so it stays out of the way; expands on
+     interaction (both desktop + mobile). */
+  L.control.layers({'Streets (CARTO)':carto,'Topographic':topo,'Satellite':sat},overlays,{collapsed:true}).addTo(map);
   var lg=L.control({position:'bottomright'});lg.onAdd=function(){var d=L.DomUtil.create('div','legend');
+    var body;
     if(isMobile){
-      d.innerHTML='<b>All applications</b><br><span style="font-size:11px;color:#666"><b>Dot size = pounds applied</b> · CA 2020+<br>Dots mark the ~1 sq-mi survey section, not the exact field.</span>';
+      body='<span style="font-size:11px;color:#666"><b>Dot size = pounds applied</b> · CA 2020+<br>Dots mark the ~1 sq-mi survey section, not the exact field.</span>';
     }else{
       var rows=CLASS_ORDER.map(function(cl){return '<span class="ring" style="background:'+CLASS_COLORS[cl]+';border:0"></span> '+cl.replace('_',' ');}).join('<br>');
-      d.innerHTML='<b>All applications</b> <span style="color:#888">(dots colored by dominant class; ◉ layers isolate one)</span><br>'+rows+'<br><span style="font-size:11px;color:#666"><b>Dot size = pounds applied</b> · ▦ total-intensity &amp; ▣ source layers optional · CA 2020+<br>Dots mark the ~1 sq-mi survey section, not the exact field.</span>';
+      body='<span style="color:#888">Dots colored by dominant class; ◉ layers isolate one.</span><br>'+rows+'<br><span style="font-size:11px;color:#666"><b>Dot size = pounds applied</b> · ▦ total-intensity &amp; ▣ source layers optional · CA 2020+<br>Dots mark the ~1 sq-mi survey section, not the exact field.</span>';
     }
+    /* Rolled up by default: only the title shows; click it to expand/collapse the key so
+       it stays out of the way of the map when not in use. */
+    d.innerHTML='<div class="lgh"><b>Map key</b> <span class="lgcar">▸</span></div><div class="lgbody" style="display:none;margin-top:6px">'+body+'</div>';
+    L.DomEvent.disableClickPropagation(d);
+    var h=d.querySelector('.lgh'), b=d.querySelector('.lgbody'), car=d.querySelector('.lgcar');
+    h.style.cursor='pointer'; h.title='Show/hide the map key';
+    h.addEventListener('click',function(){var open=b.style.display!=='none'; b.style.display=open?'none':'block'; car.textContent=open?'▸':'▾';});
     return d;};lg.addTo(map);
   var ms0=document.getElementById('mapStat');
   if(ms0) ms0.textContent='Loading '+(SCOPE.county?SCOPE.county+' County':'map')+'…';
