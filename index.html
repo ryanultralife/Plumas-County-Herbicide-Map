@@ -751,6 +751,7 @@ function renderLedger(d){
    +['Transparency','Community participation','Scientific integrity','Environmental stewardship','Local leadership','Respectful dialogue','Accountability']
       .map(function(v){return '<span class="bdg" style="background:#2E5E3A">'+v+'</span>';}).join('')+'</div>';
   h+='<p><b>What we do.</b> Environmental monitoring &mdash; tracking herbicide &amp; pesticide applications, monitoring water, and maintaining publicly accessible data resources like this map &mdash; alongside community education, forest &amp; watershed stewardship, civic engagement, and youth leadership.</p>';
+  h+='<p><b>Contact.</b> Questions, a tip about spraying near you, or want to get involved? Email <a href="mailto:spraymapca@gmail.com?subject='+encodeURIComponent('SprayMap California — contact')+'">spraymapca@gmail.com</a></p>';
   h+='<p class="note" style="font-style:italic;margin-top:8px">Local Voices. Healthy Lands. Strong Communities.</p>';
   h+='</div>';
   h+='<div class="ltitle">Transparency Ledger</div>';
@@ -837,7 +838,7 @@ window.DONATE_CONFIG = {
     var _foot=document.getElementById('donateFoot');
     if (C.comingSoon){
       body.innerHTML='<div class="donateSetup" style="border-left-color:#2E5E3A"><b>Donations open soon.</b>'+
-        '<p>We&rsquo;re only days from launch. When giving goes live you&rsquo;ll be able to donate right here &mdash; and every dollar in and every bill out will be listed, with its receipt, on the <b>Transparency</b> tab.</p></div>';
+        '<p>We&rsquo;re only days from launch. When giving goes live you&rsquo;ll be able to donate right here &mdash; and every dollar in and every bill out will be listed, with its receipt, on the <b>Transparency</b> tab.</p>'+'<p style="margin-top:8px">Questions or want to help before then? Email <a href="mailto:spraymapca@gmail.com?subject='+encodeURIComponent('SprayMap California — get involved')+'">spraymapca@gmail.com</a>.</p></div>';
       if(_foot) _foot.style.display='none';
       return;
     }
