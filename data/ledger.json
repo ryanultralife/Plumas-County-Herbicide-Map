@@ -3,7 +3,7 @@
  "org": "Plumas Grassroots Cooperative",
  "updated": "2026-07-08",
  "currency": "USD",
- "note": "Donations open soon. Until then this page tracks the project's real startup costs — each bill listed with its reference. Founder-covered costs are marked; once giving is live and the cooperative holds funds, every donation and reimbursement will appear here too.",
+ "note": "Donations open soon. Until then this page tracks the project's real startup costs — each bill listed with its reference. To protect privacy, the individual workers and contractors who do project work are shown by role or code (e.g. Founder, Field tech A, Contractor #1); organizations and every dollar amount are shown in full. Once giving is live, every donation and reimbursement appears here too.",
  "donations": [],
  "expenses": [
   {
@@ -11,7 +11,7 @@
    "payee": "GoDaddy — spraymapca.org domain registration, 1 yr (founder-paid)",
    "bucket": "Operations",
    "amount": 10.19,
-   "via": "Card (R. Vukich)",
+   "via": "Card (founder)",
    "src": "",
    "srcLabel": "GoDaddy order #4131715574"
   }

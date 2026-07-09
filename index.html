@@ -712,7 +712,7 @@ window.addEventListener('orientationchange',function(){setTimeout(fix,250);setTi
 setTimeout(fix,300);
 
 /* ===== Transparency ledger (added) ===== */
-var LEDGER_SEED={"sample":false,"org":"Plumas Grassroots Cooperative","updated":"2026-07-08","currency":"USD","note":"Donations open soon. Until then this page tracks the project's real startup costs — each bill listed with its reference. Founder-covered costs are marked; once giving is live and the cooperative holds funds, every donation and reimbursement will appear here too.","donations":[],"expenses":[{"date":"2026-07-08","payee":"GoDaddy — spraymapca.org domain registration, 1 yr (founder-paid)","bucket":"Operations","amount":10.19,"via":"Card (R. Vukich)","src":"","srcLabel":"GoDaddy order #4131715574"}],"hours":[]};
+var LEDGER_SEED={"sample": false, "org": "Plumas Grassroots Cooperative", "updated": "2026-07-08", "currency": "USD", "note": "Donations open soon. Until then this page tracks the project's real startup costs — each bill listed with its reference. To protect privacy, the individual workers and contractors who do project work are shown by role or code (e.g. Founder, Field tech A); organizations and every dollar amount are shown in full. Once giving is live, every donation and reimbursement appears here too.", "donations": [], "expenses": [{"date": "2026-07-08", "payee": "GoDaddy — spraymapca.org domain registration, 1 yr (founder-paid)", "bucket": "Operations", "amount": 10.19, "via": "Card (founder)", "src": "", "srcLabel": "GoDaddy order #4131715574"}], "hours": []};
 var _ledgerLoaded=false;
 function loadLedger(){
   if(_ledgerLoaded) return; _ledgerLoaded=true;
@@ -758,7 +758,7 @@ function renderLedger(d){
     h+='<div style="background:#fff3cd;border:2px solid #d9a400;border-radius:8px;padding:10px 14px;margin:10px 0;font-weight:600;color:#6b5200">SAMPLE DATA &mdash; the entries below are illustrative placeholders showing the format this ledger will use, <u>not real transactions</u>. Linked documents are stubs. This banner comes down when real donations and receipts are published.</div>';
     h+='<div class="lsub">This is how the ledger will work: every dollar in, every dollar out, and every hour billed, each linked to its source document.</div>';
   } else {
-    h+='<div class="lsub">Every dollar in, every dollar out, and every hour billed &mdash; each figure links to its source document.</div>';
+    h+='<div class="lsub">'+_esc(d.note||'Every dollar in, every dollar out, and every hour billed — each figure links to its source document.')+'</div>';
   }
   h+='<div class="lupd">'+(d.sample?'Sample':'Last updated '+_esc(d.updated||''))+(d.org?' &middot; '+_esc(d.org):'')+'</div>';
   h+='<div class="kpis">';
