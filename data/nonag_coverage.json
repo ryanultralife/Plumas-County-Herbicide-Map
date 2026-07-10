@@ -1,0 +1,223 @@
+{
+ "note": "Applications reported to the county at county level only (no PLSS section) -- mostly non-production uses in town/roadside, which the section-based map cannot place. Not part of the forestry-herbicide story this map focuses on, but shown here for completeness.",
+ "counties": {
+  "Butte": {
+   "count": 40475,
+   "top_categories": [
+    [
+     "Structural Pest Control",
+     25136
+    ],
+    [
+     "Landscape Maintenance",
+     8447
+    ],
+    [
+     "Rights Of Way",
+     4731
+    ],
+    [
+     "Public Health Pest Control",
+     592
+    ],
+    [
+     "Commodity Fumigation",
+     525
+    ],
+    [
+     "Golf Course Turf (Fairways, Greens, Tees, Rough, Etc.)",
+     222
+    ]
+   ]
+  },
+  "Lassen": {
+   "count": 3601,
+   "top_categories": [
+    [
+     "Structural Pest Control",
+     2413
+    ],
+    [
+     "Rights Of Way",
+     662
+    ],
+    [
+     "Landscape Maintenance",
+     278
+    ],
+    [
+     "Regulatory Pest Control",
+     155
+    ],
+    [
+     "Rangeland (All Or Unspec)",
+     41
+    ],
+    [
+     "Forest Trees, Forest Lands (All Or Unspec)",
+     31
+    ]
+   ]
+  },
+  "Plumas": {
+   "count": 4725,
+   "top_categories": [
+    [
+     "Structural Pest Control",
+     2606
+    ],
+    [
+     "Rights Of Way",
+     803
+    ],
+    [
+     "Landscape Maintenance",
+     657
+    ],
+    [
+     "N-Grnhs Grwn Cut Flwrs Or Greens",
+     183
+    ],
+    [
+     "Ornamental Turf (All Or Unspec)",
+     156
+    ],
+    [
+     "Golf Course Turf (Fairways, Greens, Tees, Rough, Etc.)",
+     112
+    ]
+   ],
+   "operators": [
+    "Terminix International",
+    "Clark Pest Control",
+    "Ecolab, Inc.",
+    "Stone Ridge Termite & Pest Control",
+    "Sierra Integrated Services, Inc.",
+    "Big Time Pest Control",
+    "Hunters Services, Inc.",
+    "Davey Tree Surgery Company",
+    "Scott Kotrc",
+    "Sprague Pest Solutions",
+    "Lassen Pest Control",
+    "Reimers Pest & Weed Control",
+    "Pestmaster Services, LP",
+    "Western Exterminator Company",
+    "California Reforestation, Inc.",
+    "Osmose Utilities Services, Inc.",
+    "Lake Almanor Golf Course",
+    "Western Tower Site Services, Inc.",
+    "Hamilton Land Services",
+    "Clean Lakes, Inc.",
+    "Lake Almanor West Golf Course",
+    "Ferrosafe, LLC",
+    "Dewey Pest Control",
+    "ORKIN PEST CONTROL OF NORTHERN CALIFORNIA",
+    "Tower MRL, LLC.",
+    "Advanced Integrated Pest Management",
+    "Central Sierra Enterprises",
+    "Mountain Firewood and Enterprises",
+    "Wild West Reforesters, Inc.",
+    "Nalco Company Services",
+    "The Dragon Golf Course",
+    "Truckee North Tahoe Pest Control, Inc.",
+    "DeAngelo Contracting Services, LLC",
+    "Weed Management Company",
+    "Central Sierra Pest Control",
+    "Thomas N. Karrer",
+    "Panda Pest Management",
+    "RGZ Forestry LLC",
+    "Hunter Pest Control",
+    "4 LESS TERMITE INC",
+    "Neighborly Pest Management, Inc.",
+    "Orkin Pest Control",
+    "RENO GREEN LANDSCAPING INC",
+    "ALPINE HELICOPTERS",
+    "CRITTER CONTROL",
+    "SIERRA INTEGRATED SERVICES INC.",
+    "NALCO COMPANY LLC",
+    "Silhouette Farm & Forestry, LLC",
+    "PP FORESTRY, LLC",
+    "Forerunner Tower Maintenance Inc",
+    "Tower MRL, Inc.",
+    "SIGNET INSPECTION GROUP INC",
+    "NOR CAL PEST CONTROL",
+    "DeAngelo Brothers, LLC",
+    "Nevada Environmental Consulting",
+    "Central Sierra Enterprise",
+    "Forest Protection",
+    "Pest Management Technology",
+    "Roberti Ranch",
+    "Jim Roberti",
+    "KARRER, THOMAS N.",
+    "SPRAGUE PEST SOLUTIONS",
+    "TNT Truckee and Tahoe Pest Control, Inc.",
+    "KLEMESRUD, JASON M.",
+    "FORERUNNER TOWER MAINTENANCE, INC.",
+    "GOMEZ, MARCOS A.",
+    "MCNABB, THOMAS J.",
+    "Bailey Creek Golf Course",
+    "RED MTN RESOURCE LLC",
+    "PLUMAS CORPORATION",
+    "CALIFORNIA REFORESTATION"
+   ]
+  },
+  "Sierra": {
+   "count": 1423,
+   "top_categories": [
+    [
+     "Structural Pest Control",
+     1084
+    ],
+    [
+     "Rights Of Way",
+     196
+    ],
+    [
+     "County Ag. Comm. Sales",
+     52
+    ],
+    [
+     "Uncultivated Non-Ag Areas (All Or Unspec)",
+     34
+    ],
+    [
+     "Landscape Maintenance",
+     34
+    ],
+    [
+     "Commercial, Institutional Or Industrial Areas",
+     12
+    ]
+   ]
+  },
+  "Tehama": {
+   "count": 16188,
+   "top_categories": [
+    [
+     "Structural Pest Control",
+     11410
+    ],
+    [
+     "Landscape Maintenance",
+     1877
+    ],
+    [
+     "Rights Of Way",
+     1497
+    ],
+    [
+     "Commodity Fumigation",
+     281
+    ],
+    [
+     "Regulatory Pest Control",
+     279
+    ],
+    [
+     "Public Health Pest Control",
+     266
+    ]
+   ]
+  }
+ }
+}

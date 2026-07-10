@@ -168,6 +168,19 @@ function loadOperatorCoverage(){
   if(OPCOV) return Promise.resolve(OPCOV);
   return fetch('data/operator_coverage.json').then(function(r){if(!r.ok)throw 0;return r.json();}).then(function(j){OPCOV=j;return j;}).catch(function(){return null;});
 }
+var NONAG=null;
+function loadNonag(){ if(NONAG) return Promise.resolve(NONAG); return fetch('data/nonag_coverage.json',{cache:'no-store'}).then(function(r){if(!r.ok)throw 0;return r.json();}).then(function(j){NONAG=j;return j;}).catch(function(){return null;}); }
+function nonagAgg(){ if(!NONAG||!NONAG.counties) return null; var C=NONAG.counties, list=[];
+  if(SCOPE.county){ if(C[SCOPE.county]) list=[C[SCOPE.county]]; }
+  else { for(var k in C){ if(SCOPE.region && COUNTY_REGION[k]!==SCOPE.region) continue; if(C[k].count>0) list.push(C[k]); } }
+  if(!list.length) return null; var total=0, cats={};
+  list.forEach(function(e){ total+=e.count||0; (e.top_categories||[]).forEach(function(c){cats[c[0]]=(cats[c[0]]||0)+c[1];}); });
+  if(!total) return null; var tc=Object.keys(cats).sort(function(a,b){return cats[b]-cats[a];}).slice(0,3);
+  return {total:total, cats:tc, ops:(SCOPE.county==='Plumas'&&C.Plumas&&C.Plumas.operators)?C.Plumas.operators:null}; }
+function nonagNote(){ var a=nonagAgg(); if(!a) return '';
+  var h=' <span style="color:#8a6d3b">Plus <b>'+a.total.toLocaleString()+'</b> applications reported at <b>county level only</b> (no PLSS section) &mdash; '+a.cats.map(function(c){return _esc(String(c).toLowerCase());}).join(', ')+' &mdash; so they cannot be placed on the map.';
+  if(a.ops&&a.ops.length){ h+=' Named Plumas applicators here include '+a.ops.slice(0,6).map(function(o){return _esc(o);}).join(', ')+(a.ops.length>6?', and '+(a.ops.length-6)+' more':'')+'.'; }
+  return h+'</span>'; }
 function opCoverage(){
   if(!OPCOV) return null;
   if(SCOPE.county){var e=OPCOV.counties[SCOPE.county];return e?{apps:e.apps,named:e.named,pct:e.pct,access:e.access,scope:'county'}:null;}
@@ -974,7 +987,7 @@ function renderRaw(){
   var head=document.getElementById('rawhead'); if(!head) return;
   head.innerHTML=RAWCOLS2.map(function(c,i){return '<th onclick="rawSort('+i+')">'+c+' ⇅</th>';}).join('');
   var b=document.getElementById('rawbody'); if(b) b.innerHTML='<tr><td colspan="9" style="padding:16px;color:#777">Loading records…</td></tr>';
-  Promise.all([loadSamples(),loadOperatorNames()]).then(function(){rawApply();}).catch(function(){var bb=document.getElementById('rawbody'); if(bb) bb.innerHTML='<tr><td colspan="9" style="padding:16px;color:#a00">Records unavailable.</td></tr>';});
+  Promise.all([loadSamples(),loadOperatorNames(),loadNonag()]).then(function(){rawApply();}).catch(function(){var bb=document.getElementById('rawbody'); if(bb) bb.innerHTML='<tr><td colspan="9" style="padding:16px;color:#a00">Records unavailable.</td></tr>';});
 }
 function rawFiltered(){
   var q=((document.getElementById('rawq')||{}).value||'').toLowerCase(), sf=((document.getElementById('rawsrc')||{}).value||'');
@@ -991,7 +1004,7 @@ function rawApply(){
   for(var i=0;i<show;i++){var v=rawRowVals(rows[i]); out.push('<tr><td>'+_esc(v[0])+'</td><td>'+_esc(v[1])+'</td><td>'+_esc(v[2])+'</td><td>'+_esc(v[3])+'</td><td style="text-align:right">'+(v[4]!==''?(+v[4]).toLocaleString(undefined,{maximumFractionDigits:3}):'')+'</td><td>'+_esc(v[5])+'</td><td>'+_esc(v[6])+'</td><td>'+_esc(v[7])+'</td><td>'+_esc(v[8])+'</td></tr>');}
   var b=document.getElementById('rawbody'); if(b) b.innerHTML=out.join('')||'<tr><td colspan="9" style="padding:16px;color:#777">No records match.</td></tr>';
   var where=SCOPE.county?SCOPE.county+' County':SCOPE.region?regionLabel(SCOPE.region):'statewide';
-  var el=document.getElementById('rawcount'); if(el) el.textContent='Showing '+show.toLocaleString()+' of '+n.toLocaleString()+' sample records for '+where+' (largest applications per county by amount).';
+  var el=document.getElementById('rawcount'); if(el) el.innerHTML='Showing '+show.toLocaleString()+' of '+n.toLocaleString()+' sample records for '+where+' (largest applications per county by amount).'+nonagNote();
 }
 function rawCSV(){
   var rows=rawFiltered(), lines=[RAWCOLS2.join(',')];
