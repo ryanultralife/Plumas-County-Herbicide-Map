@@ -337,7 +337,7 @@ function liveCount(url){ /* row count only: Range 0-0 + exact count header */
 /* Loaders cache the IN-FLIGHT promise (not a boolean) so concurrent callers all wait for
    real completion, and clear it on failure so a transient error can be retried later. */
 var CELLS_URL=SB_URL+'/rest/v1/map_agg?select=lat,lon,county,region,n,lbs,acres,c,ai,src,owners';
-var CELLS_KEY='map_agg:v7-plss:n,lbs,acres,c,ai,src,owners';
+var CELLS_KEY='map_agg:v8-valley:n,lbs,acres,c,ai,src,owners';
 var CELLS_P=null, CELLS_PARTIAL=null, CELLS_FALLBACK=false;
 function adoptCells(rows){CELLS=rows;CELLS_PARTIAL=null;return CELLS;}
 function revalidateCells(cachedTotal){
