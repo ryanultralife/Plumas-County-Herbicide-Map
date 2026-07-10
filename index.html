@@ -440,7 +440,7 @@ function setScope(region,county){
   populateCountyOptions();
   var note=document.getElementById('scopeNote');
   if(note) note.textContent=SCOPE.county?(SCOPE.county+' County'):SCOPE.region?regionLabel(SCOPE.region):'Statewide — all 58 counties';
-  if(map){rebuildLayers(); fitScope(); updateMapStat();}
+  if(map){fitScope(); rebuildLayers(); updateMapStat();}
   var dv=document.getElementById('dataview'); if(dv&&dv.style.display!=='none') renderData();
   var rv=document.getElementById('rawview'); if(rv&&rv.style.display!=='none'){RAW_ROWS=null; renderRaw();}
   var sv=document.getElementById('sciview'); if(sv&&sv.style.display!=='none') renderSciScope();
@@ -456,7 +456,7 @@ function scopedCells(){
    janky. Above THIN_LIMIT cells: zoomed in -> draw only the (padded) viewport; zoomed
    out -> draw the busiest THIN_LIMIT sections (the big dots dominate visually anyway)
    and say so in the status pill. Popups stay per-cell exact — nothing is aggregated. */
-var THIN_LIMIT=6000, DRAW_NOTE='';
+var THIN_LIMIT=6000, DRAW_NOTE='', _progView=false;
 /* Dot radius scales with the reported AMOUNT applied (pounds of active ingredient),
    not the application count. sqrt keeps huge cells from swamping the map; a floor of
    3.5px keeps every location visible even when pounds are 0/unreported (e.g. federal
@@ -478,8 +478,11 @@ function drawSet(){
       }
     }
   }
-  if(!DRAW_NOTE) DRAW_NOTE=' · busiest '+THIN_LIMIT.toLocaleString()+' sections shown — zoom in for all';
-  return cs.slice().sort(function(a,b){return (+b.n||0)-(+a.n||0);}).slice(0,THIN_LIMIT);
+  /* statewide/regional overview (zoom<7): cap harder — ~6k canvas dots over the satellite
+     base stalls the renderer; the busiest ~2.5k sections still show every cluster. */
+  var lim=(map&&map.getZoom()<7)?2500:THIN_LIMIT;
+  if(!DRAW_NOTE) DRAW_NOTE=' · busiest '+lim.toLocaleString()+' sections shown — zoom in for all';
+  return cs.slice().sort(function(a,b){return (+b.n||0)-(+a.n||0);}).slice(0,lim);
 }
 
 function buildMap(){
@@ -528,6 +531,7 @@ function buildMap(){
   /* re-apply level-of-detail after pan/zoom when the scope is bigger than the draw limit */
   var _mvT=null;
   map.on('moveend',function(){
+    if(_progView){ _progView=false; return; }   /* our own scope-change fit already rebuilt at the final zoom - skip the redundant clear+rebuild that flashed the dots out */
     if(scopedCells().length<=THIN_LIMIT) return;
     clearTimeout(_mvT); _mvT=setTimeout(function(){rebuildLayers();updateMapStat();},300);
   });
@@ -583,6 +587,7 @@ function rebuildLayers(){
 }
 function fitScope(){
   if(!map) return;
+  _progView=true; setTimeout(function(){_progView=false;},400);  /* the one moveend this fit triggers is ours to skip */
   var cs=scopedCells();
   if((SCOPE.region||SCOPE.county)&&cs.length){
     var lats=cs.map(function(p){return p.lat;}), lons=cs.map(function(p){return p.lon;});
