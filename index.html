@@ -239,6 +239,18 @@ function buildContacts(county, hasFederal){
   h+='<div><a href="'+(air.url||'#')+'" target="_blank" rel="noopener" title="'+(air.note||'')+'">air district</a></div>';
   return h+'</div>';
 }
+/* Ownership class inferred from the permittee NAME (conservative - only when clear;
+   unknown -> no chip). PUR names the permittee/grower (the landowner who holds the
+   site permit), so for the forest spine these are the timberland owners vs USFS. */
+function ownerClass(nm){ if(!nm) return null; var s=' '+String(nm).toUpperCase()+' ';
+  if(/USDA|FOREST SERVICE|NATIONAL FOREST| USFS |BUREAU OF LAND| BLM |PARK SERVICE|FISH (AND|&) WILDLIFE| ARMY | NAVY |AIR FORCE|MILITARY/.test(s)) return {label:'Federal / USFS land',ic:'&#127963;',c:'#3f7fbf'};
+  if(/SIERRA PACIFIC|COLLINS PINE|BEATY|ROSEBURG|FRUIT GROWERS SUPPLY|TIMBER|FORESTRY| FOREST | LUMBER |SODA SPRINGS| SPI /.test(s)) return {label:'Private timberland',ic:'&#127794;',c:'#2E5E3A'};
+  if(/GOLF|COUNTRY CLUB/.test(s)) return {label:'Golf / turf',ic:'&#9971;',c:'#6f8f2f'};
+  if(/COUNTY OF|CITY OF|STATE OF|CALTRANS| CITY | COUNTY |UNIVERSITY|COLLEGE|SCHOOL|IRRIGATION DIST|WATER DIST|RESORT| PUD |UTILITY DIST|DEPARTMENT OF/.test(s)) return {label:'Government / public',ic:'&#127970;',c:'#8a6d3b'};
+  if(/RANCH|CATTLE|GRAZING|RANGELAND|LIVESTOCK/.test(s)) return {label:'Ranch / rangeland',ic:'&#128004;',c:'#b5893a'};
+  if(/FARM|ORCHARD|VINEYARD| GROVE |AGRIBUS|OLIVE|ALMOND|WALNUT| RICE |PISTACHIO|DAIRY|BERR(Y|IES)|PRODUCE/.test(s)) return {label:'Private farm / orchard',ic:'&#127806;',c:'#b8971f'};
+  return null; }
+function ownerChip(nm){ var o=ownerClass(nm); return o?' <span style="font-size:10px;color:'+o.c+';white-space:nowrap" title="Land-ownership class inferred from the permittee name">'+o.ic+' '+o.label+'</span>':''; }
 function mergeOwners(owners){
   var m={}, order=[];
   (owners||[]).forEach(function(o){var inf=applicatorInfo(o[0]),k=inf.label;
@@ -254,7 +266,7 @@ function opRowsHtml(){
   var rows=(_OPROWS||[]).slice().sort(function(a,b){
     return _OPSORT==='lbs' ? ((+b.lbs||0)-(+a.lbs||0)) : ((+b.n||0)-(+a.n||0));
   }).slice(0,15);
-  return rows.map(function(o,i){return '<tr><td>'+(i+1)+'</td><td>'+_esc(o.label)+(o.meta?' <span class="om1">'+_esc(o.meta)+'</span>':'')+'</td>'
+  return rows.map(function(o,i){return '<tr><td>'+(i+1)+'</td><td>'+_esc(o.label)+ownerChip(o.label)+(o.meta?' <span class="om1">'+_esc(o.meta)+'</span>':'')+'</td>'
     +(_OPAGENT?'<td>'+(o.agent?_esc(o.agent):'<span style="color:#bbb">—</span>')+'</td>':'')
     +'<td style="text-align:right">'+_fmt(o.n)+'</td>'
     +'<td style="text-align:right">'+(o.lbs?_lbs(o.lbs)+' lb':'<span style="color:#bbb">—</span>')+'</td></tr>';}).join('');
@@ -274,7 +286,7 @@ function cellPopup(p){
   h+='</ul>';
   if(p.ai&&p.ai.length){h+='<b>Top active ingredients:</b><br><span style="color:#444">'+p.ai.slice(0,5).map(function(a){return _esc(a[0])+' ('+(+a[1]).toLocaleString()+')';}).join('<br>')+'</span><br>';}
   if(p.src&&Object.keys(p.src).length){var sm=[];Object.keys(p.src).forEach(function(k){sm.push(_esc(SRC_META[k]?SRC_META[k].label.replace(/ -.*/,''):k)+' '+_num(p.src[k]).toLocaleString());});h+='<b>Source:</b> '+sm.join(' · ')+'<br>';}
-  if(p.owners&&p.owners.length){h+='<b>Top operators:</b><br><span style="color:#444">'+mergeOwners(p.owners).slice(0,5).map(function(o){return _esc(o.label)+' ('+o.n.toLocaleString()+')'+(o.agent?'<br><span style="color:#777;font-size:11px">&nbsp;&nbsp;↳ agent of record: '+_esc(o.agent)+'</span>':'');}).join('<br>')+'</span>';}
+  if(p.owners&&p.owners.length){h+='<b title="California PUR names the permittee &mdash; the grower/landowner who holds the site permit &mdash; not the applicator who physically sprayed. For the forest spine these are the timberland owners.">Landowner / permittee:</b><br><span style="color:#444">'+mergeOwners(p.owners).slice(0,5).map(function(o){return _esc(o.label)+' ('+o.n.toLocaleString()+')'+ownerChip(o.label)+(o.agent?'<br><span style="color:#777;font-size:11px">&nbsp;&nbsp;↳ agent of record: '+_esc(o.agent)+'</span>':'');}).join('<br>')+'</span>';}
   h+=buildContacts(p.county||'', !!(p.src&&p.src.facts));
   return h;
 }
