@@ -594,7 +594,7 @@ function buildMap(){
     h.addEventListener('click',function(){var open=b.style.display!=='none'; b.style.display=open?'none':'block'; car.textContent=open?'▸':'▾';});
     return d;};lg.addTo(map);
   var ms0=document.getElementById('mapStat');
-  if(ms0){ ms0.textContent='Loading '+(SCOPE.county?SCOPE.county+' County':'map')+'…'; ms0.addEventListener('click',function(){this.classList.toggle('msopen');}); }
+  if(ms0){ ms0.classList.add('msopen'); ms0.textContent='Loading '+(SCOPE.county?SCOPE.county+' County':'map')+'…'; ms0.addEventListener('click',function(){this.classList.toggle('msopen');}); }
   var firstPaint=false;
   function paint(){
     if(firstPaint){rebuildLayers();updateMapStat();return;}
