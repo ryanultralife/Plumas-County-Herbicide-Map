@@ -287,6 +287,18 @@ function opRowsHtml(){
 function setOpSort(k){_OPSORT=(k==='n'?'n':'lbs'); var tb=document.getElementById('opBody'); if(tb) tb.innerHTML=opRowsHtml();
   var an=document.querySelector('.opar-n'), al=document.querySelector('.opar-lbs');
   if(an) an.textContent=(_OPSORT==='n'?' ▾':' ⇅'); if(al) al.textContent=(_OPSORT==='lbs'?' ▾':' ⇅'); return false;}
+var OWNERSHIP=null;
+function loadOwnership(){ if(OWNERSHIP) return Promise.resolve(OWNERSHIP); return fetch('data/section_ownership.json',{cache:'no-store'}).then(function(r){if(!r.ok)throw 0;return r.json();}).then(function(j){OWNERSHIP=j;return j;}).catch(function(){return null;}); }
+function sectionOwn(p){ if(!OWNERSHIP||!OWNERSHIP.cells||p.lat==null||p.lon==null) return null; return OWNERSHIP.cells[(+p.lat).toFixed(3)+','+(+p.lon).toFixed(3)]||null; }
+/* Land ownership at the section centroid (USFS point-in-polygon), with a soft
+   mismatch note when a private-timber permittee sits on National-Forest land. */
+function sectionOwnHtml(p){ var o=sectionOwn(p); if(!o) return '';
+  var lbl = o.c==='usfs' ? ('&#127963; Section centroid on <b>'+_esc(o.f)+'</b> land (USFS-owned)')
+          : o.c==='inholding' ? ('&#127794; Private inholding within <b>'+_esc(o.f)+'</b>') : '';
+  if(!lbl) return ''; var mism='';
+  if(o.c==='usfs' && p.owners && p.owners.length){ var top=mergeOwners(p.owners)[0]; var oc=top?ownerClass(top.label):null;
+    if(oc && oc.label==='Private timberland') mism=' <span style="color:#a66">&mdash; a private timber operator on National-Forest land; at this ~1 sq-mi resolution the section straddles ownership.</span>'; }
+  return '<div style="font-size:11px;color:#4a6a4a;margin:2px 0 1px" title="Land ownership at this section centroid, from USFS ownership data (point-in-polygon). Sections are ~1 sq mi and can straddle ownership boundaries.">'+lbl+mism+'</div>'; }
 function cellPopup(p){
   var byc=_byClass(p.c||{}), yr=_years(p.c||{});
   var h='<b>'+(p.county||'?')+' County</b>'+(p.region?' <span style="color:#777">· '+regionLabel(p.region)+'</span>':'');
@@ -294,6 +306,7 @@ function cellPopup(p){
   if(+p.acres>0){var rate=(+p.lbs>0)?(+p.lbs/+p.acres):0;
     h+='<div style="font-size:11.5px;color:#3a7a3a" title="Total acres the applications here reported treating. This is treatment-acres, NOT unique land: a field sprayed more than once is counted each time, and a single treatment can extend beyond this ~1 sq-mi section (California reports the treated acreage but places it at the section). The rate is total pounds &divide; these acres — the average active-ingredient pounds per acre treated.">🌾 <b>'+Math.round(+p.acres).toLocaleString()+'</b> acres reported treated <span style="color:#888">(treatment-acres, not unique land)</span>'+(rate>0?' · avg <b>'+rate.toFixed(2)+'</b> lb/acre':'')+'</div>';}
   h+='<div style="font-size:11px;color:#777;margin:3px 0 1px" title="California publishes each pesticide use only to its ~1-square-mile Public Land Survey section — never an exact field or address. This dot marks that reported square mile (kept on its land portion when the section touches water). Homes, roads or shoreline under the dot do NOT mean they were sprayed; the application was somewhere within this square mile.">📍 '+(+p.lat).toFixed(3)+', '+(+p.lon).toFixed(3)+' — marks the reported ~1 sq-mi survey section, <u>not</u> an exact address. <span style="color:#a66">Terrain under the dot may not be what was treated.</span></div>';
+  h+=sectionOwnHtml(p);
   h+='<b>By type:</b><ul style="margin:2px 0 3px 15px;padding:0;list-style:none">';
   CLASS_ORDER.concat(['unknown']).forEach(function(cl){if(byc[cl]&&byc[cl][0]){h+='<li><span style="color:'+(CLASS_COLORS[cl]||'#888')+'">●</span> '+cl.replace('_',' ')+' — '+byc[cl][0].toLocaleString()+(byc[cl][1]?' ('+byc[cl][1].toLocaleString()+' lb)':'')+'</li>';}});
   h+='</ul>';
@@ -550,7 +563,7 @@ function buildMap(){
   });
   reg('▦ Total intensity (all products)', function(g){drawSet().forEach(function(p){var t=+p.n||0;if(!t)return;bindCell(L.circleMarker([p.lat,p.lon],{renderer:canvas,radius:rAmt(+p.lbs||0),weight:0.6,color:'#ffffff',opacity:.45,fillColor:'#ff5a1f',fillOpacity:.62}),p).addTo(g);});}, false);
   hydro.addTo(map);   /* streams & waterways always on (under the dots); intentionally NOT a toggle in the layer control */
-  OVERLAYS=overlays; loadContacts();
+  OVERLAYS=overlays; loadContacts(); loadOwnership();
   function ensure(g){if(g&&g._builder&&!g._built){g._builder(g);g._built=true;}}
   map.on('overlayadd',function(e){ensure(e.layer);});
   /* re-apply level-of-detail after pan/zoom when the scope is bigger than the draw limit */
