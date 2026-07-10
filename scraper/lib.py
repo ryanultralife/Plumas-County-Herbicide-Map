@@ -104,7 +104,10 @@ def _section_offset(sec):
     idx = sec - 1
     row = idx // 6                     # 0 = top (north)
     col = idx % 6
-    if row % 2 == 1:                   # serpentine numbering
+    # PLSS sections number from the NE corner boustrophedonically: the top row is
+    # 6 5 4 3 2 1 (east<-west), so EVEN rows (0/2/4 = sec 1-6,13-18,25-30) run
+    # east->west and must be mirrored; odd rows already run west->east.
+    if row % 2 == 0:                   # serpentine numbering (was inverted -> ~5 mi error)
         col = 5 - col
     east = col + 0.5                   # miles from west edge
     north = (5 - row) + 0.5            # miles from south edge
