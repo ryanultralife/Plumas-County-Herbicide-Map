@@ -40,7 +40,7 @@ th,td{border:1px solid #dcdcdc;padding:5px 7px;text-align:right}th{background:#2
 td:first-child,th:first-child{text-align:left}tr.tot td{font-weight:bold;background:#eef3ee}
 .legend{background:#fff;padding:8px 10px;border-radius:6px;box-shadow:0 1px 5px rgba(0,0,0,.4);font:13px Arial;line-height:1.5}
 .leaflet-control-layers{max-height:calc(100vh - 170px);overflow-y:auto}
-#mapStat{cursor:pointer}#mapStat .msfull{display:none}#mapStat:hover .msfull,#mapStat.msopen .msfull{display:inline}#mapStat .msi{font-weight:bold;color:#2E5E3A}#mapStat .msi::before{content:"▸"}
+#mapStat{cursor:pointer}#mapStat .msfull{display:none}#mapStat:hover .msfull,#mapStat.msopen .msfull{display:inline}#mapStat .msi{font-weight:bold;color:#2E5E3A}#mapStat .msi::before{content:"▸"}.leaflet-control-layers{position:relative}.lyr-collapse{display:none;position:absolute;top:2px;right:6px;cursor:pointer;color:#2E5E3A;font-weight:bold;font-size:15px;line-height:1;padding:1px 3px;z-index:1000}.leaflet-control-layers-expanded .lyr-collapse{display:block}
 @media(max-width:560px){.leaflet-control-layers{max-height:52vh;font-size:12px}#mapStat{white-space:normal!important;max-width:86vw;text-align:center;line-height:1.35;font-size:12px}}
 .legend i{width:14px;height:14px;display:inline-block;margin-right:6px;border:1px solid #555;vertical-align:middle}
 .legend .ring{width:12px;height:12px;border-radius:50%;background:#fd8d3c;display:inline-block;vertical-align:middle}
@@ -577,7 +577,10 @@ function buildMap(){
   });
   /* Rolled up to the tap/hover icon by default so it stays out of the way; expands on
      interaction (both desktop + mobile). */
-  L.control.layers({'Streets (CARTO)':carto,'Topographic':topo,'Satellite':sat},overlays,{collapsed:true}).addTo(map);
+  var lyrctl=L.control.layers({'Streets (CARTO)':carto,'Topographic':topo,'Satellite':sat},overlays,{collapsed:true});
+  lyrctl.addTo(map);
+  /* explicit collapse arrow in the top-right of the layers panel (its own toggle, separate from the map-stat arrow) */
+  (function(){var cont=lyrctl.getContainer();if(!cont)return;var ar=L.DomUtil.create('span','lyr-collapse',cont);ar.innerHTML='&#9656;';ar.title='Collapse layers';L.DomEvent.disableClickPropagation(ar);L.DomEvent.on(ar,'click',function(){lyrctl.collapse();});})();
   var lg=L.control({position:'bottomright'});lg.onAdd=function(){var d=L.DomUtil.create('div','legend');
     var body;
       var rows=CLASS_ORDER.map(function(cl){return '<span class="ring" style="background:'+CLASS_COLORS[cl]+';border:0"></span> '+cl.replace('_',' ');}).join('<br>');
