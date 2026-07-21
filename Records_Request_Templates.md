@@ -34,9 +34,12 @@ California requests copies of the following public records:
 1. Pesticide Use Report (PUR) records for [all California counties / the following
    counties: ____], for the period [Jan 1, 20__ through Dec 31, 20__], including for
    each application: date, county, location identifier (PLSS section/township/range or
-   site ID), product/registration number, pounds and/or gallons applied, acres treated,
-   application method, crop/site, operator/permittee, and applicator.
+   site ID), product/registration number, active ingredient, pounds and/or gallons
+   applied, acres treated, application method, crop/site, operator/permittee, and
+   applicator.
 2. Any data dictionary or record layout needed to interpret the above.
+3. Confirmation of the **most recent reporting year currently available** and the expected
+   release date for the latest (in-progress) season not yet published in bulk.
 
 Please provide the records in an electronic, machine-readable format (CSV, Excel, or
 database export) sent to this email address. If the full PUR dataset is already published
@@ -68,15 +71,28 @@ California requests copies of the following records for [County] County for the 
 [Jan 1, 20__ through Dec 31, 20__]:
 
 1. Pesticide Use Reports submitted to your office (monthly summaries and single-job/
-   production-agriculture reports), in electronic form.
-2. Restricted-materials permits and Notices of Intent (NOIs) for applications in or
+   production-agriculture reports), in electronic form, including for each application:
+   date, product name and EPA registration number, active ingredient, pounds and/or
+   gallons applied, acres treated, application method, crop/site, operator/permittee,
+   and applicator.
+2. The **location identifier for each application to the finest level held** — county,
+   PLSS section/township/range (COMTRS), site ID, and, where you maintain them, any
+   **GIS files, shapefiles, or site maps** of permitted application locations.
+3. Restricted-materials permits and Notices of Intent (NOIs) for applications in or
    adjacent to [watersheds / named areas, if any], including planned dates, products,
-   and treatment locations.
-3. Any inspection or enforcement records relating to the applications above.
+   and treatment locations — **including the most recent and current-season NOIs and
+   permits your office holds that have not yet been forwarded to DPR / published in
+   CalPIP.**
+4. Notices of Intent and records for **aerial (aircraft) applications** specifically.
+5. **Agricultural-near-schools quarter-mile notification records** (annual notifications
+   and any application-specific notices) submitted under 3 CCR § 6690, if any.
+6. Any inspection, complaint, investigation, or enforcement records relating to the
+   applications above.
 
-Please provide the records electronically (CSV/Excel/PDF) to this email. We request a
-public-interest fee waiver as a non-commercial project that will publish the results
-free to the public; please notify us before any fees exceed $25.
+Please provide the records electronically in **machine-readable format (CSV or Excel
+preferred over PDF)** to this email — CSV/Excel is what allows us to map the data. We
+request a public-interest fee waiver as a non-commercial project that will publish the
+results free to the public; please notify us before any fees exceed $25.
 
 Please confirm receipt and provide your determination within 10 days (Gov. Code
 § 7922.535). We can refine the scope on request.
@@ -98,13 +114,26 @@ Under the Freedom of Information Act, 5 U.S.C. § 552, SprayMap California reque
 following records for [the ___ National Forest / all national forests in California] for
 [fiscal years 20__–20__]:
 
-1. FACTS (Forest Service Activity Tracking System) records for chemical/herbicide
+1. All **Pesticide-Use Proposals (Form FS-2100-2, "PUP")** approved, submitted, or
+   implemented for [the ___ National Forest / the named forests], including for each:
+   active ingredient(s), product name and EPA registration number, target pest, treatment
+   acreage, application method, total quantity applied, and treatment location.
+2. Any **annual or periodic pesticide/herbicide use reports or summaries** compiled at the
+   Forest or Region level that include these applications (active-ingredient totals and
+   acres treated by year).
+3. **Pesticide application records, daily use logs, or contractor application reports**
+   for herbicide treatments carried out on these lands.
+4. FACTS (Forest Service Activity Tracking System) records for chemical/herbicide
    treatment activities, including activity type, NEPA project, ranger district, acres
    accomplished and planned, treatment date, status (completed/planned), and coordinates.
-2. The active ingredients and product names, application rates, and total quantities
+5. The active ingredients and product names, application rates, and total quantities
    applied for those treatments.
-3. The associated NEPA decision documents (EA/EIS, Decision Notices/Records of Decision)
-   authorizing the treatments.
+6. Records sufficient to show **planned/proposed** pesticide use for ongoing projects
+   [e.g., the Community Protection Project], including project-specific herbicide
+   quantities and acres (e.g., glyphosate and imazapyr).
+7. The associated NEPA decision documents (EA/EIS, Decision Notices/Records of Decision)
+   authorizing the treatments, and any **treatment maps, GIS files, or shapefiles** of
+   treatment units.
 
 Please provide records electronically in machine-readable format where available
 (CSV/Excel/shapefile/GeoJSON) and PDFs for the decision documents.

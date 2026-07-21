@@ -46,9 +46,10 @@ Under the Freedom of Information Act, 5 U.S.C. § 552, I request copies of the f
 1. All **Pesticide-Use Proposals (Form FS-2100-2 / "PUP")** approved, submitted, or implemented for the Plumas National Forest, including the active ingredient(s), product name/EPA registration number, target pest, treatment acreage, application method, total quantity applied, and treatment location.
 2. Any **annual or periodic pesticide/herbicide use reports or summaries** compiled at the Forest or Region 5 level that include Plumas National Forest applications (e.g., active-ingredient totals and acres treated by year).
 3. Any **pesticide application records, daily use logs, or contractor application reports** for herbicide treatments carried out on the Plumas National Forest.
-4. Records sufficient to show **planned/proposed** pesticide use for ongoing projects, including the Community Protection Project.
+4. Records sufficient to show **planned/proposed** pesticide use for ongoing projects, including the Community Protection Project — including project-specific herbicide quantities and acres (e.g., glyphosate and imazapyr).
+5. Any **treatment maps, GIS files, or shapefiles** of treatment units associated with the above.
 
-Please provide records in electronic format (searchable PDF, spreadsheet, or native file) where available. I request a fee waiver as disclosure is in the public interest and not for commercial use; if the request is denied, please notify me before incurring costs exceeding $25.
+Please provide records in electronic format (searchable PDF, spreadsheet, native file, or shapefile/GeoJSON) where available. I request a fee waiver as disclosure is in the public interest and not for commercial use; if the request is denied, please notify me before incurring costs exceeding $25.
 
 Please confirm receipt and the assigned tracking number. Thank you.
 
@@ -65,11 +66,12 @@ Dear Agricultural Commissioner,
 
 Under the California Public Records Act (Gov. Code § 7920 et seq.), I request copies of the following records for **Plumas County**, covering **January 1, 2020 to the present**:
 
-1. **Restricted Materials Permits** and associated **Notices of Intent (NOIs)** for herbicide/pesticide applications on timberland, rangeland, and rights-of-way.
+1. **Restricted Materials Permits** and associated **Notices of Intent (NOIs)** for herbicide/pesticide applications on timberland, rangeland, and rights-of-way, including planned dates, product name/EPA registration number, active ingredient, acres, and treatment location to the finest level held (PLSS section/COMTRS or site ID), plus any **GIS files or site maps** of permitted locations.
 2. **Monthly Pesticide Use Reports** submitted to your office (the data later forwarded to DPR), including any from the current and prior season not yet published in CalPIP.
-3. Any **enforcement actions, investigations, or complaint records** involving herbicide applications during this period.
+3. Notices of Intent and records for **aerial (aircraft) applications** specifically, and any **agricultural-near-schools quarter-mile notification records** (3 CCR § 6690), if any.
+4. Any **enforcement actions, investigations, or complaint records** involving herbicide applications during this period.
 
-Electronic copies (spreadsheet or PDF) are preferred. Please advise of any duplication fees before they exceed $25, and let me know the expected response date. Thank you.
+Electronic copies in machine-readable format (CSV or Excel preferred over PDF) are requested. Please advise of any duplication fees before they exceed $25, and let me know the expected response date. Thank you.
 
 [Name / contact]
 
