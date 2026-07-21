@@ -1,6 +1,6 @@
 # SprayMap California — Continuation / Handoff
 
-_Snapshot: **2026-07-21**. `main` tip **`6362983`**; main checkout, the claude worktree and `origin/main` are all in sync. Deploys via Vercel from `main`._
+_Snapshot: **2026-07-21**. `main` tip **`f35106a`**; main checkout, the claude worktree and `origin/main` are all in sync. Deploys via Vercel from `main`._
 
 ## What this is
 A single static **`index.html`** (Leaflet + 5 tabs) backed by **Supabase Postgres**, mapping California's reported pesticide use. Spine = **Plumas + the Northern Sierra** (Butte, Tehama, Lassen, Plumas, Sierra); statewide context around it. Run by the **Plumas Grassroots Collective** — a **registered CA nonprofit** (state filing + EIN, July 2026). Transparency is the point: name the operators, show pounds/acres, and publish the org's own spending.
@@ -53,7 +53,7 @@ Connect: `source C:/Users/ryanv/.pg_dburl` (sets `$DBURL`; **secret — never ec
 ## What happened since launch (`4b1b12b`..`6362983`, 10 commits)
 - **Coordinate rebuild** — 364,732 NS coords → true PLSS centroids; water-safe placement re-run (only 1 landed in water); `lib.py` serpentine fixed.
 - **Valley upgrade** — 148,938 Butte/Tehama coords → CDPR PLSS centroids (from ~1 mi approximation to exact).
-- **Statewide map fix** — dots no longer flash out on scope change (fit view first, build once, suppress the redundant `moveend` rebuild); zoom<7 capped at the busiest **2,500** sections.
+- **Statewide map fix** — dots no longer flash out on scope change (fit view first, build once, suppress the redundant `moveend` rebuild); zoom<7 capped at the busiest **2,500** sections. Also **popups no longer vanish on click** statewide - the `moveend` LOD rebuild clears every marker, so a popup's own autoPan was killing the marker it was attached to; the rebuild is now held while a popup is open and runs on `popupclose`.
 - **Landowner + ownership** — popups relabeled **"Landowner / permittee"** with conservative ownership-class chips (Private timberland / Federal-USFS / Golf / Gov / Ranch / Farm), plus **spatial** USFS point-in-polygon tagging + a soft mismatch note.
 - **Non-ag surfaced** — `data/nonag_coverage.json`: 66,412 county-level-only records (structural PC / ROW / landscape) that have no section and can't be mapped, now disclosed in Source Data with named Plumas applicators.
 - **Dates unified** — map stat shows the **actual** scoped year span (clamped to 2024 so FACTS *planned* years don't masquerade as reported use); coverage framed as living.
