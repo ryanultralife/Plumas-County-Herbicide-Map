@@ -764,7 +764,7 @@ window.addEventListener('orientationchange',function(){setTimeout(fix,250);setTi
 setTimeout(fix,300);
 
 /* ===== Transparency ledger (added) ===== */
-var LEDGER_SEED={"sample": false, "org": "Plumas Grassroots Cooperative", "updated": "2026-07-08", "currency": "USD", "note": "Donations open soon. Until then this page tracks the project's real startup costs — each bill listed with its reference. To protect privacy, the individual workers and contractors who do project work are shown by role or code (e.g. Founder, Field tech A); organizations and every dollar amount are shown in full. Once giving is live, every donation and reimbursement appears here too.", "donations": [], "expenses": [{"date": "2026-07-08", "payee": "GoDaddy — spraymapca.org domain registration, 1 yr (founder-paid)", "bucket": "Operations", "amount": 10.19, "via": "Card (founder)", "src": "", "srcLabel": "GoDaddy order #4131715574"}], "hours": []};
+var LEDGER_SEED={"sample": false, "org": "Plumas Grassroots Collective", "updated": "2026-07-08", "currency": "USD", "note": "Donations open soon. Until then this page tracks the project's real startup costs — each bill listed with its reference. To protect privacy, the individual workers and contractors who do project work are shown by role or code (e.g. Founder, Field tech A); organizations and every dollar amount are shown in full. Once giving is live, every donation and reimbursement appears here too.", "donations": [], "expenses": [{"date": "2026-07-08", "payee": "GoDaddy — spraymapca.org domain registration, 1 yr (founder-paid)", "bucket": "Operations", "amount": 10.19, "via": "Card (founder)", "src": "", "srcLabel": "GoDaddy order #4131715574"}], "hours": []};
 var _ledgerLoaded=false;
 function loadLedger(){
   if(_ledgerLoaded) return; _ledgerLoaded=true;
@@ -793,10 +793,10 @@ function renderLedger(d){
   var dUn=0,dRe=0; don.forEach(function(x){var n=(+x.gross||0)-(+x.fees||0); if(x.type==='Restricted-Testing')dRe+=n; else dUn+=n;});
   function pct(a){return spent>0?(100*a/spent).toFixed(1)+'%':'0.0%';}
   var h='';
-  /* Who's behind the project — mission & vision (Plumas Grassroots Cooperative). */
+  /* Who's behind the project — mission & vision (Plumas Grassroots Collective). */
   h+='<div class="card" style="border-left:4px solid #2E5E3A">';
-  h+='<div class="ltitle">Plumas Grassroots Cooperative</div>';
-  h+='<div class="lsub">The community effort behind SprayMap California &mdash; organizing as a California nonprofit.</div>';
+  h+='<div class="ltitle">Plumas Grassroots Collective</div>';
+  h+='<div class="lsub">The community effort behind SprayMap California &mdash; a registered California nonprofit.</div>';
   h+='<p><b>Mission.</b> A community-based organization dedicated to promoting environmental stewardship, public health, civic engagement, and sustainable land management in Plumas County. Through education, research, collaboration, and community action, we work to empower residents to participate in decisions affecting the future of our forests, watersheds, wildlife, and communities.</p>';
   h+='<p><b>Vision.</b> A healthy and resilient Plumas County where informed citizens, thriving ecosystems, and strong local communities work together for future generations.</p>';
   h+='<p style="margin-bottom:6px"><b>Core values</b></p><div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px">'
@@ -857,7 +857,7 @@ window.DONATE_CONFIG = {
   givebutterAccount: '',
   givebutterWidgetId: '',
   donorboxUrl: '',
-  title: 'Support Plumas Grassroots Cooperative',
+  title: 'Support Plumas Grassroots Collective',
   blurb: 'Donations will fund independent water-quality testing and this public transparency map for Plumas County.'
 };
 (function(){

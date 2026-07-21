@@ -3,7 +3,7 @@
 _Snapshot: 2026-07-08. Branch `claude/suspicious-sammet-763560`, all work committed + pushed to `main` (tip `2384442`). Deploys via Vercel from `main`._
 
 ## What this is
-A single static **`index.html`** (Leaflet map + tabs) backed by **Supabase Postgres**, mapping California's reported pesticide/herbicide use. Spine = **Plumas + the Northern Sierra** (Butte, Tehama, Lassen, Plumas, Sierra); statewide context around it. The organization behind it is the **Plumas Grassroots Cooperative** (organizing as a CA nonprofit — not yet incorporated). Public transparency is the whole point: name operators, show pounds/acres, track the org's own spending.
+A single static **`index.html`** (Leaflet map + tabs) backed by **Supabase Postgres**, mapping California's reported pesticide/herbicide use. Spine = **Plumas + the Northern Sierra** (Butte, Tehama, Lassen, Plumas, Sierra); statewide context around it. The organization behind it is the **Plumas Grassroots Collective** (a registered CA nonprofit as of July 2026). Public transparency is the whole point: name operators, show pounds/acres, track the org's own spending.
 
 ## Live / deploy
 - Vercel project **`plumas-county-herbicide-map`** (team `ryan-vukichs-projects`), auto-deploys from `main`. Live now at `plumas-county-herbicide-map.vercel.app`.
@@ -23,7 +23,7 @@ A single static **`index.html`** (Leaflet map + tabs) backed by **Supabase Postg
 - **Popups:** show acres treated + avg lb/acre (NS cells); **federal USFS contacts** on national-forest cells (Region 5 + 19 forests, county→forest map).
 - **Mobile:** content cards on Data/Science/Transparency roll up (tap heading).
 - **Data & Trends:** Top operators sortable by count or pounds (default pounds).
-- **Transparency:** added the **Plumas Grassroots Cooperative mission/vision** (from Taylor Durgan's founding doc); ledger is now **real** (sample data dropped) — first real bill = the GoDaddy domain ($10.19, founder-paid); **workers/contractors shown by role/code, not name** (orgs + amounts in full); **donate button = "coming soon"**; **project contact = spraymapca@gmail.com** (mission card + donate modal).
+- **Transparency:** added the **Plumas Grassroots Collective mission/vision** (from Taylor Durgan's founding doc); ledger is now **real** (sample data dropped) — first real bill = the GoDaddy domain ($10.19, founder-paid); **workers/contractors shown by role/code, not name** (orgs + amounts in full); **donate button = "coming soon"**; **project contact = spraymapca@gmail.com** (mission card + donate modal).
 
 ## Local files (gitignored — needed for re-loads, not in repo)
 `data/raw/cpra/`: `dpr_data.csv` (108MB, the full CDPR extract, 2020–2024, 5 counties), `dpr_vukich_spraymap_26-637.xlsx` (80MB original), `fresno_PermitSearchResults-ALL.xlsx` + `fresno_permits.csv` (Fresno CPRA roster, 355k rows), `applications_dpr_2023_2024.csv`, `acres_backfill.csv`, `federal_contacts_usfs.json`. Key build scripts: `build/ingest_dpr_pur.py` (canonical DPR loader), `build/fix_water_coords.py`, `build/enrich_operator_names.py`.
