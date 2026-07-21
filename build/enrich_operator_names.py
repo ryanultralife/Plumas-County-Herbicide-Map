@@ -48,7 +48,7 @@ COUNTY_CODE = {"Plumas": "32", "Monterey": "27", "Kern": "15", "Stanislaus": "50
                "San Joaquin": "39", "Contra Costa": "07", "Riverside": "33",
                "Santa Barbara": "42", "Fresno": "10", "San Diego": "37", "Napa": "28",
                "Colusa": "06", "Santa Cruz": "44", "Yolo": "57", "Merced": "24",
-               "Kings": "16", "Sutter": "51"}
+               "Kings": "16", "Sutter": "51", "Madera": "20", "Tulare": "54"}
 
 def _prio(permnum, county):
     code = COUNTY_CODE.get(county)
@@ -318,11 +318,33 @@ def sutter():          # code 51 (on-prem ArcGIS Server MapServer; also carries 
                   "TrakitCommDev/MapServer/43",
                   "permit_num", "permittee", "Sutter", "sutter-trakit-permits")
 
+# ---------- locally-delivered county rosters (CPRA responses in data/incoming) ----------
+# The monthly data-ask task normalizes each county's "Permits, Sites and Commodities"
+# export to operator_id,name,entity_type,county. Registered FIRST so a freshly delivered
+# roster wins ties against an older scrape of the same county.
+def incoming_local():
+    import glob
+    n = 0
+    for path in sorted(glob.glob("data/incoming/*/*.csv"), reverse=True):
+        stem = os.path.basename(path).rsplit(".", 1)[0]
+        with open(path, newline="", encoding="utf-8-sig") as f:
+            for row in csv.DictReader(f):
+                add(row.get("operator_id"), row.get("name"),
+                    (row.get("county") or "").strip(), "cac-" + stem)
+                n += 1
+    return n
+
 def main():
     dburl = os.environ.get("DBURL")
     if not dburl:
         sys.exit("Set DBURL in the environment.")
-    for label, fn in [("plumas_local", plumas_local), ("fresno_local", fresno_local),
+    only = None
+    if "--only" in sys.argv:
+        i = sys.argv.index("--only")
+        if i + 1 < len(sys.argv):
+            only = set(x.strip() for x in sys.argv[i+1].split(","))
+    for label, fn in [("incoming_local", incoming_local),
+                      ("plumas_local", plumas_local), ("fresno_local", fresno_local),
                       ("monterey", monterey), ("kern", kern),
                       ("stanislaus", stanislaus), ("san_joaquin", san_joaquin),
                       ("contra_costa", contra_costa), ("riverside", riverside),
@@ -330,6 +352,8 @@ def main():
                       ("san_diego", san_diego), ("napa", napa), ("colusa", colusa),
                       ("santa_cruz", santa_cruz), ("yolo", yolo), ("merced", merced),
                       ("kings", kings), ("sutter", sutter)]:
+        if only and label not in only:
+            continue
         try:
             c = fn(); print(f"  {label}: {c:,} source rows fetched")
         except Exception as e:
@@ -357,7 +381,7 @@ from (select distinct owner from public.applications
 join _perm p on right(a.owner,7) = p.permnum
 on conflict (operator_id) do update set
   name=excluded.name, source=excluded.source, county=excluded.county,
-  updated=excluded.updated, agent=excluded.agent;
+  updated=excluded.updated, agent=coalesce(excluded.agent, operator_names.agent);
 select count(*) as operator_ids_named, count(agent) as with_agent from public.operator_names;
 """
     sqlf = tempfile.NamedTemporaryFile("w", delete=False, suffix=".sql", encoding="utf-8")

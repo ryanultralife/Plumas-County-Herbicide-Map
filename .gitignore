@@ -47,3 +47,7 @@ supabase/.temp/
 .pg_dburl
 *credentials*
 *secret*
+
+# Raw CPRA deliveries (keep the normalized *.csv + README, not the bulky source files)
+data/incoming/**/*.xlsx
+data/incoming/**/*.zip

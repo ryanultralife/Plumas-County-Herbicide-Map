@@ -1,9 +1,9 @@
 {
  "generated": null,
  "statewide": {
-  "apps": 9945689,
-  "named": 6278863,
-  "pct": 63.1,
+  "apps": 9945711,
+  "named": 7291344,
+  "pct": 73.3,
   "public_counties": [
    "Colusa",
    "Contra Costa",
@@ -47,7 +47,7 @@
    "access": "request"
   },
   "Butte": {
-   "apps": 214519,
+   "apps": 214534,
    "named": 8231,
    "pct": 3.8,
    "region": "northern-sierra",
@@ -132,8 +132,8 @@
   },
   "Kings": {
    "apps": 233219,
-   "named": 77611,
-   "pct": 33.3,
+   "named": 80757,
+   "pct": 34.6,
    "region": "san-joaquin-valley",
    "access": "download"
   },
@@ -145,7 +145,7 @@
    "access": "request"
   },
   "Lassen": {
-   "apps": 8715,
+   "apps": 8717,
    "named": 457,
    "pct": 5.2,
    "region": "northern-sierra",
@@ -160,8 +160,8 @@
   },
   "Madera": {
    "apps": 281685,
-   "named": 49277,
-   "pct": 17.5,
+   "named": 277397,
+   "pct": 98.5,
    "region": "san-joaquin-valley",
    "access": "request"
   },
@@ -243,9 +243,9 @@
    "access": "request"
   },
   "Plumas": {
-   "apps": 4521,
-   "named": 3478,
-   "pct": 76.9,
+   "apps": 4526,
+   "named": 3483,
+   "pct": 77.0,
    "region": "northern-sierra",
    "access": "download"
   },
@@ -258,8 +258,8 @@
   },
   "Sacramento": {
    "apps": 111889,
-   "named": 47446,
-   "pct": 42.4,
+   "named": 52463,
+   "pct": 46.9,
    "region": "sacramento-valley",
    "access": "request"
   },
@@ -293,14 +293,14 @@
   },
   "San Joaquin": {
    "apps": 525789,
-   "named": 511824,
-   "pct": 97.3,
+   "named": 512871,
+   "pct": 97.5,
    "region": "san-joaquin-valley",
    "access": "download"
   },
   "San Luis Obispo": {
    "apps": 239857,
-   "named": 51310,
+   "named": 51314,
    "pct": 21.4,
    "region": "central-coast",
    "access": "request"
@@ -398,8 +398,8 @@
   },
   "Tulare": {
    "apps": 858949,
-   "named": 28433,
-   "pct": 3.3,
+   "named": 803465,
+   "pct": 93.5,
    "region": "san-joaquin-valley",
    "access": "request"
   },
@@ -426,8 +426,8 @@
   },
   "Yuba": {
    "apps": 47782,
-   "named": 16477,
-   "pct": 34.5,
+   "named": 16587,
+   "pct": 34.7,
    "region": "northern-sierra",
    "access": "request"
   }
