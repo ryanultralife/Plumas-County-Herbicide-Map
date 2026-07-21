@@ -569,11 +569,20 @@ function buildMap(){
   function ensure(g){if(g&&g._builder&&!g._built){g._builder(g);g._built=true;}}
   map.on('overlayadd',function(e){ensure(e.layer);});
   /* re-apply level-of-detail after pan/zoom when the scope is bigger than the draw limit */
-  var _mvT=null;
+  var _mvT=null, _popupOpen=false;
+  function scheduleLOD(){ clearTimeout(_mvT); _mvT=setTimeout(function(){rebuildLayers();updateMapStat();},300); }
+  /* A rebuild clears EVERY marker - including the one holding an open popup - so the popup
+     dies with it. Opening a popup near an edge autoPans the map, which fires moveend, which
+     scheduled exactly that rebuild: the bubble popped up and then vanished ~300ms later.
+     Hold the LOD rebuild while a popup is open, cancel one already queued, and catch up
+     once the popup closes. */
+  map.on('popupopen',function(){ _popupOpen=true; clearTimeout(_mvT); });
+  map.on('popupclose',function(){ _popupOpen=false; if(scopedCells().length>THIN_LIMIT) scheduleLOD(); });
   map.on('moveend',function(){
     if(_progView){ _progView=false; return; }   /* our own scope-change fit already rebuilt at the final zoom - skip the redundant clear+rebuild that flashed the dots out */
+    if(_popupOpen) return;                       /* a rebuild would destroy the open popup's marker */
     if(scopedCells().length<=THIN_LIMIT) return;
-    clearTimeout(_mvT); _mvT=setTimeout(function(){rebuildLayers();updateMapStat();},300);
+    scheduleLOD();
   });
   /* Rolled up to the tap/hover icon by default so it stays out of the way; expands on
      interaction (both desktop + mobile). */
