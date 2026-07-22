@@ -365,7 +365,7 @@ function liveCount(url){ /* row count only: Range 0-0 + exact count header */
 /* Loaders cache the IN-FLIGHT promise (not a boolean) so concurrent callers all wait for
    real completion, and clear it on failure so a transient error can be retried later. */
 var CELLS_URL=SB_URL+'/rest/v1/map_agg?select=lat,lon,county,region,n,lbs,acres,c,ai,src,owners';
-var CELLS_KEY='map_agg:v8-valley:n,lbs,acres,c,ai,src,owners';
+var CELLS_KEY='map_agg:v9-plumas2026:n,lbs,acres,c,ai,src,owners';
 var CELLS_P=null, CELLS_PARTIAL=null, CELLS_FALLBACK=false;
 function adoptCells(rows){CELLS=rows;CELLS_PARTIAL=null;return CELLS;}
 function revalidateCells(cachedTotal){
@@ -593,7 +593,7 @@ function buildMap(){
   var lg=L.control({position:'bottomright'});lg.onAdd=function(){var d=L.DomUtil.create('div','legend');
     var body;
       var rows=CLASS_ORDER.map(function(cl){return '<span class="ring" style="background:'+CLASS_COLORS[cl]+';border:0"></span> '+cl.replace('_',' ');}).join('<br>');
-      body='<span style="color:#888">Dots colored by dominant class; ◉ layers isolate one.</span><br>'+rows+'<br><span style="font-size:11px;color:#666"><b>Dot size = pounds applied</b> · ▦ total-intensity &amp; ▣ source layers optional · CA 2020&ndash;2024<br>Dots mark the ~1 sq-mi survey section, not the exact field.</span>';
+      body='<span style="color:#888">Dots colored by dominant class; ◉ layers isolate one.</span><br>'+rows+'<br><span style="font-size:11px;color:#666"><b>Dot size = pounds applied</b> · ▦ total-intensity &amp; ▣ source layers optional · CA 2020&ndash;2026<br>Dots mark the ~1 sq-mi survey section, not the exact field.</span>';
     /* Rolled up by default: only the title shows; click it to expand/collapse the key so
        it stays out of the way of the map when not in use. */
     d.innerHTML='<div class="lgh"><b>Map key</b> <span class="lgcar">▸</span></div><div class="lgbody" style="display:none;margin-top:6px">'+body+'</div>';
@@ -642,7 +642,7 @@ function fitScope(){
     map.fitBounds([[Math.min.apply(null,lats),Math.min.apply(null,lons)],[Math.max.apply(null,lats),Math.max.apply(null,lons)]],{padding:[28,28],maxZoom:11,animate:false});
   } else { map.setView([37.6,-119.6],6,{animate:false}); }
 }
-function scopeYears(cs){var mn=9999,mx=0;(cs||[]).forEach(function(p){var c=p.c||{};for(var k in c){var y=+k.split('|')[0];if(y){if(y<mn)mn=y;if(y>mx)mx=y;}}});if(mx>2024)mx=2024;/* 2025-2029 are FACTS PLANNED treatments, not reported use */ return mx?(mn===mx?String(mn):mn+'&ndash;'+mx):'';}
+function scopeYears(cs){var mn=9999,mx=0;(cs||[]).forEach(function(p){var c=p.c||{};for(var k in c){var y=+k.split('|')[0];if(!y)continue;if(y<mn)mn=y;var lbs=(c[k]&&c[k][1])||0;/* a post-2024 year counts only where REPORTED pounds exist: FACTS planned/accomplished treatments carry acres (0 lbs) so they can't push the label past reported use, but Plumas' county-supplied 2025-2026 PUR does */ if(y<=2024||lbs>0){if(y>mx)mx=y;}}});return mx?(mn===mx?String(mn):mn+'&ndash;'+mx):'';}
 function updateMapStat(){
   var el=document.getElementById('mapStat'); if(!el) return;
   var cs=scopedCells(), tot=cs.reduce(function(a,p){return a+(+p.n||0);},0);
@@ -733,7 +733,7 @@ function renderDataHtml(){
   h.push('</div>');
 
   if(yk.length){var _yrNote=yk.some(function(y){return +y>=2023;})
-      ? 'California publishes statewide Pesticide Use Reports with a multi-year lag (complete through 2022). The <b>2023&ndash;2024</b> figures here were obtained directly from CDPR by public-records request for the five Northern Sierra counties (Butte, Tehama, Lassen, Plumas, Sierra); the rest of California is not yet public past 2022.'
+      ? 'California publishes statewide Pesticide Use Reports with a multi-year lag (complete through 2022). The <b>2023&ndash;2024</b> figures here were obtained directly from CDPR by public-records request for the five Northern Sierra counties (Butte, Tehama, Lassen, Plumas, Sierra)'+(yk.some(function(y){return +y>=2025;})?', and <b>Plumas 2025&ndash;2026</b> directly from the county&rsquo;s own permit records':'')+'; the rest of California is not yet public past 2022.'
       : 'California publishes its Pesticide Use Reports with a multi-year lag: 2020&ndash;2022 are complete; later years are partial as the state catches up.';
     h.push('<div class="card"><h2>Applications by year</h2>'+barRows(yk.map(function(y){return [y,byYear[y][0],(byYear[y][1]?_lbs(byYear[y][1])+' lb':''),'#2E5E3A'];}))+'<p class="note">'+_yrNote+'</p></div>');}
 
@@ -982,7 +982,7 @@ function renderSciScope(){
     var span=ys.length?(function(a,b){return a===b?(''+a):a+'–'+b;})(Math.min.apply(null,ys),Math.max.apply(null,ys)):'2020–2022';
     var _newyr=ys.length&&Math.max.apply(null,ys)>=2023;
     el.innerHTML='<h2>What this means for '+where+'</h2>'+
-      '<p><b>'+tot.toLocaleString()+'</b> reported pesticide applications ('+span+(_newyr?'; 2023–2024 obtained from CDPR by public-records request, earlier years from the statewide reports':'; 2020–2022 are complete, later years partial')+'). Most-applied class: <b>'+(topClass||'—').replace('_',' ')+'</b>'+
+      '<p><b>'+tot.toLocaleString()+'</b> reported pesticide applications ('+span+(_newyr?'; 2023–2024 obtained from CDPR by public-records request'+(ys.length&&Math.max.apply(null,ys)>=2025?', Plumas 2025–2026 from the county’s own permit records':'')+', earlier years from the statewide reports':'; 2020–2022 are complete, later years partial')+'). Most-applied class: <b>'+(topClass||'—').replace('_',' ')+'</b>'+
       (byc.herbicide?' &middot; herbicides are '+herb+'% of applications here':'')+
       (topAi?'. Most-applied active ingredient: <b>'+_esc(topAi)+'</b>':'')+'.</p>'+
       '<p class="sub">The figures above re-scope with the selector. The chemical science below is general; the detailed case study is Plumas County, where county records let us go deepest.</p>';

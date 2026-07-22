@@ -1,8 +1,8 @@
 {
  "generated": null,
  "statewide": {
-  "apps": 9945711,
-  "named": 7291344,
+  "apps": 9946192,
+  "named": 7291825,
   "pct": 73.3,
   "public_counties": [
    "Colusa",
@@ -243,9 +243,9 @@
    "access": "request"
   },
   "Plumas": {
-   "apps": 4526,
-   "named": 3483,
-   "pct": 77.0,
+   "apps": 5007,
+   "named": 3964,
+   "pct": 79.2,
    "region": "northern-sierra",
    "access": "download"
   },

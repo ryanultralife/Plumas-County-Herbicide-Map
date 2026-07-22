@@ -1,0 +1,815 @@
+{
+"89391-50008-AA": {
+"found": true,
+"chemname": "ADJUVANT/SURFACTANT",
+"chem_share": 0.0,
+"rates": {},
+"prod_rates": {},
+"adjuvant": true,
+"all_chems": {
+"": 0.0
+}
+},
+"62719-634-ZA": {
+"found": true,
+"chemname": "2,4-DICHLOROPHENOXYACETIC ACID, CHOLINE SALT",
+"chem_share": 1.0,
+"rates": {
+"GA": 2.139011348387097,
+"PT": 0.2673776568181818,
+"OZ": 0.016711035658019117
+},
+"prod_rates": {
+"GA": 2.139011348387097,
+"PT": 0.2673776568181818,
+"OZ": 0.016711035658019117
+},
+"all_chems": {
+"2,4-DICHLOROPHENOXYACETIC ACID, CHOLINE SALT": 250.27787790000002
+}
+},
+"62719-259-AA": {
+"found": true,
+"chemname": "CLOPYRALID, MONOETHANOLAMINE SALT",
+"chem_share": 1.0,
+"rates": {
+"OZ": 0.03090227772823891,
+"QT": 0.9888802,
+"GA": 3.955492404699204,
+"PT": 0.4944369161676646
+},
+"prod_rates": {
+"OZ": 0.03090227772823891,
+"QT": 0.9888802,
+"GA": 3.955492404699204,
+"PT": 0.4944369161676646
+},
+"all_chems": {
+"CLOPYRALID, MONOETHANOLAMINE SALT": 2761.4317212000005
+}
+},
+"101563-187-AA": {
+"found": true,
+"chemname": "HEXAZINONE",
+"chem_share": 1.0,
+"rates": {
+"LB": 0.75
+},
+"prod_rates": {
+"LB": 0.75
+},
+"all_chems": {
+"HEXAZINONE": 9409.5
+}
+},
+"84229-32-ZA": {
+"found": false
+},
+"81927-8-AA": {
+"found": true,
+"chemname": "GLYPHOSATE, ISOPROPYLAMINE SALT",
+"chem_share": 1.0,
+"rates": {
+"GA": 5.386362877620012,
+"QT": 1.3465909428571428,
+"OZ": 0.04208138181818182
+},
+"prod_rates": {
+"GA": 5.386362877620012,
+"QT": 1.3465909428571428,
+"OZ": 0.04208138181818182
+},
+"all_chems": {
+"GLYPHOSATE, ISOPROPYLAMINE SALT": 3993.1043798000005
+}
+},
+"1051226-50005-AA": {
+"found": true,
+"chemname": "ADJUVANT/SURFACTANT",
+"chem_share": 0.0,
+"rates": {},
+"prod_rates": {},
+"adjuvant": true,
+"all_chems": {
+"": 0.0
+}
+},
+"34704-50035-AA": {
+"found": true,
+"chemname": "ADJUVANT/SURFACTANT",
+"chem_share": 0.0,
+"rates": {},
+"prod_rates": {},
+"adjuvant": true,
+"all_chems": {
+"": 0.0
+}
+},
+"2935-50174-AA": {
+"found": true,
+"chemname": "ADJUVANT/SURFACTANT",
+"chem_share": 0.0,
+"rates": {},
+"prod_rates": {},
+"adjuvant": true,
+"all_chems": {
+"": 0.0
+}
+},
+"228-379-ZA": {
+"found": true,
+"chemname": "DICAMBA, DIMETHYLAMINE SALT",
+"chem_share": 1.0,
+"rates": {
+"GA": 4.688788391886517,
+"OZ": 0.036631144838709676,
+"PT": 0.5860982960784314
+},
+"prod_rates": {
+"GA": 4.688788391886517,
+"OZ": 0.036631144838709676,
+"PT": 0.5860982960784314
+},
+"all_chems": {
+"DICAMBA, DIMETHYLAMINE SALT": 259.3309902
+}
+},
+"241-418-AA": {
+"found": true,
+"chemname": "PENDIMETHALIN",
+"chem_share": 1.0,
+"rates": {
+"QT": 0.9469648792884257,
+"GA": 3.7878594129591683,
+"PT": 0.47348242760404746,
+"OZ": 0.029592652212804334
+},
+"prod_rates": {
+"QT": 0.9469648792884257,
+"GA": 3.7878594129591683,
+"PT": 0.47348242760404746,
+"OZ": 0.029592652212804334
+},
+"all_chems": {
+"PENDIMETHALIN": 156561.3644003997
+}
+},
+"92617-50001-AA": {
+"found": true,
+"chemname": "ADJUVANT/SURFACTANT",
+"chem_share": 0.0,
+"rates": {},
+"prod_rates": {},
+"adjuvant": true,
+"all_chems": {
+"": 0.0
+}
+},
+"62719-527-AA": {
+"found": true,
+"chemname": "TRICLOPYR, BUTOXYETHYL ESTER",
+"chem_share": 1.0,
+"rates": {
+"OZ": 0.046271390670172816,
+"GA": 5.922737568989037,
+"PT": 0.7403402442477875,
+"QT": 1.4806856893732971
+},
+"prod_rates": {
+"OZ": 0.046271390670172816,
+"GA": 5.922737568989037,
+"PT": 0.7403402442477875,
+"QT": 1.4806856893732971
+},
+"all_chems": {
+"TRICLOPYR, BUTOXYETHYL ESTER": 6079.010197650004
+}
+},
+"5905-50104-AA": {
+"found": true,
+"chemname": "ADJUVANT/SURFACTANT",
+"chem_share": 0.0,
+"rates": {},
+"prod_rates": {},
+"adjuvant": true,
+"all_chems": {
+"": 0.0
+}
+},
+"1381-192-ZC": {
+"found": true,
+"chemname": "GLYPHOSATE, ISOPROPYLAMINE SALT",
+"chem_share": 1.0,
+"rates": {
+"GA": 4.000682405139859,
+"OZ": 0.03125532866685148,
+"QT": 1.0001707098047508,
+"PT": 0.5000846875
+},
+"prod_rates": {
+"GA": 4.000682405139859,
+"OZ": 0.03125532866685148,
+"QT": 1.0001707098047508,
+"PT": 0.5000846875
+},
+"all_chems": {
+"GLYPHOSATE, ISOPROPYLAMINE SALT": 45313.27966300002
+}
+},
+"81927-6-AA": {
+"found": true,
+"chemname": "IMAZAPYR, ISOPROPYLAMINE SALT",
+"chem_share": 1.0,
+"rates": {
+"GA": 2.4820101754572526,
+"OZ": 0.01939080670785525
+},
+"prod_rates": {
+"GA": 2.4820101754572526,
+"OZ": 0.01939080670785525
+},
+"all_chems": {
+"IMAZAPYR, ISOPROPYLAMINE SALT": 36679.85364879995
+}
+},
+"2935-501-AA": {
+"found": true,
+"chemname": "SODIUM TETRABORATE DECAHYDRATE",
+"chem_share": 1.0,
+"rates": {
+"LB": 1.0
+},
+"prod_rates": {
+"LB": 1.0
+},
+"all_chems": {
+"SODIUM TETRABORATE DECAHYDRATE": 870.4000000000001
+}
+},
+"1381-241-ZA": {
+"found": true,
+"chemname": "GLYPHOSATE, ISOPROPYLAMINE SALT",
+"chem_share": 1.0,
+"rates": {
+"GA": 5.412355709299729,
+"OZ": 0.042284032288888884,
+"QT": 1.3530888887192796
+},
+"prod_rates": {
+"GA": 5.412355709299729,
+"OZ": 0.042284032288888884,
+"QT": 1.3530888887192796
+},
+"all_chems": {
+"GLYPHOSATE, ISOPROPYLAMINE SALT": 6601.490855800001
+}
+},
+"74530-43-AA-1381": {
+"found": true,
+"chemname": "GLYPHOSATE, ISOPROPYLAMINE SALT",
+"chem_share": 1.0,
+"rates": {
+"GA": 5.661542212034384,
+"PT": 0.7076929855436832,
+"OZ": 0.044230882,
+"QT": 1.4153837777777778
+},
+"prod_rates": {
+"GA": 5.661542212034384,
+"PT": 0.7076929855436832,
+"OZ": 0.044230882,
+"QT": 1.4153837777777778
+},
+"all_chems": {
+"GLYPHOSATE, ISOPROPYLAMINE SALT": 663.532848
+}
+},
+"5905-50109-AA": {
+"found": true,
+"chemname": "ADJUVANT/SURFACTANT",
+"chem_share": 0.0,
+"rates": {},
+"prod_rates": {},
+"adjuvant": true,
+"all_chems": {
+"": 0.0
+}
+},
+"432-1517-AA": {
+"found": true,
+"chemname": "INDAZIFLAM",
+"chem_share": 1.0,
+"rates": {
+"OZ": 0.013049485508050672,
+"GA": 1.6703341731944226
+},
+"prod_rates": {
+"OZ": 0.013049485508050672,
+"GA": 1.6703341731944226
+},
+"all_chems": {
+"INDAZIFLAM": 1106.7657570000001
+}
+},
+"524-343-ZF": {
+"found": true,
+"chemname": "GLYPHOSATE, ISOPROPYLAMINE SALT",
+"chem_share": 1.0,
+"rates": {
+"OZ": 0.04218947750340858
+},
+"prod_rates": {
+"OZ": 0.04218947750340858
+},
+"all_chems": {
+"GLYPHOSATE, ISOPROPYLAMINE SALT": 55.6985482
+}
+},
+"62719-702-AA": {
+"found": true,
+"chemname": "OXYFLUORFEN",
+"chem_share": 0.979,
+"rates": {
+"GA": 3.9293244686593636,
+"QT": 0.9823311215346807,
+"PT": 0.4911654462392731,
+"OZ": 0.03069784718653646
+},
+"prod_rates": {
+"GA": 2.006090239767048,
+"OZ": 0.015672579883376836,
+"QT": 0.5015225621727544,
+"PT": 0.250761222614841
+},
+"all_chems": {
+"OXYFLUORFEN": 30883.554871999993,
+"PENOXSULAM": 651.2285200000002
+}
+},
+"83222-14-ZA": {
+"found": true,
+"chemname": "DICAMBA, DIMETHYLAMINE SALT",
+"chem_share": 1.0,
+"rates": {
+"GA": 4.82048390304537,
+"OZ": 0.037660111058823525
+},
+"prod_rates": {
+"GA": 4.82048390304537,
+"OZ": 0.037660111058823525
+},
+"all_chems": {
+"DICAMBA, DIMETHYLAMINE SALT": 93.5671332
+}
+},
+"34704-876-AA": {
+"found": true,
+"chemname": "METRIBUZIN",
+"chem_share": 1.0,
+"rates": {
+"LB": 0.7499999999999998
+},
+"prod_rates": {
+"LB": 0.7499999999999998
+},
+"all_chems": {
+"METRIBUZIN": 2702.6625
+}
+},
+"34704-864-AA": {
+"found": true,
+"chemname": "CLETHODIM",
+"chem_share": 1.0,
+"rates": {
+"GA": 2.0904837047260965,
+"OZ": 0.016331898621142482,
+"PT": 0.26131049085872576
+},
+"prod_rates": {
+"GA": 2.0904837047260965,
+"OZ": 0.016331898621142482,
+"PT": 0.26131049085872576
+},
+"all_chems": {
+"CLETHODIM": 463.18974239999994
+}
+},
+"524-529-AA": {
+"found": true,
+"chemname": "GLYPHOSATE, ISOPROPYLAMINE SALT",
+"chem_share": 1.0,
+"rates": {
+"GA": 5.011719528506394,
+"OZ": 0.03915405939966063,
+"QT": 1.2529298915034435,
+"PT": 0.626464904601899
+},
+"prod_rates": {
+"GA": 5.011719528506394,
+"OZ": 0.03915405939966063,
+"QT": 1.2529298915034435,
+"PT": 0.626464904601899
+},
+"all_chems": {
+"GLYPHOSATE, ISOPROPYLAMINE SALT": 147065.87843439984
+}
+},
+"70506-230-ZA": {
+"found": true,
+"chemname": "PENDIMETHALIN",
+"chem_share": 1.0,
+"rates": {
+"QT": 0.9429353021148036,
+"GA": 3.7717407538313483,
+"OZ": 0.02946661,
+"PT": 0.47146748
+},
+"prod_rates": {
+"QT": 0.9429353021148036,
+"GA": 3.7717407538313483,
+"OZ": 0.02946661,
+"PT": 0.47146748
+},
+"all_chems": {
+"PENDIMETHALIN": 6484.627805400001
+}
+},
+"62719-586-AA": {
+"found": true,
+"chemname": "FLUROXYPYR, 1-METHYLHEPTYL ESTER",
+"chem_share": 1.0,
+"rates": {
+"GA": 4.004916196176226,
+"OZ": 0.031288434615384615
+},
+"prod_rates": {
+"GA": 4.004916196176226,
+"OZ": 0.031288434615384615
+},
+"all_chems": {
+"FLUROXYPYR, 1-METHYLHEPTYL ESTER": 202.47855896
+}
+},
+"101563-144-AA": {
+"found": true,
+"chemname": "INDAZIFLAM",
+"chem_share": 1.0,
+"rates": {
+"GA": 1.6662090929203541,
+"OZ": 0.013017450583657587
+},
+"prod_rates": {
+"GA": 1.6662090929203541,
+"OZ": 0.013017450583657587
+},
+"all_chems": {
+"INDAZIFLAM": 4.60200375
+}
+},
+"5905-50076-AA": {
+"found": true,
+"chemname": "ADJUVANT/SURFACTANT",
+"chem_share": 0.0,
+"rates": {},
+"prod_rates": {},
+"adjuvant": true,
+"all_chems": {
+"": 0.0
+}
+},
+"62719-519-AA": {
+"found": true,
+"chemname": "AMINOPYRALID, TRIISOPROPANOLAMINE SALT",
+"chem_share": 1.0,
+"rates": {
+"GA": 3.856133250606679,
+"OZ": 0.030126040324763566,
+"QT": 0.964042488888889,
+"ML": 0.001018690909090909,
+"PT": 0.48201335,
+"LI": 1.0187947466666667
+},
+"prod_rates": {
+"GA": 3.856133250606679,
+"OZ": 0.030126040324763566,
+"QT": 0.964042488888889,
+"ML": 0.001018690909090909,
+"PT": 0.48201335,
+"LI": 1.0187947466666667
+},
+"all_chems": {
+"AMINOPYRALID, TRIISOPROPANOLAMINE SALT": 12061.979372800011
+}
+},
+"19713-700-AA": {
+"found": true,
+"chemname": "GLYPHOSATE, DIAMMONIUM SALT",
+"chem_share": 1.0,
+"rates": {
+"GA": 5.405063782436577,
+"QT": 1.3512661185185184
+},
+"prod_rates": {
+"GA": 5.405063782436577,
+"QT": 1.3512661185185184
+},
+"all_chems": {
+"GLYPHOSATE, DIAMMONIUM SALT": 46295.45232799996
+}
+},
+"432-1576-AA": {
+"found": true,
+"chemname": "HEXAZINONE",
+"chem_share": 1.0,
+"rates": {
+"LB": 0.7499999999999998,
+"OZ": 0.046875449101796404
+},
+"prod_rates": {
+"LB": 0.7499999999999998,
+"OZ": 0.046875449101796404
+},
+"all_chems": {
+"HEXAZINONE": 92363.19434999998
+}
+},
+"42750-146-AA": {
+"found": true,
+"chemname": "IMAZETHAPYR, AMMONIUM SALT",
+"chem_share": 1.0,
+"rates": {
+"GA": 2.133679533255838,
+"OZ": 0.016669381965847566
+},
+"prod_rates": {
+"GA": 2.133679533255838,
+"OZ": 0.016669381965847566
+},
+"all_chems": {
+"IMAZETHAPYR, AMMONIUM SALT": 1718.645417419999
+}
+},
+"2935-50176-AA": {
+"found": true,
+"chemname": "ADJUVANT/SURFACTANT",
+"chem_share": 0.0,
+"rates": {},
+"prod_rates": {},
+"adjuvant": true,
+"all_chems": {
+"": 0.0
+}
+},
+"524-529-ZA": {
+"found": true,
+"chemname": "GLYPHOSATE, ISOPROPYLAMINE SALT",
+"chem_share": 1.0,
+"rates": {
+"GA": 5.011719508631655,
+"OZ": 0.0391539542877392,
+"QT": 1.252929698214286
+},
+"prod_rates": {
+"GA": 5.011719508631655,
+"OZ": 0.0391539542877392,
+"QT": 1.252929698214286
+},
+"all_chems": {
+"GLYPHOSATE, ISOPROPYLAMINE SALT": 7057.299731999998
+}
+},
+"87290-69-AA": {
+"found": true,
+"chemname": "IMAZETHAPYR, AMMONIUM SALT",
+"chem_share": 1.0,
+"rates": {
+"GA": 2.1336792134059483,
+"OZ": 0.016668418333333334
+},
+"prod_rates": {
+"GA": 2.1336792134059483,
+"OZ": 0.016668418333333334
+},
+"all_chems": {
+"IMAZETHAPYR, AMMONIUM SALT": 254.75462462999994
+}
+},
+"34704-50053-AA": {
+"found": true,
+"chemname": "ADJUVANT/SURFACTANT",
+"chem_share": 0.0,
+"rates": {},
+"prod_rates": {},
+"adjuvant": true,
+"all_chems": {
+"": 0.0
+}
+},
+"34704-50084-AA": {
+"found": true,
+"chemname": "ADJUVANT/SURFACTANT",
+"chem_share": 0.0,
+"rates": {},
+"prod_rates": {},
+"adjuvant": true,
+"all_chems": {
+"": 0.0
+}
+},
+"92617-50002-AA": {
+"found": false
+},
+"432-1516-AA": {
+"found": true,
+"chemname": "INDAZIFLAM",
+"chem_share": 1.0,
+"rates": {
+"OZ": 0.013017253077006909,
+"GA": 1.666208254842568,
+"QT": 0.4165512914285714,
+"PT": 0.20827365000000003
+},
+"prod_rates": {
+"OZ": 0.013017253077006909,
+"GA": 1.666208254842568,
+"QT": 0.4165512914285714,
+"PT": 0.20827365000000003
+},
+"all_chems": {
+"INDAZIFLAM": 1567.6802593499983
+}
+},
+"62719-687-AA": {
+"found": true,
+"chemname": "TRICLOPYR CHOLINE",
+"chem_share": 1.0,
+"rates": {
+"GA": 5.580119478167643,
+"OZ": 0.04359468202523613,
+"QT": 1.3950298250847455,
+"PT": 0.6975148510843374
+},
+"prod_rates": {
+"GA": 5.580119478167643,
+"OZ": 0.04359468202523613,
+"QT": 1.3950298250847455,
+"PT": 0.6975148510843374
+},
+"all_chems": {
+"TRICLOPYR CHOLINE": 12468.986864640003
+}
+},
+"52467-50022-AA": {
+"found": true,
+"chemname": "ADJUVANT/SURFACTANT",
+"chem_share": 0.0,
+"rates": {},
+"prod_rates": {},
+"adjuvant": true,
+"all_chems": {
+"": 0.0
+}
+},
+"84229-33-AA": {
+"found": true,
+"chemname": "CLETHODIM",
+"chem_share": 1.0,
+"rates": {
+"GA": 2.1142341760469225,
+"OZ": 0.016517452961983856,
+"PT": 0.26427915966386556,
+"QT": 0.5285584615384615
+},
+"prod_rates": {
+"GA": 2.1142341760469225,
+"OZ": 0.016517452961983856,
+"PT": 0.26427915966386556,
+"QT": 0.5285584615384615
+},
+"all_chems": {
+"CLETHODIM": 1172.3292767999997
+}
+},
+"5905-50071-AA": {
+"found": true,
+"chemname": "ADJUVANT/SURFACTANT",
+"chem_share": 0.0,
+"rates": {},
+"prod_rates": {},
+"adjuvant": true,
+"all_chems": {
+"": 0.0
+}
+},
+"524-343-ZH": {
+"found": true,
+"chemname": "GLYPHOSATE, ISOPROPYLAMINE SALT",
+"chem_share": 1.0,
+"rates": {
+"GA": 5.400255763166723,
+"OZ": 0.04218952523271834,
+"QT": 1.3500572
+},
+"prod_rates": {
+"GA": 5.400255763166723,
+"OZ": 0.04218952523271834,
+"QT": 1.3500572
+},
+"all_chems": {
+"GLYPHOSATE, ISOPROPYLAMINE SALT": 384.5653052000001
+}
+},
+"62719-553-ZA": {
+"found": true,
+"chemname": "TRICLOPYR, BUTOXYETHYL ESTER",
+"chem_share": 1.0,
+"rates": {
+"GA": 9.142840033720123
+},
+"prod_rates": {
+"GA": 9.142840033720123
+},
+"all_chems": {
+"TRICLOPYR, BUTOXYETHYL ESTER": 4609.362803
+}
+},
+"71368-11-ZA": {
+"found": true,
+"chemname": "2,4-D, 2-ETHYLHEXYL ESTER",
+"chem_share": 1.0,
+"rates": {
+"GA": 8.204372041827062,
+"OZ": 0.06409624759615386
+},
+"prod_rates": {
+"GA": 8.204372041827062,
+"OZ": 0.06409624759615386
+},
+"all_chems": {
+"2,4-D, 2-ETHYLHEXYL ESTER": 7166.518808400002
+}
+},
+"352-581-AA": {
+"found": true,
+"chemname": "HEXAZINONE",
+"chem_share": 1.0,
+"rates": {
+"LB": 0.7499999999999998
+},
+"prod_rates": {
+"LB": 0.7499999999999998
+},
+"all_chems": {
+"HEXAZINONE": 3843.141075
+}
+},
+"1381-50021-AA": {
+"found": true,
+"chemname": "ADJUVANT/SURFACTANT",
+"chem_share": 0.0,
+"rates": {},
+"prod_rates": {},
+"adjuvant": true,
+"all_chems": {
+"": 0.0
+}
+},
+"7969-278-AA": {
+"found": true,
+"chemname": "SAFLUFENACIL",
+"chem_share": 1.0,
+"rates": {
+"GA": 2.852908146206471,
+"OZ": 0.022288303950381123,
+"QT": 0.7132246799999999
+},
+"prod_rates": {
+"GA": 2.852908146206471,
+"OZ": 0.022288303950381123,
+"QT": 0.7132246799999999
+},
+"all_chems": {
+"SAFLUFENACIL": 194.04594604
+}
+},
+"19713-650-AA": {
+"found": true,
+"chemname": "2,4-D, DIMETHYLAMINE SALT",
+"chem_share": 1.0,
+"rates": {
+"GA": 4.555801946603154,
+"PT": 0.5694752612837036,
+"OZ": 0.03559221131270011,
+"QT": 1.1389506043526694
+},
+"prod_rates": {
+"GA": 4.555801946603154,
+"PT": 0.5694752612837036,
+"OZ": 0.03559221131270011,
+"QT": 1.1389506043526694
+},
+"all_chems": {
+"2,4-D, DIMETHYLAMINE SALT": 12329.781055000007
+}
+}
+}

@@ -1,6 +1,6 @@
 # SprayMap California — Continuation / Handoff
 
-_Snapshot: **2026-07-21**. `main` tip **`f35106a`**; main checkout, the claude worktree and `origin/main` are all in sync. Deploys via Vercel from `main`._
+_Snapshot: **2026-07-22**. `main` tip **`f35106a`**; main checkout, the claude worktree and `origin/main` are all in sync. Deploys via Vercel from `main`._
 
 ## What this is
 A single static **`index.html`** (Leaflet + 5 tabs) backed by **Supabase Postgres**, mapping California's reported pesticide use. Spine = **Plumas + the Northern Sierra** (Butte, Tehama, Lassen, Plumas, Sierra); statewide context around it. Run by the **Plumas Grassroots Collective** — a **registered CA nonprofit** (state filing + EIN, July 2026). Transparency is the point: name the operators, show pounds/acres, and publish the org's own spending.
@@ -14,13 +14,13 @@ Connect: `source C:/Users/ryanv/.pg_dburl` (sets `$DBURL`; **secret — never ec
 
 | Object | State |
 |---|---|
-| `public.applications` | **12,012,003** rows (pur 12,001,289 · facts 10,714). Statewide PUR **2020–2022**; **2023–2024 only for the 5 NS counties**. `acres` populated for NS only. |
-| `public.map_agg` | **29,291** cells, one per ~PLSS section (`round(lat/lon,3)`). Drives the map. |
+| `public.applications` | **12,012,484** rows (pur 12,001,289 · pur-cac-plumas 481 · facts 10,714). Statewide PUR **2020–2022**; **2023–2024 for the 5 NS counties**; **Plumas 2025–2026** from the county's own PUR export. `acres` populated for NS only. |
+| `public.map_agg` | **29,418** cells, one per ~PLSS section (`round(lat/lon,3)`). Drives the map. |
 | `public.juris_agg` | region/county rollups; `top_owners` = `[owner, count, lbs]`. |
-| `public.operator_names` | **36,239** ids named. Statewide **73.3%** of mapped applications (61.4% of all PUR rows). |
+| `public.operator_names` | **36,258** ids named. Statewide **73.3%** of mapped applications (61.4% of all PUR rows). |
 | `public.section_ownership` (JSON, not a table) | `data/section_ownership.json` — 940 USFS / 228 inholding sections. |
 
-**Client cache key is `CELLS_KEY='map_agg:v8-valley:...'`** — bump it in `index.html` whenever `map_agg`'s *data* changes, not just its columns (the built-in revalidation only compares row **count**, so a coordinate-only change can slip through).
+**Client cache key is `CELLS_KEY='map_agg:v9-plumas2026:...'`** — bump it in `index.html` whenever `map_agg`'s *data* changes, not just its columns (the built-in revalidation only compares row **count**, so a coordinate-only change can slip through).
 
 ## ⚠️ Hard-won gotchas — read before touching anything
 
@@ -59,6 +59,7 @@ Connect: `source C:/Users/ryanv/.pg_dburl` (sets `$DBURL`; **secret — never ec
 - **Dates unified** — map stat shows the **actual** scoped year span (clamped to 2024 so FACTS *planned* years don't masquerade as reported use); coverage framed as living.
 - **Mobile parity** — class-colored dots, all 8 per-class layers, full collapsible legend; map-stat opens on load, static ▸ arrow, reliable tap-to-close (hover scoped to `@media (hover:hover)`); layers control has its own ▸ collapse arrow.
 - **July roster ingest** — Tulare/Madera/San Joaquin: **Tulare 3.2% → 90.3%** named (+778k apps), Madera 16.3% → 92.3%; statewide **63.1% → 73.3%**.
+- **Plumas 2025–2026** — county PRA PUR export (Dax Albrecht, Plumas-Sierra Ag Dept, 2026-07-22) loaded as source `pur-cac-plumas`: **481 application events, 105,513 lb, 30,293 ac** (glyphosate + hexazinone; 458 forestry / 18 ag / 5 federal). Only **2025–2026** loaded — the DPR extract already holds Plumas ≤2024, so loading the file's 2024 would double-count (different id systems). Pounds derived from **DPR's own per-product AI rates** (`build/ingest_plumas_cac_pur.py` + committed `_regmap.json`/`_plumas_centroids.json`); coords from CDPR Plumas PLSS. The year label now shows **reported** use through 2026 (FACTS planned years, which carry acres not lbs, stay excluded).
 - **Org rename** — Plumas Grassroots **Collective**; site says "a registered California nonprofit" and **deliberately makes no 501(c)(3) / tax-deductible claim**.
 
 ## Automation
