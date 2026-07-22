@@ -1,6 +1,6 @@
 # SprayMap California — Continuation / Handoff
 
-_Snapshot: **2026-07-22**. `main` tip **`f35106a`**; main checkout, the claude worktree and `origin/main` are all in sync. Deploys via Vercel from `main`._
+_Snapshot: **2026-07-22**. `main` tip **`5c582ca`**; main checkout, the claude worktree and `origin/main` are all in sync. Deploys via Vercel from `main`._
 
 ## What this is
 A single static **`index.html`** (Leaflet + 5 tabs) backed by **Supabase Postgres**, mapping California's reported pesticide use. Spine = **Plumas + the Northern Sierra** (Butte, Tehama, Lassen, Plumas, Sierra); statewide context around it. Run by the **Plumas Grassroots Collective** — a **registered CA nonprofit** (state filing + EIN, July 2026). Transparency is the point: name the operators, show pounds/acres, and publish the org's own spending.
