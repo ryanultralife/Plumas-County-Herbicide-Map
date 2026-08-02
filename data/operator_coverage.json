@@ -2,8 +2,8 @@
  "generated": null,
  "statewide": {
   "apps": 9946192,
-  "named": 7291825,
-  "pct": 73.3,
+  "named": 7563011,
+  "pct": 76.0,
   "public_counties": [
    "Colusa",
    "Contra Costa",
@@ -111,8 +111,8 @@
   },
   "Imperial": {
    "apps": 265655,
-   "named": 1693,
-   "pct": 0.6,
+   "named": 265651,
+   "pct": 100.0,
    "region": "southern-california",
    "access": "request"
   },
@@ -125,8 +125,8 @@
   },
   "Kern": {
    "apps": 595564,
-   "named": 523816,
-   "pct": 88.0,
+   "named": 526460,
+   "pct": 88.4,
    "region": "san-joaquin-valley",
    "access": "download"
   },
@@ -251,7 +251,7 @@
   },
   "Riverside": {
    "apps": 283394,
-   "named": 265144,
+   "named": 265241,
    "pct": 93.6,
    "region": "southern-california",
    "access": "download"
@@ -293,14 +293,14 @@
   },
   "San Joaquin": {
    "apps": 525789,
-   "named": 512871,
-   "pct": 97.5,
+   "named": 513007,
+   "pct": 97.6,
    "region": "san-joaquin-valley",
    "access": "download"
   },
   "San Luis Obispo": {
    "apps": 239857,
-   "named": 51314,
+   "named": 51334,
    "pct": 21.4,
    "region": "central-coast",
    "access": "request"
@@ -328,7 +328,7 @@
   },
   "Santa Cruz": {
    "apps": 116070,
-   "named": 93805,
+   "named": 93808,
    "pct": 80.8,
    "region": "bay-area",
    "access": "download"
@@ -412,8 +412,8 @@
   },
   "Ventura": {
    "apps": 323919,
-   "named": 6694,
-   "pct": 2.1,
+   "named": 11022,
+   "pct": 3.4,
    "region": "central-coast",
    "access": "request"
   },

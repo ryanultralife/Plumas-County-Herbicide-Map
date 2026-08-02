@@ -48,7 +48,8 @@ COUNTY_CODE = {"Plumas": "32", "Monterey": "27", "Kern": "15", "Stanislaus": "50
                "San Joaquin": "39", "Contra Costa": "07", "Riverside": "33",
                "Santa Barbara": "42", "Fresno": "10", "San Diego": "37", "Napa": "28",
                "Colusa": "06", "Santa Cruz": "44", "Yolo": "57", "Merced": "24",
-               "Kings": "16", "Sutter": "51", "Madera": "20", "Tulare": "54"}
+               "Kings": "16", "Sutter": "51", "Madera": "20", "Tulare": "54",
+               "Imperial": "13"}
 
 def _prio(permnum, county):
     code = COUNTY_CODE.get(county)
@@ -330,7 +331,8 @@ def incoming_local():
         with open(path, newline="", encoding="utf-8-sig") as f:
             for row in csv.DictReader(f):
                 add(row.get("operator_id"), row.get("name"),
-                    (row.get("county") or "").strip(), "cac-" + stem)
+                    (row.get("county") or "").strip(), "cac-" + stem,
+                    row.get("agent"))
                 n += 1
     return n
 
@@ -378,7 +380,7 @@ insert into public.operator_names (operator_id, name, entity_type, source, count
 select a.owner, p.name, null, p.source, p.county, current_date::text, p.agent
 from (select distinct owner from public.applications
       where owner is not null and length(owner)>=7 and owner ~ '[0-9]') a
-join _perm p on right(a.owner,7) = p.permnum
+join _perm p on upper(right(a.owner,7)) = p.permnum   /* upper(): some GROWER_IDs carry a lowercase permit-type suffix (e.g. Imperial 131488n) while norm_perm upper-cases the roster; the permit is the same */
 on conflict (operator_id) do update set
   name=excluded.name, source=excluded.source, county=excluded.county,
   updated=excluded.updated, agent=coalesce(excluded.agent, operator_names.agent);
