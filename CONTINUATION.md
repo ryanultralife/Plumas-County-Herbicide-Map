@@ -81,3 +81,27 @@ Connect: `source C:/Users/ryanv/.pg_dburl` (sets `$DBURL`; **secret — never ec
 
 ## Constraints (persist)
 DB password **only** in `C:/Users/ryanv/.pg_dburl` — never commit or echo. Only the anon key in client HTML. **Never destructively mutate the shared DB; never duplicate data** (dedup by `app_id` / upsert on `operator_id`). The Transparency page stays honest — no fabricated figures, every ledger entry ties to a real receipt, and **no claim of tax-exempt status until it exists**. Sending email, submitting portals, and downloading files are **permission-gated** — prepare and ask.
+
+## Plumas Working Forests (2026-08-02)
+- **Program docs:** `program/` (README, full program, prescription standard, economics with pass/fail tests, stakeholders, pilot, policy asks, sources).
+- **Stance:** case for industry to evaluate; implementation is owners' timber/business/land; volume parity **unproven** until CalTREES/mill data; publish FAIL if numbers don't work.
+- **Site:** 6th nav tab **Working Forests** (`#workview`, `show('work')`). No DB changes.
+- **Tool:** `python program/tools/volume_sketch.py` (illustrative T1 MBF sketch only).
+
+## Cost ledger (same branch, 2026-08-02)
+- `data/working_forests_costs.json` — absolute Plumas harvest (BBER A), CDTFA IHV (A), thin/fuels cost ranges (B), explicit D gaps for logging/release/plant/owner net.
+- Site Working Forests tab section **Costs & losses** loads that JSON (`loadWfCosts`).
+- Concurrent fills: `program/data/INTAKE.md`; validate with `python program/tools/cost_ledger.py --json-check`.
+- Do not invent dollars; other instances may be filling PUR/operator data in parallel — stay off their lanes.
+
+## Wholesale chain fill (2026-08-02 cont.)
+- Filled stump-to-truck, delivered log, haul, biomass, residual stumpage worked examples from TCSI/MB&G Sierra study (B) + Chang thinning synthesis.
+- Still D: plant, chemical release, manual release, full owner net, live 2026 mill quotes, lumber wholesale.
+- Gaps closed: 5 A/B lines -> 12 A/B lines in cost ledger.
+## Full gap-close pass (2026-08-02)
+- Mill-gate proxies (Inland 2025 + coast DF ref), Plumas haul-to-Quincy/Lincoln, plant+chem vs manual practice bands, lumber futures + conversion band, modeled owner net/ac cases.
+- Cost line items: 0 D remaining (13 A/B + 5 C). Upgrade C with SPI quotes / sealed release bids when available.
+
+## Done-for-v1 (2026-08-02)
+- WA DNR Eastside Mar 2026 mill-gate prices; USFS Plumas PTSAR FY2026 Q1; FOIA drafts in records-requests/letters/14-working-forests-unit-costs.md; program_complete_for_v1=true.
+
