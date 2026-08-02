@@ -1,0 +1,35 @@
+{
+  "source": "California Regional Water Quality Control Board, Central Valley Region (R5) — Nonpoint Source Unit",
+  "obtained": "2026-07 (Public Records Act response, analyst Courtney Kasich)",
+  "area": "Dixie Fire burn scar, Greenville watershed, Plumas County",
+  "finding": "The watershed is monitored for post-fire recovery, but NOT for any of the herbicides applied in it. No pesticide/herbicide analyte appears in the sampling panel.",
+  "stations": [
+    {"id": "DF-1", "location": "Setzer Camp Creek / Greenville-Wolf Creek Roads"},
+    {"id": "DF-2", "location": "Spirit Springs Road / Greenville WWTP"},
+    {"id": "DF-3", "location": "Stampfli Road/Lane"}
+  ],
+  "sampling": "Roughly monthly (records seen: 2021-09 through 2022-04)",
+  "analytes_monitored": [
+    "conductivity", "dissolved oxygen", "pH", "temperature", "turbidity", "TSS", "TDS",
+    "settleable solids", "alkalinity", "hardness", "calcium", "magnesium", "sulfate",
+    "ammonia", "nitrate", "nitrate+nitrite", "TKN", "orthophosphate", "phosphorus",
+    "total coliform", "E. coli",
+    "aluminum", "arsenic", "cadmium", "chromium", "copper", "iron", "lead",
+    "manganese", "mercury", "nickel", "selenium", "zinc"
+  ],
+  "analytes_NOT_monitored": [
+    "hexazinone", "imazapyr", "glyphosate", "aminopyralid", "indaziflam",
+    "triclopyr", "2,4-D", "clopyralid", "any pesticide/herbicide active ingredient",
+    "surfactants / adjuvants"
+  ],
+  "notified_but_not_tested": "USFS formally notifies the Water Board of herbicide operations (e.g. Wildcat project: aminopyralid <7 oz/acre + Competitor surfactant, backpack/hand spray, June-Sept, per a 2023 notice) and herbicide/reforestation work is tracked for BMP compliance — but the water is not screened for these compounds.",
+  "documents": [
+    "Dixie Fire WQ Sampling Results.pdf",
+    "Pages from Dixie Fire Water Quality Monitoring Locations.pdf",
+    "RE_ annual notice of ops_pesticide notification.pdf",
+    "2025_PNF_AMR_CVWQCB_Signed_250920.pdf",
+    "2024 GO PNF Monitoring Report.pdf",
+    "2023_Monitoring_Report_Plumas National Forest _Timber General Order_mp.pdf"
+  ],
+  "note": "Raw PDFs are git-ignored (15 MB); kept locally in data/incoming/2026-08/water-board/. This file is the structured record of the finding surfaced in the Science tab 'Is the water tested for these herbicides?' card."
+}
