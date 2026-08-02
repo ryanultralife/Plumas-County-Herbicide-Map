@@ -206,6 +206,11 @@ td:first-child,th:first-child{text-align:left}tr.tot td{font-weight:bold;backgro
 </div>
 
 <div class="card sci">
+<h2>Geometry pilot: how Plumas NF harvest is laid out</h2>
+<p class="sub">USFS FACTS timber-harvest polygons &mdash; pre-2020 focus. Live from <code>data/pwf_geometry_pilot.json</code>.</p>
+<div id="pwfGeom"><p class="sub">Loading geometry pilot&hellip;</p></div>
+</div>
+<div class="card sci">
 <h2>Further optimization: progressive layout (no jumping)</h2>
 <p class="sub">Silviculture can keep the forest <i>and</i> keep crews moving in a continuous front.</p>
 <p><b>The ops problem.</b> Multi-entry thinning without a layout plan means loggers <b>leapfrog</b> across the ownership &mdash; repeated move-in, cold equipment, long empty trucking. That burns money even when the residual stand looks good.</p>
@@ -902,7 +907,7 @@ function show(v){
  if(v==='ledger')loadLedger();
  if(v==='data')renderData();
  if(v==='sci'){renderSciScope(); collapsifyCards(document.getElementById('sciview'));}
- if(v==='work'){loadWfCosts(); collapsifyCards(document.getElementById('workview'));}
+ if(v==='work'){loadWfCosts(); loadPwfGeom(); collapsifyCards(document.getElementById('workview'));}
  if(v==='map'){if(!map)buildMap();setTimeout(function(){map.invalidateSize(true);},100);}}
 buildMap();
 function fix(){if(map)map.invalidateSize(true);}
@@ -910,6 +915,45 @@ window.addEventListener('resize',fix);
 window.addEventListener('orientationchange',function(){setTimeout(fix,250);setTimeout(fix,600);});
 setTimeout(fix,300);
 
+
+
+/* ===== PWF geometry pilot ===== */
+var _pwfGeomLoaded=false;
+function loadPwfGeom(){
+  if(_pwfGeomLoaded) return; _pwfGeomLoaded=true;
+  var el=document.getElementById('pwfGeom'); if(!el) return;
+  fetch('data/pwf_geometry_pilot.json',{cache:'no-store'})
+    .then(function(r){ if(!r.ok) throw 0; return r.json(); })
+    .then(function(d){ renderPwfGeom(d); })
+    .catch(function(){ el.innerHTML='<p style="color:#a00">Geometry pilot unavailable offline.</p>'; _pwfGeomLoaded=false; });
+}
+function renderPwfGeom(d){
+  var el=document.getElementById('pwfGeom'); if(!el) return;
+  var p=d.pre_2020_2001_2020||{};
+  var h=[];
+  h.push('<p class="note">Updated '+_esc(d.updated||'')+'. Source: USFS FACTS Timber Harvest (Plumas NF). Not Hansen fire loss.</p>');
+  h.push('<div class="kpis">');
+  h.push('<div class="kpi"><div class="n">'+_esc(String(p.layout_class||'—'))+'</div><div class="l">Pre-2020 layout class</div></div>');
+  h.push('<div class="kpi"><div class="n">'+(p.mean_annual_touching_share!=null?p.mean_annual_touching_share:'—')+'</div><div class="l">Mean annual touching share</div></div>');
+  h.push('<div class="kpi"><div class="n">'+(p.mean_annual_largest_component_share!=null?p.mean_annual_largest_component_share:'—')+'</div><div class="l">Mean largest component share</div></div>');
+  h.push('<div class="kpi"><div class="n">'+(p.mean_annual_mean_nn_mi!=null?p.mean_annual_mean_nn_mi:'—')+' mi</div><div class="l">Mean nearest-neighbor distance</div></div>');
+  h.push('</div>');
+  h.push('<p><b>What multi_cluster means:</b> units often touch a neighbor (local clumps), but only ~17% of a year&rsquo;s units sit in the biggest connected piece. Crews still jump between clumps &mdash; not one side-to-side wave. Progressive strips + fixed corridors target that tax.</p>');
+  h.push('<table><thead><tr><th>Year</th><th>n</th><th>Touch</th><th>Largest</th><th>NN mi</th><th>Class</th></tr></thead><tbody>');
+  (d.annual_2001_2020||[]).forEach(function(a){
+    h.push('<tr><td style="text-align:left">'+a.year+'</td><td>'+a.n+'</td><td>'+(a.touching_share!=null?a.touching_share:'—')+
+      '</td><td>'+(a.largest_component_share!=null?a.largest_component_share:'—')+
+      '</td><td>'+(a.mean_nn_mi!=null?a.mean_nn_mi:'—')+'</td><td style="text-align:left">'+_esc(a.layout_class||'')+'</td></tr>');
+  });
+  h.push('</tbody></table>');
+  if(d.interpretation&&d.interpretation.length){
+    h.push('<h3>Interpretation</h3><ul style="font-size:13px;line-height:1.45">');
+    d.interpretation.forEach(function(x){ h.push('<li>'+_esc(x)+'</li>'); });
+    h.push('</ul>');
+  }
+  h.push('<p class="refs">Re-run: <code>python program/tools/pwf_geometry_pilot.py</code> &middot; Full report: <code>program/data/pwf_geometry_pilot.md</code></p>');
+  el.innerHTML=h.join('');
+}
 
 /* ===== Working Forests cost ledger ===== */
 var _wfCostsLoaded=false;

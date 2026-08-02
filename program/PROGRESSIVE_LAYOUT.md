@@ -107,16 +107,34 @@ For **2021–2025**, Global Forest Watch / UMD tree-cover loss for Plumas is **d
 - fire  
 - salvage
 
-### 4.3 What a Plumas satellite+ops study should do (next data build)
+### 4.3 Pilot results (Plumas NF FACTS, 2026-08-02)
 
-1. **Pre-Dixie (e.g. 2001–2020)** Hansen lossyear masked to known timberland (FRAP / ownership).  
-2. Overlay **FACTS** timber harvest / fuels treatment polygons (USFS) and **CalTREES** private THP footprints.  
-3. Classify patch geometry: compact clearcut blocks vs linear corridor vs diffuse thin (spectral change small).  
-4. Measure **contiguity of annual harvest** (do units form a progressive front or scatter?).  
-5. Compare to road network (USFS roads, county) — haul distance and leapfrog score.  
-6. **Do not claim** method optimization from fire years without masking.
+**Tool:** `python program/tools/pwf_geometry_pilot.py`  
+**Outputs:** `program/data/pwf_geometry_pilot.json` · `.md` · `data/pwf_geometry_pilot.json` (site)
 
-Until that stack is built in-repo, progressive layout remains a **design standard** informed by ops research, not a Plumas-proven map product.
+Pulled **4,393** USFS FACTS Timber Harvest polygons for Plumas National Forest (layers 1991–current).
+
+| Period | Features | Mean annual touching | Mean largest component | Mean NN (mi) | Class |
+|---|---:|---:|---:|---:|---|
+| **2001–2020** | 2,152 | **0.65** | **0.17** | **1.15** | **multi_cluster** |
+| 2021–2026 | 429 | 0.63 | 0.24 | 0.80 | multi_cluster (salvage/fire ops — caution) |
+
+**Meaning:**
+
+- Units often **touch a neighbor** (not pure isolated darts).  
+- But the **largest connected component is only ~17%** of that year’s units on average — so harvest runs as **many small clumps**, not **one side-to-side wave**.  
+- Crews still **jump between clumps** (the operational tax you named).  
+- Activity mix is already **thin / group selection / salvage–heavy** — the gap is **layout continuity**, not only “do more commercial thin.”
+
+Year-level table and full metrics: `program/data/pwf_geometry_pilot.md`.
+
+**Hansen / GFW:** 2021–2025 Plumas tree-cover loss remains **fire-dominated**; this pilot intentionally scores **FACTS harvest polygons** for layout, not Hansen alone.
+
+### 4.4 Optional next data builds
+
+1. Hansen pre-2020 lossyear (optional canopy context) via GeoTIFF + `--hansen`.  
+2. CalTREES private THP footprints (same contiguity metrics off-forest).  
+3. Road-network leapfrog score (distance between annual clumps along haul routes).
 
 ### 4.4 Open data pointers
 

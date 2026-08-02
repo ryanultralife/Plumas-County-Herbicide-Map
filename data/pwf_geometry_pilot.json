@@ -1,0 +1,381 @@
+{
+  "schema_version": 1,
+  "title": "Plumas NF progressive vs scatter harvest geometry pilot",
+  "updated": "2026-08-02",
+  "source_facts": {
+    "service": "https://apps.fs.usda.gov/arcx/rest/services/EDW/EDW_TimberHarvest_01/MapServer",
+    "where": "admin_forest_name LIKE '%Plumas%'",
+    "layers": {
+      "2021-current": 11,
+      "2011-2020": 0,
+      "2001-2010": 1,
+      "1991-2000": 2
+    },
+    "layer_counts": {
+      "2021-current": 432,
+      "2011-2020": 1283,
+      "2001-2010": 920,
+      "1991-2000": 1758
+    },
+    "total_features_downloaded": 4393,
+    "features_with_geometry_used": 4212
+  },
+  "metrics_definition": {
+    "touching_share": "Share of unit polygons that touch or come within ~50 m of another unit that year",
+    "largest_component_share": "Share of units in the largest connected cluster",
+    "mean_nn_mi": "Mean nearest-neighbor distance between unit centroids (miles) \u2014 high = scatter",
+    "layout_class": "Heuristic: progressive_leaning | scatter_leaning | mixed_or_unclear | insufficient_sample",
+    "compactness": "4\u03c0A/P\u00b2 on foot-scaled geometry (1\u2248circle; lower\u2248elongated/complex)"
+  },
+  "pre_2020_2001_2020": {
+    "years": "2001-2020",
+    "n_features": 2152,
+    "total_geom_acres": 72588.0,
+    "mean_annual_touching_share": 0.653,
+    "mean_annual_largest_component_share": 0.171,
+    "mean_annual_mean_nn_mi": 1.147,
+    "years_classified": 20,
+    "layout_class": "multi_cluster",
+    "note": "Decade class from mean of annual metrics (not one giant pooled graph)"
+  },
+  "fire_era_2021_2025": {
+    "years": "2021-2026",
+    "n_features": 429,
+    "total_geom_acres": 19513.0,
+    "mean_annual_touching_share": 0.632,
+    "mean_annual_largest_component_share": 0.236,
+    "mean_annual_mean_nn_mi": 0.795,
+    "years_classified": 6,
+    "layout_class": "multi_cluster",
+    "note": "Decade class from mean of annual metrics (not one giant pooled graph)"
+  },
+  "annual_2001_2020": [
+    {
+      "n": 65,
+      "touching_share": 0.585,
+      "n_components": 41,
+      "largest_component_share": 0.092,
+      "mean_nn_mi": 0.559,
+      "median_nn_mi": 0.376,
+      "year": 2001,
+      "total_geom_acres": 2867.2,
+      "layout_class": "multi_cluster"
+    },
+    {
+      "n": 29,
+      "touching_share": 0.138,
+      "n_components": 27,
+      "largest_component_share": 0.069,
+      "mean_nn_mi": 1.6,
+      "median_nn_mi": 0.706,
+      "year": 2002,
+      "total_geom_acres": 1721.0,
+      "layout_class": "mixed_or_unclear"
+    },
+    {
+      "n": 27,
+      "touching_share": 0.593,
+      "n_components": 16,
+      "largest_component_share": 0.259,
+      "mean_nn_mi": 2.365,
+      "median_nn_mi": 0.402,
+      "year": 2003,
+      "total_geom_acres": 4964.1,
+      "layout_class": "multi_cluster"
+    },
+    {
+      "n": 16,
+      "touching_share": 0.688,
+      "n_components": 8,
+      "largest_component_share": 0.312,
+      "mean_nn_mi": 1.95,
+      "median_nn_mi": 1.696,
+      "year": 2004,
+      "total_geom_acres": 4447.6,
+      "layout_class": "multi_cluster"
+    },
+    {
+      "n": 15,
+      "touching_share": 0.0,
+      "n_components": 15,
+      "largest_component_share": 0.067,
+      "mean_nn_mi": 5.783,
+      "median_nn_mi": 1.728,
+      "year": 2005,
+      "total_geom_acres": 816.2,
+      "layout_class": "scatter_leaning"
+    },
+    {
+      "n": 441,
+      "touching_share": 0.714,
+      "n_components": 181,
+      "largest_component_share": 0.17,
+      "mean_nn_mi": 0.2,
+      "median_nn_mi": 0.131,
+      "year": 2006,
+      "total_geom_acres": 6987.9,
+      "layout_class": "multi_cluster"
+    },
+    {
+      "n": 64,
+      "touching_share": 0.641,
+      "n_components": 35,
+      "largest_component_share": 0.156,
+      "mean_nn_mi": 0.574,
+      "median_nn_mi": 0.149,
+      "year": 2007,
+      "total_geom_acres": 1558.3,
+      "layout_class": "multi_cluster"
+    },
+    {
+      "n": 103,
+      "touching_share": 0.835,
+      "n_components": 26,
+      "largest_component_share": 0.272,
+      "mean_nn_mi": 0.522,
+      "median_nn_mi": 0.144,
+      "year": 2008,
+      "total_geom_acres": 4782.3,
+      "layout_class": "multi_cluster"
+    },
+    {
+      "n": 23,
+      "touching_share": 0.478,
+      "n_components": 16,
+      "largest_component_share": 0.174,
+      "mean_nn_mi": 2.093,
+      "median_nn_mi": 0.541,
+      "year": 2009,
+      "total_geom_acres": 1953.0,
+      "layout_class": "mixed_or_unclear"
+    },
+    {
+      "n": 117,
+      "touching_share": 0.795,
+      "n_components": 44,
+      "largest_component_share": 0.231,
+      "mean_nn_mi": 0.997,
+      "median_nn_mi": 0.286,
+      "year": 2010,
+      "total_geom_acres": 5913.2,
+      "layout_class": "multi_cluster"
+    },
+    {
+      "n": 77,
+      "touching_share": 0.701,
+      "n_components": 37,
+      "largest_component_share": 0.13,
+      "mean_nn_mi": 0.468,
+      "median_nn_mi": 0.242,
+      "year": 2011,
+      "total_geom_acres": 4925.5,
+      "layout_class": "multi_cluster"
+    },
+    {
+      "n": 134,
+      "touching_share": 0.657,
+      "n_components": 69,
+      "largest_component_share": 0.104,
+      "mean_nn_mi": 0.334,
+      "median_nn_mi": 0.256,
+      "year": 2012,
+      "total_geom_acres": 2712.7,
+      "layout_class": "multi_cluster"
+    },
+    {
+      "n": 129,
+      "touching_share": 0.752,
+      "n_components": 55,
+      "largest_component_share": 0.093,
+      "mean_nn_mi": 0.572,
+      "median_nn_mi": 0.268,
+      "year": 2013,
+      "total_geom_acres": 5924.5,
+      "layout_class": "multi_cluster"
+    },
+    {
+      "n": 184,
+      "touching_share": 0.837,
+      "n_components": 52,
+      "largest_component_share": 0.201,
+      "mean_nn_mi": 0.504,
+      "median_nn_mi": 0.237,
+      "year": 2014,
+      "total_geom_acres": 6384.1,
+      "layout_class": "multi_cluster"
+    },
+    {
+      "n": 83,
+      "touching_share": 0.807,
+      "n_components": 30,
+      "largest_component_share": 0.145,
+      "mean_nn_mi": 0.388,
+      "median_nn_mi": 0.114,
+      "year": 2015,
+      "total_geom_acres": 972.1,
+      "layout_class": "multi_cluster"
+    },
+    {
+      "n": 222,
+      "touching_share": 0.883,
+      "n_components": 56,
+      "largest_component_share": 0.117,
+      "mean_nn_mi": 0.329,
+      "median_nn_mi": 0.12,
+      "year": 2016,
+      "total_geom_acres": 5352.7,
+      "layout_class": "multi_cluster"
+    },
+    {
+      "n": 103,
+      "touching_share": 0.67,
+      "n_components": 51,
+      "largest_component_share": 0.087,
+      "mean_nn_mi": 0.559,
+      "median_nn_mi": 0.255,
+      "year": 2017,
+      "total_geom_acres": 2498.6,
+      "layout_class": "multi_cluster"
+    },
+    {
+      "n": 206,
+      "touching_share": 0.864,
+      "n_components": 58,
+      "largest_component_share": 0.17,
+      "mean_nn_mi": 0.397,
+      "median_nn_mi": 0.141,
+      "year": 2018,
+      "total_geom_acres": 4442.2,
+      "layout_class": "multi_cluster"
+    },
+    {
+      "n": 30,
+      "touching_share": 0.633,
+      "n_components": 17,
+      "largest_component_share": 0.233,
+      "mean_nn_mi": 2.361,
+      "median_nn_mi": 0.365,
+      "year": 2019,
+      "total_geom_acres": 1080.3,
+      "layout_class": "multi_cluster"
+    },
+    {
+      "n": 84,
+      "touching_share": 0.798,
+      "n_components": 31,
+      "largest_component_share": 0.333,
+      "mean_nn_mi": 0.375,
+      "median_nn_mi": 0.214,
+      "year": 2020,
+      "total_geom_acres": 2284.5,
+      "layout_class": "multi_cluster"
+    }
+  ],
+  "activity_bucket_counts_pre_2020": {
+    "thin_or_salvage": 1357,
+    "other_or_unspecified": 819,
+    "regen_heavy": 8
+  },
+  "top_activity_names": [
+    [
+      "Commercial Thin",
+      1528
+    ],
+    [
+      "Group Selection Method (UA/RH/FH)",
+      829
+    ],
+    [
+      "Salvage Cut (intermediate treatment, not regeneration)",
+      721
+    ],
+    [
+      "Sanitation Cut",
+      251
+    ],
+    [
+      "Stand Clearcut (EA/RH/FH)",
+      213
+    ],
+    [
+      "Overstory Removal Cut (from advanced regeneration) (EA/RH/FH)",
+      192
+    ],
+    [
+      "Single Tree Selection Method (UA/RH/FH)",
+      130
+    ],
+    [
+      "Patch Clearcut (EA/RH/FH)",
+      101
+    ],
+    [
+      "Seed-tree Seed Cut (with and without leave trees) (EA/RH/NFH)",
+      101
+    ],
+    [
+      "Stand Clearcut (w/ leave trees) (EA/RH/FH)",
+      94
+    ],
+    [
+      "Shelterwood Removal Cut (EA/NRH/FH)",
+      23
+    ],
+    [
+      "Permanent Land Clearing",
+      14
+    ],
+    [
+      "Seed-tree Final Cut (EA/NRH/FH)",
+      7
+    ],
+    [
+      "Special Products Removal",
+      2
+    ],
+    [
+      "Harvest Without Restocking",
+      2
+    ],
+    [
+      "Shelterwood Preparatory Cut (EA/NRH/NFH)",
+      2
+    ],
+    [
+      "Improvement Cut",
+      2
+    ]
+  ],
+  "compactness_by_bucket_pre_2020": {
+    "thin_or_salvage": {
+      "n": 1357,
+      "mean_compactness": 0.3741
+    },
+    "other_or_unspecified": {
+      "n": 819,
+      "mean_compactness": 0.634
+    },
+    "regen_heavy": {
+      "n": 8,
+      "mean_compactness": 0.459
+    }
+  },
+  "hansen": null,
+  "interpretation": [
+    "FACTS timber-harvest polygons are activity footprints (not pure satellite). They are the best public layer for how units were laid out on Plumas NF.",
+    "Pre-2020 (2001\u20132020) mean annual metrics: touching_share=0.653, largest_component_share=0.171, mean_nn_mi=1.147 \u2192 class **multi_cluster**.",
+    "Year-by-year (2001\u20132020, n\u22653): progressive_leaning=0, multi_cluster=17, scatter_leaning=1, mixed_or_unclear=2.",
+    "Core finding: **multi-cluster layout**. Units often touch a neighbor (local clumps), but the largest connected component is only ~15\u201325% of that year's units \u2014 so crews still work many disconnected fronts, not one side-to-side wave. Progressive Working Forest layout (ordered strips + one active front + fixed corridors) is a real operational upgrade, not redundant with current practice.",
+    "Activity mix is already thin-heavy (commercial thin, group selection, salvage) \u2014 the gap is layout continuity, not only silvicultural system choice.",
+    "Hansen/GFW 2021\u20132025 tree-cover loss in Plumas is fire-dominated (Dixie era) and must not score logging pattern alone. This pilot uses FACTS harvest polygons for pre-2020 layout."
+  ],
+  "progressive_layout_recommendation": {
+    "adopt_pwf_layout": true,
+    "rules": [
+      "P1 contiguous annual front",
+      "P2 designated corridors",
+      "P3 written strip progression"
+    ],
+    "see": "program/PROGRESSIVE_LAYOUT.md"
+  }
+}

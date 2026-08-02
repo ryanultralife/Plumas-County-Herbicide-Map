@@ -52,3 +52,7 @@ supabase/.temp/
 data/incoming/**/*.xlsx
 data/incoming/**/*.zip
 data/incoming/**/*.pdf
+
+# PWF geometry pilot caches
+program/data/pwf_facts_plumas_cache.geojson
+
