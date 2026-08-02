@@ -212,6 +212,12 @@ td:first-child,th:first-child{text-align:left}tr.tot td{font-weight:bold;backgro
 </div>
 
 <div class="card sci">
+<h2>Costs &amp; losses &mdash; absolute data so far</h2>
+<p class="sub">Machine file: <code>data/working_forests_costs.json</code>. Confidence: <span class="tagpass">A</span> official CA / harvest series &middot; <span class="tagunk">B</span> regional study range &middot; <span class="tagfail">D</span> gap (we show the hole).</p>
+<p>This is the path to a full method comparison: every dollar we can source, every loss pathway we can name, and <b>nulls where industry or public data are not public yet</b>. Net owner profit by method is still a gap &mdash; filling it is what makes the industrial case real or not.</p>
+<div id="wfCosts"><p class="sub">Loading cost ledger&hellip;</p></div>
+</div>
+<div class="card sci">
 <h2>Get involved / correct our numbers</h2>
 <p>Mill capacity, logging costs, CalTREES harvest-by-method, or owner corrections make this real. Material errors will be fixed in public.</p>
 <p>Email <a href="mailto:spraymapca@gmail.com?subject=Plumas%20Working%20Forests">spraymapca@gmail.com</a> &middot; Full program package in the open GitHub repo under <code>program/</code> &middot; Chemical map: use the <b>Map</b> tab.</p>
@@ -870,13 +876,104 @@ function show(v){
  if(v==='ledger')loadLedger();
  if(v==='data')renderData();
  if(v==='sci'){renderSciScope(); collapsifyCards(document.getElementById('sciview'));}
- if(v==='work'){collapsifyCards(document.getElementById('workview'));}
+ if(v==='work'){loadWfCosts(); collapsifyCards(document.getElementById('workview'));}
  if(v==='map'){if(!map)buildMap();setTimeout(function(){map.invalidateSize(true);},100);}}
 buildMap();
 function fix(){if(map)map.invalidateSize(true);}
 window.addEventListener('resize',fix);
 window.addEventListener('orientationchange',function(){setTimeout(fix,250);setTimeout(fix,600);});
 setTimeout(fix,300);
+
+
+/* ===== Working Forests cost ledger ===== */
+var _wfCostsLoaded=false;
+function loadWfCosts(){
+  if(_wfCostsLoaded) return; _wfCostsLoaded=true;
+  var el=document.getElementById('wfCosts'); if(!el) return;
+  fetch('data/working_forests_costs.json',{cache:'no-store'})
+    .then(function(r){ if(!r.ok) throw 0; return r.json(); })
+    .then(function(d){ renderWfCosts(d); })
+    .catch(function(){
+      el.innerHTML='<p style="color:#a00">Cost ledger unavailable offline. See repo <code>data/working_forests_costs.json</code>.</p>';
+      _wfCostsLoaded=false;
+    });
+}
+function _wfMoney(n){
+  if(n==null||n==='') return '—';
+  return '$'+Number(n).toLocaleString(undefined,{maximumFractionDigits:0});
+}
+function _wfRange(lo,mid,hi){
+  if(lo==null&&mid==null&&hi==null) return '—';
+  if(lo!=null&&hi!=null) return _wfMoney(lo)+'–'+_wfMoney(hi);
+  return _wfMoney(mid!=null?mid:(lo!=null?lo:hi));
+}
+function renderWfCosts(d){
+  var el=document.getElementById('wfCosts'); if(!el) return;
+  var h=[];
+  h.push('<p class="note">Updated '+_esc(d.updated||'')+'. '+_esc(d.disclaimer||'')+'</p>');
+
+  var ph=d.plumas_harvest_mbf||{};
+  var der=ph.derived||{};
+  if(der.latest_total_mbf!=null){
+    h.push('<h3>Plumas County timber harvest (MBF)</h3>');
+    h.push('<p class="sub">Source: BBER / CDTFA yield-tax series · confidence <b>'+_esc(ph.confidence||'A')+'</b></p>');
+    h.push('<div class="kpis">');
+    h.push('<div class="kpi"><div class="n">'+Number(der.latest_total_mbf).toLocaleString()+'</div><div class="l">MBF total '+_esc(String(der.latest_year||''))+'</div></div>');
+    h.push('<div class="kpi"><div class="n">'+Number(der.avg_total_2018_2020||0).toLocaleString()+'</div><div class="l">Avg MBF/yr 2018–2020</div></div>');
+    h.push('<div class="kpi"><div class="n">'+Number(der.avg_total_2021_2023||0).toLocaleString()+'</div><div class="l">Avg MBF/yr 2021–2023 (fire years)</div></div>');
+    h.push('<div class="kpi"><div class="n">'+(100*Number(der.latest_private_share||0)).toFixed(0)+'%</div><div class="l">Private share (latest year)</div></div>');
+    h.push('</div>');
+    h.push('<table><thead><tr><th>Year</th><th>Private</th><th>USFS</th><th>Total</th></tr></thead><tbody>');
+    (ph.series||[]).slice().reverse().forEach(function(row){
+      h.push('<tr><td style="text-align:left">'+row.year+'</td><td>'+Number(row.private).toLocaleString()+'</td><td>'+Number(row.forest_service).toLocaleString()+'</td><td>'+Number(row.total).toLocaleString()+'</td></tr>');
+    });
+    h.push('</tbody></table>');
+    h.push('<p class="note">Harvest is <b>not</b> yet split by clearcut vs thin (CalTREES method gap). Fire-year spikes are not steady-state industry demand alone.</p>');
+  }
+
+  var st=d.stumpage_cdtfa_ihv||{};
+  if(st.table_g_selected){
+    h.push('<h3>CDTFA immediate harvest values (tax IHV, not full stumpage contracts)</h3>');
+    h.push('<p class="sub">Schedule '+_esc(st.source||'')+' · confidence <b>A</b> · tax rate '+(st.tax_rate_pct!=null?st.tax_rate_pct+'%':'')+'</p>');
+    h.push('<table><thead><tr><th style="text-align:left">Species</th><th>TVA 5</th><th>TVA 6</th><th>TVA 7</th></tr></thead><tbody>');
+    (st.table_g_selected.species||[]).forEach(function(sp){
+      var tv=sp.tva||{};
+      h.push('<tr><td style="text-align:left">'+_esc(sp.name)+'</td><td>'+_wfMoney(tv['5'])+'</td><td>'+_wfMoney(tv['6'])+'</td><td>'+_wfMoney(tv['7'])+'</td></tr>');
+    });
+    h.push('</tbody></table>');
+    h.push('<p class="note">Tractor base ≥300 MBF/quarter. Skyline −$100/MBF · helicopter −$350/MBF · low vol/ac (−$30 if &lt;5 MBF/ac). Biomass/chips IHV <b>$0/ton</b> (Table 1 CS). Verify Plumas TVA column on CDTFA map before single-value claims.</p>');
+  }
+
+  h.push('<h3>Operating cost ranges (sourced vs gaps)</h3>');
+  h.push('<table><thead><tr><th style="text-align:left">Line item</th><th>Range</th><th>Unit</th><th>Conf</th></tr></thead><tbody>');
+  (d.cost_line_items||[]).forEach(function(it){
+    var conf=it.confidence||'?';
+    var badge=conf==='A'?'tagpass':(conf==='D'?'tagfail':'tagunk');
+    var rng=_wfRange(it.low,it.mid,it.high);
+    if(conf==='D') rng='<span class="tagfail">GAP</span>';
+    h.push('<tr><td style="text-align:left">'+_esc(it.label)+'</td><td>'+rng+'</td><td style="text-align:left;font-size:11px">'+_esc(it.unit||'')+'</td><td><span class="'+badge+'">'+_esc(conf)+'</span></td></tr>');
+  });
+  h.push('</tbody></table>');
+
+  h.push('<h3>Method comparison (absolute where known)</h3>');
+  h.push('<table><thead><tr><th style="text-align:left">Method</th><th style="text-align:left">Ops cost so far</th><th>Broadcast spray</th><th style="text-align:left">Completeness</th></tr></thead><tbody>');
+  (d.methods||[]).forEach(function(m){
+    var ops='—';
+    if(m.id==='working_forest_matrix') ops='$307–$1,737/ac thin (B, Western US)';
+    if(m.id==='fuels_thin_public') ops='~$2,000–$2,500/ac full package (B, CA cites)';
+    if(m.id==='clearcut_plant_chemical') ops='Logging+plant+chem still <span class="tagfail">GAP</span>';
+    if(m.id==='clearcut_plant_mechanical') ops='Release premium vs chem <span class="tagfail">GAP</span>';
+    var spray=m.id==='clearcut_plant_chemical'?'Typical yes':(m.id==='fuels_thin_public'?'Project-dependent':'No under Standard');
+    h.push('<tr><td style="text-align:left">'+_esc(m.name)+'</td><td style="text-align:left;font-size:12px">'+ops+'</td><td style="text-align:left;font-size:12px">'+spray+'</td><td style="text-align:left">'+_esc(m.cost_completeness||'')+'</td></tr>');
+  });
+  h.push('</tbody></table>');
+  h.push('<p class="note"><b>Losses we can name but not yet dollarize:</b> stranded small wood if mills/biomass fail; decade MBF shortfall if multi-entry under-performs (T1 fail); watershed/health non-market costs of broadcast mobile herbicides (see Science tab); fire behavior in dense plantations. <b>Owner net $/ac by method remains the industrial decision number — still GAP.</b></p>');
+  h.push('<h3>Next data fills</h3><ol style="font-size:13px;line-height:1.45">');
+  (d.next_fills_priority||[]).forEach(function(n){ h.push('<li>'+_esc(n)+'</li>'); });
+  h.push('</ol>');
+  h.push('<p class="refs">Intake rules for concurrent data work: repo <code>program/data/INTAKE.md</code> · validator <code>python program/tools/cost_ledger.py</code></p>');
+  el.innerHTML=h.join('');
+}
 
 /* ===== Transparency ledger (added) ===== */
 var LEDGER_SEED={"sample": false, "org": "Plumas Grassroots Collective", "updated": "2026-07-08", "currency": "USD", "note": "Donations open soon. Until then this page tracks the project's real startup costs — each bill listed with its reference. To protect privacy, the individual workers and contractors who do project work are shown by role or code (e.g. Founder, Field tech A); organizations and every dollar amount are shown in full. Once giving is live, every donation and reimbursement appears here too.", "donations": [], "expenses": [{"date": "2026-07-08", "payee": "GoDaddy — spraymapca.org domain registration, 1 yr (founder-paid)", "bucket": "Operations", "amount": 10.19, "via": "Card (founder)", "src": "", "srcLabel": "GoDaddy order #4131715574"}], "hours": []};

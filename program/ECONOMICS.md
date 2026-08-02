@@ -95,19 +95,37 @@ Tool: `python program/tools/volume_sketch.py --help`
 
 ---
 
-## 4. Data we need (and do not yet have in-repo)
+## 4. Absolute cost ledger (living)
+
+**Canonical file:** [`data/working_forests_costs.json`](../data/working_forests_costs.json) (rendered on the Working Forests tab).  
+**Human summary:** [`COST_LEDGER.md`](./COST_LEDGER.md) · **Intake for concurrent agents:** [`data/INTAKE.md`](./data/INTAKE.md) · **Validator:** `python program/tools/cost_ledger.py`
+
+### What we have (2026-08-02)
+
+| Data | Confidence | Notes |
+|---|---|---|
+| Plumas harvest MBF by year/ownership (BBER/CDTFA) | **A** | 2018–2024 series; not split by silvicultural method |
+| CDTFA Table G IHV $/MBF (species × TVA) + system deductions | **A** | Tax immediate harvest value — not full private stumpage contracts |
+| Western US thinning ops $/ac range | **B** | ~$307–$1,737/ac (literature synthesis) |
+| CA full fuels package $/ac order-of-magnitude | **B** | ~$2,000–$2,500/ac planning+thin+pile burn |
+| Pile burn $/ac Western range | **B** | ~$409–$735/ac |
+
+### Still gap (D) — blocks owner-net by method
 
 | Input | Why | Status |
 |---|---|---|
 | Plumas / nearby **mill capacity** and sort prices | T2 | **Gap** — interview / public reports |
 | Contract logging rates thin vs clearcut | T3 | **Gap** |
-| Owner stumpage expectations | T4 | **Gap** (confidential) |
-| CalTREES harvest acres by method | Baseline | **Gap** — next data pull |
-| USFS cut/sold + FACTS | Public baseline | Partial (FACTS on map; volumes need compile) |
-| Chemical $/ac vs mechanical $/ac local bids | Cost gap | **Gap** |
+| Owner stumpage expectations / net $/ac | T4 | **Gap** (often confidential) |
+| CalTREES harvest acres by method | Baseline split | **Gap** — next data pull |
+| USFS cut/sold + appraisal worksheets | Public baseline detail | Partial (FACTS on map; volumes need compile) |
+| Chemical $/ac vs mechanical $/ac local bids | Cost gap for release | **Gap** |
+| Plant $/ac | Regen cost | **Gap** |
 | Biomass offtake reliability | Thin economics | **Gap** — plant status changes |
 
-**spraymapca already has:** private herbicide use intensity (PUR) — the chemical side of the status quo cost/impact picture, not the MBF side.
+**spraymapca already has:** private herbicide use intensity (PUR) — the chemical side of the status quo impact picture, not the MBF or $/ac logging side.
+
+**Rule:** Prefer a published **GAP** cell over a guessed dollar. When other agents fill a null, they must set confidence A/B and a source (see INTAKE.md).
 
 ---
 

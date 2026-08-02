@@ -86,3 +86,9 @@ DB password **only** in `C:/Users/ryanv/.pg_dburl` — never commit or echo. Onl
 - **Stance:** case for industry to evaluate; implementation is owners' timber/business/land; volume parity **unproven** until CalTREES/mill data; publish FAIL if numbers don't work.
 - **Site:** 6th nav tab **Working Forests** (`#workview`, `show('work')`). No DB changes.
 - **Tool:** `python program/tools/volume_sketch.py` (illustrative T1 MBF sketch only).
+
+## Cost ledger (same branch, 2026-08-02)
+- `data/working_forests_costs.json` — absolute Plumas harvest (BBER A), CDTFA IHV (A), thin/fuels cost ranges (B), explicit D gaps for logging/release/plant/owner net.
+- Site Working Forests tab section **Costs & losses** loads that JSON (`loadWfCosts`).
+- Concurrent fills: `program/data/INTAKE.md`; validate with `python program/tools/cost_ledger.py --json-check`.
+- Do not invent dollars; other instances may be filling PUR/operator data in parallel — stay off their lanes.

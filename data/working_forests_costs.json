@@ -1,0 +1,414 @@
+{
+  "schema_version": 1,
+  "title": "Plumas Working Forests — method costs, harvest baseline, and gaps",
+  "updated": "2026-08-02",
+  "org": "Plumas Grassroots Collective",
+  "disclaimer": "Absolute figures below are the best public numbers we can cite so far. Confidence grades: A = official CA schedule or county harvest series; B = peer-reviewed or multi-study regional range; C = illustrative placeholder; D = known gap (null). Net owner profit by method is D until local bids and stumpage actuals land. Other agents: fill nulls via program/data/INTAKE.md — do not invent.",
+  "confidence_legend": {
+    "A": "Official California schedule or published county harvest series with stable methodology",
+    "B": "Peer-reviewed or multi-study Western US / CA range; not Plumas-bid-specific",
+    "C": "Illustrative / order-of-magnitude only — not for business decisions",
+    "D": "Data gap — value is null or intentionally omitted"
+  },
+  "geography": {
+    "focus": "Plumas County, CA / Northern Sierra",
+    "tva_note": "CDTFA Timber Value Areas follow county lines (with I-5 splits in Shasta/Siskiyou/Tehama). Plumas sits in the interior Sierra TVA band; cite the TVA column used when applying Table G."
+  },
+  "plumas_harvest_mbf": {
+    "source": "University of Montana BBER Forest Industry Research — Timber Harvest for Plumas County, California",
+    "source_url": "https://www.bber.umt.edu/fir/harvestT1.aspx?co=06063",
+    "unit": "MBF Scribner",
+    "confidence": "A",
+    "notes": "Private includes industrial + NIPF + tribal where reported; FS = USDA Forest Service. Post-Dixie years (2021–2023) show elevated private salvage/green volume — not a steady-state baseline alone.",
+    "series": [
+      {"year": 2018, "private": 57751, "state": 0, "forest_service": 33488, "blm_other": 0, "total": 91239},
+      {"year": 2019, "private": 78910, "state": 0, "forest_service": 26959, "blm_other": 0, "total": 105869},
+      {"year": 2020, "private": 104153, "state": 0, "forest_service": 23221, "blm_other": 0, "total": 127374},
+      {"year": 2021, "private": 184989, "state": 0, "forest_service": 42599, "blm_other": 0, "total": 227588},
+      {"year": 2022, "private": 373221, "state": 0, "forest_service": 11828, "blm_other": 0, "total": 385049},
+      {"year": 2023, "private": 216163, "state": 0, "forest_service": 54793, "blm_other": 0, "total": 270956},
+      {"year": 2024, "private": 130497, "state": 0, "forest_service": 25874, "blm_other": 0, "total": 156371}
+    ],
+    "derived": {
+      "avg_total_2018_2020": 108161,
+      "avg_total_2021_2023": 294531,
+      "avg_total_2022_2024": 270792,
+      "latest_year": 2024,
+      "latest_total_mbf": 156371,
+      "latest_private_share": 0.834
+    }
+  },
+  "california_harvest_mbf": {
+    "source": "BBER California statewide harvest table",
+    "source_url": "https://www.bber.umt.edu/fir/HarvestCA.aspx",
+    "confidence": "A",
+    "year": 2024,
+    "private": 1528686,
+    "state": 10731,
+    "forest_service": 334875,
+    "blm_other": 1070,
+    "total": 1875362
+  },
+  "stumpage_cdtfa_ihv": {
+    "source": "CDTFA Harvest Values Schedule (Table G green timber), effective 2026-01-01 through 2026-06-30",
+    "source_url": "https://cdtfa.ca.gov/formspubs/cdtfa401hvsi.pdf",
+    "confidence": "A",
+    "tax_rate_pct": 2.9,
+    "unit": "USD per MBF (immediate harvest value for yield tax — not the same as every private stumpage contract)",
+    "notes": "Table values assume tractor logging and ≥300 MBF quarter volume. Skyline −$100/MBF; helicopter −$350/MBF; small total volume and low volume/acre deductions apply. Biomass/chips (Table 1 CS) IHV = $0/ton.",
+    "adjustments": {
+      "skyline_deduct_per_mbf": 100,
+      "helicopter_deduct_per_mbf": 350,
+      "low_vol_per_acre_deduct_under_5_mbf_ac": 30,
+      "small_total_vol_deduct": {"lt_300_mbf": 50, "lt_100_mbf": 100, "lt_25_mbf": 150},
+      "minimum_after_adjustments": 1
+    },
+    "table_g_selected": {
+      "description": "Interior Sierra-relevant TVA columns 5–7 (verify county TVA map before using a single column)",
+      "species": [
+        {
+          "name": "Ponderosa pine (PPG) size 2 (150–300 BF/log)",
+          "code": "PPG",
+          "size_code": 2,
+          "tva": {"5": 120, "6": 100, "7": 120}
+        },
+        {
+          "name": "Ponderosa pine (PPG) size 3 (under 150 BF/log)",
+          "code": "PPG",
+          "size_code": 3,
+          "tva": {"5": 90, "6": 100, "7": 120}
+        },
+        {
+          "name": "Hemlock–fir / white fir complex (FG)",
+          "code": "FG",
+          "size_code": null,
+          "tva": {"5": 250, "6": 220, "7": 170}
+        },
+        {
+          "name": "Douglas-fir (DFG) size 2",
+          "code": "DFG",
+          "size_code": 2,
+          "tva": {"5": 430, "6": 320, "7": 310}
+        },
+        {
+          "name": "Incense cedar (ICG)",
+          "code": "ICG",
+          "size_code": null,
+          "tva": {"5": 140, "6": 140, "7": 180}
+        }
+      ]
+    },
+    "table_1_misc": {
+      "small_sawlogs_misc_ssm_per_mbf": 210,
+      "misc_conifer_cm_per_mbf": 60,
+      "chips_biomass_topwood_per_ton": 0,
+      "cull_logs_per_adj_gross_mbf": 5
+    }
+  },
+  "cost_line_items": [
+    {
+      "id": "thin_ops_western_us",
+      "label": "Forest thinning operations (Western US literature range)",
+      "method_tags": ["commercial_thin", "fuels_thin", "working_forest_matrix"],
+      "unit": "USD_per_acre",
+      "low": 307,
+      "mid": null,
+      "high": 1737,
+      "confidence": "B",
+      "year_context": "Synthesis cited as Chang et al. 2023 (Western US)",
+      "source": "Systematic literature review / synthesis of Western US thinning costs (Chang et al. 2023), as cited in subsequent CA forest-economics papers",
+      "notes": "Wide range reflects terrain, volume removed, system (CTL vs whole-tree), and whether biomass is utilized. Not a Plumas contractor bid."
+    },
+    {
+      "id": "ca_full_fuels_package",
+      "label": "CA full fuels package (planning + thin + pile burn) — order of magnitude",
+      "method_tags": ["fuels_thin", "public_restoration"],
+      "unit": "USD_per_acre",
+      "low": 2000,
+      "mid": 2250,
+      "high": 2500,
+      "confidence": "B",
+      "year_context": "Cited ~2021–2023 CA policy/econ literature building on Hartsough et al. 2008 and Chang 2021",
+      "source": "California forest-treatment cost discussions citing ~$2,000–$2,500/ac once planning, thinning, and pile burning are included",
+      "notes": "Often above pure commercial thin cost; used for pace-and-scale funding math, not THP clearcut accounting."
+    },
+    {
+      "id": "pile_burn_western",
+      "label": "Pile burning (Western US range)",
+      "method_tags": ["fuels_thin", "working_forest_matrix", "clearcut_plant_mechanical"],
+      "unit": "USD_per_acre",
+      "low": 409,
+      "mid": null,
+      "high": 735,
+      "confidence": "B",
+      "year_context": "Barker et al. 2025 review (as cited in CA literature)",
+      "source": "Western US pile-burning cost review",
+      "notes": "Stack on top of cutting costs when slash is piled and burned."
+    },
+    {
+      "id": "logging_system_stumpage_penalty_skyline",
+      "label": "CDTFA skyline vs tractor — tax IHV deduction (proxy for higher yard cost)",
+      "method_tags": ["all_partial_cut_steep", "working_forest_matrix"],
+      "unit": "USD_per_MBF",
+      "low": 100,
+      "mid": 100,
+      "high": 100,
+      "confidence": "A",
+      "year_context": "1H 2026 CDTFA schedule",
+      "source": "CDTFA Table G adjustments",
+      "notes": "Official tax adjustment, not a full logging-rate survey. Signals skyline costs more than tractor."
+    },
+    {
+      "id": "logging_system_stumpage_penalty_helicopter",
+      "label": "CDTFA helicopter vs tractor — tax IHV deduction",
+      "method_tags": ["helicopter"],
+      "unit": "USD_per_MBF",
+      "low": 350,
+      "mid": 350,
+      "high": 350,
+      "confidence": "A",
+      "year_context": "1H 2026 CDTFA schedule",
+      "source": "CDTFA Table G adjustments",
+      "notes": null
+    },
+    {
+      "id": "herbicide_release_chemical",
+      "label": "Broadcast herbicide site-prep / release (chemical free-to-grow)",
+      "method_tags": ["clearcut_plant_chemical"],
+      "unit": "USD_per_acre",
+      "low": null,
+      "mid": null,
+      "high": null,
+      "confidence": "D",
+      "year_context": null,
+      "source": null,
+      "notes": "GAP: need Plumas/SPI-class contractor bids or published CA industrial silviculture cost tables. Chem is cheap relative to manual — that is why it is common — but absolute $/ac not yet sourced for this ledger."
+    },
+    {
+      "id": "manual_mechanical_release",
+      "label": "Manual / mechanical release (no broadcast herbicide)",
+      "method_tags": ["clearcut_plant_mechanical", "working_forest_matrix"],
+      "unit": "USD_per_acre",
+      "low": null,
+      "mid": null,
+      "high": null,
+      "confidence": "D",
+      "year_context": null,
+      "source": null,
+      "notes": "GAP: local hand-crew and mastication release bids. Expected higher than chemical; measure the increment for cost-share design."
+    },
+    {
+      "id": "plant_seedlings",
+      "label": "Planting (seedlings + plant labor)",
+      "method_tags": ["clearcut_plant_chemical", "clearcut_plant_mechanical", "burn_reforest"],
+      "unit": "USD_per_acre",
+      "low": null,
+      "mid": null,
+      "high": null,
+      "confidence": "D",
+      "year_context": null,
+      "source": null,
+      "notes": "GAP: density (TPA), species, and access drive cost. Post-fire units differ from green clearcut."
+    },
+    {
+      "id": "clearcut_logging_per_mbf",
+      "label": "Clearcut / high-volume regen harvest logging cost",
+      "method_tags": ["clearcut_plant_chemical", "clearcut_plant_mechanical"],
+      "unit": "USD_per_MBF",
+      "low": null,
+      "mid": null,
+      "high": null,
+      "confidence": "D",
+      "year_context": null,
+      "source": null,
+      "notes": "GAP: local LTO rates. Generally lower $/MBF than partial cut at same site."
+    },
+    {
+      "id": "partial_cut_logging_per_mbf",
+      "label": "Partial cut / commercial thin logging cost",
+      "method_tags": ["commercial_thin", "working_forest_matrix"],
+      "unit": "USD_per_MBF",
+      "low": null,
+      "mid": null,
+      "high": null,
+      "confidence": "D",
+      "year_context": null,
+      "source": null,
+      "notes": "GAP: local LTO rates. Often higher $/MBF; more acres can still raise total logger revenue."
+    },
+    {
+      "id": "mill_delivered_log_price",
+      "label": "Mill-delivered log price by sort (pond value)",
+      "method_tags": ["all"],
+      "unit": "USD_per_MBF",
+      "low": null,
+      "mid": null,
+      "high": null,
+      "confidence": "D",
+      "year_context": null,
+      "source": null,
+      "notes": "GAP: mill quotes. CDTFA IHV is tax value, not delivered log price."
+    },
+    {
+      "id": "owner_net_per_acre",
+      "label": "Net revenue to landowner after logging, haul, regen, release",
+      "method_tags": ["all"],
+      "unit": "USD_per_acre",
+      "low": null,
+      "mid": null,
+      "high": null,
+      "confidence": "D",
+      "year_context": null,
+      "source": null,
+      "notes": "GAP: the number that decides adoption. Requires filling the lines above."
+    }
+  ],
+  "methods": [
+    {
+      "id": "clearcut_plant_chemical",
+      "name": "Clearcut / regen harvest → plant → broadcast chemical release",
+      "status_quo": true,
+      "spraymapca_link": "Primary driver of mapped forestry herbicides (glyphosate, hexazinone, imazapyr)",
+      "cost_completeness": "partial",
+      "known": [
+        "Produces high MBF/ac at entry when volume is there",
+        "Chemical release typically cheapest path to free-to-grow (absolute $/ac still D)",
+        "Plumas private harvest MBF known at county scale (not by silvicultural method)"
+      ],
+      "unknown": [
+        "Local logging $/MBF",
+        "Plant + chemical $/ac",
+        "Owner net $/ac",
+        "Share of Plumas MBF that is this pathway vs thin"
+      ],
+      "loss_risks": [
+        "Social license / litigation risk (unquantified $)",
+        "Watershed chemical load (non-market; see site Science tab)",
+        "Young plantation fire behavior risk (unquantified $)"
+      ]
+    },
+    {
+      "id": "clearcut_plant_mechanical",
+      "name": "Clearcut / regen harvest → plant → mechanical/manual release only",
+      "status_quo": false,
+      "spraymapca_link": "Would cut mapped spray if substituted at scale",
+      "cost_completeness": "gap",
+      "known": [
+        "Same harvest entry economics as chemical path until release step",
+        "Release step expected more expensive than chemical (magnitude D)"
+      ],
+      "unknown": [
+        "Release $/ac increment vs chemical",
+        "Stocking success rates without spray on Plumas sites"
+      ],
+      "loss_risks": [
+        "Higher cash cost of free-to-grow if no cost-share"
+      ]
+    },
+    {
+      "id": "working_forest_matrix",
+      "name": "Working forest: VDT matrix + small gaps + multi-entry (no broadcast spray)",
+      "status_quo": false,
+      "spraymapca_link": "Designed for zero broadcast free-to-grow under Standard",
+      "cost_completeness": "partial",
+      "known": [
+        "Western thin ops roughly $307–$1,737/ac (B)",
+        "Partial-cut logging often higher $/MBF (signaled by CDTFA skyline/heli deductions)",
+        "Can return volume on shorter cycles; parity unproven for Plumas (T1)"
+      ],
+      "unknown": [
+        "Plumas thin MBF/ac and $/MBF",
+        "Owner NPV vs clearcut pulse",
+        "Mill sort acceptance for thin mix"
+      ],
+      "loss_risks": [
+        "If T1 fails: lower decade MBF (a real industrial loss)",
+        "If offtake fails: stranded small wood"
+      ]
+    },
+    {
+      "id": "fuels_thin_public",
+      "name": "Fuels / restoration thin (public-funded, utilization when possible)",
+      "status_quo": true,
+      "spraymapca_link": "May or may not include herbicide depending on project design",
+      "cost_completeness": "partial",
+      "known": [
+        "Full CA package often cited ~$2,000–$2,500/ac (B)",
+        "Thin subset may fall in Western $307–$1,737/ac band before pile burn"
+      ],
+      "unknown": [
+        "Plumas NF unit-level actuals from FACTS + contracts"
+      ],
+      "loss_risks": [
+        "Without utilization, public pays full cost; with utilization, commercial revenue offsets"
+      ]
+    }
+  ],
+  "comparison_matrix": {
+    "note": "Filled cells use ledger line items; empty = D gap. Net columns stay blank until local economics land.",
+    "columns": [
+      "method",
+      "harvest_mbf_ac_entry",
+      "logging_usd_mbf",
+      "release_usd_ac",
+      "plant_usd_ac",
+      "ops_usd_ac_range",
+      "stumpage_or_ihv_usd_mbf",
+      "owner_net_usd_ac",
+      "broadcast_herbicide"
+    ],
+    "rows": [
+      {
+        "method": "clearcut_plant_chemical",
+        "harvest_mbf_ac_entry": null,
+        "logging_usd_mbf": null,
+        "release_usd_ac": null,
+        "plant_usd_ac": null,
+        "ops_usd_ac_range": null,
+        "stumpage_or_ihv_usd_mbf": "See CDTFA Table G by species/TVA",
+        "owner_net_usd_ac": null,
+        "broadcast_herbicide": "yes (typical)"
+      },
+      {
+        "method": "clearcut_plant_mechanical",
+        "harvest_mbf_ac_entry": null,
+        "logging_usd_mbf": null,
+        "release_usd_ac": null,
+        "plant_usd_ac": null,
+        "ops_usd_ac_range": null,
+        "stumpage_or_ihv_usd_mbf": "See CDTFA Table G by species/TVA",
+        "owner_net_usd_ac": null,
+        "broadcast_herbicide": "no"
+      },
+      {
+        "method": "working_forest_matrix",
+        "harvest_mbf_ac_entry": null,
+        "logging_usd_mbf": null,
+        "release_usd_ac": null,
+        "plant_usd_ac": "often none",
+        "ops_usd_ac_range": "307–1737 (thin ops B, Western US)",
+        "stumpage_or_ihv_usd_mbf": "See CDTFA; low vol/ac deduction may apply",
+        "owner_net_usd_ac": null,
+        "broadcast_herbicide": "no under Standard"
+      },
+      {
+        "method": "fuels_thin_public",
+        "harvest_mbf_ac_entry": null,
+        "logging_usd_mbf": null,
+        "release_usd_ac": "n/a or mechanical",
+        "plant_usd_ac": "site-dependent",
+        "ops_usd_ac_range": "2000–2500 full package B (CA cite) or thin-only subset",
+        "stumpage_or_ihv_usd_mbf": "often low / stewardship; biomass IHV $0/ton",
+        "owner_net_usd_ac": "public cost center unless sold",
+        "broadcast_herbicide": "project-dependent"
+      }
+    ]
+  },
+  "next_fills_priority": [
+    "Local LTO logging $/MBF clearcut vs thin (or anonymized bid ranges)",
+    "Plant + chemical release $/ac vs manual/mechanical release $/ac (industrial or CAL FIRE unit costs)",
+    "CalTREES harvest acres/volume by silvicultural method for Plumas",
+    "Mill delivered prices by sort (or public price reports)",
+    "USFS Plumas cut/sold and contract appraisal worksheets"
+  ]
+}

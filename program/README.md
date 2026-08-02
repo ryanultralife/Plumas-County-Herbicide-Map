@@ -34,11 +34,16 @@ Published by the **Plumas Grassroots Collective** alongside [spraymapca.org](htt
 | [PLUMAS_WORKING_FORESTS.md](./PLUMAS_WORKING_FORESTS.md) | Full program: problem, alternative, volume thesis, industry requirements, pass/fail tests |
 | [PRESCRIPTION_STANDARD.md](./PRESCRIPTION_STANDARD.md) | Operational “Plumas Working Forest Standard” (for foresters who want to trial it) |
 | [ECONOMICS.md](./ECONOMICS.md) | Cost/revenue structure, volume parity method, **known unknowns** |
+| [COST_LEDGER.md](./COST_LEDGER.md) | Snapshot of absolute $/ac and harvest figures (generated from JSON) |
+| [data/INTAKE.md](./data/INTAKE.md) | How concurrent agents fill cost gaps without inventing numbers |
 | [STAKEHOLDER_MAP.md](./STAKEHOLDER_MAP.md) | Who needs what; engagement is offer-not-demand |
 | [PILOT_SPEC.md](./PILOT_SPEC.md) | How a voluntary pilot would be measured |
 | [POLICY_ASKS.md](./POLICY_ASKS.md) | Optional public-side levers (cost-share, NEPA alternatives) — not mandates on private land |
 | [SOURCES.md](./SOURCES.md) | Citations and data gaps |
 | [tools/volume_sketch.py](./tools/volume_sketch.py) | Simple landscape MBF sketch (illustrative until filled with local data) |
+| [tools/cost_ledger.py](./tools/cost_ledger.py) | Validate / print `data/working_forests_costs.json` |
+
+**Site data file (fetched by Working Forests tab):** [`../data/working_forests_costs.json`](../data/working_forests_costs.json)
 
 ---
 
