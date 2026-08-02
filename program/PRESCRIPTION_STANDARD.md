@@ -134,8 +134,25 @@ Without (7) and (8), the **industry case cannot be validated**. Confidential bus
 
 ---
 
-## 12. Conformance statement (optional language)
+## 12. Progressive layout (optional “PWF” add-on)
+
+To avoid **scattered multi-entry ops** (loggers jumping the ownership), units may claim **Progressive Working Forest** layout when they also meet:
+
+| ID | Rule |
+|---|---|
+| **P1** | Annual commercial acres form a **contiguous front** (connected road-shed / shared boundaries) — not random leapfrog units |
+| **P2** | **Designated** skid or skyline corridors mapped and reused on re-entry |
+| **P3** | Written **strip or compartment progression** for ≥10 years |
+| **P4** | Silviculture still meets §§3–8 (matrix/gaps/skips; no broadcast free-to-grow) |
+
+Full rationale, satellite limits, and boom-corridor / strip systems: [PROGRESSIVE_LAYOUT.md](./PROGRESSIVE_LAYOUT.md).
+
+---
+
+## 13. Conformance statement (optional language)
 
 > “Unit X was harvested under the Plumas Working Forest Standard (version DATE): matrix thin + gaps ≤ 2 ac, skips retained, no broadcast herbicide, regen plan attached.”
+
+Optional: “Progressive layout (P1–P3) applied.”
 
 False claims undermine the program; do not use the name without meeting §8.

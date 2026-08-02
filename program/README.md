@@ -33,6 +33,7 @@ Published by the **Plumas Grassroots Collective** alongside [spraymapca.org](htt
 |---|---|
 | [PLUMAS_WORKING_FORESTS.md](./PLUMAS_WORKING_FORESTS.md) | Full program: problem, alternative, volume thesis, industry requirements, pass/fail tests |
 | [PRESCRIPTION_STANDARD.md](./PRESCRIPTION_STANDARD.md) | Operational “Plumas Working Forest Standard” (for foresters who want to trial it) |
+| [PROGRESSIVE_LAYOUT.md](./PROGRESSIVE_LAYOUT.md) | **Further optimization:** progressive strips / corridors so crews march side-to-side instead of jumping the forest; satellite evidence limits |
 | [ECONOMICS.md](./ECONOMICS.md) | Cost/revenue structure, volume parity method, **known unknowns** |
 | [COST_LEDGER.md](./COST_LEDGER.md) | Snapshot of absolute $/ac and harvest figures (generated from JSON) |
 | [data/INTAKE.md](./data/INTAKE.md) | How concurrent agents fill cost gaps without inventing numbers |
