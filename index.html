@@ -1012,7 +1012,81 @@ function renderWfCosts(d){
     h.push('<p class="note">'+_esc(d.regional_mill_capacity_tcsi.notes||'')+'</p>');
   }
 
+
+  if(d.delivered_log_live_proxies){
+    h.push('<h3>Live-ish mill-gate log proxies (2025)</h3>');
+    h.push('<p class="sub">'+_esc(d.delivered_log_live_proxies.notes||'')+' Conf <b>B</b> for published lists; Plumas SPI sheet still not public.</p>');
+    (d.delivered_log_live_proxies.series||[]).forEach(function(s){
+      h.push('<p style="font-size:13px;margin:8px 0 4px"><b>'+_esc(s.id)+'</b> — '+_esc(s.source||'')+' ('+_esc(s.as_of||'')+')</p>');
+      h.push('<table><thead><tr><th style="text-align:left">Sort</th><th>Low</th><th>High/Mid</th></tr></thead><tbody>');
+      var pr=s.prices||{};
+      Object.keys(pr).forEach(function(k){
+        var v=pr[k];
+        var lo=v.low!=null?_wfMoney(v.low):(v.mid!=null?_wfMoney(v.mid):'—');
+        var hi=v.high!=null?_wfMoney(v.high):(v.mid!=null?_wfMoney(v.mid):'—');
+        h.push('<tr><td style="text-align:left">'+_esc(k)+'</td><td>'+lo+'</td><td>'+hi+'</td></tr>');
+      });
+      h.push('</tbody></table>');
+    });
+    var wa=d.delivered_log_live_proxies.plumas_working_assumption_2025_26;
+    if(wa){
+      h.push('<p class="note"><b>Plumas modeling band (C):</b> PP ~'+_wfMoney(wa.ponderosa_pine_usd_mbf.low)+'–'+_wfMoney(wa.ponderosa_pine_usd_mbf.high)+
+        ' mid '+_wfMoney(wa.ponderosa_pine_usd_mbf.mid)+'; true fir mid '+_wfMoney(wa.true_fir_usd_mbf.mid)+'. '+_esc(wa.note||'')+'</p>');
+    }
+  }
+  if(d.plumas_haul_to_mills){
+    h.push('<h3>Plumas haul to mills (estimated)</h3>');
+    h.push('<p class="sub">'+_esc(d.plumas_haul_to_mills.method||'')+' Conf <b>C</b>.</p>');
+    var q=(d.plumas_haul_to_mills.destinations||{}).SPI_Quincy;
+    if(q){
+      h.push('<p style="font-size:13px"><b>→ SPI Quincy</b> typical '+_wfMoney(q.typical_haul_usd_mbf.low)+'–'+_wfMoney(q.typical_haul_usd_mbf.high)+'/MBF</p>');
+      h.push('<table><thead><tr><th style="text-align:left">From</th><th>Road mi (est)</th><th>Hr one-way</th><th>$/MBF haul</th></tr></thead><tbody>');
+      (q.from||[]).forEach(function(r){
+        h.push('<tr><td style="text-align:left">'+_esc(r.origin)+'</td><td>'+r.road_mi_est+'</td><td>'+r.hr_one_way+'</td><td>'+_wfMoney(r.haul_usd_mbf)+'</td></tr>');
+      });
+      h.push('</tbody></table>');
+    }
+    var L=(d.plumas_haul_to_mills.destinations||{}).SPI_Lincoln;
+    if(L){
+      h.push('<p style="font-size:13px;margin-top:10px"><b>→ SPI Lincoln</b> typical '+_wfMoney(L.typical_haul_usd_mbf.low)+'–'+_wfMoney(L.typical_haul_usd_mbf.high)+'/MBF (long west-side haul)</p>');
+    }
+    h.push('<p class="note">'+_esc(d.plumas_haul_to_mills.implication||'')+'</p>');
+  }
+  if(d.regen_release_comparison){
+    h.push('<h3>Plant + free-to-grow pathways</h3>');
+    h.push('<p class="sub">Practice bands (conf <b>C</b>) — not sealed Plumas bids. Manual path mid is ~'+
+      _wfMoney(d.regen_release_comparison.increment_manual_vs_chem_mid_usd_ac)+'/ac more expensive than chemical at 1.5 release entries.</p>');
+    h.push('<table><thead><tr><th style="text-align:left">Pathway</th><th>Total low</th><th>Total mid</th><th>Total high</th><th>Spray?</th></tr></thead><tbody>');
+    (d.regen_release_comparison.paths||[]).forEach(function(p){
+      h.push('<tr><td style="text-align:left;font-size:12px">'+_esc(p.name)+'</td><td>'+_wfMoney(p.total_low)+'</td><td><b>'+_wfMoney(p.total_mid)+'</b></td><td>'+_wfMoney(p.total_high)+'</td><td>'+(p.broadcast_herbicide?'Yes':'No')+'</td></tr>');
+    });
+    h.push('</tbody></table>');
+    h.push('<p class="note">'+_esc(d.regen_release_comparison.notes||'')+'</p>');
+  }
+  if(d.lumber_wholesale){
+    h.push('<h3>Lumber wholesale &amp; mill conversion</h3>');
+    h.push('<p>CME/futures lumber ~<b>'+_wfMoney(d.lumber_wholesale.cme_lumber_futures_usd_mbf)+'/MBF</b> (as of '+_esc(d.lumber_wholesale.as_of||'')+
+      '). MB&amp;G DF lumber index Mar 2025: <b>'+_wfMoney(d.lumber_wholesale.secondary&&d.lumber_wholesale.secondary.mbg_df_lumber_index_mar_2025)+'</b>. '+
+      'Conversion cost band (C): '+_wfMoney(d.lumber_wholesale.mill_conversion_cost_usd_mbf_log.low)+'–'+
+      _wfMoney(d.lumber_wholesale.mill_conversion_cost_usd_mbf_log.high)+' mid '+
+      _wfMoney(d.lumber_wholesale.mill_conversion_cost_usd_mbf_log.mid)+'/log-MBF. '+
+      _esc(d.lumber_wholesale.mill_conversion_cost_usd_mbf_log.notes||'')+'</p>');
+  }
+  if(d.owner_net_model&&d.owner_net_model.cases){
+    h.push('<h3>Modeled owner net $/ac (Plumas &rarr; Quincy)</h3>');
+    h.push('<p class="sub">Conf <b>C</b> — delivered mid $360, haul mid to Quincy, TCSI logging, practice-band regen. No roads/overhead/tax. '+
+      _esc((d.owner_net_model.assumptions&&d.owner_net_model.assumptions.note)||'')+'</p>');
+    h.push('<table><thead><tr><th style="text-align:left">Case</th><th>MBF/ac</th><th>Res $/MBF</th><th>Gross residual/ac</th><th>Regen/ac</th><th>Net/ac</th></tr></thead><tbody>');
+    d.owner_net_model.cases.forEach(function(c){
+      h.push('<tr><td style="text-align:left;font-size:12px">'+_esc(c.name)+'</td><td>'+c.mbf_ac+'</td><td>'+_wfMoney(c.residual_usd_mbf)+
+        '</td><td>'+_wfMoney(c.gross_residual_ac)+'</td><td>'+_wfMoney(c.regen_ac)+'</td><td><b>'+_wfMoney(c.net_ac)+'</b></td></tr>');
+    });
+    h.push('</tbody></table>');
+    h.push('<p class="note"><b>Industry read:</b> Heavy regen + chem still shows the highest modeled net/ac in a single entry. Manual free-to-grow costs ~$570/ac more mid than chem. Working-forest thins show lower net/ac per entry but skip spray and keep canopy — volume parity still needs multi-entry acres (T1). Cable thin net is fragile. If local bids move plant/chem or mill-gate prices, re-run the model — we will publish a fail if nets invert.</p>');
+  }
+
   h.push('<h3>Method comparison (absolute where known)</h3>');
+
 
   h.push('<table><thead><tr><th style="text-align:left">Method</th><th style="text-align:left">Ops cost so far</th><th>Broadcast spray</th><th style="text-align:left">Completeness</th></tr></thead><tbody>');
   (d.methods||[]).forEach(function(m){

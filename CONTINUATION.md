@@ -97,3 +97,6 @@ DB password **only** in `C:/Users/ryanv/.pg_dburl` — never commit or echo. Onl
 - Filled stump-to-truck, delivered log, haul, biomass, residual stumpage worked examples from TCSI/MB&G Sierra study (B) + Chang thinning synthesis.
 - Still D: plant, chemical release, manual release, full owner net, live 2026 mill quotes, lumber wholesale.
 - Gaps closed: 5 A/B lines -> 12 A/B lines in cost ledger.
+## Full gap-close pass (2026-08-02)
+- Mill-gate proxies (Inland 2025 + coast DF ref), Plumas haul-to-Quincy/Lincoln, plant+chem vs manual practice bands, lumber futures + conversion band, modeled owner net/ac cases.
+- Cost line items: 0 D remaining (13 A/B + 5 C). Upgrade C with SPI quotes / sealed release bids when available.

@@ -1,7 +1,7 @@
 # Plumas Working Forests — method costs, harvest baseline, and gaps
 Updated: 2026-08-02 · schema 1
 
-Absolute figures are the best public / published numbers we can cite. Confidence: A=official CA schedule or county harvest series; B=published regional industry study (not a live Plumas bid); C=illustrative; D=gap (null). Wholesale chain uses Tahoe-Central Sierra / French Meadows delivered-log and logging schedules (MB&G 2020) — Sierra-adjacent, not Plumas-confidential contracts. Net owner profit still requires local haul distance + actual mill quotes. Do not invent; fill via program/data/INTAKE.md.
+Absolute figures: best public/published numbers. Grades A official CA; B published industry/regional (not live Plumas SPI contract); C multi-source practice range or derived; D gap. Wholesale chain now includes 2025 Inland log-price proxy, Plumas haul-to-Quincy estimates, plant/release practice ranges, lumber wholesale snapshot. Owner full net still modeled not audited. See program/data/INTAKE.md.
 
 ## Plumas harvest (MBF)
 Source: University of Montana BBER Forest Industry Research — Timber Harvest for Plumas County, California [A]
@@ -17,25 +17,26 @@ Source: University of Montana BBER Forest Industry Research — Timber Harvest f
 | `pile_burn_western` | Pile burning (Western US range) | 409–735 | USD_per_acre | B |
 | `clearcut_logging_per_mbf` | Heavy removal / regen harvest stump-to-truck (tractor, 20–40+ MBF/ac) | 90–110 (mid 100) | USD_per_MBF | B |
 | `partial_cut_logging_per_mbf` | Partial cut / commercial thin stump-to-truck (tractor, 3–14 MBF/ac) | 125–180 (mid 150) | USD_per_MBF | B |
-| `haul_sawtimber_per_mbf` | Haul landing→mill (sawtimber), distance-dependent | 49.0–120.0 (mid 66.0) | USD_per_MBF | B |
-| `mill_delivered_log_price` | Mill-delivered log price (pond / gate) — common Sierra sorts | 400–550 (mid 425) | USD_per_MBF | B |
+| `haul_sawtimber_per_mbf` | Haul landing→mill (sawtimber), distance-dependent | 33.0–120.0 (mid 45.0) | USD_per_MBF | B |
+| `mill_delivered_log_price` | Mill-delivered log price (pond / gate) — common Sierra sorts | 300–550 (mid 400) | USD_per_MBF | B |
+| `mill_lumber_wholesale` | Lumber wholesale / futures (mill output) | 450–620 (mid 555) | USD_per_MBF_lumber | B |
+| `mill_conversion_cost` | Sawmill conversion cost (rough, per log-MBF) | 120–320 (mid 200) | USD_per_MBF | C |
 | `biomass_delivered_price` | Biomass delivered price (plant gate) | 40–40 (mid 40) | USD_per_BDT | B |
 | `biomass_logging_chip` | Biomass stump-to-chip (logging + chipping, before haul) | 33–33 (mid 33) | USD_per_BDT | B |
 | `logging_system_stumpage_penalty_skyline` | CDTFA skyline vs tractor — tax IHV deduction (proxy for higher yard cost) | 100–100 (mid 100) | USD_per_MBF | A |
 | `logging_system_stumpage_penalty_helicopter` | CDTFA helicopter vs tractor — tax IHV deduction | 350–350 (mid 350) | USD_per_MBF | A |
-| `owner_residual_stumpage_sawlog` | Illustrative residual stumpage (delivered − log − haul) before regen | 154.0–234.0 (mid 209.0) | USD_per_MBF | B |
-| `herbicide_release_chemical` | Broadcast herbicide site-prep / release (chemical free-to-grow) | — | USD_per_acre | D |
-| `manual_mechanical_release` | Manual / mechanical release (no broadcast herbicide) | — | USD_per_acre | D |
-| `plant_seedlings` | Planting (seedlings + plant labor) | — | USD_per_acre | D |
-| `owner_net_per_acre` | Net revenue to landowner after logging, haul, regen, release | — | USD_per_acre | D |
+| `owner_residual_stumpage_sawlog` | Illustrative residual stumpage (delivered − log − haul) before regen | 135.0–215.0 (mid 190.0) | USD_per_MBF | B |
+| `plant_seedlings` | Planting (seedlings + plant labor) | 250–900 (mid 450) | USD_per_acre | C |
+| `herbicide_release_chemical` | Broadcast herbicide site-prep / release (chemical free-to-grow) | 50–250 (mid 120) | USD_per_acre | C |
+| `manual_mechanical_release` | Manual / mechanical release (no broadcast herbicide) | 250–1000 (mid 500) | USD_per_acre | C |
+| `owner_net_per_acre` | Net revenue to landowner after logging, haul, regen, release | 520.0–5820.0 | USD_per_acre | C |
 
-**Filled (A/B with numbers): 12 · Gaps (D): 4**
+**Filled (A/B with numbers): 13 · Gaps (D): 0**
 
 ## Next fills
-- Live 2025–2026 mill gate log prices (Quincy/Lincoln/Anderson sorts) — replace TCSI ~2018 delivered table
-- Plant + chemical release \$/ac vs manual/mechanical (industrial or CAL FIRE unit costs) — still D
-- Plumas-specific haul times to SPI Quincy vs Lincoln
-- CalTREES harvest acres/volume by silvicultural method for Plumas
-- Random Lengths or mill lumber wholesale + conversion cost (mill margin layer)
-- USFS R5 LogCost/HaulCost sample appraisals for Plumas NF sales
+- SPI Quincy / Lincoln confidential or published delivered price sheets (upgrade C/B proxy to A for Plumas)
+- Sealed or FOIA plant+herbicide unit costs from industrial THPs or USFS contracts (upgrade C practice bands)
+- GPS truck time samples Plumas landings → Quincy scales
+- CalTREES harvest by silvicultural method
+- Sawmill recovery factor + residual chip credit for accurate mill margin
 

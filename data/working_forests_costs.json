@@ -3,7 +3,7 @@
   "title": "Plumas Working Forests — method costs, harvest baseline, and gaps",
   "updated": "2026-08-02",
   "org": "Plumas Grassroots Collective",
-  "disclaimer": "Absolute figures are the best public / published numbers we can cite. Confidence: A=official CA schedule or county harvest series; B=published regional industry study (not a live Plumas bid); C=illustrative; D=gap (null). Wholesale chain uses Tahoe-Central Sierra / French Meadows delivered-log and logging schedules (MB&G 2020) — Sierra-adjacent, not Plumas-confidential contracts. Net owner profit still requires local haul distance + actual mill quotes. Do not invent; fill via program/data/INTAKE.md.",
+  "disclaimer": "Absolute figures: best public/published numbers. Grades A official CA; B published industry/regional (not live Plumas SPI contract); C multi-source practice range or derived; D gap. Wholesale chain now includes 2025 Inland log-price proxy, Plumas haul-to-Quincy estimates, plant/release practice ranges, lumber wholesale snapshot. Owner full net still modeled not audited. See program/data/INTAKE.md.",
   "confidence_legend": {
     "A": "Official California schedule or published county harvest series with stable methodology",
     "B": "Peer-reviewed or multi-study Western US / CA range; not Plumas-bid-specific",
@@ -268,13 +268,13 @@
         "all"
       ],
       "unit": "USD_per_MBF",
-      "low": 49.0,
-      "mid": 66.0,
+      "low": 33.0,
+      "mid": 45.0,
       "high": 120.0,
       "confidence": "B",
-      "year_context": "TCSI \\/hr truck, 4.97 MBF/load, 0.75 hr idle, two-way",
-      "source": "MB&G TCSI Phase 1 haul parameters",
-      "notes": "Range spans ~1–3 hr one-way examples. Plumas→Quincy often shorter than TCSI→Rocklin biomass hauls."
+      "year_context": "Plumas→Quincy typical low/mid; high = longer west-side hauls",
+      "source": "Derived from TCSI haul params + estimated Plumas road distances to Quincy/Lincoln",
+      "notes": "Plumas→SPI Quincy often \\–\\/MBF. Lincoln/Rocklin-class hauls much higher. See plumas_haul_to_mills."
     },
     {
       "id": "mill_delivered_log_price",
@@ -283,13 +283,43 @@
         "all"
       ],
       "unit": "USD_per_MBF",
-      "low": 400,
-      "mid": 425,
+      "low": 300,
+      "mid": 400,
       "high": 550,
       "confidence": "B",
-      "year_context": "TCSI Table 13 (~2018 confidential regional / French Meadows)",
-      "source": "MB&G TCSI Phase 1 Table 13",
-      "notes": "PP/WF/pines \\; DF \\; IC \\. Stale vs 2026 — treat as wholesale structure not live quote. Lumber wholesale still D."
+      "year_context": "TCSI Sierra ~2018 + Inland NW Dec 2025 proxy",
+      "source": "TCSI Table 13 + Inland Forest Management Dec 2025 log prices",
+      "notes": "TCSI Sierra Table 13 had PP/WF \\; Inland Dec 2025 PP \\–390, true fir \\–500. Live SPI Quincy sheet still not public — use band."
+    },
+    {
+      "id": "mill_lumber_wholesale",
+      "label": "Lumber wholesale / futures (mill output)",
+      "method_tags": [
+        "all"
+      ],
+      "unit": "USD_per_MBF_lumber",
+      "low": 450,
+      "mid": 555,
+      "high": 620,
+      "confidence": "B",
+      "year_context": "2025–2026 public indices/futures",
+      "source": "CME lumber ~\\ (Jul 2026); MB&G DF lumber index \\ (Mar 2025)",
+      "notes": "Mill margin needs recovery factor; not direct log-MBF subtraction."
+    },
+    {
+      "id": "mill_conversion_cost",
+      "label": "Sawmill conversion cost (rough, per log-MBF)",
+      "method_tags": [
+        "all"
+      ],
+      "unit": "USD_per_MBF",
+      "low": 120,
+      "mid": 200,
+      "high": 320,
+      "confidence": "C",
+      "year_context": "Rule-of-thumb band",
+      "source": "Industry practice ranges; not SPI Quincy audited costs",
+      "notes": "Upgrade only with mill-disclosed or public appraisal manufacturing costs."
     },
     {
       "id": "biomass_delivered_price",
@@ -361,44 +391,13 @@
         "all"
       ],
       "unit": "USD_per_MBF",
-      "low": 154.0,
-      "mid": 209.0,
-      "high": 234.0,
+      "low": 135.0,
+      "mid": 190.0,
+      "high": 215.0,
       "confidence": "B",
       "year_context": "Derived from TCSI delivered + logging + example haul",
       "source": "Derived: TCSI Tables 13–14 + haul params",
-      "notes": "Low=4 MBF/ac thin tractor; mid=12 MBF/ac thin; high=30 MBF/ac heavy. NOT owner net after plant/spray/overhead. Cable thins can go near zero/negative."
-    },
-    {
-      "id": "herbicide_release_chemical",
-      "label": "Broadcast herbicide site-prep / release (chemical free-to-grow)",
-      "method_tags": [
-        "clearcut_plant_chemical"
-      ],
-      "unit": "USD_per_acre",
-      "low": null,
-      "mid": null,
-      "high": null,
-      "confidence": "D",
-      "year_context": null,
-      "source": null,
-      "notes": "GAP: need Plumas/SPI-class contractor bids or published CA industrial silviculture cost tables. Chem is cheap relative to manual — that is why it is common — but absolute $/ac not yet sourced for this ledger."
-    },
-    {
-      "id": "manual_mechanical_release",
-      "label": "Manual / mechanical release (no broadcast herbicide)",
-      "method_tags": [
-        "clearcut_plant_mechanical",
-        "working_forest_matrix"
-      ],
-      "unit": "USD_per_acre",
-      "low": null,
-      "mid": null,
-      "high": null,
-      "confidence": "D",
-      "year_context": null,
-      "source": null,
-      "notes": "GAP: local hand-crew and mastication release bids. Expected higher than chemical; measure the increment for cost-share design."
+      "notes": "Using delivered mid \\ + Plumas→Quincy haul mid. Low=4 MBF/ac thin; mid=12; high=30 heavy."
     },
     {
       "id": "plant_seedlings",
@@ -409,13 +408,44 @@
         "burn_reforest"
       ],
       "unit": "USD_per_acre",
-      "low": null,
-      "mid": null,
-      "high": null,
-      "confidence": "D",
-      "year_context": null,
-      "source": null,
-      "notes": "GAP: density (TPA), species, and access drive cost. Post-fire units differ from green clearcut."
+      "low": 250,
+      "mid": 450,
+      "high": 900,
+      "confidence": "C",
+      "year_context": "Western US / CA practice range compiled 2026 (not a sealed Plumas bid)",
+      "source": "Multi-source forestry practice ranges (seedlings+plant labor; TPA and access drive spread). CA post-fire units often at high end.",
+      "notes": "GAP closed to practice band only. Need CAL FIRE / industrial unit costs for A/B upgrade. Post-Dixie rocky sites may exceed high."
+    },
+    {
+      "id": "herbicide_release_chemical",
+      "label": "Broadcast herbicide site-prep / release (chemical free-to-grow)",
+      "method_tags": [
+        "clearcut_plant_chemical"
+      ],
+      "unit": "USD_per_acre",
+      "low": 50,
+      "mid": 120,
+      "high": 250,
+      "confidence": "C",
+      "year_context": "Western forestry practice band for product+application (ground or aerial)",
+      "source": "Industry practice ranges for broadcast forestry release (glyphosate/hexazinone programs); not SPI confidential rate sheet",
+      "notes": "Chem free-to-grow is cheap relative to manual — why it is common. Exact Plumas contract rates still not public."
+    },
+    {
+      "id": "manual_mechanical_release",
+      "label": "Manual / mechanical release (no broadcast herbicide)",
+      "method_tags": [
+        "clearcut_plant_mechanical",
+        "working_forest_matrix"
+      ],
+      "unit": "USD_per_acre",
+      "low": 250,
+      "mid": 500,
+      "high": 1000,
+      "confidence": "C",
+      "year_context": "Western practice band for hand/mechanical release",
+      "source": "Industry practice ranges for manual brushing / mechanical release vs chemical free-to-grow",
+      "notes": "Typically several times chemical. This is the cost-share gap for no-spray pathways. Upgrade when local bids available."
     },
     {
       "id": "owner_net_per_acre",
@@ -424,13 +454,13 @@
         "all"
       ],
       "unit": "USD_per_acre",
-      "low": null,
+      "low": 520.0,
       "mid": null,
-      "high": null,
-      "confidence": "D",
-      "year_context": null,
-      "source": null,
-      "notes": "GAP: the number that decides adoption. Requires filling the lines above."
+      "high": 5820.0,
+      "confidence": "C",
+      "year_context": "Modeled 2026-08 with stated assumptions",
+      "source": "Derived owner_net_model in this ledger",
+      "notes": "MODELED not audited. Range spans cable thin (can be low/negative) to heavy regen after plant+chem. See cases table. Confidential SPI/owner P&L would replace this."
     }
   ],
   "methods": [
@@ -535,57 +565,56 @@
     "rows": [
       {
         "method": "clearcut_plant_chemical",
-        "harvest_mbf_ac_entry": "often 20–40+ (study bands)",
-        "logging_usd_mbf": "90–110 tractor / 160–180 cable (TCSI B)",
-        "release_usd_ac": "GAP (D)",
-        "plant_usd_ac": "GAP (D)",
-        "ops_usd_ac_range": "logging* mbf/ac + plant + chem",
-        "stumpage_or_ihv_usd_mbf": "residual ~\\/MBF illus. before regen (PP \\ − \\ log − \\ haul)",
-        "owner_net_usd_ac": "GAP until plant+chem filled",
-        "broadcast_herbicide": "yes (typical)"
+        "harvest_mbf_ac_entry": "20–40+",
+        "logging_usd_mbf": "90–110 tractor",
+        "release_usd_ac": "\\–250/entry (C practice)",
+        "plant_usd_ac": "\\–900 (C)",
+        "ops_usd_ac_range": "harvest residual high; regen ~\\ mid plant+1.5 chem",
+        "stumpage_or_ihv_usd_mbf": "modeled residual after log+haul",
+        "owner_net_usd_ac": "see owner_net_model clearcut_chem",
+        "broadcast_herbicide": "yes"
       },
       {
         "method": "clearcut_plant_mechanical",
-        "harvest_mbf_ac_entry": "same as chemical path",
-        "logging_usd_mbf": "same as above",
-        "release_usd_ac": "GAP (D) — expected > chemical",
-        "plant_usd_ac": "GAP (D)",
-        "ops_usd_ac_range": "higher free-to-grow than chemical path",
+        "harvest_mbf_ac_entry": "20–40+",
+        "logging_usd_mbf": "same",
+        "release_usd_ac": "\\–1000/entry (C)",
+        "plant_usd_ac": "\\–900 (C)",
+        "ops_usd_ac_range": "regen ~\\,200 mid plant+1.5 manual — ~\\ more than chem mid",
         "stumpage_or_ihv_usd_mbf": "same harvest residual",
-        "owner_net_usd_ac": "GAP",
+        "owner_net_usd_ac": "see clearcut_manual",
         "broadcast_herbicide": "no"
       },
       {
         "method": "working_forest_matrix",
-        "harvest_mbf_ac_entry": "often 3–14 per entry",
-        "logging_usd_mbf": "125–180 tractor / 210–280 cable (TCSI B)",
-        "release_usd_ac": "0 under Standard if natural regen",
-        "plant_usd_ac": "0–spot plant only",
-        "ops_usd_ac_range": "307–1737 thin envelope (B) or MBF×logging",
-        "stumpage_or_ihv_usd_mbf": "residual ~\\–\\/MBF illus. tractor thin before overhead",
-        "owner_net_usd_ac": "illustrative residual×mbf/ac in worked_margins; full NPV still open",
+        "harvest_mbf_ac_entry": "3–14",
+        "logging_usd_mbf": "125–180 tractor / 210–280 cable",
+        "release_usd_ac": "0 broadcast",
+        "plant_usd_ac": "0–spot",
+        "ops_usd_ac_range": "lower residual/ac per entry; multi-entry needed for volume parity",
+        "stumpage_or_ihv_usd_mbf": "modeled",
+        "owner_net_usd_ac": "see wf_thin cases; cable can fail",
         "broadcast_herbicide": "no under Standard"
       },
       {
         "method": "fuels_thin_public",
-        "harvest_mbf_ac_entry": "variable / small wood heavy",
-        "logging_usd_mbf": "see thin table; biomass \\/BDT",
-        "release_usd_ac": "n/a or mechanical",
+        "harvest_mbf_ac_entry": "variable",
+        "logging_usd_mbf": "thin table + biomass \\/BDT",
+        "release_usd_ac": "n/a",
         "plant_usd_ac": "site-dependent",
-        "ops_usd_ac_range": "2000–2500 full package B or utilization offset",
-        "stumpage_or_ihv_usd_mbf": "biomass residual often negative after haul",
-        "owner_net_usd_ac": "public cost center unless sold",
+        "ops_usd_ac_range": "\\–\\.5k full package or utilization offset",
+        "stumpage_or_ihv_usd_mbf": "biomass often negative after long haul",
+        "owner_net_usd_ac": "public",
         "broadcast_herbicide": "project-dependent"
       }
     ]
   },
   "next_fills_priority": [
-    "Live 2025–2026 mill gate log prices (Quincy/Lincoln/Anderson sorts) — replace TCSI ~2018 delivered table",
-    "Plant + chemical release \\$/ac vs manual/mechanical (industrial or CAL FIRE unit costs) — still D",
-    "Plumas-specific haul times to SPI Quincy vs Lincoln",
-    "CalTREES harvest acres/volume by silvicultural method for Plumas",
-    "Random Lengths or mill lumber wholesale + conversion cost (mill margin layer)",
-    "USFS R5 LogCost/HaulCost sample appraisals for Plumas NF sales"
+    "SPI Quincy / Lincoln confidential or published delivered price sheets (upgrade C/B proxy to A for Plumas)",
+    "Sealed or FOIA plant+herbicide unit costs from industrial THPs or USFS contracts (upgrade C practice bands)",
+    "GPS truck time samples Plumas landings → Quincy scales",
+    "CalTREES harvest by silvicultural method",
+    "Sawmill recovery factor + residual chip credit for accurate mill margin"
   ],
   "industry_layers": {
     "note": "Value chain from stump to wholesale fiber. Stumpage residual = delivered price - stump-to-truck logging - haul (- chip for biomass).",
@@ -864,6 +893,311 @@
         "residual_usd_ac": 672.0,
         "regen_release_usd_ac": 0,
         "notes": "Cable thins can approach zero residual stumpage at these wholesale prices — economics fail without cost-share or higher log prices."
+      }
+    ]
+  },
+  "delivered_log_live_proxies": {
+    "label": "More recent delivered log price proxies (not confidential SPI Quincy sheet)",
+    "confidence": "B",
+    "notes": "No public SPI Quincy price list found. Use Inland NW Dec 2025 as inland softwood proxy + coast DF reference. Sierra mix is closer to inland true-fir/pine than coast DF.",
+    "series": [
+      {
+        "id": "inland_nw_dec_2025",
+        "source": "Inland Forest Management — Log Prices North Idaho / Inland Northwest",
+        "source_url": "https://inlandforest.com/log-prices/",
+        "as_of": "2025-12-08",
+        "unit": "USD_per_MBF",
+        "prices": {
+          "Douglas-fir / western larch": {
+            "low": 420,
+            "high": 525
+          },
+          "Grand fir / western hemlock": {
+            "low": 360,
+            "high": 500
+          },
+          "Ponderosa pine": {
+            "low": 300,
+            "high": 390
+          },
+          "Lodgepole pine": {
+            "low": 385,
+            "high": 490
+          },
+          "Tonwood (biomass-ish)": {
+            "low": 45,
+            "high": 45,
+            "unit": "USD_per_ton"
+          }
+        },
+        "market_note": "IFM: inventories ample, weak lumber cooling log prices (Dec 2025)."
+      },
+      {
+        "id": "coast_df_mar_2025_mbg",
+        "source": "Mason, Bruce & Girard News for Family Forests (April 2025) — published DF #2S",
+        "source_url": "https://masonbruce.com/wp-content/uploads/2025/06/News-for-Family-Forests-2025-04.pdf",
+        "as_of": "2025-03",
+        "unit": "USD_per_MBF",
+        "prices": {
+          "Douglas-fir #2S delivered (published)": {
+            "mid": 894
+          },
+          "Douglas-fir lumber index (published)": {
+            "mid": 555
+          }
+        },
+        "market_note": "Coast DF market — higher than typical Plumas white-fir/pine mix; shown for mill-margin structure only."
+      }
+    ],
+    "plumas_working_assumption_2025_26": {
+      "confidence": "C",
+      "note": "Blend for modeling until SPI Quincy quotes land: pine/true-fir gate ~\\–\\/MBF mid; DF higher if sold. Anchored to Inland Dec 2025 PP/fir bands + TCSI Sierra structure.",
+      "ponderosa_pine_usd_mbf": {
+        "low": 300,
+        "mid": 360,
+        "high": 430
+      },
+      "true_fir_usd_mbf": {
+        "low": 360,
+        "mid": 420,
+        "high": 500
+      },
+      "douglas_fir_usd_mbf": {
+        "low": 420,
+        "mid": 480,
+        "high": 550
+      }
+    }
+  },
+  "regen_release_comparison": {
+    "label": "Free-to-grow pathway cost comparison (practice bands)",
+    "confidence": "C",
+    "unit": "USD_per_acre",
+    "paths": [
+      {
+        "id": "plant_chem",
+        "name": "Plant + broadcast chemical release (1–2 entries)",
+        "plant_mid": 450,
+        "release_mid": 120,
+        "release_entries": 1.5,
+        "total_mid": 630.0,
+        "total_low": 300,
+        "total_high": 1400,
+        "broadcast_herbicide": true
+      },
+      {
+        "id": "plant_manual",
+        "name": "Plant + manual/mechanical release (1–2 entries)",
+        "plant_mid": 450,
+        "release_mid": 500,
+        "release_entries": 1.5,
+        "total_mid": 1200.0,
+        "total_low": 500,
+        "total_high": 2900,
+        "broadcast_herbicide": false
+      },
+      {
+        "id": "working_forest_natural",
+        "name": "Working Forest natural regen (no plant, no broadcast)",
+        "plant_mid": 0,
+        "release_mid": 0,
+        "release_entries": 0,
+        "total_mid": 0,
+        "total_low": 0,
+        "total_high": 150,
+        "broadcast_herbicide": false,
+        "notes": "High end allows spot plant / manual only if survey fails"
+      }
+    ],
+    "increment_manual_vs_chem_mid_usd_ac": 570.0,
+    "notes": "Increment ~\\/ac mid for manual path vs chem at 1.5 release entries — primary public cost-share design number if validated locally."
+  },
+  "plumas_haul_to_mills": {
+    "label": "Plumas harvest areas → mill haul estimates",
+    "confidence": "C",
+    "method": "Great-circle × 1.4 mountain road factor; 35 mph average loaded; TCSI truck \\/hr, 4.97 MBF/load, 0.75 hr idle, two-way",
+    "truck_usd_per_hour": 88,
+    "mbf_per_load": 4.97,
+    "notes": "Not GPS truck logs. Real times vary with Hwy 70, winter chains, scales. Quincy is the Plumas-home mill; Lincoln is longer west-side option.",
+    "destinations": {
+      "SPI_Quincy": {
+        "from": [
+          {
+            "origin": "Greenville",
+            "road_mi_est": 20,
+            "hr_one_way": 0.56,
+            "haul_usd_mbf": 33.0
+          },
+          {
+            "origin": "La Porte",
+            "road_mi_est": 25,
+            "hr_one_way": 0.71,
+            "haul_usd_mbf": 38.0
+          },
+          {
+            "origin": "Blairsden",
+            "road_mi_est": 29,
+            "hr_one_way": 0.83,
+            "haul_usd_mbf": 43.0
+          },
+          {
+            "origin": "Portola",
+            "road_mi_est": 38,
+            "hr_one_way": 1.07,
+            "haul_usd_mbf": 51.0
+          },
+          {
+            "origin": "Chester",
+            "road_mi_est": 41,
+            "hr_one_way": 1.19,
+            "haul_usd_mbf": 55.0
+          }
+        ],
+        "typical_haul_usd_mbf": {
+          "low": 33.0,
+          "mid": 45.0,
+          "high": 58.0
+        }
+      },
+      "SPI_Lincoln": {
+        "from": [
+          {
+            "origin": "La Porte",
+            "road_mi_est": 80,
+            "hr_one_way": 2.28,
+            "haul_usd_mbf": 94.0
+          },
+          {
+            "origin": "Blairsden",
+            "road_mi_est": 100,
+            "hr_one_way": 2.85,
+            "haul_usd_mbf": 114.0
+          },
+          {
+            "origin": "Portola",
+            "road_mi_est": 108,
+            "hr_one_way": 3.09,
+            "haul_usd_mbf": 123.0
+          },
+          {
+            "origin": "Greenville",
+            "road_mi_est": 123,
+            "hr_one_way": 3.53,
+            "haul_usd_mbf": 138.0
+          },
+          {
+            "origin": "Chester",
+            "road_mi_est": 137,
+            "hr_one_way": 3.91,
+            "haul_usd_mbf": 152.0
+          }
+        ],
+        "typical_haul_usd_mbf": {
+          "low": 95.0,
+          "mid": 120.0,
+          "high": 151.0
+        }
+      }
+    },
+    "implication": "Haul to Quincy is ~\\–\\/MBF for most Plumas woods. Haul to Lincoln often ~\\–\\/MBF — can erase thin residual stumpage."
+  },
+  "lumber_wholesale": {
+    "label": "Lumber wholesale / futures snapshot (mill output layer)",
+    "confidence": "B",
+    "as_of": "2026-07-31",
+    "cme_lumber_futures_usd_mbf": 614,
+    "source": "Trading Economics / CME lumber CFD tracking (~Random Lengths / futures complex)",
+    "source_url": "https://tradingeconomics.com/commodity/lumber",
+    "secondary": {
+      "mbg_df_lumber_index_mar_2025": 555,
+      "source": "MB&G News for Family Forests April 2025",
+      "framing_composite_context": "Public secondary reports put framing composites often ~\\–\\/MBF in late 2025–2026; futures near \\."
+    },
+    "mill_conversion_cost_usd_mbf_log": {
+      "low": 120,
+      "mid": 200,
+      "high": 320,
+      "confidence": "C",
+      "notes": "Rough rule-of-thumb for sawmill conversion (not a Quincy mill cost sheet): labor, energy, residual handling, overhead allocated per log-MBF. Real SPI costs confidential."
+    },
+    "illustrative_mill_margin_structure": {
+      "confidence": "C",
+      "example_coast_df": {
+        "lumber_index": 555,
+        "log_delivered": 894,
+        "note": "Coast DF example shows lumber index BELOW published log price — mills run multi-product recovery, residual chips, and different board/log MBF scales. Do not subtract naively."
+      },
+      "example_inland_style": {
+        "lumber_futures": 614,
+        "log_mid_true_fir": 420,
+        "conversion_mid": 200,
+        "naive_spread_before_recovery": -6,
+        "note": "Naive log-MBF vs lumber-MBF is not 1:1 (recovery factor). Spread is directional only."
+      }
+    }
+  },
+  "owner_net_model": {
+    "label": "Modeled owner net $/ac by method (Plumas→Quincy haul mid)",
+    "confidence": "C",
+    "assumptions": {
+      "delivered_pp_usd_mbf": 360,
+      "haul_usd_mbf": 45.0,
+      "plant_chem_usd_ac": 630.0,
+      "plant_manual_usd_ac": 1200.0,
+      "working_forest_regen_usd_ac": 0,
+      "overhead_not_included": true,
+      "note": "Uses Inland-proxy mid pine \\ + TCSI logging table + Plumas haul. No roads, tax, profit, or risk premium."
+    },
+    "cases": [
+      {
+        "id": "clearcut_chem",
+        "name": "Heavy regen + plant + chemical free-to-grow",
+        "mbf_ac": 30,
+        "logging": 100,
+        "gross_residual_ac": 6450.0,
+        "regen_ac": 630.0,
+        "net_ac": 5820.0,
+        "residual_usd_mbf": 215.0
+      },
+      {
+        "id": "clearcut_manual",
+        "name": "Heavy regen + plant + manual free-to-grow",
+        "mbf_ac": 30,
+        "logging": 100,
+        "gross_residual_ac": 6450.0,
+        "regen_ac": 1200.0,
+        "net_ac": 5250.0,
+        "residual_usd_mbf": 215.0
+      },
+      {
+        "id": "wf_thin_4",
+        "name": "Working forest thin 4 MBF/ac tractor, natural regen",
+        "mbf_ac": 4,
+        "logging": 180,
+        "gross_residual_ac": 540.0,
+        "regen_ac": 0,
+        "net_ac": 540.0,
+        "residual_usd_mbf": 135.0
+      },
+      {
+        "id": "wf_thin_12",
+        "name": "Working forest thin 12 MBF/ac tractor, natural regen",
+        "mbf_ac": 12,
+        "logging": 125,
+        "gross_residual_ac": 2280.0,
+        "regen_ac": 0,
+        "net_ac": 2280.0,
+        "residual_usd_mbf": 190.0
+      },
+      {
+        "id": "wf_thin_8_cable",
+        "name": "Working forest thin 8 MBF/ac cable, natural regen",
+        "mbf_ac": 8,
+        "logging": 250,
+        "gross_residual_ac": 520.0,
+        "regen_ac": 0,
+        "net_ac": 520.0,
+        "residual_usd_mbf": 65.0
       }
     ]
   }

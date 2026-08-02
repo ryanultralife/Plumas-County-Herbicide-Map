@@ -67,3 +67,10 @@ Email **spraymapca@gmail.com** with source links or datasets. Material errors in
 - Chang et al. 2023, *Journal of Forestry* — Western US thinning stump-to-truck synthesis. https://doi.org/10.1093/jofore/fvac037
 - CDTFA Harvest Values Schedule (tax IHV) and BBER Plumas harvest series — see ledger JSON.
 - Still open: live mill quotes, plant+herbicide $/ac, lumber Random Lengths + mill conversion, CalTREES method split.
+## 8. Gap-close fill (2026-08-02)
+
+- Inland Forest Management log prices Dec 8, 2025 (Inland NW delivered): https://inlandforest.com/log-prices/
+- MB&G News for Family Forests Apr 2025 (coast DF logs/lumber): https://masonbruce.com/wp-content/uploads/2025/06/News-for-Family-Forests-2025-04.pdf
+- CME/Trading Economics lumber ~$614/MBF Jul 31, 2026: https://tradingeconomics.com/commodity/lumber
+- Plumas haul estimates: derived (road factor × TCSI $88/hr truck params)
+- Plant/release: practice bands (C) until sealed industrial/USFS unit costs obtained
