@@ -689,6 +689,18 @@ function buildMap(){
       bindCell(L.circleMarker([p.lat,p.lon],{renderer:canvas,radius:rAmt(sl),color:SRC_META[sk].color,weight:2.5,fill:false,opacity:.95}),p).addTo(g);});});
   });
   reg('▦ Total intensity (all products)', function(g){drawSet().forEach(function(p){var t=+p.n||0;if(!t)return;bindCell(L.circleMarker([p.lat,p.lon],{renderer:canvas,radius:rAmt(+p.lbs||0),weight:0.6,color:'#ffffff',opacity:.45,fillColor:'#ff5a1f',fillOpacity:.62}),p).addTo(g);});}, false);
+  /* Water-quality monitoring stations (Central Valley RWQCB, Dixie Fire / Greenville). APPROXIMATE
+     road-level locations - the Board provided road descriptions, not coordinates. Distinct blue
+     diamond so it reads as a monitoring site, never a spray dot. On by default so the
+     monitoring-vs-spraying contrast is visible; full finding is in the Herbicides & Science tab. */
+  var WATER_STATIONS=[
+    {id:'DF-1',lat:40.152,lon:-120.962,loc:'Setzer Camp Creek / Greenville-Wolf Creek Rd'},
+    {id:'DF-2',lat:40.141,lon:-120.949,loc:'Spirit Springs Rd / Greenville WWTP'},
+    {id:'DF-3',lat:40.131,lon:-120.938,loc:'Stampfli Rd'}];
+  reg('◆ Water-monitoring stations (approx.)', function(g){WATER_STATIONS.forEach(function(s){
+    L.marker([s.lat,s.lon],{icon:L.divIcon({className:'wqicon',html:'<div style="font-size:20px;line-height:18px;text-align:center;color:#1565c0;text-shadow:0 0 2px #fff,0 0 3px #fff,0 0 4px #fff">&#9670;</div>',iconSize:[20,20],iconAnchor:[10,10]}),title:'Water-monitoring station '+s.id})
+      .bindPopup('<b>Dixie Fire water-monitoring station '+s.id+'</b><br><span style="color:#666">'+s.loc+' - approximate location</span><br><br>Sampled about monthly by the <b>Central Valley Regional Water Quality Control Board</b> for post-fire recovery: sediment/turbidity, nutrients, bacteria, and metals.<br><br><b>Not tested for any herbicide</b> applied in this watershed (hexazinone, imazapyr, glyphosate, aminopyralid). See the Herbicides &amp; Science tab.',{maxWidth:300}).addTo(g);
+    });}, true);
   hydro.addTo(map);   /* streams & waterways always on (under the dots); intentionally NOT a toggle in the layer control */
   OVERLAYS=overlays; loadContacts(); loadOwnership();
   function ensure(g){if(g&&g._builder&&!g._built){g._builder(g);g._built=true;}}
