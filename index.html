@@ -1013,6 +1013,17 @@ function renderWfCosts(d){
   }
 
 
+  if(d.usfs_plumas_ptsar){
+    var u=d.usfs_plumas_ptsar;
+    h.push('<h3>USFS Plumas NF timber volume (PTSAR)</h3>');
+    h.push('<p class="sub">'+_esc(u.source||'')+' &middot; conf <b>A</b> &middot; '+_esc(u.period||'')+'</p>');
+    h.push('<div class="kpis">');
+    h.push('<div class="kpi"><div class="n">'+Number(u.total_fy_attainment_mbf).toLocaleString()+'</div><div class="l">MBF FY attainment (Q1 report)</div></div>');
+    h.push('<div class="kpi"><div class="n">'+Number(u.gate6_regular_sales_mbf).toLocaleString()+'</div><div class="l">MBF Gate 6 regular sales</div></div>');
+    h.push('<div class="kpi"><div class="n">'+Number(u.total_offer_volume_mbf).toLocaleString()+'</div><div class="l">MBF total offer volume</div></div>');
+    h.push('</div>');
+    h.push('<p class="note">'+_esc(u.notes||'')+'</p>');
+  }
   if(d.delivered_log_live_proxies){
     h.push('<h3>Live-ish mill-gate log proxies (2025)</h3>');
     h.push('<p class="sub">'+_esc(d.delivered_log_live_proxies.notes||'')+' Conf <b>B</b> for published lists; Plumas SPI sheet still not public.</p>');

@@ -283,13 +283,13 @@
         "all"
       ],
       "unit": "USD_per_MBF",
-      "low": 300,
-      "mid": 400,
-      "high": 550,
+      "low": 325,
+      "mid": 420,
+      "high": 570,
       "confidence": "B",
-      "year_context": "TCSI Sierra ~2018 + Inland NW Dec 2025 proxy",
-      "source": "TCSI Table 13 + Inland Forest Management Dec 2025 log prices",
-      "notes": "TCSI Sierra Table 13 had PP/WF \\; Inland Dec 2025 PP \\–390, true fir \\–500. Live SPI Quincy sheet still not public — use band."
+      "year_context": "WA DNR Eastside Mar 2026 survey + Inland NW Dec 2025",
+      "source": "WA DNR Eastside Mar 2026 mill log prices; Inland Forest Management Dec 2025",
+      "notes": "Live public mill-gate surveys. Pine ~\\ avg, white fir/hem ~\\, DF/larch ~\\ (WA Eastside). SPI Quincy actuals may differ."
     },
     {
       "id": "mill_lumber_wholesale",
@@ -391,9 +391,9 @@
         "all"
       ],
       "unit": "USD_per_MBF",
-      "low": 135.0,
-      "mid": 190.0,
-      "high": 215.0,
+      "low": 195.0,
+      "mid": 250.0,
+      "high": 275.0,
       "confidence": "B",
       "year_context": "Derived from TCSI delivered + logging + example haul",
       "source": "Derived: TCSI Tables 13–14 + haul params",
@@ -454,9 +454,9 @@
         "all"
       ],
       "unit": "USD_per_acre",
-      "low": 520.0,
+      "low": 780.0,
       "mid": null,
-      "high": 5820.0,
+      "high": 7620.0,
       "confidence": "C",
       "year_context": "Modeled 2026-08 with stated assumptions",
       "source": "Derived owner_net_model in this ledger",
@@ -610,11 +610,11 @@
     ]
   },
   "next_fills_priority": [
-    "SPI Quincy / Lincoln confidential or published delivered price sheets (upgrade C/B proxy to A for Plumas)",
-    "Sealed or FOIA plant+herbicide unit costs from industrial THPs or USFS contracts (upgrade C practice bands)",
-    "GPS truck time samples Plumas landings → Quincy scales",
-    "CalTREES harvest by silvicultural method",
-    "Sawmill recovery factor + residual chip credit for accurate mill margin"
+    "SPI Quincy delivered price sheet if ever published or shared under NDA for internal model only",
+    "FOIA/PRA unit costs for plant+herbicide on Plumas NF and private THP cost exhibits",
+    "CalTREES bulk export: acres/volume by silvicultural method for Plumas (request pending template)",
+    "GPS truck time samples landing→Quincy scales",
+    "Sawmill recovery factor for accurate mill margin"
   ],
   "industry_layers": {
     "note": "Value chain from stump to wholesale fiber. Stumpage residual = delivered price - stump-to-truck logging - haul (- chip for biomass).",
@@ -902,6 +902,39 @@
     "notes": "No public SPI Quincy price list found. Use Inland NW Dec 2025 as inland softwood proxy + coast DF reference. Sierra mix is closer to inland true-fir/pine than coast DF.",
     "series": [
       {
+        "id": "wa_dnr_eastside_mar_2026",
+        "source": "Washington DNR Mill Log Prices — Eastside Marketing Region, March 2026",
+        "source_url": "https://www.dnr.wa.gov/sites/default/files/2026-03/psl_ts_2603_logprices.pdf",
+        "as_of": "2026-03",
+        "unit": "USD_per_MBF",
+        "prices": {
+          "Doug-Fir/Larch (avg)": {
+            "mid": 511,
+            "low": 425,
+            "high": 570
+          },
+          "White fir/hem (avg)": {
+            "mid": 457,
+            "low": 425,
+            "high": 500
+          },
+          "Pine (avg)": {
+            "mid": 395,
+            "low": 325,
+            "high": 450
+          },
+          "Lodgepole (avg)": {
+            "mid": 440,
+            "low": 325,
+            "high": 500
+          },
+          "Grand total eastside avg": {
+            "mid": 466
+          }
+        },
+        "market_note": "Official state survey of mill-delivered prices. Geography is inland WA (not CA) but species mix (true fir, pine, DF) is closer to Plumas than coast DF. Best live public softwood mill-gate proxy available 2026."
+      },
+      {
         "id": "inland_nw_dec_2025",
         "source": "Inland Forest Management — Log Prices North Idaho / Inland Northwest",
         "source_url": "https://inlandforest.com/log-prices/",
@@ -950,22 +983,22 @@
       }
     ],
     "plumas_working_assumption_2025_26": {
-      "confidence": "C",
-      "note": "Blend for modeling until SPI Quincy quotes land: pine/true-fir gate ~\\–\\/MBF mid; DF higher if sold. Anchored to Inland Dec 2025 PP/fir bands + TCSI Sierra structure.",
+      "confidence": "B",
+      "note": "Updated to track WA Eastside Mar 2026 avgs as primary public mill-gate proxy for inland softwood; still not SPI Quincy confidential sheet.",
       "ponderosa_pine_usd_mbf": {
-        "low": 300,
-        "mid": 360,
-        "high": 430
+        "low": 325,
+        "mid": 395,
+        "high": 450
       },
       "true_fir_usd_mbf": {
-        "low": 360,
-        "mid": 420,
+        "low": 425,
+        "mid": 457,
         "high": 500
       },
       "douglas_fir_usd_mbf": {
-        "low": 420,
-        "mid": 480,
-        "high": 550
+        "low": 425,
+        "mid": 511,
+        "high": 570
       }
     }
   },
@@ -1140,13 +1173,14 @@
     "label": "Modeled owner net $/ac by method (Plumas→Quincy haul mid)",
     "confidence": "C",
     "assumptions": {
-      "delivered_pp_usd_mbf": 360,
+      "delivered_pp_usd_mbf": 395,
       "haul_usd_mbf": 45.0,
       "plant_chem_usd_ac": 630.0,
       "plant_manual_usd_ac": 1200.0,
       "working_forest_regen_usd_ac": 0,
       "overhead_not_included": true,
-      "note": "Uses Inland-proxy mid pine \\ + TCSI logging table + Plumas haul. No roads, tax, profit, or risk premium."
+      "note": "WA Eastside Mar 2026 mill-gate proxy mixed mid \\ + Plumas haul mid + TCSI logging + practice-band regen. Not audited SPI/owner P&L.",
+      "delivered_mixed_usd_mbf": 420
     },
     "cases": [
       {
@@ -1154,51 +1188,81 @@
         "name": "Heavy regen + plant + chemical free-to-grow",
         "mbf_ac": 30,
         "logging": 100,
-        "gross_residual_ac": 6450.0,
+        "gross_residual_ac": 8250.0,
         "regen_ac": 630.0,
-        "net_ac": 5820.0,
-        "residual_usd_mbf": 215.0
+        "net_ac": 7620.0,
+        "residual_usd_mbf": 275.0
       },
       {
         "id": "clearcut_manual",
         "name": "Heavy regen + plant + manual free-to-grow",
         "mbf_ac": 30,
         "logging": 100,
-        "gross_residual_ac": 6450.0,
+        "gross_residual_ac": 8250.0,
         "regen_ac": 1200.0,
-        "net_ac": 5250.0,
-        "residual_usd_mbf": 215.0
+        "net_ac": 7050.0,
+        "residual_usd_mbf": 275.0
       },
       {
         "id": "wf_thin_4",
         "name": "Working forest thin 4 MBF/ac tractor, natural regen",
         "mbf_ac": 4,
         "logging": 180,
-        "gross_residual_ac": 540.0,
+        "gross_residual_ac": 780.0,
         "regen_ac": 0,
-        "net_ac": 540.0,
-        "residual_usd_mbf": 135.0
+        "net_ac": 780.0,
+        "residual_usd_mbf": 195.0
       },
       {
         "id": "wf_thin_12",
         "name": "Working forest thin 12 MBF/ac tractor, natural regen",
         "mbf_ac": 12,
         "logging": 125,
-        "gross_residual_ac": 2280.0,
+        "gross_residual_ac": 3000.0,
         "regen_ac": 0,
-        "net_ac": 2280.0,
-        "residual_usd_mbf": 190.0
+        "net_ac": 3000.0,
+        "residual_usd_mbf": 250.0
       },
       {
         "id": "wf_thin_8_cable",
         "name": "Working forest thin 8 MBF/ac cable, natural regen",
         "mbf_ac": 8,
         "logging": 250,
-        "gross_residual_ac": 520.0,
+        "gross_residual_ac": 1000.0,
         "regen_ac": 0,
-        "net_ac": 520.0,
-        "residual_usd_mbf": 65.0
+        "net_ac": 1000.0,
+        "residual_usd_mbf": 125.0
       }
+    ]
+  },
+  "usfs_plumas_ptsar": {
+    "label": "USFS Plumas National Forest timber volume (PTSAR)",
+    "source": "USDA Forest Service Periodic Timber Sale Accomplishment Report Region 5, Forest 0511 (Plumas), FY2026 Q1",
+    "source_url": "https://www.fs.usda.gov/managing-land/forest-management/products/ptsar",
+    "confidence": "A",
+    "period": "FY2026 Q1 (as of Q1 2026 report)",
+    "unit": "MBF",
+    "gate6_regular_sales_mbf": 9404.55,
+    "gate6_previous_fy_volume_mbf": 9040.45,
+    "total_fy_attainment_mbf": 18577,
+    "total_offer_volume_mbf": 9536.55,
+    "notes": "Sold/offer volume tracking — not split by clearcut vs thin. Complements BBER county harvest (private+public). Q1-only snapshot; annualize carefully."
+  },
+  "status": {
+    "program_complete_for_v1": true,
+    "what_done": [
+      "Working Forests program docs + site tab",
+      "Absolute cost ledger through wholesale layers",
+      "Live public mill-gate proxies (WA Eastside Mar 2026)",
+      "Plumas haul estimates to Quincy/Lincoln",
+      "Plant/release practice bands + modeled owner net",
+      "Plumas county harvest series + USFS PTSAR Q1",
+      "FOIA/intake path for sealed unit costs"
+    ],
+    "what_cannot_be_public_without_industry_cooperation": [
+      "Actual SPI Quincy contract prices",
+      "Sealed LTO bids for Plumas landings",
+      "Confidential owner NPV models"
     ]
   }
 }

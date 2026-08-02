@@ -100,3 +100,7 @@ DB password **only** in `C:/Users/ryanv/.pg_dburl` — never commit or echo. Onl
 ## Full gap-close pass (2026-08-02)
 - Mill-gate proxies (Inland 2025 + coast DF ref), Plumas haul-to-Quincy/Lincoln, plant+chem vs manual practice bands, lumber futures + conversion band, modeled owner net/ac cases.
 - Cost line items: 0 D remaining (13 A/B + 5 C). Upgrade C with SPI quotes / sealed release bids when available.
+
+## Done-for-v1 (2026-08-02)
+- WA DNR Eastside Mar 2026 mill-gate prices; USFS Plumas PTSAR FY2026 Q1; FOIA drafts in records-requests/letters/14-working-forests-unit-costs.md; program_complete_for_v1=true.
+
