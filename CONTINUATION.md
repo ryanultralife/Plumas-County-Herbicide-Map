@@ -80,3 +80,9 @@ Connect: `source C:/Users/ryanv/.pg_dburl` (sets `$DBURL`; **secret — never ec
 
 ## Constraints (persist)
 DB password **only** in `C:/Users/ryanv/.pg_dburl` — never commit or echo. Only the anon key in client HTML. **Never destructively mutate the shared DB; never duplicate data** (dedup by `app_id` / upsert on `operator_id`). The Transparency page stays honest — no fabricated figures, every ledger entry ties to a real receipt, and **no claim of tax-exempt status until it exists**. Sending email, submitting portals, and downloading files are **permission-gated** — prepare and ask.
+
+## Plumas Working Forests (2026-08-02)
+- **Program docs:** `program/` (README, full program, prescription standard, economics with pass/fail tests, stakeholders, pilot, policy asks, sources).
+- **Stance:** case for industry to evaluate; implementation is owners' timber/business/land; volume parity **unproven** until CalTREES/mill data; publish FAIL if numbers don't work.
+- **Site:** 6th nav tab **Working Forests** (`#workview`, `show('work')`). No DB changes.
+- **Tool:** `python program/tools/volume_sketch.py` (illustrative T1 MBF sketch only).

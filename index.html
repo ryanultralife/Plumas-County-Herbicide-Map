@@ -20,11 +20,11 @@
 <script src="vendor/leaflet/leaflet.js"></script>
 <style>html,body{height:100%;margin:0;padding:0;font-family:Arial,Helvetica,sans-serif}
 #nav{position:fixed;top:0;left:0;right:0;height:46px;background:#2E5E3A;z-index:2000;display:flex;align-items:center;box-shadow:0 2px 6px rgba(0,0,0,.3)}
-#nav button{flex:1;height:46px;border:0;background:transparent;color:#cfe3d2;font:bold 11px Arial;padding:0 2px;line-height:1.1}
+#nav button{flex:1;height:46px;border:0;background:transparent;color:#cfe3d2;font:bold 10px Arial;padding:0 1px;line-height:1.1}
 #nav button.active{background:#1d3f27;color:#fff;border-bottom:3px solid #fd8d3c}
-#mapview,#dataview,#sciview,#ledgerview{position:fixed;top:82px;left:0;right:0;bottom:0}
+#mapview,#dataview,#sciview,#workview,#ledgerview{position:fixed;top:82px;left:0;right:0;bottom:0}
 #map{width:100%;height:100%}
-#dataview,#sciview,#ledgerview{overflow:auto;background:#f4f6f4;display:none;-webkit-overflow-scrolling:touch}
+#dataview,#sciview,#workview,#ledgerview{overflow:auto;background:#f4f6f4;display:none;-webkit-overflow-scrolling:touch}
 .wrap{max-width:760px;margin:0 auto;padding:14px}
 .card{background:#fff;border-radius:10px;box-shadow:0 1px 4px rgba(0,0,0,.12);padding:14px;margin-bottom:16px}
 .card h2{margin:0 0 4px;font-size:17px;color:#1d3f27}.card p.sub{margin:0 0 10px;color:#777;font-size:13px}
@@ -59,7 +59,7 @@ td:first-child,th:first-child{text-align:left}tr.tot td{font-weight:bold;backgro
 .bar .bsub{color:#9a9a9a;font-size:11px}
 .om1{color:#8a8a8a;font-size:11px;display:block}
 @media(max-width:560px){#scopebar .sl{display:none}#scopebar select{max-width:38%}}
-</style><style>#ledgerview .ltitle{font-size:20px;color:#1d3f27;margin:2px 0 2px}#ledgerview .lsub{color:#777;font-size:13px;margin:0 0 12px}.bdg{display:inline-block;font-size:11px;padding:2px 7px;border-radius:10px;color:#fff;white-space:nowrap}.bOperations{background:#2E5E3A}.bTesting{background:#2E8B8B}.bAdmin{background:#8a6d3b}#ledgerview td a,#ledgerview .src a{color:#0050b3}#ledgerview .src{color:#bbb}.lupd{font-size:12px;color:#888;margin:-6px 0 12px}</style><style>
+.wfgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}@media(max-width:560px){.wfgrid{grid-template-columns:1fr}}.wfbox{border:1px solid #dcdcdc;border-radius:8px;padding:10px;font-size:13px;line-height:1.45}.wfbox h3{margin:0 0 6px;font-size:14px;color:#1d3f27}.wfbox.bad{border-left:4px solid #bd0026}.wfbox.good{border-left:4px solid #2E5E3A}.wfbox ul{margin:6px 0 0 18px;padding:0}.tagpass{display:inline-block;background:#e8f5e9;color:#1d3f27;font-size:11px;font-weight:bold;padding:2px 6px;border-radius:4px}.tagfail{display:inline-block;background:#fdecea;color:#8a1c14;font-size:11px;font-weight:bold;padding:2px 6px;border-radius:4px}.tagunk{display:inline-block;background:#fff7e6;color:#8a5a00;font-size:11px;font-weight:bold;padding:2px 6px;border-radius:4px}</style><style>#ledgerview .ltitle{font-size:20px;color:#1d3f27;margin:2px 0 2px}#ledgerview .lsub{color:#777;font-size:13px;margin:0 0 12px}.bdg{display:inline-block;font-size:11px;padding:2px 7px;border-radius:10px;color:#fff;white-space:nowrap}.bOperations{background:#2E5E3A}.bTesting{background:#2E8B8B}.bAdmin{background:#8a6d3b}#ledgerview td a,#ledgerview .src a{color:#0050b3}#ledgerview .src{color:#bbb}.lupd{font-size:12px;color:#888;margin:-6px 0 12px}</style><style>
 #donateBubble{position:fixed;left:16px;bottom:18px;z-index:2500;border:0;cursor:pointer;
   background:#fd8d3c;color:#fff;font:bold 15px Arial;padding:11px 18px;border-radius:30px;
   box-shadow:0 3px 10px rgba(0,0,0,.35);display:flex;align-items:center;gap:7px;transition:transform .12s,background .12s}
@@ -82,7 +82,7 @@ td:first-child,th:first-child{text-align:left}tr.tot td{font-weight:bold;backgro
 @media(max-width:600px){#donateBubble{left:12px;bottom:14px;padding:10px 15px;font-size:14px}}
 </style></head>
 <body>
-<div id="nav"><button id="bmap" class="active" onclick="show('map')">Map</button><button id="bdata" onclick="show('data')">Data &amp; Trends</button><button id="bsci" onclick="show('sci')">Herbicides &amp; Science</button><button id="braw" onclick="show('raw')">Source Data</button><button id="bled" onclick="show('ledger')">Transparency</button></div>
+<div id="nav"><button id="bmap" class="active" onclick="show('map')">Map</button><button id="bdata" onclick="show('data')">Data &amp; Trends</button><button id="bsci" onclick="show('sci')">Herbicides &amp; Science</button><button id="bwork" onclick="show('work')">Working Forests</button><button id="braw" onclick="show('raw')">Source Data</button><button id="bled" onclick="show('ledger')">Transparency</button></div>
 <div id="scopebar"><span class="sl">Showing:</span><select id="scopeRegion" onchange="onScopeRegion(this.value)" aria-label="Region"><option value="">All California</option></select><select id="scopeCounty" onchange="onScopeCounty(this.value)" aria-label="County"><option value="">All counties</option></select><button type="button" onclick="onScopeRegion('')">Statewide</button><span id="scopeNote" class="sn">Statewide — all 58 counties</span></div><div id="mapview"><div id="map" role="application" aria-label="Interactive map of reported pesticide applications across California. Use the Data & Trends tab for the same figures in table form."></div><div id="mapStat" style="position:absolute;left:50%;transform:translateX(-50%);top:8px;z-index:1500;background:rgba(255,255,255,.93);border-radius:8px;padding:5px 12px;font:13px Arial;color:#1d3f27;box-shadow:0 1px 5px rgba(0,0,0,.3);white-space:nowrap">Loading…</div></div>
 <div id="dataview"><div class="wrap" id="dataWrap"><p style="color:#777;padding:24px 0">Loading statewide data…</p></div></div>
 <div id="sciview"><div class="wrap"><div class="card" id="sciScope" style="border-left:4px solid #2E5E3A"></div><div class="card sci"><h2>The short version</h2><p>If you read nothing else, here is the argument in order of what matters most <i>here</i>:</p><p><b>1. Use is large and rising.</b> Herbicide volume nearly quadrupled from 2021 to 2024, driven by replanting after the 2021 Dixie Fire (see <b>Data &amp; Trends</b>).</p><p><b>2. The dominant chemicals here are the water-mobile ones.</b> The most-used are <b>hexazinone</b> and <b>glyphosate</b>, with <b>imazapyr</b> third &mdash; and hexazinone and imazapyr are exactly the chemicals that leach and move through soil and water. They are going onto a forested watershed above a rural community on <b>wells and springs</b>.</p><p><b>3. The biggest unknowns are what isn&rsquo;t tested:</b> the surfactants and &lsquo;inert&rsquo; co-formulants (often more toxic than the active ingredient), real-world tank-mix synergy, and the cumulative, year-after-year load on one watershed.</p><p><b>4. The largest ecological effect is probably indirect:</b> removing plants removes the base of the food web &mdash; flowers for pollinators, host plants for insects, food for birds and fish.</p><p class="note">The contested glyphosate&ndash;cancer question (below) is one thread of this story, not the headline &mdash; it is the most dose-dependent and the least specific to Plumas. The chemical-by-chemical detail that follows is a reference appendix.</p></div><div class="card sci"><h2>Where this data comes from &mdash; and where it doesn&rsquo;t</h2><p>This map combines the public records that exist, and is honest about the gaps.</p><h3>Private land &mdash; full chemical detail</h3><p>California <b>Pesticide Use Reporting (PUR)</b>, filed with the County Agricultural Commissioner and DPR. Covers private timberland, ranches, golf courses and the like &mdash; with the actual product, <b>active ingredient, amount, and location</b>. This is the bulk of the map (the warm-colored dots).</p><h3>Federal land (Plumas National Forest) &mdash; activities, not chemicals</h3><p>USDA Forest Service <b>FACTS</b> activity records (the blue &lsquo;Federal&rsquo; layer): treatment activity, NEPA project, acres, year and location &mdash; but <b>not the chemical or quantity</b>. The Forest Service has said active-ingredient and amount data require a records request, so those show &lsquo;FOIA pending.&rsquo;</p><h3>What&rsquo;s still missing</h3><p>Federal chemical/quantity data (FOIA to USFS Region&nbsp;5), the most recent local permits/NOIs (county Ag Commissioner), and additional counties/years are being requested or added. The <b>Streams &amp; water</b> layer is always shown on the map, so you can see treatments relative to waterways.</p><p class="note">Coverage of these <b>Plumas map layers</b>: county PUR <b>2020&ndash;2024</b> (2023&ndash;2024 obtained from CDPR by public-records request); federal USFS FACTS <b>2020 onward</b>, including planned treatments. The statewide database behind the map and Data &amp; Trends is complete <b>2020&ndash;2022</b>, with the five Northern-Sierra counties (Butte, Tehama, Lassen, Plumas, Sierra) extended through <b>2024</b>. A historical snapshot, not real-time &mdash; coverage grows as new public-records / FOIA responses and California&rsquo;s annual PUR releases arrive. Full source inventory and draft records-requests are in the project repo.</p></div><div class="card sci"><h2>The chemicals actually being sprayed</h2>
@@ -113,6 +113,111 @@ td:first-child,th:first-child{text-align:left}tr.tot td{font-weight:bold;backgro
 <h3>5. Formulation vs. pure chemical, and incomplete registrations</h3>
 <p>Genotoxicity testing of formulated products often differs from tests on the pure active ingredient, and some chemicals (e.g., indaziflam) were used for years under <b>conditional registrations</b> with data still outstanding.</p>
 <p class="refs">Sources: <a href="https://www.sciencedirect.com/science/article/pii/S0278691519301814" target="_blank" rel="noopener">Surfactants in GBHs (Mesnage/Benbrook)</a> · <a href="https://link.springer.com/article/10.1007/s10646-023-02626-x" target="_blank" rel="noopener">POEA toxicity to amphibians</a> · <a href="https://www.sciencedirect.com/science/article/pii/S0278691522005786" target="_blank" rel="noopener">Co-formulant cytotoxicity</a></p></div><div class="card sci"><h2>References &amp; further reading</h2><p class="sub">Every claim on this page traces to the sources below &mdash; regulatory assessments (EPA, IARC, USDA Forest Service, state agencies) and peer-reviewed studies. Open links to verify; classifications can change over time.</p><h3>Cancer hazard &amp; glyphosate</h3><ol start="1" style="margin:4px 0 4px 18px;padding:0;font-size:13px;line-height:1.55"><li style="margin-bottom:6px">Guyton KZ, Loomis D, Grosse Y, et al. (2015). "Carcinogenicity of tetrachlorvinphos, parathion, malathion, diazinon, and glyphosate." <i>The Lancet Oncology</i> 16(5):490&ndash;491. doi:10.1016/S1470-2045(15)70134-8. <a href="https://www.thelancet.com/journals/lanonc/article/PIIS1470-2045(15)70134-8/fulltext" target="_blank" rel="noopener" style="color:#0050b3;word-break:break-all">https://www.thelancet.com/journals/lanonc/article/PIIS1470-2045(15)70134-8/fulltext</a></li><li style="margin-bottom:6px">IARC (2015). <i>Monographs Vol. 112: Some Organophosphate Insecticides and Herbicides</i> (glyphosate classified Group 2A). <a href="https://www.iarc.who.int/featured-news/media-centre-iarc-news-glyphosate/" target="_blank" rel="noopener" style="color:#0050b3;word-break:break-all">https://www.iarc.who.int/featured-news/media-centre-iarc-news-glyphosate/</a></li><li style="margin-bottom:6px">Benbrook CM (2019). "How did the US EPA and IARC reach diametrically opposed conclusions on the genotoxicity of glyphosate?" <i>Environmental Sciences Europe</i> 31:2. <a href="https://link.springer.com/article/10.1186/s12302-018-0184-7" target="_blank" rel="noopener" style="color:#0050b3;word-break:break-all">https://link.springer.com/article/10.1186/s12302-018-0184-7</a></li><li style="margin-bottom:6px">U.S. Court of Appeals, 9th Circuit (2022) vacated EPA&rsquo;s human-health glyphosate finding; EPA subsequently withdrew its interim decision. <a href="https://www.epa.gov/pesticides/epa-withdraws-glyphosate-interim-decision" target="_blank" rel="noopener" style="color:#0050b3;word-break:break-all">https://www.epa.gov/pesticides/epa-withdraws-glyphosate-interim-decision</a></li><li style="margin-bottom:6px">U.S. EPA. "Glyphosate" (agency assessment &amp; status). <a href="https://www.epa.gov/ingredients-used-pesticide-products/glyphosate" target="_blank" rel="noopener" style="color:#0050b3;word-break:break-all">https://www.epa.gov/ingredients-used-pesticide-products/glyphosate</a></li></ol><h3>Insects, pollinators, soil &amp; food web</h3><ol start="6" style="margin:4px 0 4px 18px;padding:0;font-size:13px;line-height:1.55"><li style="margin-bottom:6px">Motta EVS, Raymann K, Moran NA (2018). "Glyphosate perturbs the gut microbiota of honey bees." <i>PNAS</i> 115(41):10305&ndash;10310. doi:10.1073/pnas.1803880115. <a href="https://www.pnas.org/doi/10.1073/pnas.1803880115" target="_blank" rel="noopener" style="color:#0050b3;word-break:break-all">https://www.pnas.org/doi/10.1073/pnas.1803880115</a></li><li style="margin-bottom:6px">Balbuena MS, et al. (2015). "Effects of sublethal doses of glyphosate on honeybee navigation." <i>J. Experimental Biology</i> 218:2799&ndash;2805.</li><li style="margin-bottom:6px">Gaupp-Berghausen M, Hofer M, Rewald B, Zaller JG (2015). "Glyphosate-based herbicides reduce the activity and reproduction of earthworms and lead to increased soil nutrient concentrations." <i>Scientific Reports</i> 5:12886. doi:10.1038/srep12886.</li><li style="margin-bottom:6px">Xerces Society. "Understanding Pesticides &amp; Their Risks" (herbicide indirect/habitat effects; monarch &amp; milkweed). <a href="https://xerces.org/pesticides/understanding-pesticides" target="_blank" rel="noopener" style="color:#0050b3;word-break:break-all">https://xerces.org/pesticides/understanding-pesticides</a></li></ol><h3>Co-formulants, surfactants &amp; mixtures</h3><ol start="10" style="margin:4px 0 4px 18px;padding:0;font-size:13px;line-height:1.55"><li style="margin-bottom:6px">Mesnage R, Benbrook C, Antoniou MN (2019). "Insight into the confusion over surfactant co-formulants in glyphosate-based herbicides." <i>Food and Chemical Toxicology</i> 128:137&ndash;145. <a href="https://www.sciencedirect.com/science/article/pii/S0278691519301814" target="_blank" rel="noopener" style="color:#0050b3;word-break:break-all">https://www.sciencedirect.com/science/article/pii/S0278691519301814</a></li><li style="margin-bottom:6px">Mik&oacute; Z, Hettyey A (2023). "Toxicity of POEA-containing glyphosate-based herbicides to amphibians is mainly due to the surfactant, not to the active ingredient." <i>Ecotoxicology</i>. doi:10.1007/s10646-023-02626-x. <a href="https://link.springer.com/article/10.1007/s10646-023-02626-x" target="_blank" rel="noopener" style="color:#0050b3;word-break:break-all">https://link.springer.com/article/10.1007/s10646-023-02626-x</a></li></ol><h3>Hexazinone</h3><ol start="12" style="margin:4px 0 4px 18px;padding:0;font-size:13px;line-height:1.55"><li style="margin-bottom:6px">Montana DEQ / U.S. EPA Office of Water. Hexazinone Drinking-Water Health Advisory &amp; water-quality standard (toxicity, mobility, groundwater). <a href="https://deq.mt.gov/files/Water/WQPB/Standards/Hexazinone.pdf" target="_blank" rel="noopener" style="color:#0050b3;word-break:break-all">https://deq.mt.gov/files/Water/WQPB/Standards/Hexazinone.pdf</a></li><li style="margin-bottom:6px">Minnesota DNR. Environmental Risk Assessment: Hexazinone (forestry use, mobility, non-target plants). <a href="https://files.dnr.state.mn.us/forestry/certification/pesticides/dnr-esra-hexazinone.pdf" target="_blank" rel="noopener" style="color:#0050b3;word-break:break-all">https://files.dnr.state.mn.us/forestry/certification/pesticides/dnr-esra-hexazinone.pdf</a></li><li style="margin-bottom:6px">U.S. EPA. Problem Formulation / Registration Review docket for hexazinone (environmental fate &amp; degradates). <a href="https://downloads.regulations.gov/EPA-HQ-OPP-2009-0755-0007/content.pdf" target="_blank" rel="noopener" style="color:#0050b3;word-break:break-all">https://downloads.regulations.gov/EPA-HQ-OPP-2009-0755-0007/content.pdf</a></li></ol><h3>Imazapyr, aminopyralid, indaziflam, triclopyr, oxyfluorfen</h3><ol start="15" style="margin:4px 0 4px 18px;padding:0;font-size:13px;line-height:1.55"><li style="margin-bottom:6px">Massachusetts Dept. of Conservation &amp; Recreation. Imazapyr review (environmental fate, non-target plants). <a href="https://www.mass.gov/doc/imazapyr/download" target="_blank" rel="noopener" style="color:#0050b3;word-break:break-all">https://www.mass.gov/doc/imazapyr/download</a></li><li style="margin-bottom:6px">Oregon State University Extension. "Aminopyralid Residues in Compost" (carryover/persistence). <a href="https://smallfarms.oregonstate.edu/smallfarms/aminopyralid-residues-compost" target="_blank" rel="noopener" style="color:#0050b3;word-break:break-all">https://smallfarms.oregonstate.edu/smallfarms/aminopyralid-residues-compost</a></li><li style="margin-bottom:6px">U.S. EPA. Aminopyralid Pesticide Fact Sheet (2005). <a href="https://www3.epa.gov/pesticides/chem_search/reg_actions/registration/fs_PC-005100_10-Aug-05.pdf" target="_blank" rel="noopener" style="color:#0050b3;word-break:break-all">https://www3.epa.gov/pesticides/chem_search/reg_actions/registration/fs_PC-005100_10-Aug-05.pdf</a></li><li style="margin-bottom:6px">USDA Forest Service / SERA (2020). Indaziflam Human Health and Ecological Risk Assessment. <a href="https://www.fs.usda.gov/foresthealth/pesticide/pdfs/Indaziflam-Report.pdf" target="_blank" rel="noopener" style="color:#0050b3;word-break:break-all">https://www.fs.usda.gov/foresthealth/pesticide/pdfs/Indaziflam-Report.pdf</a></li><li style="margin-bottom:6px">National Pesticide Information Center (Oregon State Univ). Triclopyr General Fact Sheet. <a href="http://npic.orst.edu/factsheets/triclogen.pdf" target="_blank" rel="noopener" style="color:#0050b3;word-break:break-all">http://npic.orst.edu/factsheets/triclogen.pdf</a></li><li style="margin-bottom:6px">U.S. EPA. Cleantraxx pesticide product label, EPA Reg. 62719-702 (penoxsulam + oxyfluorfen). <a href="https://www3.epa.gov/pesticides/chem_search/ppls/062719-00702-20160224.pdf" target="_blank" rel="noopener" style="color:#0050b3;word-break:break-all">https://www3.epa.gov/pesticides/chem_search/ppls/062719-00702-20160224.pdf</a></li></ol><h3>The insecticide (bifenthrin)</h3><ol start="21" style="margin:4px 0 4px 18px;padding:0;font-size:13px;line-height:1.55"><li style="margin-bottom:6px">National Pesticide Information Center. Bifenthrin General Fact Sheet (toxicity to bees, fish, aquatic invertebrates). <a href="https://npic.orst.edu/factsheets/bifgen.html" target="_blank" rel="noopener" style="color:#0050b3;word-break:break-all">https://npic.orst.edu/factsheets/bifgen.html</a></li><li style="margin-bottom:6px">Center for Biological Diversity (2022). Press release on emergency approvals of bifenthrin (high toxicity to bees). <a href="https://biologicaldiversity.org/w/news/press-releases/emergency-loophole-used-to-ok-highly-toxic-pesticide-for-10th-straight-year-2022-08-05/" target="_blank" rel="noopener" style="color:#0050b3;word-break:break-all">https://biologicaldiversity.org/w/news/press-releases/emergency-loophole-used-to-ok-highly-toxic-pesticide-for-10th-straight-year-2022-08-05/</a></li></ol></div><div class="card sci"><p class="note">This summary is a starting point for further reading, compiled from regulatory and peer-reviewed sources; it is not legal or medical advice. Active ingredients were identified from EPA registration numbers in the dataset. Before using any specific claim in public materials, follow the linked sources and confirm the current EPA/IARC status, which can change.</p></div></div></div>
+<div id="workview"><div class="wrap">
+<div class="datedbanner"><b>Program focus: Plumas &amp; Northern Sierra.</b> This is a <b>case for industry to evaluate</b> &mdash; not a mandate. Timber, land, and business decisions stay with owners, mills, and land managers. Chemical evidence lives on the Map / Data / Science tabs; the harvest-volume case is <b>unproven until local numbers fill the worksheet</b> (see tests below).</div>
+
+<div class="card sci">
+<h2>Plumas Working Forests</h2>
+<p class="sub">Harvest the wood. Keep the forest. Skip the spray &mdash; <i>if the data support it.</i></p>
+<p><b>What this is.</b> A voluntary silvicultural and economic framework from the Plumas Grassroots Collective: commercial logging that <b>thins and re-enters</b>, keeps continuous forest character, and does <b>not</b> rely on clearcut plantations plus broadcast glyphosate / hexazinone / imazapyr free-to-grow programs.</p>
+<p><b>What this is not.</b> A ban on logging. A takeover of private land. A promise that multi-entry forestry always matches today&rsquo;s board-foot totals. If volume, mill sorts, or owner economics fail the tests below, we will say so.</p>
+</div>
+
+<div class="card sci">
+<h2>The short version</h2>
+<p><b>1. Logging stays.</b> Mills, loggers, truckers, and private timberland are part of any serious solution here.</p>
+<p><b>2. The spray is tied to a silvicultural system</b> &mdash; open the canopy hard, plant conifers, kill competing plants until free-to-grow. That system is optional, not a law of nature. spraymapca documents the chemical half; this page describes a substitute harvest system.</p>
+<p><b>3. Implementation is industry&rsquo;s call.</b> It is their timber, their business, and their land (or their federal contract). We publish a standard and a volume test; they adopt, adapt, or reject.</p>
+<p><b>4. Data decides.</b> Decade-scale board feet, mill offtake, logger rates, and owner NPV must be checked with local inputs. Toy models are labeled illustrative. <span class="tagunk">INSUFFICIENT DATA</span> for a Plumas-validated volume claim today.</p>
+</div>
+
+<div class="card sci">
+<h2>Two pathways</h2>
+<div class="wfgrid">
+<div class="wfbox bad">
+<h3>Status quo plantation path</h3>
+<ul>
+<li>Large regeneration harvest / clearcut units</li>
+<li>Plant even-aged conifers</li>
+<li>Broadcast site-prep &amp; release herbicides (glyphosate, hexazinone, imazapyr &mdash; see Herbicides &amp; Science)</li>
+<li>High MBF per acre at one entry; long wait; chemical dependency</li>
+</ul>
+</div>
+<div class="wfbox good">
+<h3>Working forest path</h3>
+<ul>
+<li>Variable-density commercial thin (matrix)</li>
+<li>Small group openings (prefer 0.25&ndash;1 ac, cap ~2 ac) + skips</li>
+<li>Natural regen preferred; plant where fire/failure requires</li>
+<li>Mechanical/manual release first; no broadcast free-to-grow chemistry under the Standard</li>
+<li>Re-enter ~15&ndash;30 years for steady wood flow</li>
+</ul>
+</div>
+</div>
+<p class="note" style="margin-top:10px">Full prescription text is in the project repo under <code>program/PRESCRIPTION_STANDARD.md</code>.</p>
+</div>
+
+<div class="card sci">
+<h2>Volume thesis &mdash; and how it fails</h2>
+<p>Matching &ldquo;current harvest levels&rdquo; is a <b>landscape and decade</b> question, not a single clearcut unit question.</p>
+<p><b>Thesis:</b> Lower MBF per acre per entry can still match total MBF if you treat <b>more acres</b> and/or return more often &mdash; especially where California already has a fuels/restoration thinning backlog that needs commercial offtake to scale.</p>
+<p><b>Fail conditions (we report these):</b></p>
+<ul>
+<li>Local MBF worksheet parity ratio &lt; 1.0 and cannot be fixed with real acres/markets</li>
+<li>Mills will not buy the sort mix (stranded wood)</li>
+<li>Logging cost permanently exceeds what owners/mills will pay, with no real offtake or cost-share</li>
+<li>Owner NPV rejects multi-entry cash flow &mdash; their land, their hurdle rate</li>
+</ul>
+<p><span class="tagunk">T1 VOLUME: NOT YET VALIDATED FOR PLUMAS</span> &mdash; needs CalTREES / USFS cut-sold / mill inputs. Chemical use intensity is already documented on this site; board-foot parity is not.</p>
+</div>
+
+<div class="card sci">
+<h2>What each player needs</h2>
+<table>
+<tr><th style="text-align:left">Player</th><th style="text-align:left">Must get</th><th style="text-align:left">How the case tries to deliver</th></tr>
+<tr><td style="text-align:left">Loggers</td><td style="text-align:left">Billable days, safe partial-cut work</td><td style="text-align:left">More commercial thin acres/year</td></tr>
+<tr><td style="text-align:left">Mills</td><td style="text-align:left">Steady MBF + usable sorts</td><td style="text-align:left">Multi-entry flow; mix of small &amp; larger wood</td></tr>
+<tr><td style="text-align:left">Biomass / chips</td><td style="text-align:left">Reliable small wood</td><td style="text-align:left">Thin material as co-product</td></tr>
+<tr><td style="text-align:left">Private owners</td><td style="text-align:left">NPV they accept</td><td style="text-align:left">Earlier partial cash flows; optional public cost-share for public benefits</td></tr>
+<tr><td style="text-align:left">USFS</td><td style="text-align:left">Timber + fuels targets</td><td style="text-align:left">Commercial thin as forest end-state, not sprayed plantation</td></tr>
+<tr><td style="text-align:left">Community</td><td style="text-align:left">Forest character, less watershed chemistry</td><td style="text-align:left">No broadcast free-to-grow under the Standard</td></tr>
+</table>
+<p class="note">If any row fails in a real pilot, industrial scale-up fails for that context &mdash; even if the residual stand looks good.</p>
+</div>
+
+<div class="card sci">
+<h2>Pass / fail tests (program rules)</h2>
+<table>
+<tr><th>Test</th><th style="text-align:left">Pass if</th><th>Status now</th></tr>
+<tr><td>T1 Volume</td><td style="text-align:left">10-year landscape MBF (working) &ge; baseline system on same land base</td><td><span class="tagunk">DATA GAP</span></td></tr>
+<tr><td>T2 Mill</td><td style="text-align:left">Sorts actually purchased</td><td><span class="tagunk">DATA GAP</span></td></tr>
+<tr><td>T3 Logger</td><td style="text-align:left">Acres/days at rates crews take</td><td><span class="tagunk">DATA GAP</span></td></tr>
+<tr><td>T4 Owner NPV</td><td style="text-align:left">Owner accepts multi-entry economics</td><td><span class="tagunk">THEIR CALL</span></td></tr>
+<tr><td>T5 Chemical</td><td style="text-align:left">Broadcast free-to-grow &asymp; 0 under Standard</td><td><span class="tagpass">BY DESIGN</span></td></tr>
+</table>
+<p>Public language when T1 fails: <i>&ldquo;Under current assumptions, Working Forests do not match baseline harvest.&rdquo;</i> No spinning.</p>
+</div>
+
+<div class="card sci">
+<h2>Private land vs public land</h2>
+<p><b>Private:</b> Fee-simple owners and their RPFs choose THP silviculture and whether to spray. This program offers a Standard and a measurement design. spraymapca will keep mapping reported pesticide use either way.</p>
+<p><b>Public (e.g. Plumas National Forest):</b> Prescriptions are set through USFS planning and contracts. Communities can request no-broadcast free-to-grow alternatives; agencies decide under law.</p>
+<p><b>Planting after fire:</b> Allowed. The objection is to <b>broadcast chemical plantation free-to-grow as the default</b> on sites that can be managed as working forest &mdash; not to all reforestation.</p>
+</div>
+
+<div class="card sci">
+<h2>Voluntary pilots</h2>
+<p>A pilot runs only if an owner or agency wants one. Metrics: deck-scale MBF, residual structure, regen at years 3&ndash;5, actual costs, herbicide = no broadcast, mill acceptance. Failed pilots, documented, are useful &mdash; they stop false claims.</p>
+<p>Details: repo <code>program/PILOT_SPEC.md</code>.</p>
+</div>
+
+<div class="card sci">
+<h2>Get involved / correct our numbers</h2>
+<p>Mill capacity, logging costs, CalTREES harvest-by-method, or owner corrections make this real. Material errors will be fixed in public.</p>
+<p>Email <a href="mailto:spraymapca@gmail.com?subject=Plumas%20Working%20Forests">spraymapca@gmail.com</a> &middot; Full program package in the open GitHub repo under <code>program/</code> &middot; Chemical map: use the <b>Map</b> tab.</p>
+<p class="refs">Repo docs: README, PLUMAS_WORKING_FORESTS, PRESCRIPTION_STANDARD, ECONOMICS, STAKEHOLDER_MAP, PILOT_SPEC, POLICY_ASKS, SOURCES; tool: <code>program/tools/volume_sketch.py</code>.</p>
+</div>
+</div></div>
 <div id="rawview"><div class="wrap"><div class="datedbanner"><b>Source data &mdash; record sample.</b> A reviewable sample of the <b>largest reported applications</b> (top 80 per county by amount) for the area chosen in the selector above, drawn live from the project database. The complete dataset is 12M+ records. For the five Northern Sierra counties (Butte, Tehama, Lassen, Plumas, Sierra) the data now runs <b>through 2024</b>, obtained directly from CDPR by public-records request; the rest of California is the statewide Pesticide Use Reports (2020&ndash;2022); coverage is updated as new public-records / FOIA responses arrive. For full county records use the records-request templates in the repo.</div><div class="rawctrls"><input id="rawq" type="search" placeholder="Search ingredient, product, applicator, county…" oninput="rawApply()"><select id="rawsrc" onchange="rawApply()"><option value="">All sources</option><option value="pur">Private — CA PUR</option><option value="facts">Federal — USFS FACTS</option></select><button type="button" onclick="rawCSV()">Download CSV</button></div><div id="rawcount" class="note"></div><div style="overflow:auto;max-height:none"><table class="rawtbl"><thead><tr id="rawhead"></tr></thead><tbody id="rawbody"></tbody></table></div></div></div>
 <div id="ledgerview"><div class="wrap" id="ledgerWrap"><p style="color:#777;padding:20px 0">Loading ledger…</p></div></div>
 <script>
@@ -758,13 +863,14 @@ function renderDataHtml(){
   return h.join('');
 }
 function show(v){
- var views={map:'mapview',data:'dataview',sci:'sciview',raw:'rawview',ledger:'ledgerview'},btns={map:'bmap',data:'bdata',sci:'bsci',raw:'braw',ledger:'bled'};
+ var views={map:'mapview',data:'dataview',sci:'sciview',work:'workview',raw:'rawview',ledger:'ledgerview'},btns={map:'bmap',data:'bdata',sci:'bsci',work:'bwork',raw:'braw',ledger:'bled'};
  for(var k in views){document.getElementById(views[k]).style.display=(k===v)?'block':'none';
   document.getElementById(btns[k]).classList.toggle('active',k===v);}
  if(v==='raw')renderRaw();
  if(v==='ledger')loadLedger();
  if(v==='data')renderData();
  if(v==='sci'){renderSciScope(); collapsifyCards(document.getElementById('sciview'));}
+ if(v==='work'){collapsifyCards(document.getElementById('workview'));}
  if(v==='map'){if(!map)buildMap();setTimeout(function(){map.invalidateSize(true);},100);}}
 buildMap();
 function fix(){if(map)map.invalidateSize(true);}
