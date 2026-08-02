@@ -955,7 +955,65 @@ function renderWfCosts(d){
   });
   h.push('</tbody></table>');
 
+  if(d.industry_layers&&d.industry_layers.layers){
+    h.push('<h3>Industry layers (stump &rarr; wholesale fiber)</h3>');
+    h.push('<p class="sub">'+_esc(d.industry_layers.note||'')+' Equation: <code>'+_esc(d.industry_layers.equation||'')+'</code></p>');
+    h.push('<table><thead><tr><th style="text-align:left">Layer</th><th style="text-align:left">What it is</th></tr></thead><tbody>');
+    d.industry_layers.layers.forEach(function(L){
+      h.push('<tr><td style="text-align:left"><b>'+_esc(L.name)+'</b></td><td style="text-align:left;font-size:12px">'+_esc(L.what_it_is||'')+'</td></tr>');
+    });
+    h.push('</tbody></table>');
+  }
+  if(d.delivered_log_tcsi&&d.delivered_log_tcsi.prices_usd_mbf){
+    h.push('<h3>Delivered log prices (mill gate) &mdash; Sierra study</h3>');
+    h.push('<p class="sub">'+_esc(d.delivered_log_tcsi.source||'')+' &middot; conf <b>'+_esc(d.delivered_log_tcsi.confidence||'B')+'</b> &middot; '+_esc(d.delivered_log_tcsi.year_context||'')+'</p>');
+    h.push('<table><thead><tr><th style="text-align:left">Sort</th><th>$/MBF delivered</th></tr></thead><tbody>');
+    Object.keys(d.delivered_log_tcsi.prices_usd_mbf).forEach(function(k){
+      h.push('<tr><td style="text-align:left">'+_esc(k)+'</td><td>'+_wfMoney(d.delivered_log_tcsi.prices_usd_mbf[k])+'</td></tr>');
+    });
+    h.push('<tr><td style="text-align:left">Biomass (plant gate)</td><td>'+_wfMoney(d.delivered_log_tcsi.biomass_usd_bdt)+'/BDT</td></tr>');
+    h.push('</tbody></table>');
+    h.push('<p class="note">'+_esc(d.delivered_log_tcsi.notes||'')+'</p>');
+  }
+  if(d.logging_sawtimber_tcsi_table&&d.logging_sawtimber_tcsi_table.rows){
+    h.push('<h3>Stump-to-truck logging $/MBF by removal intensity</h3>');
+    h.push('<p class="sub">'+_esc(d.logging_sawtimber_tcsi_table.source||'')+' &middot; conf <b>B</b></p>');
+    h.push('<table><thead><tr><th>MBF/ac removed</th><th>Tractor</th><th>Cable</th></tr></thead><tbody>');
+    d.logging_sawtimber_tcsi_table.rows.forEach(function(r){
+      h.push('<tr><td style="text-align:left">'+_esc(r.mbf_per_acre)+'</td><td>'+_wfMoney(r.tractor)+'</td><td>'+_wfMoney(r.cable)+'</td></tr>');
+    });
+    h.push('</tbody></table>');
+    h.push('<p class="note">'+_esc(d.logging_sawtimber_tcsi_table.notes||'')+' Working Forests often sit in the <b>3&ndash;14 MBF/ac</b> band (higher $/MBF). Heavy clearcut-style entries sit lower on the table.</p>');
+  }
+  if(d.worked_margins&&d.worked_margins.cases){
+    h.push('<h3>Worked residual stumpage (delivered &minus; log &minus; haul)</h3>');
+    h.push('<p class="sub">Illustrative using Sierra study prices + 1.5 hr one-way haul example. Conf <b>B</b> inputs; not a Plumas owner P&amp;L. Plant/spray not subtracted (still GAP on clearcut path).</p>');
+    h.push('<table><thead><tr><th style="text-align:left">Case</th><th>MBF/ac</th><th>Log</th><th>Haul</th><th>Delivered</th><th>Residual/MBF</th><th>Residual/ac</th></tr></thead><tbody>');
+    d.worked_margins.cases.forEach(function(c){
+      h.push('<tr><td style="text-align:left;font-size:12px">'+_esc(c.desc)+'</td><td>'+c.mbf_per_ac+'</td><td>'+_wfMoney(c.logging_usd_mbf)+'</td><td>'+_wfMoney(c.haul_usd_mbf)+'</td><td>'+_wfMoney(c.delivered_usd_mbf)+'</td><td><b>'+_wfMoney(c.residual_usd_mbf)+'</b></td><td><b>'+_wfMoney(c.residual_usd_ac)+'</b></td></tr>');
+    });
+    h.push('</tbody></table>');
+    h.push('<p class="note">Heavy regen shows higher residual <i>before</i> plant+chemical. Thin tractor ground can still cash-flow on residual alone if multi-entry acres scale. Cable thin residuals get thin &mdash; industry will reject those units without cost-share or better prices. That is a data-supported fail condition, not a slogan.</p>');
+  }
+  if(d.biomass_tcsi){
+    h.push('<h3>Biomass wholesale layer</h3>');
+    h.push('<p>Delivered <b>'+_wfMoney(d.biomass_tcsi.delivered_usd_bdt)+'/BDT</b> &minus; logging <b>'+_wfMoney(d.biomass_tcsi.logging_small_or_dead_usd_bdt)+'</b> &minus; chip <b>'+_wfMoney(d.biomass_tcsi.chipping_usd_bdt)+'</b> = <b>'+_wfMoney(d.biomass_tcsi.illustrative_stumpage_before_haul_usd_bdt)+'/BDT</b> before haul. Haul often wipes the residual (TCSI: long hauls to Rocklin &rarr; negative biomass stumpage at $40/BDT).</p>');
+  }
+  if(d.regional_mill_capacity_tcsi&&d.regional_mill_capacity_tcsi.facilities){
+    h.push('<h3>Regional mill offtake context (study-era)</h3>');
+    h.push('<table><thead><tr><th style="text-align:left">Facility</th><th style="text-align:left">Product</th><th>Likely/yr</th><th>Max/yr</th></tr></thead><tbody>');
+    d.regional_mill_capacity_tcsi.facilities.forEach(function(f){
+      var u=f.likely_mbf_yr!=null?' MBF':' BDT';
+      var l=f.likely_mbf_yr!=null?f.likely_mbf_yr:f.likely_bdt_yr_forest;
+      var m=f.max_mbf_yr!=null?f.max_mbf_yr:f.max_bdt_yr;
+      h.push('<tr><td style="text-align:left">'+_esc(f.name)+'</td><td style="text-align:left">'+_esc(f.product)+'</td><td>'+Number(l).toLocaleString()+u+'</td><td>'+Number(m).toLocaleString()+u+'</td></tr>');
+    });
+    h.push('</tbody></table>');
+    h.push('<p class="note">'+_esc(d.regional_mill_capacity_tcsi.notes||'')+'</p>');
+  }
+
   h.push('<h3>Method comparison (absolute where known)</h3>');
+
   h.push('<table><thead><tr><th style="text-align:left">Method</th><th style="text-align:left">Ops cost so far</th><th>Broadcast spray</th><th style="text-align:left">Completeness</th></tr></thead><tbody>');
   (d.methods||[]).forEach(function(m){
     var ops='—';

@@ -60,3 +60,10 @@ These support the claim that **more thinning acres are needed than funding alone
 ## 6. Correction policy
 
 Email **spraymapca@gmail.com** with source links or datasets. Material errors in program docs will be corrected in-repo; the site tab will follow. Industry data shared under confidentiality can improve internal worksheets without full public release — but **public volume-parity claims** need publishable inputs or they stay labeled unproven.
+
+## 7. Wholesale / industry cost chain (2026-08-02 fill)
+
+- Mason, Bruce & Girard / TNC — Tahoe-Central Sierra Initiative Phase 1 Restoration Wood Supply Assessment (2020): delivered log prices Table 13, logging $/MBF Table 14, haul params, biomass $40/BDT, mill capacity Table 9. https://www.scienceforconservation.org/assets/downloads/MBG_Tahoe_Central_Sierra_Initiative_v6.pdf
+- Chang et al. 2023, *Journal of Forestry* — Western US thinning stump-to-truck synthesis. https://doi.org/10.1093/jofore/fvac037
+- CDTFA Harvest Values Schedule (tax IHV) and BBER Plumas harvest series — see ledger JSON.
+- Still open: live mill quotes, plant+herbicide $/ac, lumber Random Lengths + mill conversion, CalTREES method split.

@@ -3,7 +3,7 @@
   "title": "Plumas Working Forests — method costs, harvest baseline, and gaps",
   "updated": "2026-08-02",
   "org": "Plumas Grassroots Collective",
-  "disclaimer": "Absolute figures below are the best public numbers we can cite so far. Confidence grades: A = official CA schedule or county harvest series; B = peer-reviewed or multi-study regional range; C = illustrative placeholder; D = known gap (null). Net owner profit by method is D until local bids and stumpage actuals land. Other agents: fill nulls via program/data/INTAKE.md — do not invent.",
+  "disclaimer": "Absolute figures are the best public / published numbers we can cite. Confidence: A=official CA schedule or county harvest series; B=published regional industry study (not a live Plumas bid); C=illustrative; D=gap (null). Wholesale chain uses Tahoe-Central Sierra / French Meadows delivered-log and logging schedules (MB&G 2020) — Sierra-adjacent, not Plumas-confidential contracts. Net owner profit still requires local haul distance + actual mill quotes. Do not invent; fill via program/data/INTAKE.md.",
   "confidence_legend": {
     "A": "Official California schedule or published county harvest series with stable methodology",
     "B": "Peer-reviewed or multi-study Western US / CA range; not Plumas-bid-specific",
@@ -21,13 +21,62 @@
     "confidence": "A",
     "notes": "Private includes industrial + NIPF + tribal where reported; FS = USDA Forest Service. Post-Dixie years (2021–2023) show elevated private salvage/green volume — not a steady-state baseline alone.",
     "series": [
-      {"year": 2018, "private": 57751, "state": 0, "forest_service": 33488, "blm_other": 0, "total": 91239},
-      {"year": 2019, "private": 78910, "state": 0, "forest_service": 26959, "blm_other": 0, "total": 105869},
-      {"year": 2020, "private": 104153, "state": 0, "forest_service": 23221, "blm_other": 0, "total": 127374},
-      {"year": 2021, "private": 184989, "state": 0, "forest_service": 42599, "blm_other": 0, "total": 227588},
-      {"year": 2022, "private": 373221, "state": 0, "forest_service": 11828, "blm_other": 0, "total": 385049},
-      {"year": 2023, "private": 216163, "state": 0, "forest_service": 54793, "blm_other": 0, "total": 270956},
-      {"year": 2024, "private": 130497, "state": 0, "forest_service": 25874, "blm_other": 0, "total": 156371}
+      {
+        "year": 2018,
+        "private": 57751,
+        "state": 0,
+        "forest_service": 33488,
+        "blm_other": 0,
+        "total": 91239
+      },
+      {
+        "year": 2019,
+        "private": 78910,
+        "state": 0,
+        "forest_service": 26959,
+        "blm_other": 0,
+        "total": 105869
+      },
+      {
+        "year": 2020,
+        "private": 104153,
+        "state": 0,
+        "forest_service": 23221,
+        "blm_other": 0,
+        "total": 127374
+      },
+      {
+        "year": 2021,
+        "private": 184989,
+        "state": 0,
+        "forest_service": 42599,
+        "blm_other": 0,
+        "total": 227588
+      },
+      {
+        "year": 2022,
+        "private": 373221,
+        "state": 0,
+        "forest_service": 11828,
+        "blm_other": 0,
+        "total": 385049
+      },
+      {
+        "year": 2023,
+        "private": 216163,
+        "state": 0,
+        "forest_service": 54793,
+        "blm_other": 0,
+        "total": 270956
+      },
+      {
+        "year": 2024,
+        "private": 130497,
+        "state": 0,
+        "forest_service": 25874,
+        "blm_other": 0,
+        "total": 156371
+      }
     ],
     "derived": {
       "avg_total_2018_2020": 108161,
@@ -60,7 +109,11 @@
       "skyline_deduct_per_mbf": 100,
       "helicopter_deduct_per_mbf": 350,
       "low_vol_per_acre_deduct_under_5_mbf_ac": 30,
-      "small_total_vol_deduct": {"lt_300_mbf": 50, "lt_100_mbf": 100, "lt_25_mbf": 150},
+      "small_total_vol_deduct": {
+        "lt_300_mbf": 50,
+        "lt_100_mbf": 100,
+        "lt_25_mbf": 150
+      },
       "minimum_after_adjustments": 1
     },
     "table_g_selected": {
@@ -70,31 +123,51 @@
           "name": "Ponderosa pine (PPG) size 2 (150–300 BF/log)",
           "code": "PPG",
           "size_code": 2,
-          "tva": {"5": 120, "6": 100, "7": 120}
+          "tva": {
+            "5": 120,
+            "6": 100,
+            "7": 120
+          }
         },
         {
           "name": "Ponderosa pine (PPG) size 3 (under 150 BF/log)",
           "code": "PPG",
           "size_code": 3,
-          "tva": {"5": 90, "6": 100, "7": 120}
+          "tva": {
+            "5": 90,
+            "6": 100,
+            "7": 120
+          }
         },
         {
           "name": "Hemlock–fir / white fir complex (FG)",
           "code": "FG",
           "size_code": null,
-          "tva": {"5": 250, "6": 220, "7": 170}
+          "tva": {
+            "5": 250,
+            "6": 220,
+            "7": 170
+          }
         },
         {
           "name": "Douglas-fir (DFG) size 2",
           "code": "DFG",
           "size_code": 2,
-          "tva": {"5": 430, "6": 320, "7": 310}
+          "tva": {
+            "5": 430,
+            "6": 320,
+            "7": 310
+          }
         },
         {
           "name": "Incense cedar (ICG)",
           "code": "ICG",
           "size_code": null,
-          "tva": {"5": 140, "6": 140, "7": 180}
+          "tva": {
+            "5": 140,
+            "6": 140,
+            "7": 180
+          }
         }
       ]
     },
@@ -109,20 +182,27 @@
     {
       "id": "thin_ops_western_us",
       "label": "Forest thinning operations (Western US literature range)",
-      "method_tags": ["commercial_thin", "fuels_thin", "working_forest_matrix"],
+      "method_tags": [
+        "commercial_thin",
+        "fuels_thin",
+        "working_forest_matrix"
+      ],
       "unit": "USD_per_acre",
       "low": 307,
-      "mid": null,
+      "mid": 840,
       "high": 1737,
       "confidence": "B",
       "year_context": "Synthesis cited as Chang et al. 2023 (Western US)",
-      "source": "Systematic literature review / synthesis of Western US thinning costs (Chang et al. 2023), as cited in subsequent CA forest-economics papers",
-      "notes": "Wide range reflects terrain, volume removed, system (CTL vs whole-tree), and whether biomass is utilized. Not a Plumas contractor bid."
+      "source": "Chang et al. 2023 J. Forestry; range also cited in CA fuels papers",
+      "notes": "Range from synthesis cited across CA literature. Chang et al. 2023 mean mechanized WT ~\\.34/ton (~\\/ac at their \\,075/ha). Prefer TCSI \\$/MBF table for Sierra sawtimber jobs."
     },
     {
       "id": "ca_full_fuels_package",
       "label": "CA full fuels package (planning + thin + pile burn) — order of magnitude",
-      "method_tags": ["fuels_thin", "public_restoration"],
+      "method_tags": [
+        "fuels_thin",
+        "public_restoration"
+      ],
       "unit": "USD_per_acre",
       "low": 2000,
       "mid": 2250,
@@ -135,7 +215,11 @@
     {
       "id": "pile_burn_western",
       "label": "Pile burning (Western US range)",
-      "method_tags": ["fuels_thin", "working_forest_matrix", "clearcut_plant_mechanical"],
+      "method_tags": [
+        "fuels_thin",
+        "working_forest_matrix",
+        "clearcut_plant_mechanical"
+      ],
       "unit": "USD_per_acre",
       "low": 409,
       "mid": null,
@@ -146,9 +230,106 @@
       "notes": "Stack on top of cutting costs when slash is piled and burned."
     },
     {
+      "id": "clearcut_logging_per_mbf",
+      "label": "Heavy removal / regen harvest stump-to-truck (tractor, 20–40+ MBF/ac)",
+      "method_tags": [
+        "clearcut_plant_chemical",
+        "clearcut_plant_mechanical"
+      ],
+      "unit": "USD_per_MBF",
+      "low": 90,
+      "mid": 100,
+      "high": 110,
+      "confidence": "B",
+      "year_context": "TCSI Table 14 (2020 Sierra schedule)",
+      "source": "MB&G TCSI Phase 1 Table 14 tractor column for 20–40+ MBF/ac",
+      "notes": "Cable: \\–\\/MBF at same volumes. Not a 2026 Plumas LTO bid."
+    },
+    {
+      "id": "partial_cut_logging_per_mbf",
+      "label": "Partial cut / commercial thin stump-to-truck (tractor, 3–14 MBF/ac)",
+      "method_tags": [
+        "commercial_thin",
+        "working_forest_matrix"
+      ],
+      "unit": "USD_per_MBF",
+      "low": 125,
+      "mid": 150,
+      "high": 180,
+      "confidence": "B",
+      "year_context": "TCSI Table 14 (2020 Sierra schedule)",
+      "source": "MB&G TCSI Phase 1 Table 14 tractor 3–14 MBF/ac bands",
+      "notes": "Cable thin: \\–\\/MBF. Low MBF/ac is the expensive band — core industrial challenge for Working Forests."
+    },
+    {
+      "id": "haul_sawtimber_per_mbf",
+      "label": "Haul landing→mill (sawtimber), distance-dependent",
+      "method_tags": [
+        "all"
+      ],
+      "unit": "USD_per_MBF",
+      "low": 49.0,
+      "mid": 66.0,
+      "high": 120.0,
+      "confidence": "B",
+      "year_context": "TCSI \\/hr truck, 4.97 MBF/load, 0.75 hr idle, two-way",
+      "source": "MB&G TCSI Phase 1 haul parameters",
+      "notes": "Range spans ~1–3 hr one-way examples. Plumas→Quincy often shorter than TCSI→Rocklin biomass hauls."
+    },
+    {
+      "id": "mill_delivered_log_price",
+      "label": "Mill-delivered log price (pond / gate) — common Sierra sorts",
+      "method_tags": [
+        "all"
+      ],
+      "unit": "USD_per_MBF",
+      "low": 400,
+      "mid": 425,
+      "high": 550,
+      "confidence": "B",
+      "year_context": "TCSI Table 13 (~2018 confidential regional / French Meadows)",
+      "source": "MB&G TCSI Phase 1 Table 13",
+      "notes": "PP/WF/pines \\; DF \\; IC \\. Stale vs 2026 — treat as wholesale structure not live quote. Lumber wholesale still D."
+    },
+    {
+      "id": "biomass_delivered_price",
+      "label": "Biomass delivered price (plant gate)",
+      "method_tags": [
+        "fuels_thin",
+        "working_forest_matrix"
+      ],
+      "unit": "USD_per_BDT",
+      "low": 40,
+      "mid": 40,
+      "high": 40,
+      "confidence": "B",
+      "year_context": "TCSI 2020 assumption (notes lower 2020 market prices worse)",
+      "source": "MB&G TCSI Phase 1 Table 13",
+      "notes": "Often insufficient after logging+chip+haul → negative stumpage without subsidy or closer plants."
+    },
+    {
+      "id": "biomass_logging_chip",
+      "label": "Biomass stump-to-chip (logging + chipping, before haul)",
+      "method_tags": [
+        "fuels_thin",
+        "working_forest_matrix"
+      ],
+      "unit": "USD_per_BDT",
+      "low": 33,
+      "mid": 33,
+      "high": 33,
+      "confidence": "B",
+      "year_context": "TCSI: \\ log + \\ chip",
+      "source": "MB&G TCSI Phase 1",
+      "notes": "Tops from sawtimber: no extra logging cost in study; small/dead trees incur \\/BDT logging."
+    },
+    {
       "id": "logging_system_stumpage_penalty_skyline",
       "label": "CDTFA skyline vs tractor — tax IHV deduction (proxy for higher yard cost)",
-      "method_tags": ["all_partial_cut_steep", "working_forest_matrix"],
+      "method_tags": [
+        "all_partial_cut_steep",
+        "working_forest_matrix"
+      ],
       "unit": "USD_per_MBF",
       "low": 100,
       "mid": 100,
@@ -161,7 +342,9 @@
     {
       "id": "logging_system_stumpage_penalty_helicopter",
       "label": "CDTFA helicopter vs tractor — tax IHV deduction",
-      "method_tags": ["helicopter"],
+      "method_tags": [
+        "helicopter"
+      ],
       "unit": "USD_per_MBF",
       "low": 350,
       "mid": 350,
@@ -172,9 +355,26 @@
       "notes": null
     },
     {
+      "id": "owner_residual_stumpage_sawlog",
+      "label": "Illustrative residual stumpage (delivered − log − haul) before regen",
+      "method_tags": [
+        "all"
+      ],
+      "unit": "USD_per_MBF",
+      "low": 154.0,
+      "mid": 209.0,
+      "high": 234.0,
+      "confidence": "B",
+      "year_context": "Derived from TCSI delivered + logging + example haul",
+      "source": "Derived: TCSI Tables 13–14 + haul params",
+      "notes": "Low=4 MBF/ac thin tractor; mid=12 MBF/ac thin; high=30 MBF/ac heavy. NOT owner net after plant/spray/overhead. Cable thins can go near zero/negative."
+    },
+    {
       "id": "herbicide_release_chemical",
       "label": "Broadcast herbicide site-prep / release (chemical free-to-grow)",
-      "method_tags": ["clearcut_plant_chemical"],
+      "method_tags": [
+        "clearcut_plant_chemical"
+      ],
       "unit": "USD_per_acre",
       "low": null,
       "mid": null,
@@ -187,7 +387,10 @@
     {
       "id": "manual_mechanical_release",
       "label": "Manual / mechanical release (no broadcast herbicide)",
-      "method_tags": ["clearcut_plant_mechanical", "working_forest_matrix"],
+      "method_tags": [
+        "clearcut_plant_mechanical",
+        "working_forest_matrix"
+      ],
       "unit": "USD_per_acre",
       "low": null,
       "mid": null,
@@ -200,7 +403,11 @@
     {
       "id": "plant_seedlings",
       "label": "Planting (seedlings + plant labor)",
-      "method_tags": ["clearcut_plant_chemical", "clearcut_plant_mechanical", "burn_reforest"],
+      "method_tags": [
+        "clearcut_plant_chemical",
+        "clearcut_plant_mechanical",
+        "burn_reforest"
+      ],
       "unit": "USD_per_acre",
       "low": null,
       "mid": null,
@@ -211,48 +418,11 @@
       "notes": "GAP: density (TPA), species, and access drive cost. Post-fire units differ from green clearcut."
     },
     {
-      "id": "clearcut_logging_per_mbf",
-      "label": "Clearcut / high-volume regen harvest logging cost",
-      "method_tags": ["clearcut_plant_chemical", "clearcut_plant_mechanical"],
-      "unit": "USD_per_MBF",
-      "low": null,
-      "mid": null,
-      "high": null,
-      "confidence": "D",
-      "year_context": null,
-      "source": null,
-      "notes": "GAP: local LTO rates. Generally lower $/MBF than partial cut at same site."
-    },
-    {
-      "id": "partial_cut_logging_per_mbf",
-      "label": "Partial cut / commercial thin logging cost",
-      "method_tags": ["commercial_thin", "working_forest_matrix"],
-      "unit": "USD_per_MBF",
-      "low": null,
-      "mid": null,
-      "high": null,
-      "confidence": "D",
-      "year_context": null,
-      "source": null,
-      "notes": "GAP: local LTO rates. Often higher $/MBF; more acres can still raise total logger revenue."
-    },
-    {
-      "id": "mill_delivered_log_price",
-      "label": "Mill-delivered log price by sort (pond value)",
-      "method_tags": ["all"],
-      "unit": "USD_per_MBF",
-      "low": null,
-      "mid": null,
-      "high": null,
-      "confidence": "D",
-      "year_context": null,
-      "source": null,
-      "notes": "GAP: mill quotes. CDTFA IHV is tax value, not delivered log price."
-    },
-    {
       "id": "owner_net_per_acre",
       "label": "Net revenue to landowner after logging, haul, regen, release",
-      "method_tags": ["all"],
+      "method_tags": [
+        "all"
+      ],
       "unit": "USD_per_acre",
       "low": null,
       "mid": null,
@@ -269,11 +439,12 @@
       "name": "Clearcut / regen harvest → plant → broadcast chemical release",
       "status_quo": true,
       "spraymapca_link": "Primary driver of mapped forestry herbicides (glyphosate, hexazinone, imazapyr)",
-      "cost_completeness": "partial",
+      "cost_completeness": "partial_harvest_chain_regen_gap",
       "known": [
-        "Produces high MBF/ac at entry when volume is there",
-        "Chemical release typically cheapest path to free-to-grow (absolute $/ac still D)",
-        "Plumas private harvest MBF known at county scale (not by silvicultural method)"
+        "Heavy removal stump-to-truck ~\\–\\/MBF tractor at 20–40+ MBF/ac (TCSI B)",
+        "Higher residual \\$/ac on harvest entry before regen costs",
+        "Plant + chemical release \\$/ac still GAP — critical missing layer",
+        "Plumas county MBF known; method share unknown"
       ],
       "unknown": [
         "Local logging $/MBF",
@@ -294,8 +465,8 @@
       "spraymapca_link": "Would cut mapped spray if substituted at scale",
       "cost_completeness": "gap",
       "known": [
-        "Same harvest entry economics as chemical path until release step",
-        "Release step expected more expensive than chemical (magnitude D)"
+        "Same harvest chain as chemical path until release",
+        "Mechanical/manual release \\$/ac still GAP (expected higher than chemical)"
       ],
       "unknown": [
         "Release $/ac increment vs chemical",
@@ -310,16 +481,19 @@
       "name": "Working forest: VDT matrix + small gaps + multi-entry (no broadcast spray)",
       "status_quo": false,
       "spraymapca_link": "Designed for zero broadcast free-to-grow under Standard",
-      "cost_completeness": "partial",
+      "cost_completeness": "partial_wholesale_chain",
       "known": [
-        "Western thin ops roughly $307–$1,737/ac (B)",
-        "Partial-cut logging often higher $/MBF (signaled by CDTFA skyline/heli deductions)",
-        "Can return volume on shorter cycles; parity unproven for Plumas (T1)"
+        "TCSI: thin stump-to-truck often \\–\\/MBF tractor at 3–14 MBF/ac (B)",
+        "Delivered PP/WF ~\\/MBF regional study (B, ~2018)",
+        "Residual stumpage can be positive on tractor ground mid-volume thins; cable thins tighter",
+        "Western thin \\–\\,737/ac envelope (B)",
+        "Biomass often negative stumpage after chip+haul at \\/BDT delivered"
       ],
       "unknown": [
-        "Plumas thin MBF/ac and $/MBF",
-        "Owner NPV vs clearcut pulse",
-        "Mill sort acceptance for thin mix"
+        "2026 Plumas mill quotes",
+        "Plant/release N/A under Standard if natural regen holds",
+        "Owner full NPV vs clearcut pulse",
+        "CalTREES method split of county MBF"
       ],
       "loss_risks": [
         "If T1 fails: lower decade MBF (a real industrial loss)",
@@ -333,8 +507,9 @@
       "spraymapca_link": "May or may not include herbicide depending on project design",
       "cost_completeness": "partial",
       "known": [
-        "Full CA package often cited ~$2,000–$2,500/ac (B)",
-        "Thin subset may fall in Western $307–$1,737/ac band before pile burn"
+        "Full CA package often ~\\,000–\\,500/ac (B)",
+        "Biomass delivered \\/BDT; logging+chip \\/BDT before haul (TCSI B)",
+        "Haul distance often destroys biomass stumpage"
       ],
       "unknown": [
         "Plumas NF unit-level actuals from FACTS + contracts"
@@ -360,55 +535,336 @@
     "rows": [
       {
         "method": "clearcut_plant_chemical",
-        "harvest_mbf_ac_entry": null,
-        "logging_usd_mbf": null,
-        "release_usd_ac": null,
-        "plant_usd_ac": null,
-        "ops_usd_ac_range": null,
-        "stumpage_or_ihv_usd_mbf": "See CDTFA Table G by species/TVA",
-        "owner_net_usd_ac": null,
+        "harvest_mbf_ac_entry": "often 20–40+ (study bands)",
+        "logging_usd_mbf": "90–110 tractor / 160–180 cable (TCSI B)",
+        "release_usd_ac": "GAP (D)",
+        "plant_usd_ac": "GAP (D)",
+        "ops_usd_ac_range": "logging* mbf/ac + plant + chem",
+        "stumpage_or_ihv_usd_mbf": "residual ~\\/MBF illus. before regen (PP \\ − \\ log − \\ haul)",
+        "owner_net_usd_ac": "GAP until plant+chem filled",
         "broadcast_herbicide": "yes (typical)"
       },
       {
         "method": "clearcut_plant_mechanical",
-        "harvest_mbf_ac_entry": null,
-        "logging_usd_mbf": null,
-        "release_usd_ac": null,
-        "plant_usd_ac": null,
-        "ops_usd_ac_range": null,
-        "stumpage_or_ihv_usd_mbf": "See CDTFA Table G by species/TVA",
-        "owner_net_usd_ac": null,
+        "harvest_mbf_ac_entry": "same as chemical path",
+        "logging_usd_mbf": "same as above",
+        "release_usd_ac": "GAP (D) — expected > chemical",
+        "plant_usd_ac": "GAP (D)",
+        "ops_usd_ac_range": "higher free-to-grow than chemical path",
+        "stumpage_or_ihv_usd_mbf": "same harvest residual",
+        "owner_net_usd_ac": "GAP",
         "broadcast_herbicide": "no"
       },
       {
         "method": "working_forest_matrix",
-        "harvest_mbf_ac_entry": null,
-        "logging_usd_mbf": null,
-        "release_usd_ac": null,
-        "plant_usd_ac": "often none",
-        "ops_usd_ac_range": "307–1737 (thin ops B, Western US)",
-        "stumpage_or_ihv_usd_mbf": "See CDTFA; low vol/ac deduction may apply",
-        "owner_net_usd_ac": null,
+        "harvest_mbf_ac_entry": "often 3–14 per entry",
+        "logging_usd_mbf": "125–180 tractor / 210–280 cable (TCSI B)",
+        "release_usd_ac": "0 under Standard if natural regen",
+        "plant_usd_ac": "0–spot plant only",
+        "ops_usd_ac_range": "307–1737 thin envelope (B) or MBF×logging",
+        "stumpage_or_ihv_usd_mbf": "residual ~\\–\\/MBF illus. tractor thin before overhead",
+        "owner_net_usd_ac": "illustrative residual×mbf/ac in worked_margins; full NPV still open",
         "broadcast_herbicide": "no under Standard"
       },
       {
         "method": "fuels_thin_public",
-        "harvest_mbf_ac_entry": null,
-        "logging_usd_mbf": null,
+        "harvest_mbf_ac_entry": "variable / small wood heavy",
+        "logging_usd_mbf": "see thin table; biomass \\/BDT",
         "release_usd_ac": "n/a or mechanical",
         "plant_usd_ac": "site-dependent",
-        "ops_usd_ac_range": "2000–2500 full package B (CA cite) or thin-only subset",
-        "stumpage_or_ihv_usd_mbf": "often low / stewardship; biomass IHV $0/ton",
+        "ops_usd_ac_range": "2000–2500 full package B or utilization offset",
+        "stumpage_or_ihv_usd_mbf": "biomass residual often negative after haul",
         "owner_net_usd_ac": "public cost center unless sold",
         "broadcast_herbicide": "project-dependent"
       }
     ]
   },
   "next_fills_priority": [
-    "Local LTO logging $/MBF clearcut vs thin (or anonymized bid ranges)",
-    "Plant + chemical release $/ac vs manual/mechanical release $/ac (industrial or CAL FIRE unit costs)",
+    "Live 2025–2026 mill gate log prices (Quincy/Lincoln/Anderson sorts) — replace TCSI ~2018 delivered table",
+    "Plant + chemical release \\$/ac vs manual/mechanical (industrial or CAL FIRE unit costs) — still D",
+    "Plumas-specific haul times to SPI Quincy vs Lincoln",
     "CalTREES harvest acres/volume by silvicultural method for Plumas",
-    "Mill delivered prices by sort (or public price reports)",
-    "USFS Plumas cut/sold and contract appraisal worksheets"
-  ]
+    "Random Lengths or mill lumber wholesale + conversion cost (mill margin layer)",
+    "USFS R5 LogCost/HaulCost sample appraisals for Plumas NF sales"
+  ],
+  "industry_layers": {
+    "note": "Value chain from stump to wholesale fiber. Stumpage residual = delivered price - stump-to-truck logging - haul (- chip for biomass).",
+    "equation": "Stumpage = DeliveredPrice - LoggingCost - HaulCost [- ChipCost for biomass]",
+    "layers": [
+      {
+        "id": "standing_stumpage_ihv",
+        "name": "Standing timber value (tax IHV / residual stumpage)",
+        "unit_primary": "USD_per_MBF",
+        "what_it_is": "What the tree is worth on the stump after logging and haul are paid — residual to landowner (or bid on public sales). CDTFA IHV is a tax schedule proxy, not every private contract.",
+        "data_refs": [
+          "stumpage_cdtfa_ihv",
+          "worked_margins"
+        ]
+      },
+      {
+        "id": "stump_to_truck",
+        "name": "Stump-to-truck logging (cut, yard, process, load)",
+        "unit_primary": "USD_per_MBF or USD_per_ton",
+        "what_it_is": "Logger / LTO production cost to put logs on a truck at the landing.",
+        "data_refs": [
+          "logging_sawtimber_tcsi_table",
+          "thin_stump_to_truck_chang"
+        ]
+      },
+      {
+        "id": "haul_to_mill",
+        "name": "Haul (landing to mill or biomass plant)",
+        "unit_primary": "USD_per_MBF or USD_per_BDT",
+        "what_it_is": "Truck cost; two-way time + load/unload. Dominates biomass economics at long distance.",
+        "data_refs": [
+          "haul_tcsi"
+        ]
+      },
+      {
+        "id": "delivered_log_wholesale",
+        "name": "Delivered log price (mill gate / pond value)",
+        "unit_primary": "USD_per_MBF",
+        "what_it_is": "What the mill pays for logs delivered — the wholesale wood fiber price for sawtimber sorts.",
+        "data_refs": [
+          "delivered_log_tcsi"
+        ]
+      },
+      {
+        "id": "biomass_chip_wholesale",
+        "name": "Biomass / chip delivered (plant gate)",
+        "unit_primary": "USD_per_BDT",
+        "what_it_is": "Delivered price for energy/chip fiber. Often too low to cover logging+chip+haul → negative biomass stumpage.",
+        "data_refs": [
+          "biomass_tcsi"
+        ]
+      },
+      {
+        "id": "mill_lumber_wholesale",
+        "name": "Mill output lumber wholesale",
+        "unit_primary": "USD_per_MBF_lumber",
+        "what_it_is": "Random Lengths-style lumber selling prices. Gap for live series in this ledger — mill margin = lumber - log - mill conversion.",
+        "data_refs": []
+      },
+      {
+        "id": "regen_release",
+        "name": "Reforestation & free-to-grow (plant + release)",
+        "unit_primary": "USD_per_acre",
+        "what_it_is": "Post-harvest costs that do not show in log wholesale but drive the clearcut+spray pathway economics.",
+        "data_refs": [
+          "plant_seedlings",
+          "herbicide_release_chemical",
+          "manual_mechanical_release"
+        ]
+      }
+    ]
+  },
+  "delivered_log_tcsi": {
+    "label": "Delivered log prices — Lake Tahoe / Central Sierra region (study assumptions)",
+    "source": "Mason, Bruce & Girard / TNC Tahoe-Central Sierra Initiative Phase 1 Restoration Wood Supply Assessment (Dec 2020), Table 13; prices from confidential contemporary log prices / French Meadows Project (TNC 2018)",
+    "source_url": "https://www.scienceforconservation.org/assets/downloads/MBG_Tahoe_Central_Sierra_Initiative_v6.pdf",
+    "confidence": "B",
+    "year_context": "Study published 2020; log prices referenced as contemporary ~2018 French Meadows / regional confidential",
+    "unit": "USD_per_MBF",
+    "notes": "Same $/MBF across SED classes in the published table (study simplification). Not a 2026 live quote; use as Sierra wholesale order-of-magnitude until mill interviews.",
+    "prices_usd_mbf": {
+      "Douglas-fir (DF)": 450,
+      "Incense-cedar (IC)": 550,
+      "Other pines (PN)": 400,
+      "Ponderosa pine (PP)": 400,
+      "Sugar pine (SP)": 400,
+      "White fir (WF)": 400
+    },
+    "biomass_usd_bdt": 40
+  },
+  "logging_sawtimber_tcsi_table": {
+    "label": "Sawtimber stump-to-truck logging cost by removal intensity and system (Sierra study)",
+    "source": "MB&G TCSI Phase 1 (2020) Table 14; MB&G regional data / French Meadows Project (Robert Galliano pers. comm.)",
+    "source_url": "https://www.scienceforconservation.org/assets/downloads/MBG_Tahoe_Central_Sierra_Initiative_v6.pdf",
+    "confidence": "B",
+    "year_context": "2020 study regional cost schedule",
+    "unit": "USD_per_MBF",
+    "notes": "Low volume/acre thins cost more per MBF. Cable always above tractor. Maps cleanly to Working Forest (often 3–14 MBF/ac) vs heavy regen harvest (20–40+ MBF/ac).",
+    "rows": [
+      {
+        "mbf_per_acre": "3-5",
+        "tractor": 180,
+        "cable": 280
+      },
+      {
+        "mbf_per_acre": "6-9",
+        "tractor": 150,
+        "cable": 250
+      },
+      {
+        "mbf_per_acre": "10-14",
+        "tractor": 125,
+        "cable": 210
+      },
+      {
+        "mbf_per_acre": "15-19",
+        "tractor": 110,
+        "cable": 190
+      },
+      {
+        "mbf_per_acre": "20-29",
+        "tractor": 100,
+        "cable": 180
+      },
+      {
+        "mbf_per_acre": "30-34",
+        "tractor": 100,
+        "cable": 170
+      },
+      {
+        "mbf_per_acre": "35-39",
+        "tractor": 90,
+        "cable": 170
+      },
+      {
+        "mbf_per_acre": "40+",
+        "tractor": 90,
+        "cable": 160
+      }
+    ]
+  },
+  "haul_tcsi": {
+    "label": "Haul cost parameters (Sierra study)",
+    "source": "MB&G TCSI Phase 1 (2020); Mason Bruce & Girard and The Beck Group High Hazard Fuel Availability Study 2019",
+    "source_url": "https://www.scienceforconservation.org/assets/downloads/MBG_Tahoe_Central_Sierra_Initiative_v6.pdf",
+    "confidence": "B",
+    "year_context": "2019–2020 assumptions",
+    "truck_usd_per_hour": 88,
+    "sawtimber_mbf_per_load": 4.97,
+    "biomass_bdt_per_chip_van": 12.5,
+    "idle_hours_load_unload": 0.75,
+    "notes": "Haul is two-way (empty return). $/MBF = (2 * one_way_hours + idle) * 88 / 4.97. Example: 1.5 hr one-way → (3+0.75)*88/4.97 ≈ \\/MBF.",
+    "example_haul_usd_mbf": {
+      "1hr_one_way": 49.0,
+      "1_5hr_one_way": 66.0,
+      "2hr_one_way": 84.0,
+      "3hr_one_way": 120.0
+    }
+  },
+  "biomass_tcsi": {
+    "label": "Biomass logging, chip, delivered price (Sierra study)",
+    "source": "MB&G TCSI Phase 1 (2020); High Hazard Fuel Study 2019",
+    "source_url": "https://www.scienceforconservation.org/assets/downloads/MBG_Tahoe_Central_Sierra_Initiative_v6.pdf",
+    "confidence": "B",
+    "delivered_usd_bdt": 40,
+    "logging_small_or_dead_usd_bdt": 13,
+    "chipping_usd_bdt": 20,
+    "notes": "Stumpage residual ≈ 40 - 13 - 20 - haul. Haul alone often exceeds residual → negative biomass stumpage (study found Rocklin haul distances generally too long for positive biomass stumpage at \\/BDT). CDTFA tax IHV for chips/biomass = \\/ton.",
+    "illustrative_stumpage_before_haul_usd_bdt": 7
+  },
+  "thin_stump_to_truck_chang": {
+    "label": "Western US thinning stump-to-truck by system (literature synthesis)",
+    "source": "Chang et al. 2023, Journal of Forestry — systematic review of Western US thinning costs",
+    "source_url": "https://doi.org/10.1093/jofore/fvac037",
+    "confidence": "B",
+    "year_context": "Review of 1980–2020 studies; costs in paper as reported (not all inflated to 2026)",
+    "unit_ton": "USD_per_green_ton",
+    "mechanized_whole_tree_mean_usd_ton": 21.34,
+    "mechanized_whole_tree_mean_usd_ha": 2075,
+    "mechanized_whole_tree_mean_usd_ac_approx": 840.0,
+    "highest_system_chainsaw_yarder_usd_ton": 47.1,
+    "notes": "Cheapest common system: feller-buncher + skidder + processor + loader ~\\/ton stump-to-truck. Cable systems exceed ~\\/ton. Complements TCSI \\$/MBF table (different units)."
+  },
+  "regional_mill_capacity_tcsi": {
+    "label": "Regional mill capacity near Sierra core (for offtake context)",
+    "source": "MB&G TCSI Phase 1 (2020) Table 9 — Beck Group capacity summary",
+    "source_url": "https://www.scienceforconservation.org/assets/downloads/MBG_Tahoe_Central_Sierra_Initiative_v6.pdf",
+    "confidence": "B",
+    "year_context": "As of study (~2019–2020); facilities change — verify current",
+    "notes": "SPI Quincy is the Plumas-adjacent sawmill. Capacities are study-era consumption estimates.",
+    "facilities": [
+      {
+        "name": "SPI Quincy",
+        "product": "Non-cedar sawmill",
+        "likely_mbf_yr": 122200,
+        "max_mbf_yr": 220000
+      },
+      {
+        "name": "SPI Lincoln",
+        "product": "Non-cedar sawmill",
+        "likely_mbf_yr": 150000,
+        "max_mbf_yr": 270000
+      },
+      {
+        "name": "SPI Oroville",
+        "product": "Cedar sawmill",
+        "likely_mbf_yr": 25700,
+        "max_mbf_yr": 90000
+      },
+      {
+        "name": "IHI Rio Bravo Rocklin",
+        "product": "Biomass power",
+        "likely_bdt_yr_forest": 100000,
+        "max_bdt_yr": 184000
+      }
+    ]
+  },
+  "worked_margins": {
+    "label": "Illustrative residual stumpage from wholesale chain (Sierra B-grade inputs)",
+    "confidence": "B",
+    "formula": "residual_usd_mbf = delivered - logging - haul",
+    "assumptions": {
+      "delivered_pp_usd_mbf": 400,
+      "haul_1_5hr_one_way_usd_mbf": 66.0,
+      "note": "Haul example uses TCSI truck rate and load size; actual Plumas-to-Quincy/Lincoln differs by road."
+    },
+    "cases": [
+      {
+        "id": "thin_low_vol_tractor",
+        "method": "working_forest_matrix",
+        "desc": "Commercial thin ~4 MBF/ac, tractor",
+        "mbf_per_ac": 4,
+        "logging_usd_mbf": 180,
+        "haul_usd_mbf": 66.0,
+        "delivered_usd_mbf": 400,
+        "residual_usd_mbf": 154.0,
+        "residual_usd_ac": 616.0,
+        "regen_release_usd_ac": 0,
+        "notes": "No plant/spray under Working Forest Standard if natural regen. Residual before roads/overhead/profit."
+      },
+      {
+        "id": "thin_mid_vol_tractor",
+        "method": "working_forest_matrix",
+        "desc": "Commercial thin ~12 MBF/ac, tractor",
+        "mbf_per_ac": 12,
+        "logging_usd_mbf": 125,
+        "haul_usd_mbf": 66.0,
+        "delivered_usd_mbf": 400,
+        "residual_usd_mbf": 209.0,
+        "residual_usd_ac": 2508.0,
+        "regen_release_usd_ac": 0,
+        "notes": "Higher residual/ac than low-volume thin — still not a full owner P&L."
+      },
+      {
+        "id": "heavy_regen_tractor",
+        "method": "clearcut_plant_chemical",
+        "desc": "Heavy removal ~30 MBF/ac, tractor (pre plant+spray)",
+        "mbf_per_ac": 30,
+        "logging_usd_mbf": 100,
+        "haul_usd_mbf": 66.0,
+        "delivered_usd_mbf": 400,
+        "residual_usd_mbf": 234.0,
+        "residual_usd_ac": 7020.0,
+        "regen_release_usd_ac": null,
+        "notes": "Harvest residual higher per acre; plant+chemical release still GAP so net after free-to-grow unknown."
+      },
+      {
+        "id": "thin_cable_steep",
+        "method": "working_forest_matrix",
+        "desc": "Thin ~8 MBF/ac, cable/skyline",
+        "mbf_per_ac": 8,
+        "logging_usd_mbf": 250,
+        "haul_usd_mbf": 66.0,
+        "delivered_usd_mbf": 400,
+        "residual_usd_mbf": 84.0,
+        "residual_usd_ac": 672.0,
+        "regen_release_usd_ac": 0,
+        "notes": "Cable thins can approach zero residual stumpage at these wholesale prices — economics fail without cost-share or higher log prices."
+      }
+    ]
+  }
 }

@@ -92,3 +92,8 @@ DB password **only** in `C:/Users/ryanv/.pg_dburl` — never commit or echo. Onl
 - Site Working Forests tab section **Costs & losses** loads that JSON (`loadWfCosts`).
 - Concurrent fills: `program/data/INTAKE.md`; validate with `python program/tools/cost_ledger.py --json-check`.
 - Do not invent dollars; other instances may be filling PUR/operator data in parallel — stay off their lanes.
+
+## Wholesale chain fill (2026-08-02 cont.)
+- Filled stump-to-truck, delivered log, haul, biomass, residual stumpage worked examples from TCSI/MB&G Sierra study (B) + Chang thinning synthesis.
+- Still D: plant, chemical release, manual release, full owner net, live 2026 mill quotes, lumber wholesale.
+- Gaps closed: 5 A/B lines -> 12 A/B lines in cost ledger.
