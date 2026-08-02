@@ -1,0 +1,28 @@
+TO: troberts@cityofportola.com
+SUBJECT: Records request - City of Portola water-quality monitoring data (Plumas transparency project)
+CHANNEL: Email draft (spraymapca@gmail.com)
+SCOPE: Portola drinking water + wastewater
+
+--- paste body below ---
+
+Dear City of Portola Public Works team,
+
+I work with the Plumas Grassroots Collective on spraymapca.org, a public, noncommercial map of pesticide use and water data for Plumas County and the Northern Sierra. We are compiling the water-quality monitoring that happens across the county so residents can see it in one place.
+
+1) Records request - what you already monitor.
+Under the California Public Records Act (Gov. Code section 7920.000 et seq.), please provide copies of routine water-quality monitoring records for January 1, 2018 to the present, including:
+   - source-water and finished drinking-water sampling results (and any raw-water, spring, or well results);
+   - any receiving-water or wastewater-effluent monitoring the district conducts;
+   - the list of your sampling sites/stations with their locations (street address, latitude/longitude, or a map).
+Electronic, machine-readable formats (CSV or Excel), or a link to where the results are posted, are ideal.
+
+2) A forward-looking question - herbicide testing.
+We have confirmed, from the Central Valley Water Board's own records, that monitoring in these watersheds does not currently test for the forestry herbicides being applied upstream - hexazinone, imazapyr, glyphosate, aminopyralid and others, several of which are water-mobile and go onto watersheds above community water sources. We are not asking you to change any operations; we would simply encourage adding these analytes to future sampling where feasible, and we will gladly feature any system that does.
+
+This serves the public interest in transparency and is not for commercial use. Please advise of any direct-cost fees before they exceed $25, and let us know the expected response date.
+
+Thank you,
+Ryan Vukich
+Plumas Grassroots Collective / SprayMap California
+spraymapca@gmail.com
+https://www.spraymapca.org/

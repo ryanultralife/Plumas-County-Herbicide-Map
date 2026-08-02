@@ -1,0 +1,25 @@
+TO: ddw-countyengagement@waterboards.ca.gov
+SUBJECT: Records request - public water system monitoring data for Plumas County (DDW District 62)
+CHANNEL: Email draft (spraymapca@gmail.com)
+SCOPE: Aggregator - all public water systems
+
+--- paste body below ---
+
+Dear Division of Drinking Water (County Engagement Unit / District 62),
+
+I work with the Plumas Grassroots Collective on spraymapca.org, a public, noncommercial map of pesticide use and water data for Plumas County and the Northern Sierra. We are compiling the water-quality monitoring that happens across the county so residents can see it in one place.
+
+1) Records request - what you already monitor.
+Under the California Public Records Act (Gov. Code section 7920.000 et seq.), please provide copies of the compliance and source-water monitoring data your Division holds for all public water systems in Plumas County for January 1, 2018 to the present - or a pointer to the corresponding SDWIS / Drinking Water Watch export - together with the list of systems and their source and sampling-point locations.
+Electronic, machine-readable formats (CSV or Excel), or a link to where the results are posted, are ideal.
+
+2) A forward-looking question - herbicide testing.
+None of this monitoring currently screens for the forestry herbicides applied across these watersheds (hexazinone, imazapyr, glyphosate, aminopyralid and others), several of which are water-mobile. We would encourage the Division to consider whether source-water assessments and monitoring for affected systems should include these analytes.
+
+This serves the public interest in transparency and is not for commercial use. Please advise of any direct-cost fees before they exceed $25, and let us know the expected response date.
+
+Thank you,
+Ryan Vukich
+Plumas Grassroots Collective / SprayMap California
+spraymapca@gmail.com
+https://www.spraymapca.org/
