@@ -3,6 +3,11 @@
 Purpose: upgrade plant / herbicide / logging line items from practice bands (C) to contract-grade (A/B) without inventing numbers.  
 **Do not send without human approval** (project rule).
 
+**Ready-to-paste outbox (for Claude Chrome → spraymapca@gmail.com):**  
+`records-requests/outbox/working-forests-2026-08/` (README + three body files).
+
+**Gmail MCP cannot do this:** bound to `ryan@mechanical-battery.com`, not spraymapca.
+
 ---
 
 ## DRAFT A — USFS Region 5 FOIA (Plumas NF reforestation & pesticide unit costs)

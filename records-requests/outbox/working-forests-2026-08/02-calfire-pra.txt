@@ -1,0 +1,36 @@
+CHANNEL: CAL FIRE GovQA portal (preferred) — https://calfire.govqa.us/WEBAPP/_rs/SupportHome.aspx
+ALSO: mail to CAL FIRE Legal Office, PO Box 944246, Sacramento, CA 94244-2460 if portal unavailable
+SUBJECT / REQUEST TITLE: PRA — reforestation and vegetation treatment unit costs; CalTREES harvest-by-method export (Plumas / Northern Sierra)
+
+REQUESTER EMAIL: spraymapca@gmail.com
+REQUESTER NAME: Ryan Vukich / Plumas Grassroots Collective
+
+--- paste request text below ---
+
+Dear CAL FIRE Public Records / Custodian of Records,
+
+Under the California Public Records Act (Gov. Code § 7920 et seq.), I request copies of the following records. Electronic, machine-readable formats (CSV, Excel, or searchable PDF) are preferred.
+
+1. Any compiled unit-cost schedules, bid abstracts, grant reporting tables, or project cost summaries held by CAL FIRE for Forest Health, reforestation, post-fire recovery, or similar programs that show unit costs ($/acre or $/tree) for:
+   - planting / seedling establishment
+   - site preparation
+   - herbicide release / free-to-grow chemical treatments
+   - manual or mechanical release / brushing
+   - mastication or related vegetation control
+   Prefer Northern Sierra or statewide figures for calendar years 2018 through the most recent available.
+
+2. A machine-readable export from CalTREES (or successor timber harvest tracking systems) of Timber Harvest Plans, Notices of Timber Operations, Exemptions, and Emergency Notices for Plumas County for January 1, 2018 to the present, including to the extent stored: plan/notice identifier, silvicultural method or harvest type, acres, volume, year, and operator/landowner fields that are public.
+
+3. If a full CalTREES export for Plumas is not feasible in one file, the same fields for the five Northern Sierra counties: Plumas, Butte, Sierra, Lassen, and Tehama, 2018–present.
+
+4. Any public guidance, average cost tables, or internal references used in Forest Practice review that address free-to-grow or vegetation-control cost assumptions (non-privileged).
+
+These records will be used for noncommercial public transparency on spraymapca.org (Plumas Working Forests cost ledger). Please advise of any direct-cost fees before they exceed $25, and provide the expected response date.
+
+Contact:
+Ryan Vukich
+Plumas Grassroots Collective / SprayMap California
+spraymapca@gmail.com
+https://www.spraymapca.org/
+
+Thank you.

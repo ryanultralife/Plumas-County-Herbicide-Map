@@ -1,0 +1,41 @@
+TO: SM.FS.R5FOIA@usda.gov
+SUBJECT: FOIA Request — Plumas National Forest reforestation, vegetation management, pesticide, and timber appraisal cost records, 2020–present
+
+--- paste body below ---
+
+To the Region 5 FOIA Officer,
+
+Under the Freedom of Information Act, 5 U.S.C. § 552, I request electronic copies of the following records concerning the Plumas National Forest (all ranger districts) for the period January 1, 2020 to the present:
+
+1. All Pesticide-Use Proposals (Form FS-2100-2 / "PUP") approved, submitted, or implemented for the Plumas National Forest, including active ingredient(s), product name/EPA registration number, target pest, treatment acreage, application method, total quantity applied, and treatment location.
+
+2. Any annual or periodic pesticide/herbicide use reports or summaries compiled at the Forest or Region 5 level that include Plumas National Forest applications (e.g., active-ingredient totals and acres treated by year).
+
+3. Contract line-item costs, bid abstracts, award documents, or invoice summaries for reforestation and vegetation-management services on the Plumas National Forest, including unit prices ($/acre or $/tree) where held for:
+   - planting / seedling establishment
+   - site preparation
+   - chemical release / free-to-grow herbicide treatments
+   - manual or mechanical release / brushing
+   - mastication or related vegetation control
+
+4. Timber sale appraisal worksheets, R5 LogCost exports, R5 HaulCost exports, or equivalent records for Plumas National Forest timber sales sufficient to show stump-to-truck logging cost and haul cost assumptions used in advertised rates (by species/product where available).
+
+5. Stewardship IRTC/IRSC or similar project cost tables that separately list service work (thin, pile, burn, plant, spray) versus timber value, for projects on or primarily affecting the Plumas National Forest.
+
+6. Any treatment maps, GIS files, or shapefiles of treatment units associated with items 1–3 above.
+
+Please provide records in electronic format (searchable PDF, spreadsheet, native file, or shapefile/GeoJSON) where available.
+
+I request a fee waiver because disclosure is in the public interest and not for commercial use. The records will be used to publish transparent, noncommercial cost and chemical-use information for rural communities on spraymapca.org (Plumas Grassroots Collective). If the fee-waiver request is denied, please notify me before incurring costs exceeding $25.
+
+Requester:
+Plumas Grassroots Collective / SprayMap California
+Email: spraymapca@gmail.com
+Website: https://www.spraymapca.org/
+
+Please confirm receipt and the assigned tracking number. Thank you.
+
+Sincerely,
+Ryan Vukich
+for Plumas Grassroots Collective
+spraymapca@gmail.com
