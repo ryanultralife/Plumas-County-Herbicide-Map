@@ -49,7 +49,8 @@ COUNTY_CODE = {"Plumas": "32", "Monterey": "27", "Kern": "15", "Stanislaus": "50
                "Santa Barbara": "42", "Fresno": "10", "San Diego": "37", "Napa": "28",
                "Colusa": "06", "Santa Cruz": "44", "Yolo": "57", "Merced": "24",
                "Kings": "16", "Sutter": "51", "Madera": "20", "Tulare": "54",
-               "Imperial": "13"}
+               "Imperial": "13", "Santa Clara": "43", "San Bernardino": "36",
+               "Sonoma": "49"}
 
 def _prio(permnum, county):
     code = COUNTY_CODE.get(county)

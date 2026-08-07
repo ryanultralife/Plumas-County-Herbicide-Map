@@ -2,8 +2,8 @@
  "generated": null,
  "statewide": {
   "apps": 9946192,
-  "named": 7563011,
-  "pct": 76.0,
+  "named": 7739140,
+  "pct": 77.8,
   "public_counties": [
    "Colusa",
    "Contra Costa",
@@ -181,8 +181,8 @@
   },
   "Mendocino": {
    "apps": 26203,
-   "named": 1275,
-   "pct": 4.9,
+   "named": 1322,
+   "pct": 5.0,
    "region": "north-coast",
    "access": "request"
   },
@@ -216,7 +216,7 @@
   },
   "Napa": {
    "apps": 171714,
-   "named": 170510,
+   "named": 170539,
    "pct": 99.3,
    "region": "bay-area",
    "access": "download"
@@ -230,14 +230,14 @@
   },
   "Orange": {
    "apps": 10657,
-   "named": 3734,
-   "pct": 35.0,
+   "named": 3772,
+   "pct": 35.4,
    "region": "southern-california",
    "access": "request"
   },
   "Placer": {
    "apps": 9567,
-   "named": 475,
+   "named": 483,
    "pct": 5.0,
    "region": "central-sierra",
    "access": "request"
@@ -265,15 +265,15 @@
   },
   "San Benito": {
    "apps": 175988,
-   "named": 16843,
-   "pct": 9.6,
+   "named": 17651,
+   "pct": 10.0,
    "region": "bay-area",
    "access": "request"
   },
   "San Bernardino": {
    "apps": 18769,
-   "named": 0,
-   "pct": 0.0,
+   "named": 18625,
+   "pct": 99.2,
    "region": "southern-california",
    "access": "request"
   },
@@ -321,8 +321,8 @@
   },
   "Santa Clara": {
    "apps": 85959,
-   "named": 111,
-   "pct": 0.1,
+   "named": 79386,
+   "pct": 92.4,
    "region": "bay-area",
    "access": "request"
   },
@@ -356,15 +356,15 @@
   },
   "Solano": {
    "apps": 75097,
-   "named": 14265,
-   "pct": 19.0,
+   "named": 14334,
+   "pct": 19.1,
    "region": "sacramento-valley",
    "access": "request"
   },
   "Sonoma": {
    "apps": 189106,
-   "named": 7422,
-   "pct": 3.9,
+   "named": 84652,
+   "pct": 44.8,
    "region": "bay-area",
    "access": "request"
   },
