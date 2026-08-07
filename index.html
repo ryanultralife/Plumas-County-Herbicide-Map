@@ -1292,16 +1292,16 @@ function renderLedger(d){
 
 /* ===== Donate feature (added) ===== */
 window.DONATE_CONFIG = {
-  comingSoon: true,   /* online card giving not live yet. Flip to false once a platform URL is set (per-project url, or a campaign url below used with a designation). */
+  comingSoon: false,   /* online card giving not live yet. Flip to false once a platform URL is set (per-project url, or a campaign url below used with a designation). */
   platform: 'givebutter',
   givebutterCampaignUrl: '',
   donorboxUrl: '',
   title: 'Support Plumas Grassroots Collective',
   blurb: 'Choose the project your gift supports. Every dollar in and every bill out is listed, with its receipt, on the Transparency tab.',
   projects: [
-    {id:'spraymap', name:'SprayMap California', desc:'Keep the public pesticide map and records work running — hosting, data, and CPRA/FOIA requests.', url:''},
-    {id:'water',    name:'Water testing',       desc:'Independent testing of local water for the herbicides no agency currently screens for.', url:''},
-    {id:'grazing',  name:'Goat grazing',        desc:'Back the Genesee Valley goat fuel-reduction pilot — pesticide-free brush and fire-fuel control.', url:''}
+    {id:'spraymap', name:'SprayMap California', desc:'Keep the public pesticide map and records work running — hosting, data, and CPRA/FOIA requests.', url:'https://www.paypal.com/donate/?hosted_button_id=9Y4PFVUKA8ECJ'},
+    {id:'water',    name:'Water testing',       desc:'Independent testing of local water for the herbicides no agency currently screens for.', url:'https://www.paypal.com/donate/?hosted_button_id=933QFJD3Q4PZL'},
+    {id:'grazing',  name:'Goat grazing',        desc:'Back the Genesee Valley goat fuel-reduction pilot — pesticide-free brush and fire-fuel control.', url:'https://www.paypal.com/donate/?hosted_button_id=DVX547VFHJXJW'}
   ]
 };
 (function(){
