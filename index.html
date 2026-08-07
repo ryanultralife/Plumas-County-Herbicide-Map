@@ -238,7 +238,7 @@ td:first-child,th:first-child{text-align:left}tr.tot td{font-weight:bold;backgro
 <h3>The honest trade-offs</h3>
 <p>Grazing is a tool, not a silver bullet. It needs <b>water, herding, fencing and predator protection</b>, works best in <b>repeat passes over a few seasons</b>, and is limited by terrain, access and scale. <b>Timing and species matter</b>: goats will browse conifer seedlings too, so grazing is aimed before planting or with the herd managed to hit the brush, not the crop trees. Per-acre cost is site-specific and competitive with mechanical or manual release once the <b>co-benefits</b> are counted &mdash; no chemical load on a watershed of wells and springs, plus nutrient cycling and community acceptance.</p>
 <p class="note" style="border-left:3px solid #3fae5a;padding-left:10px">
-<b>Local pilot &amp; fundraiser.</b> The Plumas Grassroots Collective is standing up a <b>goat fuel-reduction pilot in Genesee Valley</b> &mdash; roughly <b>100 acres</b> grazed by <b>Brush Busters</b> as an alternative to herbicides and heavy equipment (budget about <b>$75,000, ~$750/acre</b> &mdash; real local numbers the pilot is built to produce). Come support it at the fundraiser <b>Saturday, August&nbsp;8, at the Rich Bar Taproom in Quincy</b>. Questions or sponsorship: <a href="mailto:spraymapca@gmail.com">spraymapca@gmail.com</a>.</p>
+<b>An aligned local effort you can back.</b> A community <b>goat fuel-reduction pilot in Genesee Valley</b> &mdash; roughly <b>100 acres</b> grazed by <b>Brush Busters</b> as an alternative to herbicides and heavy equipment (about <b>$75,000, ~$750/acre</b>) &mdash; is exactly the pesticide-free work this page describes. We&rsquo;re not running the pilot; we&rsquo;re amplifying an aligned local voice and helping raise for it. Support it at the fundraiser <b>Saturday, August&nbsp;8 at the Rich Bar Taproom in Quincy</b>, or through our <b>Donate</b> button (choose &ldquo;Goat grazing&rdquo;).</p>
 </div>
 <div class="card sci">
 <h2>Voluntary pilots</h2>
@@ -1292,14 +1292,17 @@ function renderLedger(d){
 
 /* ===== Donate feature (added) ===== */
 window.DONATE_CONFIG = {
-  comingSoon: true,   /* donations not open yet — days away. Flip to false once a platform below is set. */
+  comingSoon: true,   /* online card giving not live yet. Flip to false once a platform URL is set (per-project url, or a campaign url below used with a designation). */
   platform: 'givebutter',
   givebutterCampaignUrl: '',
-  givebutterAccount: '',
-  givebutterWidgetId: '',
   donorboxUrl: '',
   title: 'Support Plumas Grassroots Collective',
-  blurb: 'Donations will fund independent water-quality testing and this public transparency map for Plumas County.'
+  blurb: 'Choose the project your gift supports. Every dollar in and every bill out is listed, with its receipt, on the Transparency tab.',
+  projects: [
+    {id:'spraymap', name:'SprayMap California', desc:'Keep the public pesticide map and records work running — hosting, data, and CPRA/FOIA requests.', url:''},
+    {id:'water',    name:'Water testing',       desc:'Independent testing of local water for the herbicides no agency currently screens for.', url:''},
+    {id:'grazing',  name:'Goat grazing',        desc:'Back the Genesee Valley goat fuel-reduction pilot — pesticide-free brush and fire-fuel control.', url:''}
+  ]
 };
 (function(){
   var C = window.DONATE_CONFIG;
@@ -1317,7 +1320,7 @@ window.DONATE_CONFIG = {
       '<h2 id="donateTitle"></h2>' +
       '<p id="donateBlurb"></p>' +
       '<div id="donateBody"></div>' +
-      '<p id="donateFoot">Secure donation processing. You will receive a tax receipt by email.</p>' +
+      '<p id="donateFoot">Plumas Grassroots Collective is a registered California nonprofit. Every gift and expense is posted on the Transparency tab.</p>' +
     '</div>';
   document.body.appendChild(overlay);
   overlay.addEventListener('click', function(e){ if(e.target===overlay) closeDonate(); });
@@ -1329,38 +1332,20 @@ window.DONATE_CONFIG = {
     document.getElementById('donateTitle').textContent = C.title;
     document.getElementById('donateBlurb').textContent = C.blurb;
     var _foot=document.getElementById('donateFoot');
-    if (C.comingSoon){
-      body.innerHTML='<div class="donateSetup" style="border-left-color:#2E5E3A"><b>Donations open soon.</b>'+
-        '<p>We&rsquo;re only days from launch. When giving goes live you&rsquo;ll be able to donate right here &mdash; and every dollar in and every bill out will be listed, with its receipt, on the <b>Transparency</b> tab.</p></div>'+'<div class="donateSetup" style="margin-top:10px"><b>Contact us.</b>'+'<p>Questions, a tip about spraying near you, or want to get involved? Email <a href="mailto:spraymapca@gmail.com?subject='+encodeURIComponent('SprayMap California — get involved')+'">spraymapca@gmail.com</a>.</p></div>';
-      if(_foot) _foot.style.display='none';
-      return;
-    }
+    var live = !C.comingSoon, plat=(C.givebutterCampaignUrl||C.donorboxUrl||'');
+    var h='<p style="margin:0 0 10px;font-size:13px;color:#555">Pick the project your gift supports:</p>';
+    (C.projects||[]).forEach(function(pr){
+      var act;
+      if(pr.url){ act='<a class="donateBtn" style="margin-top:8px;padding:10px" target="_blank" rel="noopener" href="'+pr.url+'">Give to '+pr.name+' &rarr;</a>'; }
+      else if(live && plat){ act='<a class="donateBtn" style="margin-top:8px;padding:10px" target="_blank" rel="noopener" href="'+plat+(plat.indexOf('?')<0?'?':'&')+'designation='+encodeURIComponent(pr.name)+'">Give to '+pr.name+' &rarr;</a>'; }
+      else { act='<a class="donateBtn" style="margin-top:8px;padding:10px;background:#3f7f4e" href="mailto:spraymapca@gmail.com?subject='+encodeURIComponent('Donation — '+pr.name)+'">Pledge / give to this project &rarr;</a>'; }
+      h+='<div style="border:1px solid #e2e6e2;border-radius:10px;padding:12px 14px;margin-bottom:10px">'+
+         '<div style="font:bold 15px Arial;color:#1d3f27">'+pr.name+'</div>'+
+         '<div style="font-size:12.5px;color:#555;margin:3px 0 2px">'+pr.desc+'</div>'+act+'</div>';
+    });
+    if(C.comingSoon){ h+='<p class="donateHint" style="text-align:center;margin-top:2px">Online card giving opens shortly &mdash; until then &ldquo;pledge / give&rdquo; reaches us and we&rsquo;ll arrange it, or write <a href="mailto:spraymapca@gmail.com">spraymapca@gmail.com</a>.</p>'; }
     if(_foot) _foot.style.display='';
-    if (C.platform === 'givebutter' && C.givebutterAccount && C.givebutterWidgetId){
-      if(!loaded){
-        var sc=document.createElement('script');
-        sc.src='https://widgets.givebutter.com/latest.umd.cjs?acct='+encodeURIComponent(C.givebutterAccount)+'&p=other';
-        sc.async=true; document.head.appendChild(sc); loaded=true;
-      }
-      body.innerHTML='<givebutter-widget id="'+C.givebutterWidgetId+'"></givebutter-widget>';
-      return;
-    }
-    if (C.platform === 'givebutter' && C.givebutterCampaignUrl){
-      body.innerHTML='<a class="donateBtn" target="_blank" rel="noopener" href="'+C.givebutterCampaignUrl+'">Donate securely &rarr;</a>';
-      return;
-    }
-    if (C.platform === 'donorbox' && C.donorboxUrl){
-      body.innerHTML='<iframe src="'+C.donorboxUrl+'" name="donorbox" allowpaymentrequest="allowpaymentrequest" seamless frameborder="0" scrolling="no" height="640" width="100%" style="max-width:100%;min-width:250px;max-height:none"></iframe>';
-      return;
-    }
-    body.innerHTML=
-      '<div class="donateSetup">' +
-        '<b>Donate button is ready &mdash; one step left.</b>' +
-        '<p>Create a free <a href="https://givebutter.com" target="_blank" rel="noopener">Givebutter</a> ' +
-        'account (or <a href="https://donorbox.org" target="_blank" rel="noopener">Donorbox</a>), then open ' +
-        '<code>index.html</code> and paste your campaign link into <code>DONATE_CONFIG</code> near the bottom of the file.</p>' +
-        '<p class="donateHint">Tip: in Givebutter, enable &ldquo;optional donor tips&rdquo; and &ldquo;let donors cover fees&rdquo; so the org keeps ~100% of each gift.</p>' +
-      '</div>';
+    body.innerHTML=h;
   }
   function openDonate(){ buildBody(); overlay.style.display='flex'; document.body.style.overflow='hidden'; }
   function closeDonate(){ overlay.style.display='none'; document.body.style.overflow=''; }
