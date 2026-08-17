@@ -1235,7 +1235,7 @@ function renderLedger(d){
   function pct(a){return spent>0?(100*a/spent).toFixed(1)+'%':'0.0%';}
   var h='';
   /* Who's behind the project — mission & vision (Plumas Grassroots Collective). */
-  h+='<div class="card" style="border-left:4px solid #2E5E3A">';
+  h+=(function(){var C=window.DONATE_CONFIG||{};var ps=C.projects||[];if(!ps.length)return '';var tot=ps.reduce(function(s,p){return s+(+p.raised||0);},0);var rows=ps.map(function(p){return '<div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid #eef1ee"><span>'+p.name+'</span><b>$'+(+p.raised||0)+'</b></div>';}).join('');return '<div class="card" style="border-left:4px solid #3f7fe0"><div class="ltitle">Donations received &mdash; by effort</div><div class="lsub">Real gifts to date, allocated to the effort each donor chose'+(C.raisedAsOf?' &middot; as of '+C.raisedAsOf:'')+' (via PayPal).</div>'+rows+'<div style="display:flex;justify-content:space-between;padding:9px 0 0;font-size:15px"><span><b>Total</b></span><b>$'+tot+'</b></div><p class="note" style="margin-top:8px">A manually updated snapshot from our PayPal donation pages; refreshed periodically. Per-gift receipts will appear in the ledger below as the accounting is published.</p></div>';})();h+='<div class="card" style="border-left:4px solid #2E5E3A">';
   h+='<div class="ltitle">Plumas Grassroots Collective</div>';
   h+='<div class="lsub">The community effort behind SprayMap California &mdash; a registered California nonprofit.</div>';
   h+='<p><b>Mission.</b> A community-based organization dedicated to promoting environmental stewardship, public health, civic engagement, and sustainable land management in Plumas County. Through education, research, collaboration, and community action, we work to empower residents to participate in decisions affecting the future of our forests, watersheds, wildlife, and communities.</p>';
@@ -1292,16 +1292,17 @@ function renderLedger(d){
 
 /* ===== Donate feature (added) ===== */
 window.DONATE_CONFIG = {
-  comingSoon: false,   /* online card giving not live yet. Flip to false once a platform URL is set (per-project url, or a campaign url below used with a designation). */
+  comingSoon: false,
+  raisedAsOf: 'Aug 17, 2026',   /* online card giving not live yet. Flip to false once a platform URL is set (per-project url, or a campaign url below used with a designation). */
   platform: 'givebutter',
   givebutterCampaignUrl: '',
   donorboxUrl: '',
   title: 'Support Plumas Grassroots Collective',
   blurb: 'Choose the project your gift supports. Every dollar in and every bill out is listed, with its receipt, on the Transparency tab.',
   projects: [
-    {id:'spraymap', name:'SprayMap California', desc:'Keep the public pesticide map and records work running — hosting, data, and CPRA/FOIA requests.', url:'https://www.paypal.com/donate/?hosted_button_id=9Y4PFVUKA8ECJ'},
-    {id:'water',    name:'Water testing',       desc:'Independent testing of local water for the herbicides no agency currently screens for.', url:'https://www.paypal.com/donate/?hosted_button_id=933QFJD3Q4PZL'},
-    {id:'grazing',  name:'Goat grazing',        desc:'Back the Genesee Valley goat fuel-reduction pilot — pesticide-free brush and fire-fuel control.', url:'https://www.paypal.com/donate/?hosted_button_id=DVX547VFHJXJW'}
+    {id:'spraymap', name:'SprayMap California', desc:'Keep the public pesticide map and records work running — hosting, data, and CPRA/FOIA requests.', url:'https://www.paypal.com/donate/?hosted_button_id=9Y4PFVUKA8ECJ', raised:0},
+    {id:'water',    name:'Water testing',       desc:'Independent testing of local water for the herbicides no agency currently screens for.', url:'https://www.paypal.com/donate/?hosted_button_id=933QFJD3Q4PZL', raised:5},
+    {id:'grazing',  name:'Goat grazing',        desc:'Back the Genesee Valley goat fuel-reduction pilot — pesticide-free brush and fire-fuel control.', url:'https://www.paypal.com/donate/?hosted_button_id=DVX547VFHJXJW', raised:0}
   ]
 };
 (function(){
@@ -1341,9 +1342,9 @@ window.DONATE_CONFIG = {
       else { act='<a class="donateBtn" style="margin-top:8px;padding:10px;background:#3f7f4e" href="mailto:spraymapca@gmail.com?subject='+encodeURIComponent('Donation — '+pr.name)+'">Pledge / give to this project &rarr;</a>'; }
       h+='<div style="border:1px solid #e2e6e2;border-radius:10px;padding:12px 14px;margin-bottom:10px">'+
          '<div style="font:bold 15px Arial;color:#1d3f27">'+pr.name+'</div>'+
-         '<div style="font-size:12.5px;color:#555;margin:3px 0 2px">'+pr.desc+'</div>'+act+'</div>';
+         '<div style="font-size:12.5px;color:#555;margin:3px 0 2px">'+pr.desc+'</div>'+'<div style="font-size:12px;color:#2E5E3A;font-weight:600;margin:2px 0 0">Raised so far: $'+(pr.raised||0)+'</div>'+act+'</div>';
     });
-    if(C.comingSoon){ h+='<p class="donateHint" style="text-align:center;margin-top:2px">Online card giving opens shortly &mdash; until then &ldquo;pledge / give&rdquo; reaches us and we&rsquo;ll arrange it, or write <a href="mailto:spraymapca@gmail.com">spraymapca@gmail.com</a>.</p>'; }
+    if(C.raisedAsOf){ var _tot=(C.projects||[]).reduce(function(s,p){return s+(+p.raised||0);},0); h+='<p class="donateHint" style="text-align:center;margin-top:2px">Raised to date: $'+_tot+' across all efforts &middot; as of '+C.raisedAsOf+' (via PayPal).</p>'; } if(C.comingSoon){ h+='<p class="donateHint" style="text-align:center;margin-top:2px">Online card giving opens shortly &mdash; until then &ldquo;pledge / give&rdquo; reaches us and we&rsquo;ll arrange it, or write <a href="mailto:spraymapca@gmail.com">spraymapca@gmail.com</a>.</p>'; }
     if(_foot) _foot.style.display='';
     body.innerHTML=h;
   }
