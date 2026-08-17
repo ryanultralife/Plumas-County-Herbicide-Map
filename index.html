@@ -1211,8 +1211,8 @@ function loadLedger(){
   if(_ledgerLoaded) return; _ledgerLoaded=true;
   fetch('data/ledger.json',{cache:'no-store'})
     .then(function(r){ if(!r.ok) throw 0; return r.json(); })
-    .then(function(d){ renderLedger(d); })
-    .catch(function(){ renderLedger(typeof LEDGER_SEED!=='undefined'?LEDGER_SEED:{}); });
+    .then(function(d){ window._ledgerData=d; renderLedger(d); if(window.refreshDonationTotals){try{window.refreshDonationTotals();}catch(e){}} })
+    .catch(function(){ var _s=(typeof LEDGER_SEED!=='undefined'?LEDGER_SEED:{}); window._ledgerData=_s; renderLedger(_s); if(window.refreshDonationTotals){try{window.refreshDonationTotals();}catch(e){}} });
 }
 function _money(n){ n=+n||0; return (n<0?'-$':'$')+Math.abs(n).toLocaleString(undefined,{minimumFractionDigits:2,maximumFractionDigits:2}); }
 function _m0(n){ n=+n||0; return (n<0?'-$':'$')+Math.abs(n).toLocaleString(undefined,{maximumFractionDigits:0}); }
@@ -1348,9 +1348,9 @@ window.DONATE_CONFIG = {
     if(_foot) _foot.style.display='';
     body.innerHTML=h;
   }
-  function openDonate(){ buildBody(); overlay.style.display='flex'; document.body.style.overflow='hidden'; }
+  function openDonate(){ buildBody(); if(window.refreshDonationTotals){try{window.refreshDonationTotals();}catch(e){}} overlay.style.display='flex'; document.body.style.overflow='hidden'; }
   function closeDonate(){ overlay.style.display='none'; document.body.style.overflow=''; }
-  window.openDonate=openDonate; window.closeDonate=closeDonate;
+  window.openDonate=openDonate; window.closeDonate=closeDonate; window._rebuildDonate=buildBody; window.refreshDonationTotals=function(){ try{ if(typeof SB_URL==='undefined'||typeof SB_KEY==='undefined')return; fetch(SB_URL+'/rest/v1/donation_totals?select=effort,gross,updated_at',{headers:{apikey:SB_KEY,Authorization:'Bearer '+SB_KEY}}).then(function(r){return r&&r.ok?r.json():null;}).then(function(rows){ if(!rows||!rows.length)return; var by={},mx=null; rows.forEach(function(x){ by[x.effort]=+x.gross||0; if(!mx||x.updated_at>mx)mx=x.updated_at; }); (C.projects||[]).forEach(function(p){ if(by[p.name]!=null)p.raised=by[p.name]; }); if(mx){ try{ C.raisedAsOf=new Date(mx).toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'}); }catch(e){} } C.raisedLive=true; try{ var ov=document.getElementById('donateOverlay'); if(ov&&ov.style.display==='flex')buildBody(); }catch(e){} try{ var lv=document.getElementById('ledgerview'); if(lv&&lv.style.display!=='none'&&typeof renderLedger==='function')renderLedger(window._ledgerData||{}); }catch(e){} }).catch(function(){}); }catch(e){} }; try{window.refreshDonationTotals();}catch(e){}
 })();
 
 </script>
