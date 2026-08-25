@@ -11,6 +11,10 @@
 //   PAYPAL_IPN_URL              live default; set to sandbox for testing
 //   PAYPAL_RECEIVER             expected receiver_email/business (guards spoofing)
 
+// Run on Vercel's Edge runtime: native Web Request/Response signature, so
+// request.text() gives the exact raw body PayPal IPN validation requires.
+export const config = { runtime: 'edge' };
+
 const SB_URL = process.env.SUPABASE_URL || 'https://aykhwsermojstiyrfcnv.supabase.co';
 const SERVICE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY || '';
 const IPN_VERIFY_URL = process.env.PAYPAL_IPN_URL || 'https://ipnpb.paypal.com/cgi-bin/webscr';

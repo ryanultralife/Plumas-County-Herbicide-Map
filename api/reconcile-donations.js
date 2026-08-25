@@ -13,6 +13,8 @@
 //   PAYPAL_CLIENT_ID / PAYPAL_CLIENT_SECRET   enable the PayPal backfill
 //   PAYPAL_API_BASE       defaults to live; set sandbox base to test
 
+export const config = { runtime: 'edge' };
+
 const SB_URL = process.env.SUPABASE_URL || 'https://aykhwsermojstiyrfcnv.supabase.co';
 const SERVICE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY || '';
 const CRON_SECRET = process.env.CRON_SECRET || '';
@@ -37,7 +39,7 @@ function effortFromName(nm) {
 }
 
 async function ppToken() {
-  const auth = Buffer.from(PP_ID + ':' + PP_SECRET).toString('base64');
+  const auth = btoa(PP_ID + ':' + PP_SECRET); // Edge runtime: no Buffer
   const r = await fetch(PP_BASE + '/v1/oauth2/token', {
     method: 'POST',
     headers: { Authorization: 'Basic ' + auth, 'Content-Type': 'application/x-www-form-urlencoded' },
