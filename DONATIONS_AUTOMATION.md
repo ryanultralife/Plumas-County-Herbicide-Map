@@ -62,9 +62,16 @@ Without this, the daily cron still runs and keeps totals consistent
 (baseline + logged events); it just won't discover a gift that never sent an IPN.
 
 ## Verify it's live
-1. Make a small real donation on the SprayMap page ($1), then refund it in PayPal.
+1. `GET https://spraymapca.org/api/paypal-ipn` must return `paypal-ipn: POST only`
+   immediately (not hang / 504). A dummy `POST` with form body must return
+   `IPN INVALID` (PayPal rejects unsigned traffic) — never `request.text is not a
+   function`. Those two failures were the live IPN outage: Vercel was treating the
+   default export as a Node `(req, res)` handler, so PayPal's POST crashed and
+   GET/cron hung until the 300s timeout. The functions now export a Web `fetch`
+   handler plus named `GET`/`POST`.
+2. Make a small real donation on the SprayMap page ($1), then refund it in PayPal.
    Within a few seconds the site totals should tick up; `donation_events` gets a row.
-2. Daily cron: Vercel → Deployments → the cron function's logs (runs 08:00 UTC),
+3. Daily cron: Vercel → Deployments → the cron function's logs (runs 08:00 UTC),
    or open `https://spraymapca.org/api/reconcile-donations` (returns JSON; needs the
    `CRON_SECRET` header if set).
 

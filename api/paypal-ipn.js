@@ -1,8 +1,12 @@
 // Real-time PayPal IPN listener.
 // PayPal POSTs here on each donation; we verify it, log the gift to Supabase
 // (donation_events), and recompute per-effort totals (donation_totals) that the
-// site reads live. Idempotent on txn_id. Web-standard (Request->Response) handler
-// on Vercel's Node runtime; uses only global fetch (no deps).
+// site reads live. Idempotent on txn_id.
+//
+// Vercel Node.js functions must use a Web fetch handler (or named HTTP method
+// exports). A default (req, res) function that returns `new Response()` is
+// ignored — POST then throws (`request.text is not a function`) and GET hangs
+// until the 300s timeout, so IPN never lands.
 //
 // Required env (set in Vercel, server-side only):
 //   SUPABASE_SERVICE_ROLE_KEY   Supabase service role key (bypasses RLS to write)
@@ -16,13 +20,11 @@ const SERVICE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY || '';
 const IPN_VERIFY_URL = process.env.PAYPAL_IPN_URL || 'https://ipnpb.paypal.com/cgi-bin/webscr';
 const EXPECTED_RECEIVER = (process.env.PAYPAL_RECEIVER || '').trim().toLowerCase();
 
-// Each donation page is a distinct hosted button. Map -> effort.
 const BUTTON_EFFORT = {
   '9Y4PFVUKA8ECJ': 'SprayMap California',
   '933QFJD3Q4PZL': 'Water testing',
   'DVX547VFHJXJW': 'Goat grazing',
 };
-// Fallback: match the item_name PayPal stamps (the internal project name).
 const NAME_EFFORT = [
   ['spraymap', 'SprayMap California'],
   ['water', 'Water testing'],
@@ -34,34 +36,51 @@ function resolveEffort(p) {
   if (bid && BUTTON_EFFORT[bid]) return { effort: BUTTON_EFFORT[bid], button_id: bid };
   const nm = (p.get('item_name') || p.get('item_name1') || '').toLowerCase();
   for (const [needle, eff] of NAME_EFFORT) if (nm.includes(needle)) return { effort: eff, button_id: bid };
-  return { effort: 'Unallocated', button_id: bid }; // never lose a gift; reallocate later
+  return { effort: 'Unallocated', button_id: bid };
 }
 
-export default async function handler(request) {
+function timeoutSignal(ms) {
+  if (typeof AbortSignal !== 'undefined' && typeof AbortSignal.timeout === 'function') {
+    return AbortSignal.timeout(ms);
+  }
+  const c = new AbortController();
+  setTimeout(() => c.abort(), ms);
+  return c.signal;
+}
+
+export const config = { maxDuration: 30 };
+
+async function handleIpn(request) {
   if (request.method !== 'POST') return new Response('paypal-ipn: POST only', { status: 200 });
 
-  const raw = await request.text(); // exact raw body (required for IPN validation)
+  const raw = await request.text();
 
-  // 1) Verify with PayPal: echo the body back verbatim, prefixed with cmd=_notify-validate.
   let verdict = 'INVALID';
   try {
     const vr = await fetch(IPN_VERIFY_URL, {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded', 'User-Agent': 'SprayMapCA-IPN/1.0' },
       body: 'cmd=_notify-validate&' + raw,
+      signal: timeoutSignal(15000),
     });
     verdict = (await vr.text()).trim();
   } catch (e) {
-    return new Response('verify error', { status: 500 }); // let PayPal retry
+    console.error('ipn verify error', e && e.message || e);
+    return new Response('verify error', { status: 500 });
   }
-  if (verdict !== 'VERIFIED') return new Response('IPN ' + verdict, { status: 200 });
+  if (verdict !== 'VERIFIED') {
+    console.warn('ipn not verified', verdict);
+    return new Response('IPN ' + verdict, { status: 200 });
+  }
 
   const p = new URLSearchParams(raw);
 
-  // 2) Optional anti-spoof: confirm the money is going to us.
   if (EXPECTED_RECEIVER) {
     const rcv = (p.get('receiver_email') || p.get('business') || '').toLowerCase();
-    if (rcv && rcv !== EXPECTED_RECEIVER) return new Response('receiver mismatch', { status: 200 });
+    if (rcv && rcv !== EXPECTED_RECEIVER) {
+      console.warn('ipn receiver mismatch', rcv);
+      return new Response('receiver mismatch', { status: 200 });
+    }
   }
 
   const txnId = p.get('txn_id');
@@ -80,14 +99,13 @@ export default async function handler(request) {
     fee,
     net: +(gross - fee).toFixed(2),
     currency: p.get('mc_currency') || 'USD',
-    status, // only 'Completed' rows are summed by recompute_donation_totals()
+    status,
     source: 'ipn',
-    raw: Object.fromEntries(p.entries()), // full payload: lets us confirm/fix attribution
+    raw: Object.fromEntries(p.entries()),
   };
 
   if (!SERVICE_KEY) return new Response('server not configured', { status: 500 });
 
-  // 3) Upsert the event (idempotent on txn_id; a resend just updates status).
   const ins = await fetch(SB_URL + '/rest/v1/donation_events', {
     method: 'POST',
     headers: {
@@ -97,18 +115,35 @@ export default async function handler(request) {
       Prefer: 'resolution=merge-duplicates',
     },
     body: JSON.stringify(row),
+    signal: timeoutSignal(10000),
   });
   if (!ins.ok) {
     const t = await ins.text().catch(() => '');
-    return new Response('store failed: ' + ins.status + ' ' + t.slice(0, 200), { status: 500 }); // PayPal will retry
+    console.error('ipn store failed', ins.status, t.slice(0, 200));
+    return new Response('store failed: ' + ins.status + ' ' + t.slice(0, 200), { status: 500 });
   }
 
-  // 4) Recompute totals = baseline + sum(Completed events).
   await fetch(SB_URL + '/rest/v1/rpc/recompute_donation_totals', {
     method: 'POST',
     headers: { apikey: SERVICE_KEY, Authorization: 'Bearer ' + SERVICE_KEY, 'Content-Type': 'application/json' },
     body: '{}',
-  });
+    signal: timeoutSignal(10000),
+  }).catch((e) => console.error('ipn recompute error', e && e.message || e));
 
+  console.log('ipn ok', txnId, status, effort, gross);
   return new Response('OK', { status: 200 });
 }
+
+export function GET() {
+  return new Response('paypal-ipn: POST only', { status: 200 });
+}
+
+export function POST(request) {
+  return handleIpn(request);
+}
+
+export default {
+  fetch(request) {
+    return handleIpn(request);
+  },
+};

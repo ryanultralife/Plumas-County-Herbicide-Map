@@ -4,6 +4,10 @@
 // via IPN (e.g. a webhook outage) by scanning the last ~31 days of transactions,
 // then recompute. Backfill is best-effort and never blocks the recompute.
 //
+// Must use a Web fetch handler / named HTTP method export. A default
+// (req, res) function that returns `new Response()` is ignored and the
+// cron then times out at 300s.
+//
 // Required env:
 //   SUPABASE_SERVICE_ROLE_KEY
 // Optional env:
@@ -20,11 +24,6 @@ const PP_BASE = process.env.PAYPAL_API_BASE || 'https://api-m.paypal.com';
 const PP_ID = process.env.PAYPAL_CLIENT_ID || '';
 const PP_SECRET = process.env.PAYPAL_CLIENT_SECRET || '';
 
-const BUTTON_EFFORT = {
-  '9Y4PFVUKA8ECJ': 'SprayMap California',
-  '933QFJD3Q4PZL': 'Water testing',
-  'DVX547VFHJXJW': 'Goat grazing',
-};
 const NAME_EFFORT = [
   ['spraymap', 'SprayMap California'],
   ['water', 'Water testing'],
@@ -36,19 +35,36 @@ function effortFromName(nm) {
   return 'Unallocated';
 }
 
+function timeoutSignal(ms) {
+  if (typeof AbortSignal !== 'undefined' && typeof AbortSignal.timeout === 'function') {
+    return AbortSignal.timeout(ms);
+  }
+  const c = new AbortController();
+  setTimeout(() => c.abort(), ms);
+  return c.signal;
+}
+
+function headerGet(request, name) {
+  const h = request && request.headers;
+  if (!h) return '';
+  if (typeof h.get === 'function') return h.get(name) || '';
+  return h[name] || h[name.toLowerCase()] || '';
+}
+
+export const config = { maxDuration: 30 };
+
 async function ppToken() {
   const auth = Buffer.from(PP_ID + ':' + PP_SECRET).toString('base64');
   const r = await fetch(PP_BASE + '/v1/oauth2/token', {
     method: 'POST',
     headers: { Authorization: 'Basic ' + auth, 'Content-Type': 'application/x-www-form-urlencoded' },
     body: 'grant_type=client_credentials',
+    signal: timeoutSignal(15000),
   });
   if (!r.ok) throw new Error('paypal token ' + r.status);
   return (await r.json()).access_token;
 }
 
-// Pull the last ~31 days of transactions and upsert any missing events (ignore-duplicates
-// so IPN-sourced rows stay authoritative). Returns how many rows were sent.
 async function backfillFromPayPal() {
   const token = await ppToken();
   const end = new Date();
@@ -61,6 +77,7 @@ async function backfillFromPayPal() {
   });
   const r = await fetch(PP_BASE + '/v1/reporting/transactions?' + qs.toString(), {
     headers: { Authorization: 'Bearer ' + token, 'Content-Type': 'application/json' },
+    signal: timeoutSignal(20000),
   });
   if (!r.ok) throw new Error('transaction search ' + r.status);
   const data = await r.json();
@@ -68,7 +85,7 @@ async function backfillFromPayPal() {
   const rows = [];
   for (const t of txns) {
     const info = t.transaction_info || {};
-    if (info.transaction_status !== 'S') continue; // S = success/completed
+    if (info.transaction_status !== 'S') continue;
     const items = (t.cart_info && t.cart_info.item_details) || [];
     const itemName = items.length ? items[0].item_name : '';
     const gross = parseFloat((info.transaction_amount && info.transaction_amount.value) || '0') || 0;
@@ -94,25 +111,28 @@ async function backfillFromPayPal() {
       apikey: SERVICE_KEY,
       Authorization: 'Bearer ' + SERVICE_KEY,
       'Content-Type': 'application/json',
-      Prefer: 'resolution=ignore-duplicates', // don't clobber IPN-sourced rows
+      Prefer: 'resolution=ignore-duplicates',
     },
     body: JSON.stringify(rows),
+    signal: timeoutSignal(10000),
   });
   if (!up.ok) throw new Error('event upsert ' + up.status);
   return rows.length;
 }
 
 async function recompute() {
-  await fetch(SB_URL + '/rest/v1/rpc/recompute_donation_totals', {
+  const r = await fetch(SB_URL + '/rest/v1/rpc/recompute_donation_totals', {
     method: 'POST',
     headers: { apikey: SERVICE_KEY, Authorization: 'Bearer ' + SERVICE_KEY, 'Content-Type': 'application/json' },
     body: '{}',
+    signal: timeoutSignal(10000),
   });
+  if (!r.ok) throw new Error('recompute ' + r.status);
 }
 
-export default async function handler(request) {
+async function handle(request) {
   if (CRON_SECRET) {
-    const auth = request.headers.get('authorization') || '';
+    const auth = headerGet(request, 'authorization');
     if (auth !== 'Bearer ' + CRON_SECRET) return new Response('Unauthorized', { status: 401 });
   }
   if (!SERVICE_KEY) return new Response('server not configured', { status: 500 });
@@ -120,7 +140,7 @@ export default async function handler(request) {
   let scanned = 0, ppError = null;
   if (PP_ID && PP_SECRET) {
     try { scanned = await backfillFromPayPal(); }
-    catch (e) { ppError = String(e && e.message || e); } // non-fatal
+    catch (e) { ppError = String(e && e.message || e); }
   }
   await recompute();
 
@@ -129,3 +149,17 @@ export default async function handler(request) {
     headers: { 'content-type': 'application/json' },
   });
 }
+
+export function GET(request) {
+  return handle(request);
+}
+
+export function POST(request) {
+  return handle(request);
+}
+
+export default {
+  fetch(request) {
+    return handle(request);
+  },
+};
