@@ -20,7 +20,7 @@ Connect: `source C:/Users/ryanv/.pg_dburl` (sets `$DBURL`; **secret — never ec
 | `public.operator_names` | **37,664** ids named. Statewide **76.0%** of mapped applications (Imperial 0.6%->100% via the Aug county roster). |
 | `public.section_ownership` (JSON, not a table) | `data/section_ownership.json` — 940 USFS / 228 inholding sections. |
 
-**Client cache key is `CELLS_KEY='map_agg:v9-plumas2026:...'`** — bump it in `index.html` whenever `map_agg`'s *data* changes, not just its columns (the built-in revalidation only compares row **count**, so a coordinate-only change can slip through).
+**Client cache key is `CELLS_KEY='map_agg:v10-adjuvants:...'`** — bump it in `index.html` whenever `map_agg`'s *data* changes, not just its columns (the built-in revalidation only compares row **count**, so a coordinate-only change can slip through).
 
 ## ⚠️ Hard-won gotchas — read before touching anything
 
