@@ -83,7 +83,7 @@ td:first-child,th:first-child{text-align:left}tr.tot td{font-weight:bold;backgro
 </style></head>
 <body>
 <div id="nav"><button id="bmap" class="active" onclick="show('map')">Map</button><button id="bdata" onclick="show('data')">Data &amp; Trends</button><button id="bsci" onclick="show('sci')">Herbicides &amp; Science</button><button id="bwork" onclick="show('work')">Working Forests</button><button id="braw" onclick="show('raw')">Source Data</button><button id="bled" onclick="show('ledger')">Transparency</button></div>
-<div id="scopebar"><span class="sl">Showing:</span><select id="scopeRegion" onchange="onScopeRegion(this.value)" aria-label="Region"><option value="">All California</option></select><select id="scopeCounty" onchange="onScopeCounty(this.value)" aria-label="County"><option value="">All counties</option></select><button type="button" onclick="onScopeRegion('')">Statewide</button><span id="scopeNote" class="sn">Statewide — all 58 counties</span></div><div id="mapview"><div id="map" role="application" aria-label="Interactive map of reported pesticide applications across California. Use the Data & Trends tab for the same figures in table form."></div><div id="mapStat" style="position:absolute;left:50%;transform:translateX(-50%);top:8px;z-index:1500;background:rgba(255,255,255,.93);border-radius:8px;padding:5px 12px;font:13px Arial;color:#1d3f27;box-shadow:0 1px 5px rgba(0,0,0,.3);white-space:nowrap">Loading…</div></div>
+<div id="scopebar"><span class="sl">Showing:</span><select id="scopeRegion" onchange="onScopeRegion(this.value)" aria-label="Region"><option value="">All California</option></select><select id="scopeCounty" onchange="onScopeCounty(this.value)" aria-label="County"><option value="">All counties</option></select><button type="button" onclick="onScopeRegion('')">Statewide</button><button type="button" id="shareBtn" onclick="shareView()" title="Copy a link that opens this exact view">&#128279; Share</button><span id="scopeNote" class="sn">Statewide — all 58 counties</span></div><div id="mapview"><div id="map" role="application" aria-label="Interactive map of reported pesticide applications across California. Use the Data & Trends tab for the same figures in table form."></div><div id="mapStat" style="position:absolute;left:50%;transform:translateX(-50%);top:8px;z-index:1500;background:rgba(255,255,255,.93);border-radius:8px;padding:5px 12px;font:13px Arial;color:#1d3f27;box-shadow:0 1px 5px rgba(0,0,0,.3);white-space:nowrap">Loading…</div></div>
 <div id="dataview"><div class="wrap" id="dataWrap"><p style="color:#777;padding:24px 0">Loading statewide data…</p></div></div>
 <div id="sciview"><div class="wrap"><div class="card" id="sciScope" style="border-left:4px solid #2E5E3A"></div><div class="card sci"><h2>The short version</h2><p>If you read nothing else, here is the argument in order of what matters most <i>here</i>:</p><p><b>1. Use is large and rising.</b> Herbicide volume nearly quadrupled from 2021 to 2024, driven by replanting after the 2021 Dixie Fire (see <b>Data &amp; Trends</b>).</p><p><b>2. The dominant chemicals here are the water-mobile ones.</b> The most-used are <b>hexazinone</b> and <b>glyphosate</b>, with <b>imazapyr</b> third &mdash; and hexazinone and imazapyr are exactly the chemicals that leach and move through soil and water. They are going onto a forested watershed above a rural community on <b>wells and springs</b>.</p><p><b>3. The biggest unknowns are what isn&rsquo;t tested:</b> the surfactants and &lsquo;inert&rsquo; co-formulants (often more toxic than the active ingredient), real-world tank-mix synergy, and the cumulative, year-after-year load on one watershed.</p><p><b>4. The largest ecological effect is probably indirect:</b> removing plants removes the base of the food web &mdash; flowers for pollinators, host plants for insects, food for birds and fish.</p><p class="note">The contested glyphosate&ndash;cancer question (below) is one thread of this story, not the headline &mdash; it is the most dose-dependent and the least specific to Plumas. The chemical-by-chemical detail that follows is a reference appendix.</p></div><div class="card sci" id="waterMon" style="border-left:4px solid #3f7fe0"><h2>Is the water tested for these herbicides? Not yet.</h2><p>Point&nbsp;3 above &mdash; <i>the biggest unknowns are what isn&rsquo;t tested</i> &mdash; is not a hunch. We obtained the <b>Central Valley Regional Water Quality Control Board&rsquo;s</b> post&ndash;Dixie&nbsp;Fire water-quality monitoring records for the Greenville watershed by public-records request (July&nbsp;2026).</p><h3>What is monitored</h3><p>Three stations &mdash; <b>DF-1</b> (Setzer Camp Creek / Greenville&ndash;Wolf Creek Rd), <b>DF-2</b> (Spirit Springs Rd / Greenville WWTP) and <b>DF-3</b> (Stampfli Rd) &mdash; sampled roughly monthly. The panel covers the <b>fire-recovery indicators</b>: turbidity and sediment (TSS), nutrients (nitrate, phosphorus, ammonia), bacteria (E.&nbsp;coli, total coliform), major ions, and a full suite of <b>metals</b> (aluminum, arsenic, iron, manganese, mercury, lead and more).</p><h3>What is <u>not</u> monitored</h3><p><b>None of the roughly 20 herbicides applied in these same watersheds</b> &mdash; not hexazinone, not imazapyr, not glyphosate, not aminopyralid &mdash; appears anywhere in the sampling panel. The Forest Service <b>formally notifies</b> the Water Board of its herbicide operations (e.g. the Wildcat project&rsquo;s aminopyralid applications, per a 2023 notice in these records), and herbicide &amp; reforestation work is tracked for erosion-control (BMP) compliance &mdash; but <b>the water itself is never screened for the compounds being sprayed.</b></p><h3>Why isn&rsquo;t it required?</h3><p>Public water systems test the state and federal <b>required</b> contaminant list. Of the herbicides used in these watersheds, only <b>glyphosate</b> has an enforceable drinking-water limit (a federal MCL of 700&nbsp;ppb) &mdash; and even then small systems are often granted monitoring waivers. <b>Hexazinone</b> carries only a non-enforceable health advisory (400&nbsp;ppb) and <b>no MCL</b>; <b>imazapyr</b>, <b>aminopyralid</b> and most of the others are <b>unregulated</b> in drinking water altogether. No required limit means no required test &mdash; so the water-mobile compounds applied across these watersheds fall through the gap.</p><h3>A second county, the same answer</h3><p>We put the same water-records question to <b>Sierra County</b> &mdash; the adjacent county that shares this forest and its watersheds. Through its County Counsel the county responded (August&nbsp;2026) that it <b>&ldquo;does not generally have regulatory jurisdiction over watersheds,&rdquo;</b> and pointed us instead to the State (the Water Board&rsquo;s Drinking Water Program and GeoTracker) and the Sierra&nbsp;Valley Groundwater Management District. Its only responsive water records are <b>State Small Water System</b> drinking-compliance files &mdash; which test the required contaminants (bacteria, nitrate), <b>not</b> the herbicides sprayed in the hills above them. Two counties, the same gap: the water is watched for many things, but never for what is deliberately applied to it.</p><p class="note">This is the monitoring gap at the heart of this project: the agency watching this watershed is measuring what a fire leaves behind, not what is being deliberately applied above the community&rsquo;s wells and springs. Source: California Regional Water Quality Control Board, Central Valley Region (R5) &mdash; Nonpoint Source Unit, records provided July&nbsp;2026 (Dixie Fire water-quality sampling results &amp; monitoring-location records; Plumas National Forest annual monitoring reports 2023&ndash;2025).</p></div><div class="card sci"><h2>Where this data comes from &mdash; and where it doesn&rsquo;t</h2><p>This map combines the public records that exist, and is honest about the gaps.</p><h3>Private land &mdash; full chemical detail</h3><p>California <b>Pesticide Use Reporting (PUR)</b>, filed with the County Agricultural Commissioner and DPR. Covers private timberland, ranches, golf courses and the like &mdash; with the actual product, <b>active ingredient, amount, and location</b>. This is the bulk of the map (the warm-colored dots).</p><h3>Federal land (Plumas National Forest) &mdash; activities, not chemicals</h3><p>USDA Forest Service <b>FACTS</b> activity records (the blue &lsquo;Federal&rsquo; layer): treatment activity, NEPA project, acres, year and location &mdash; but <b>not the chemical or quantity</b>. The Forest Service has said active-ingredient and amount data require a records request, so those show &lsquo;FOIA pending.&rsquo;</p><h3>What&rsquo;s still missing</h3><p>Federal chemical/quantity data (FOIA to USFS Region&nbsp;5), the most recent local permits/NOIs (county Ag Commissioner), and additional counties/years are being requested or added. The <b>Streams &amp; water</b> layer is always shown on the map, so you can see treatments relative to waterways.</p><p class="note">Coverage of these <b>Plumas map layers</b>: county PUR <b>2020&ndash;2024</b> (2023&ndash;2024 obtained from CDPR by public-records request); federal USFS FACTS <b>2020 onward</b>, including planned treatments. The statewide database behind the map and Data &amp; Trends is complete <b>2020&ndash;2022</b>, with the five Northern-Sierra counties (Butte, Tehama, Lassen, Plumas, Sierra) extended through <b>2024</b>. A historical snapshot, not real-time &mdash; coverage grows as new public-records / FOIA responses and California&rsquo;s annual PUR releases arrive. Full source inventory and draft records-requests are in the project repo.</p></div><div class="card sci"><h2>The chemicals actually being sprayed</h2>
 <p>This started with a concern about glyphosate &mdash; and glyphosate <i>is</i> the most-used herbicide here by volume. But the data show a mix of chemicals. By active-ingredient weight it very likely leads as well. The data are a mix, though &mdash; and the chemical that stands out for <i>local</i> risk is <b>hexazinone</b> (Velpar), applied as a dry solid and the dominant <b>soil-applied, water-mobile</b> herbicide here, notable for leaching into groundwater. (Liquid gallons and dry pounds measure different things and aren&rsquo;t added together, so we rank glyphosate first by volume and flag hexazinone as the key water-mover rather than calling either &lsquo;largest by weight&rsquo;.) The table is built from the EPA registration numbers in the dataset, so the active-ingredient identifications are reliable.</p>
@@ -266,6 +266,24 @@ var map=null, CELLS=null, JURIS=null, OVERLAYS=null;
 var SB_URL='https://aykhwsermojstiyrfcnv.supabase.co';
 var SB_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImF5a2h3c2VybW9qc3RpeXJmY252Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODIzNTU3MDIsImV4cCI6MjA5NzkzMTcwMn0.XPBmdHPv0CswsHFynPwhjj3DatzlWIXY2DSPGJOz_WQ';
 var SCOPE={region:null,county:'Plumas'};  /* default to Plumas to keep the first render small; user can widen */
+/* Shareable deep links: ?county=Plumas | ?region=northern-sierra | ?ll=40.05,-120.95&z=12 | ?tab=sci|data|work|raw|ledger | ?donate=1 (also accepted in the #hash). Invalid values fall back safely. */
+var DEEPLINK=(function(){
+  try{
+    var q=new URLSearchParams(location.search);
+    var h=(location.hash&&location.hash.indexOf('=')>0)?new URLSearchParams(location.hash.slice(1)):null;
+    function g(k){var v=q.get(k); if(v==null&&h)v=h.get(k); return v;}
+    var out={};
+    var cty=g('county'); if(cty){out.county=cty.trim().toLowerCase().replace(/(^|[\s-])([a-z])/g,function(m,a,b){return a+b.toUpperCase();});}
+    var reg=g('region'); if(reg)out.region=reg.trim().toLowerCase();
+    var tab=(g('tab')||'').toLowerCase(); var ALIAS={science:'sci',forests:'work',sources:'raw',transparency:'ledger'}; tab=ALIAS[tab]||tab;
+    if({map:1,data:1,sci:1,work:1,raw:1,ledger:1}[tab])out.tab=tab;
+    if(g('donate')==='1'||(g('tab')||'').toLowerCase()==='donate')out.donate=true;
+    var ll=(g('ll')||'').split(','), z=parseInt(g('z'),10);
+    if(ll.length===2&&isFinite(+ll[0])&&isFinite(+ll[1])){out.view={lat:+ll[0],lng:+ll[1],z:(z>=3&&z<=17)?z:10};}
+    if(out.county||out.region){SCOPE.county=out.county||null;SCOPE.region=out.region||null;}
+    return out;
+  }catch(e){return {};}
+})();
 var SCOPE_REGIONS=[], SCOPE_RC={}, COUNTY_REGION={};
 var CLASS_COLORS={herbicide:'#3fae5a',insecticide:'#e0883b',fungicide:'#3f7fe0',fumigant:'#b85cc8',rodenticide:'#c8513f',growth_regulator:'#cac33f',adjuvant:'#6b8276',other:'#9a9a9a',unknown:'#6a6a6a'};
 var CLASS_ORDER=['herbicide','insecticide','fungicide','fumigant','rodenticide','growth_regulator','adjuvant','other'];
@@ -605,6 +623,7 @@ function populateScopeBar(){
   buildScopeLists();
   if(SCOPE.county && !SCOPE.region && COUNTY_REGION[SCOPE.county]) SCOPE.region=COUNTY_REGION[SCOPE.county];
   if(SCOPE.county && !COUNTY_REGION[SCOPE.county]) {SCOPE.county=null; SCOPE.region=null;}  /* default county not in data -> statewide */
+  if(SCOPE.region && SCOPE_REGIONS.indexOf(SCOPE.region)<0){SCOPE.region=SCOPE.county?(COUNTY_REGION[SCOPE.county]||null):null;}  /* bogus ?region= -> from county, else statewide */
   var rs=document.getElementById('scopeRegion'); if(!rs) return;
   rs.innerHTML='<option value="">All California</option>'+SCOPE_REGIONS.map(function(r){return '<option value="'+r+'">'+regionLabel(r)+'</option>';}).join('');
   rs.value=SCOPE.region||'';
@@ -630,6 +649,20 @@ function setScope(region,county){
   var dv=document.getElementById('dataview'); if(dv&&dv.style.display!=='none') renderData();
   var rv=document.getElementById('rawview'); if(rv&&rv.style.display!=='none'){RAW_ROWS=null; renderRaw();}
   var sv=document.getElementById('sciview'); if(sv&&sv.style.display!=='none') renderSciScope();
+  try{var _u=location.pathname+(SCOPE.county?'?county='+encodeURIComponent(SCOPE.county):(SCOPE.region?'?region='+encodeURIComponent(SCOPE.region):'')); history.replaceState(null,'',_u);}catch(e){}
+}
+/* Build + copy a link that reopens this exact view (area scope; on the map tab also the precise center/zoom). */
+function shareView(){
+  var ps=[];
+  if(SCOPE.county)ps.push('county='+encodeURIComponent(SCOPE.county));
+  else if(SCOPE.region)ps.push('region='+encodeURIComponent(SCOPE.region));
+  var t=window._curTab||'map';
+  if(t!=='map')ps.push('tab='+t);
+  else if(map){var c=map.getCenter();ps.push('ll='+c.lat.toFixed(4)+','+c.lng.toFixed(4));ps.push('z='+map.getZoom());}
+  var url=location.origin+location.pathname+(ps.length?'?'+ps.join('&'):'');
+  function done(){var b=document.getElementById('shareBtn');if(!b)return;var old=b.innerHTML;b.innerHTML='Link copied &#10003;';setTimeout(function(){b.innerHTML=old;},2000);}
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(url).then(done,function(){window.prompt('Copy this link:',url);done();});}
+  else{window.prompt('Copy this link:',url);done();}
 }
 function scopedCells(){
   var base=CELLS||CELLS_PARTIAL;   /* partial = scoped-first paint while statewide streams in */
@@ -793,6 +826,7 @@ function rebuildLayers(){
 }
 function fitScope(){
   if(!map) return;
+  if(DEEPLINK&&DEEPLINK.view){var _v=DEEPLINK.view; DEEPLINK.view=null; _progView=true; setTimeout(function(){_progView=false;},400); map.setView([_v.lat,_v.lng],_v.z,{animate:false}); return;}
   _progView=true; setTimeout(function(){_progView=false;},400);  /* the one moveend this fit triggers is ours to skip */
   var cs=scopedCells();
   if((SCOPE.region||SCOPE.county)&&cs.length){
@@ -915,7 +949,7 @@ function renderDataHtml(){
 
   return h.join('');
 }
-function show(v){
+function show(v){ window._curTab=v;
  var views={map:'mapview',data:'dataview',sci:'sciview',work:'workview',raw:'rawview',ledger:'ledgerview'},btns={map:'bmap',data:'bdata',sci:'bsci',work:'bwork',raw:'braw',ledger:'bled'};
  for(var k in views){document.getElementById(views[k]).style.display=(k===v)?'block':'none';
   document.getElementById(btns[k]).classList.toggle('active',k===v);}
@@ -926,6 +960,8 @@ function show(v){
  if(v==='work'){loadWfCosts(); loadPwfGeom(); collapsifyCards(document.getElementById('workview'));}
  if(v==='map'){if(!map)buildMap();setTimeout(function(){map.invalidateSize(true);},100);}}
 buildMap();
+if(DEEPLINK&&DEEPLINK.tab&&DEEPLINK.tab!=='map'){try{show(DEEPLINK.tab);}catch(e){}}
+if(DEEPLINK&&DEEPLINK.donate){setTimeout(function(){try{window.openDonate&&window.openDonate();}catch(e){}},600);}
 function fix(){if(map)map.invalidateSize(true);}
 window.addEventListener('resize',fix);
 window.addEventListener('orientationchange',function(){setTimeout(fix,250);setTimeout(fix,600);});
