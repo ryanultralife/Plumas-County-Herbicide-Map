@@ -105,3 +105,11 @@ DB password **only** in `C:/Users/ryanv/.pg_dburl` — never commit or echo. Onl
 ## Done-for-v1 (2026-08-02)
 - WA DNR Eastside Mar 2026 mill-gate prices; USFS Plumas PTSAR FY2026 Q1; FOIA drafts in records-requests/letters/14-working-forests-unit-costs.md; program_complete_for_v1=true.
 
+## Working Forests tab — HIDDEN (2026-09-05)
+Hidden at the user's request, code intact. To re-enable: (1) remove `style="display:none"` from `#bwork` in the nav;
+(2) in the `DEEPLINK` parser restore `forests:'work'` in `ALIAS` and `work:1` in the tab whitelist;
+(3) delete the `if(v==='work')v='map';` guard at the top of `show()`. The goat-grazing card lives on that tab, so it is hidden too.
+
+## Map class labels
+`clsLabel(cl)` is the single display helper — `unknown` renders as **"not reported"** (record omits product/AI;
+mostly federal FACTS rows). The map key now lists a "not reported" row so gray dots are explained.
