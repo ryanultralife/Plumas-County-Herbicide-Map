@@ -1,5 +1,9 @@
 # Auto-updating donation totals (real-time + daily)
 
+> **Status 2026-09-05: LIVE.** PayPal IPN enabled at `https://www.spraymapca.org/api/paypal-ipn`,
+> service-role key present in Vercel, daily cron confirmed firing 08:00 UTC. Only the optional
+> PayPal REST backfill (`PAYPAL_CLIENT_ID/SECRET`) remains unset.
+
 The per-effort donation figures shown on the site (Donate modal + Transparency
 tab "Donations received — by effort") update **automatically** from PayPal —
 no more hand-editing.
@@ -35,7 +39,7 @@ Vercel → your project → **Settings → Environment Variables** (Production).
 
 | Name | Value | Needed for |
 |---|---|---|
-| `SUPABASE_SERVICE_ROLE_KEY` | Supabase → Project Settings → API → **service_role** secret | **Required** — lets the functions write |
+| `SUPABASE_SERVICE_ROLE_KEY` | **Already set** (added by the Supabase integration, Jun 24) | **Required** — lets the functions write |
 | `CRON_SECRET` | any long random string | Protects the daily endpoint (Vercel Cron sends it automatically) |
 | `PAYPAL_RECEIVER` | `spraymapca@gmail.com` | Optional anti-spoof guard on IPN |
 | `PAYPAL_CLIENT_ID` | from a PayPal REST app (below) | Optional — enables the daily PayPal backfill |
