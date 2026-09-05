@@ -50,7 +50,7 @@ Vercel → your project → **Settings → Environment Variables** (Production).
 ### 2. Turn on PayPal IPN (real-time)
 PayPal (business account) → **Account Settings → Notifications → Instant payment
 notifications → Update**:
-- **Notification URL:** `https://spraymapca.org/api/paypal-ipn`
+- **Notification URL:** `https://www.spraymapca.org/api/paypal-ipn` (**www** — the apex domain 308-redirects, and PayPal's IPN POST will not follow redirects)
 - Set to **Receive IPN messages (Enabled)** → Save.
 
 That's it — every future donation now updates the site within seconds. (The
@@ -69,7 +69,7 @@ Without this, the daily cron still runs and keeps totals consistent
 1. Make a small real donation on the SprayMap page ($1), then refund it in PayPal.
    Within a few seconds the site totals should tick up; `donation_events` gets a row.
 2. Daily cron: Vercel → Deployments → the cron function's logs (runs 08:00 UTC),
-   or open `https://spraymapca.org/api/reconcile-donations` (returns JSON; needs the
+   or open `https://www.spraymapca.org/api/reconcile-donations` (returns JSON; needs the
    `CRON_SECRET` header if set).
 
 ## Notes
