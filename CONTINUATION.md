@@ -113,3 +113,6 @@ Hidden at the user's request, code intact. To re-enable: (1) remove `style="disp
 ## Map class labels
 `clsLabel(cl)` is the single display helper — `unknown` renders as **"not reported"** (record omits product/AI;
 mostly federal FACTS rows). The map key now lists a "not reported" row so gray dots are explained.
+
+## Records-request tracker (2026-09-05)
+`data/records_requests.json` is the canonical per-request log (agency, county, program, channel, ref, sent, status, received, outcome, effect, notes; status vocabulary in the file). Rendered on the **Source Data** tab as "Records requests — the paper trail" (`renderRecordsRequests()`); rows `sent`/`acknowledged` with no reply >30 days show as **follow-up due**. The monthly `spraymap-data-asks-monthly` task reads/updates it (never deletes rows; never marks `ingested` — a human does after loading). Office-level agency names only — never staff names/emails. Also fixed: `?tab=` deep links now apply after DOMContentLoaded (tab renderers live in later script blocks, so an early `show()` used to leave the tab empty on arrival).

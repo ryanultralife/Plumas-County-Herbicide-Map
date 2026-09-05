@@ -259,7 +259,7 @@ td:first-child,th:first-child{text-align:left}tr.tot td{font-weight:bold;backgro
 <p class="refs">Repo docs: README, PLUMAS_WORKING_FORESTS, PRESCRIPTION_STANDARD, ECONOMICS, STAKEHOLDER_MAP, PILOT_SPEC, POLICY_ASKS, SOURCES; tool: <code>program/tools/volume_sketch.py</code>.</p>
 </div>
 </div></div>
-<div id="rawview"><div class="wrap"><div class="datedbanner"><b>Source data &mdash; record sample.</b> A reviewable sample of the <b>largest reported applications</b> (top 80 per county by amount) for the area chosen in the selector above, drawn live from the project database. The complete dataset is 12M+ records. For the five Northern Sierra counties (Butte, Tehama, Lassen, Plumas, Sierra) the data now runs <b>through 2024</b>, obtained directly from CDPR by public-records request; the rest of California is the statewide Pesticide Use Reports (2020&ndash;2022); coverage is updated as new public-records / FOIA responses arrive. For full county records use the records-request templates in the repo.</div><div class="rawctrls"><input id="rawq" type="search" placeholder="Search ingredient, product, applicator, county…" oninput="rawApply()"><select id="rawsrc" onchange="rawApply()"><option value="">All sources</option><option value="pur">Private — CA PUR</option><option value="facts">Federal — USFS FACTS</option></select><button type="button" onclick="rawCSV()">Download CSV</button></div><div id="rawcount" class="note"></div><div style="overflow:auto;max-height:none"><table class="rawtbl"><thead><tr id="rawhead"></tr></thead><tbody id="rawbody"></tbody></table></div></div></div>
+<div id="rawview"><div class="wrap"><div class="datedbanner"><b>Source data &mdash; record sample.</b> A reviewable sample of the <b>largest reported applications</b> (top 80 per county by amount) for the area chosen in the selector above, drawn live from the project database. The complete dataset is 12M+ records. For the five Northern Sierra counties (Butte, Tehama, Lassen, Plumas, Sierra) the data now runs <b>through 2024</b>, obtained directly from CDPR by public-records request; the rest of California is the statewide Pesticide Use Reports (2020&ndash;2022); coverage is updated as new public-records / FOIA responses arrive. The paper trail of every request &mdash; who we asked, when, and what came back &mdash; is at the bottom of this page.</div><div class="rawctrls"><input id="rawq" type="search" placeholder="Search ingredient, product, applicator, county…" oninput="rawApply()"><select id="rawsrc" onchange="rawApply()"><option value="">All sources</option><option value="pur">Private — CA PUR</option><option value="facts">Federal — USFS FACTS</option></select><button type="button" onclick="rawCSV()">Download CSV</button></div><div id="rawcount" class="note"></div><div style="overflow:auto;max-height:none"><table class="rawtbl"><thead><tr id="rawhead"></tr></thead><tbody id="rawbody"></tbody></table></div><div id="rrWrap"></div></div></div>
 <div id="ledgerview"><div class="wrap" id="ledgerWrap"><p style="color:#777;padding:20px 0">Loading ledger…</p></div></div>
 <script>
 var map=null, CELLS=null, JURIS=null, OVERLAYS=null;
@@ -955,14 +955,16 @@ function show(v){ if(v==='work')v='map';  /* Working Forests tab hidden for now 
  var views={map:'mapview',data:'dataview',sci:'sciview',work:'workview',raw:'rawview',ledger:'ledgerview'},btns={map:'bmap',data:'bdata',sci:'bsci',work:'bwork',raw:'braw',ledger:'bled'};
  for(var k in views){document.getElementById(views[k]).style.display=(k===v)?'block':'none';
   document.getElementById(btns[k]).classList.toggle('active',k===v);}
- if(v==='raw')renderRaw();
+ if(v==='raw'){renderRaw(); renderRecordsRequests();}
  if(v==='ledger')loadLedger();
  if(v==='data')renderData();
  if(v==='sci'){renderSciScope(); collapsifyCards(document.getElementById('sciview'));}
  if(v==='work'){loadWfCosts(); loadPwfGeom(); collapsifyCards(document.getElementById('workview'));}
  if(v==='map'){if(!map)buildMap();setTimeout(function(){map.invalidateSize(true);},100);}}
 buildMap();
-if(DEEPLINK&&DEEPLINK.tab&&DEEPLINK.tab!=='map'){try{show(DEEPLINK.tab);}catch(e){}}
+/* Tab renderers live in later <script> blocks, so apply a linked tab only once the whole page has parsed. */
+(function(){ function applyDeepTab(){ if(DEEPLINK&&DEEPLINK.tab&&DEEPLINK.tab!=='map'){try{show(DEEPLINK.tab);}catch(e){}} }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',applyDeepTab); else applyDeepTab(); })();
 if(DEEPLINK&&DEEPLINK.donate){setTimeout(function(){try{window.openDonate&&window.openDonate();}catch(e){}},600);}
 function fix(){if(map)map.invalidateSize(true);}
 window.addEventListener('resize',fix);
@@ -1402,6 +1404,42 @@ function _rawDecode(){if(_rawRows)return _rawRows;var T=TAB4,o=[];
  _rawRows=o;return o;}
 var RAWCOLS=['Date','Location','Permittee','Product','EPA Reg','Active ingredient','Type','Qty','Units','Method','Acres','Applicator','Source','Site'];
 var RAWNUM={7:1,10:1};
+/* ----- Source Data: records-request paper trail (data/records_requests.json) -----
+   One row per public-records request. Office-level agencies only. 'sent'/'acknowledged'
+   rows silent for >30 days are surfaced as follow-up due so the monthly cadence has a list. */
+var RREQ=null;
+function loadRecordsRequests(){ if(RREQ) return Promise.resolve(RREQ);
+  return fetch('data/records_requests.json',{cache:'no-store'}).then(function(r){if(!r.ok)throw 0;return r.json();}).then(function(j){RREQ=j;return j;}).catch(function(){return null;}); }
+function _rrDate(s){ if(!s) return null; var m=/^(\d{4})-(\d{2})(?:-(\d{2}))?/.exec(s); if(!m) return null; return new Date(+m[1],+m[2]-1,m[3]?+m[3]:1); }
+function _rrFmt(s){ if(!s) return '&mdash;'; var dt=_rrDate(s); if(!dt) return _esc(s); return /^\d{4}-\d{2}$/.test(s)?dt.toLocaleDateString('en-US',{month:'short',year:'numeric'}):dt.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'}); }
+var RR_LABEL={drafted:'Drafted',sent:'Sent',acknowledged:'Acknowledged',awaiting_us:'Needs our action',delivered:'Delivered',ingested:'On the site',refused:'Refused',self_serve:'Self-serve',published:'Published'};
+var RR_COLOR={drafted:'#9a9a9a',sent:'#6b8276',acknowledged:'#3f7fe0',awaiting_us:'#e0883b',delivered:'#3fae5a',ingested:'#2E5E3A',refused:'#c8513f',self_serve:'#5a9aa8',published:'#5a9aa8',followup:'#c8513f'};
+var RR_RANK={followup:0,awaiting_us:1,delivered:2,acknowledged:3,sent:4,drafted:5,ingested:6,self_serve:7,published:7,refused:8};
+function renderRecordsRequests(){
+  var el=document.getElementById('rrWrap'); if(!el) return;
+  if(!el.getAttribute('data-init')){ el.setAttribute('data-init','1'); el.innerHTML='<div class="card"><p style="color:#777;margin:0">Loading records-request log&hellip;</p></div>'; }
+  loadRecordsRequests().then(function(j){
+    if(!j||!j.requests){ el.innerHTML='<div class="card"><p class="note">Records-request log unavailable offline (repo: <code>data/records_requests.json</code>).</p></div>'; return; }
+    var now=new Date(), rows=j.requests.map(function(r){
+      var st=r.status, days=null;
+      if((st==='sent'||st==='acknowledged')&&r.sent){ var dt=_rrDate(r.sent); if(dt){ days=Math.floor((now-dt)/864e5); if(days>30) st='followup'; } }
+      return {r:r, st:st, days:days};
+    });
+    rows.sort(function(a,b){ var ra=RR_RANK[a.st]!=null?RR_RANK[a.st]:9, rb=RR_RANK[b.st]!=null?RR_RANK[b.st]:9; if(ra!==rb) return ra-rb; return (b.r.sent||'').localeCompare(a.r.sent||''); });
+    var cnt={}; rows.forEach(function(x){cnt[x.st]=(cnt[x.st]||0)+1;});
+    function chip(k,lbl){ if(!cnt[k]) return ''; return '<span class="bdg" style="background:'+RR_COLOR[k]+'">'+cnt[k]+' '+lbl+'</span>'; }
+    var h='<div class="card" style="border-left:4px solid #2E5E3A"><h2>Records requests &mdash; the paper trail</h2>';
+    h+='<p class="sub">Every public-records request behind this map: who we asked, when, what came back, and whether it is on the site yet. Agencies are named at office level; individual staff are not. Updated '+_rrFmt(j.updated)+'.</p>';
+    h+='<div style="display:flex;flex-wrap:wrap;gap:6px;margin:6px 0 10px">'+chip('followup','follow-up due')+chip('awaiting_us','need our action')+chip('delivered','delivered, not yet loaded')+chip('acknowledged','acknowledged')+chip('sent','awaiting reply')+chip('drafted','drafted')+chip('ingested','on the site')+chip('self_serve','self-serve')+chip('published','published')+chip('refused','refused')+'</div>';
+    h+='<div style="overflow:auto"><table class="rawtbl"><thead><tr><th>Agency</th><th>County</th><th>What we asked</th><th>Sent</th><th>Status</th><th>Received</th><th>What came back / effect</th></tr></thead><tbody>';
+    rows.forEach(function(x){ var r=x.r; var lbl=x.st==='followup'?('Follow-up due ('+x.days+' days)'):(RR_LABEL[x.st]||x.st);
+      var out=[r.outcome,r.effect].filter(Boolean).map(_esc).join(' &middot; ')+(r.notes?' <span style="color:#777">'+_esc(r.notes)+'</span>':'');
+      h+='<tr><td>'+_esc(r.agency)+(r.ref?' <span style="color:#777;white-space:nowrap">'+_esc(r.ref)+'</span>':'')+'</td><td>'+_esc(r.county||'')+'</td><td>'+_esc(r.program||'')+(r.channel?' <span style="color:#777">('+_esc(r.channel)+')</span>':'')+'</td><td style="white-space:nowrap">'+_rrFmt(r.sent)+'</td><td><span class="bdg" style="background:'+(RR_COLOR[x.st]||'#888')+'">'+lbl+'</span></td><td style="white-space:nowrap">'+_rrFmt(r.received)+'</td><td>'+(out||'&mdash;')+'</td></tr>'; });
+    h+='</tbody></table></div>';
+    h+='<p class="note" style="margin-top:8px">Log: <code>data/records_requests.json</code> in the public repo, kept current by our monthly data-asks routine. Follow-up due = no reply after 30 days.</p></div>';
+    el.innerHTML=h;
+  });
+}
 function renderRaw(){var b=document.getElementById('rawbody');if(b&&b.getAttribute('data-init'))return;_rawDecode();
  var hh='';for(var i=0;i<RAWCOLS.length;i++)hh+='<th onclick="rawSort('+i+')">'+RAWCOLS[i]+' ⇅</th>';
  document.getElementById('rawhead').innerHTML=hh;if(b)b.setAttribute('data-init','1');rawApply();}
