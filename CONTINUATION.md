@@ -116,3 +116,26 @@ mostly federal FACTS rows). The map key now lists a "not reported" row so gray d
 
 ## Records-request tracker (2026-09-05)
 `data/records_requests.json` is the canonical per-request log (agency, county, program, channel, ref, sent, status, received, outcome, effect, notes; status vocabulary in the file). Rendered on the **Source Data** tab as "Records requests — the paper trail" (`renderRecordsRequests()`); rows `sent`/`acknowledged` with no reply >30 days show as **follow-up due**. The monthly `spraymap-data-asks-monthly` task reads/updates it (never deletes rows; never marks `ingested` — a human does after loading). Office-level agency names only — never staff names/emails. Also fixed: `?tab=` deep links now apply after DOMContentLoaded (tab renderers live in later script blocks, so an early `show()` used to leave the tab empty on arrival).
+
+## Records requests — Sept 2026 batch (2026-09-06/07)
+Tracker is now **44 rows**. Five new agencies added and drafted (`records-requests/outbox/new-agencies-2026-09/`):
+Sierra Valley GMD (Sierra County named it as the agency that actually holds the basin's wells), Caltrans D2 and
+Plumas County Public Works (roadside spraying by route/postmile and road name — county PUR totals never say *where*
+along a highway), BLM California PUPs, and Mendocino AgComm operator names.
+**16 letters sit unsent in the spraymapca Drafts folder**; the user sends. BLM is portal-only (no draft).
+
+**Draft-verification gotcha:** Gmail autosave is not proof the fields landed. Two drafts were found damaged —
+one had lost its To *and* Subject, another had a stray second recipient. Re-open every draft and read back
+`[data-hovercard-id]` and `input[name=subjectbox]` before calling a drafting session done.
+
+## DPR Well Kit analyte list (2026-09-07)
+`data/dpr_well_kit_analytes.json` — the 94 compounds DPR's Groundwater Protection Program screens for in its
+statewide domestic-well sampling, verbatim from the spreadsheet DPR emailed us on Aug 7.
+**It covers hexazinone, and triclopyr marked "(marginal)". It does not cover glyphosate, AMPA, imazapyr,
+aminopyralid, clopyralid or sulfometuron-methyl.** That is the state pesticide regulator's own screen missing
+the herbicides being applied across the Plumas National Forest footprint. It is a third independent confirmation
+of the Science tab's "the water isn't tested for these" finding, alongside the Central Valley Water Board and
+Sierra County. **Not yet surfaced on the site** — it belongs on the Science tab beside the two county answers.
+Reading it required unzipping the xlsx inside the Gmail tab (`DecompressionStream('deflate-raw')` over the ZIP
+local headers, then the `<t>` nodes of `sharedStrings.xml`); the preview pane virtualizes to ~50 rows and looks
+complete when it is not, and the JS bridge blocks base64 payloads.
