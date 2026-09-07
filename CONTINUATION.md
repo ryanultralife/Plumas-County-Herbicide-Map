@@ -139,3 +139,30 @@ Sierra County. **Not yet surfaced on the site** — it belongs on the Science ta
 Reading it required unzipping the xlsx inside the Gmail tab (`DecompressionStream('deflate-raw')` over the ZIP
 local headers, then the `<t>` nodes of `sharedStrings.xml`); the preview pane virtualizes to ~50 rows and looks
 complete when it is not, and the JS bridge blocks base64 payloads.
+
+## Statewide PUR 2023 loaded (2026-09-07)
+The table is **15,854,861 rows**, not 12.0M. Every county now has **2020-2023**; 2024 is still
+Northern-Sierra-only because CDPR has not published `pur2024.zip` yet (it 404s - check monthly).
+
+- **Where the raw data actually lives:** `files.cdpr.ca.gov/pub/outgoing/**pur_archives**/pur2023.zip`
+  (260 MB). The path `pub/outgoing/pur/data/2023_pur_report_textfiles*` holds only summary reports,
+  not application records. Do not go looking there.
+- **Loader:** `build/ingest_pur_statewide.py <year> [--load]`. Takes a whole year for all 58 counties.
+  One row per application, keeping the largest-pounds active ingredient (never a sum), matching
+  `build/ingest_dpr_pur.py`. Inserts `ON CONFLICT (app_id) DO NOTHING`.
+- **The dedup trap:** the Northern Sierra already held 2023 from the CPRA extract, and both sources
+  key `pur:{year}:{use_no}` in the same integer space. **Verify overlap by set intersection against a
+  dump of the existing app_ids before inserting.** A psql `IN (...)` spot check reported 1/200 when
+  the truth was 200/200. Actual result: 79,441 of 80,164 NS rows already present and skipped, 723 new,
+  0 collisions among 3,841,654 non-NS rows, 0 duplicate app_ids after the load.
+- **Always do these three in the same sitting**, or the site publishes a false regression:
+  1. plain `refresh materialized view` (NOT concurrently) for map_agg, juris_agg, app_samples;
+  2. water-safe placement for the new rows (94 sections were in lakes; 22 fully-water kept at centre,
+     72 moved within-section, 5,686 rows updated; map cells in water back to 0);
+  3. `enrich_operator_names.py` then `gen_operator_coverage.py` - coverage read 63.2% right after the
+     load purely because the denominator grew, and came back to **79.5%** (up from 77.8%) once the
+     2023 GROWER_IDs were matched.
+- Site copy: six places that said the statewide data stops at 2022 now say 2023, the "years covered"
+  note explains 2024 is the Northern-Sierra year, and `CELLS_KEY` is **v11-pur2023**.
+- Partially closes open item 5 (statewide acres): 2023 carries `acre_treated` for 79.6% of rows.
+  2020-2022 still have acres only for the Northern Sierra.
