@@ -623,11 +623,11 @@
       "channel": "published",
       "ref": null,
       "sent": null,
-      "status": "published",
+      "status": "ingested",
       "received": "2025-09",
-      "outcome": "Statewide PUR 2023 text files published by DPR",
-      "effect": null,
-      "notes": "Free download; not yet loaded - the biggest available data step (site is statewide 2020-2022)."
+      "outcome": "Statewide PUR 2023 (pur2023.zip, all 58 counties) published by CDPR as a free download",
+      "effect": "Loaded 2026-09-07: +3,842,377 applications, so the statewide map and Data & Trends now run 2020-2023 for every county instead of 2020-2022. 2024 remains Northern-Sierra only (obtained by public-records request); CDPR has not published 2024 yet.",
+      "notes": "Loaded with build/ingest_pur_statewide.py, one row per application (largest-AI collapse), ON CONFLICT (app_id) DO NOTHING. 99.1% of the Northern-Sierra 2023 rows already existed from the CPRA extract and were correctly skipped; 723 were new. Re-check for pur2024.zip on each monthly run."
     }
   ]
 }
