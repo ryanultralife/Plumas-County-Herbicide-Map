@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-06",
+  "updated": "2026-09-07",
   "about": "Public-records paper trail for SprayMap California. One row per request to a public agency: what we asked, when, what came back, and whether it is on the site yet. Agencies are named at office level; individual staff are not published. Dates are day-precise where confirmed from the spraymapca inbox, month-precise (YYYY-MM) where reconstructed. 'sent'/'acknowledged' rows with no reply after 30 days are shown as follow-up due. Maintained by the monthly data-asks task; humans commit.",
   "status_legend": {
     "drafted": "letter written, not yet sent",
@@ -26,6 +26,20 @@
       "outcome": "PUR 2020-2024 for Butte, Tehama, Lassen, Plumas, Sierra (2025 not yet public)",
       "effect": "Northern Sierra map runs through 2024",
       "notes": "Closed 2026-07-08."
+    },
+    {
+      "id": "dpr-gwpp-wellkit",
+      "agency": "CA Dept of Pesticide Regulation - Groundwater Protection Program",
+      "county": "Statewide (well sampling)",
+      "program": "Well Kit sampling project - analyte list and well inventory",
+      "channel": "email",
+      "ref": null,
+      "sent": "2026-08",
+      "status": "delivered",
+      "received": "2026-08-07",
+      "outcome": "Full Well Kit analyte list (94 compounds) plus the Well Inventory Database and PLSS layer links. Finding: the screen covers hexazinone and triclopyr (the latter marked marginal), but not glyphosate, AMPA, imazapyr, aminopyralid, clopyralid or sulfometuron-methyl - the herbicides most used in Northern Sierra forestry.",
+      "effect": null,
+      "notes": "DPR asked us to write a short passage on our glyphosate concerns so they could route us to the right staff; sent 2026-08-24. Awaiting that referral - follow up if nothing by early October. Analyte list saved verbatim at data/dpr_well_kit_analytes.json."
     },
     {
       "id": "plumas-cac-pur",
