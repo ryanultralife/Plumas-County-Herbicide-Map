@@ -233,9 +233,9 @@
       "sent": "2026-08-03",
       "status": "delivered",
       "received": "2026-08",
-      "outcome": "Document released to requester (portal)",
+      "outcome": "Partial production: 'Ag PUR 2020 - July 2026.xlsx' and 'Sites 2020-2026.xlsx'. This is application-level use data through July 2026, not just a name roster. Alameda says more responsive records are still under review.",
       "effect": null,
-      "notes": "Downloaded file still needs normalizing + ingest."
+      "notes": "NOT YET PULLED. The emailed document links expired 2026-09-07; the files are still retrievable by signing in at alamedacountyca.nextrequest.com/requests/26-763. An acknowledgement reply sits unsent in Drafts. Needs download, normalize and ingest - and note the PUR file may feed applications, not only operator_names."
     },
     {
       "id": "solano",
