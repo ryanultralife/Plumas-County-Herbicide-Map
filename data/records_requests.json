@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-05",
+  "updated": "2026-09-06",
   "about": "Public-records paper trail for SprayMap California. One row per request to a public agency: what we asked, when, what came back, and whether it is on the site yet. Agencies are named at office level; individual staff are not published. Dates are day-precise where confirmed from the spraymapca inbox, month-precise (YYYY-MM) where reconstructed. 'sent'/'acknowledged' rows with no reply after 30 days are shown as follow-up due. Maintained by the monthly data-asks task; humans commit.",
   "status_legend": {
     "drafted": "letter written, not yet sent",
@@ -305,7 +305,7 @@
       "received": null,
       "outcome": null,
       "effect": null,
-      "notes": "Letter was written 2026-08-03 but never actually sent (no thread in Sent). New request drafted 2026-09-05, in Drafts."
+      "notes": "Letter was written 2026-08-03 but never actually sent (no thread in Sent). New request drafted 2026-09-05, in Drafts (recipient/subject re-verified 2026-09-06)."
     },
     {
       "id": "tehama",
@@ -378,6 +378,20 @@
       "notes": "Letter written 2026-08-04; recipient address still to verify."
     },
     {
+      "id": "mendocino",
+      "agency": "Mendocino County Agricultural Commissioner",
+      "county": "Mendocino",
+      "program": "Operator names",
+      "channel": "email",
+      "ref": null,
+      "sent": null,
+      "status": "drafted",
+      "received": null,
+      "outcome": null,
+      "effect": null,
+      "notes": "PRA drafted 2026-09-05, Gmail draft in spraymapca; unsent. Same operator-ID-to-name ask as the other counties (county code 23)."
+    },
+    {
       "id": "cvrwqcb-r5-nps",
       "agency": "Central Valley Regional Water Quality Control Board (Region 5) - Nonpoint Source Unit",
       "county": "Plumas",
@@ -389,7 +403,7 @@
       "received": "2026-07",
       "outcome": "Dixie Fire / Greenville watershed sampling results, station locations, USFS herbicide-operation notices, Plumas NF monitoring reports 2023-2025",
       "effect": "Science tab: 'Is the water tested for these herbicides? Not yet.' + 3 stations on the map",
-      "notes": "Finding: monitored for post-fire indicators and metals, not for any herbicide."
+      "notes": "Finding: monitored for post-fire indicators and metals, not for any herbicide. Broader follow-up (all Plumas County surface-water stations + data, and whether any herbicide analyte has ever been run) drafted in-thread 2026-09-05 with the Region 5 PRA inbox copied; in Drafts, unsent."
     },
     {
       "id": "sierra-county-water",
@@ -431,7 +445,7 @@
       "received": null,
       "outcome": null,
       "effect": null,
-      "notes": "Drafted 2026-08-06 (existing-data request + herbicide-testing ask)."
+      "notes": "Drafted 2026-08-06; Gmail draft created in spraymapca Drafts 2026-09-05 (recipient + subject verified 2026-09-06). Waiting on a human to send."
     },
     {
       "id": "city-of-portola",
@@ -445,7 +459,7 @@
       "received": null,
       "outcome": null,
       "effect": null,
-      "notes": "Drafted 2026-08-06."
+      "notes": "Drafted 2026-08-06; Gmail draft created in spraymapca Drafts 2026-09-05 (recipient + subject verified 2026-09-06). Waiting on a human to send."
     },
     {
       "id": "chester-pud",
@@ -459,7 +473,7 @@
       "received": null,
       "outcome": null,
       "effect": null,
-      "notes": "Drafted 2026-08-06."
+      "notes": "Drafted 2026-08-06; Gmail draft created in spraymapca Drafts 2026-09-05 (recipient + subject verified 2026-09-06). Waiting on a human to send."
     },
     {
       "id": "state-ddw-d62",
@@ -473,7 +487,7 @@
       "received": null,
       "outcome": null,
       "effect": null,
-      "notes": "Drafted 2026-08-06."
+      "notes": "Drafted 2026-08-06; Gmail draft created in spraymapca Drafts 2026-09-05 (recipient + subject verified 2026-09-06). Waiting on a human to send."
     },
     {
       "id": "plumas-env-health",
@@ -487,7 +501,63 @@
       "received": null,
       "outcome": null,
       "effect": null,
-      "notes": "Drafted 2026-08-06."
+      "notes": "Drafted 2026-08-06; Gmail draft created in spraymapca Drafts 2026-09-05 (recipient + subject verified 2026-09-06). Waiting on a human to send."
+    },
+    {
+      "id": "sierra-valley-gmd",
+      "agency": "Sierra Valley Groundwater Management District",
+      "county": "Sierra / Plumas",
+      "program": "Water monitoring (groundwater wells, analytes, results)",
+      "channel": "email",
+      "ref": null,
+      "sent": null,
+      "status": "drafted",
+      "received": null,
+      "outcome": null,
+      "effect": null,
+      "notes": "Referred here by County of Sierra (2026-08-06). PRA drafted 2026-09-05, Gmail draft in spraymapca; unsent. Asks for well list, analytes, results 2018-present, and whether any forestry/rangeland herbicide has ever been screened."
+    },
+    {
+      "id": "caltrans-d2",
+      "agency": "Caltrans District 2 (Redding)",
+      "county": "Plumas / Lassen / Sierra",
+      "program": "Roadside herbicide application records (route + postmile)",
+      "channel": "email (GovQA portal preferred)",
+      "ref": null,
+      "sent": null,
+      "status": "drafted",
+      "received": null,
+      "outcome": null,
+      "effect": null,
+      "notes": "PRA drafted 2026-09-05, Gmail draft in spraymapca; unsent. Caltrans prefers its public-records portal; the email offers to resubmit there. Purpose: put highway roadside spraying on the map by location."
+    },
+    {
+      "id": "plumas-public-works",
+      "agency": "Plumas County Department of Public Works",
+      "county": "Plumas",
+      "program": "Roadside herbicide application records (county roads)",
+      "channel": "email",
+      "ref": null,
+      "sent": null,
+      "status": "drafted",
+      "received": null,
+      "outcome": null,
+      "effect": null,
+      "notes": "PRA drafted 2026-09-05, Gmail draft in spraymapca (recipient verified 2026-09-06); unsent. Asks for road-level application records, PURs filed with the Ag Commissioner, contracts, and no-spray records."
+    },
+    {
+      "id": "blm-ca-foia",
+      "agency": "Bureau of Land Management, California State Office (Eagle Lake / Mother Lode field offices)",
+      "county": "Plumas / Lassen / Sierra",
+      "program": "Pesticide Use Proposals + application records (FOIA)",
+      "channel": "FOIA portal",
+      "ref": null,
+      "sent": null,
+      "status": "drafted",
+      "received": null,
+      "outcome": null,
+      "effect": null,
+      "notes": "FOIA text drafted 2026-09-05 (records-requests/outbox/new-agencies-2026-09/04). BLM takes FOIA electronically only, so this is a portal submission, not an email; not yet submitted."
     },
     {
       "id": "usfs-r5-foia",

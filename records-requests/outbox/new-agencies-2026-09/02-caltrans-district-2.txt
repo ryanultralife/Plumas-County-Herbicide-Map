@@ -1,0 +1,21 @@
+TO: d2pio@dot.ca.gov  (Caltrans District 2, Redding; Caltrans prefers its GovQA public-records portal - submit there and reference this email. CPRA contact per district page: Shanna Lebaron, (530) 410-4698)
+SUBJECT: Public Records Act request - Caltrans District 2 roadside vegetation-control (herbicide) records, Plumas / Lassen / Sierra
+DRAFTED: 2026-09-05 (unsent; Gmail draft in spraymapca)
+
+Dear Caltrans District 2 Public Records staff,
+
+I work with the Plumas Grassroots Collective on spraymapca.org, a public, noncommercial map of pesticide use and water data for Plumas County and the Northern Sierra.
+
+Under the California Public Records Act (Gov. Code section 7920.000 et seq.), please provide copies of the following records for state highways in Plumas, Lassen and Sierra counties, January 1, 2020 to the present:
+1. Roadside vegetation-control / herbicide application records - date, route and postmile (or GPS), product name and EPA registration number, active ingredient, amount and rate, acres or miles treated, and the applicator (Caltrans crew or contractor).
+2. The District's annual vegetation-control / herbicide-use reports and any Pesticide Use Reports filed with the county agricultural commissioners for these routes.
+3. Any pest-management plan, "no-spray" zone lists, or public-notification records for herbicide use in these counties.
+
+The purpose is to show roadside herbicide use on a public map alongside forest and agricultural use; county-level use reports do not identify where along a highway spraying occurred, which is why we ask for route/postmile detail.
+
+Electronic, machine-readable formats (CSV or Excel, or GIS files) are ideal. This request is noncommercial and in the public interest; please waive fees if possible and contact me first if costs would exceed $25. Under Gov. Code section 7922.535, please let me know within 10 days whether responsive records exist. If the District prefers that this be submitted through the Caltrans public-records portal, please let me know and I will resubmit there.
+
+Sincerely,
+Taylor Durgan
+Plumas Grassroots Collective / SprayMap California
+spraymapca@gmail.com - spraymapca.org
