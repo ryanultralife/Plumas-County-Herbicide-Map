@@ -1,0 +1,27 @@
+TO: prareqst@arb.ca.gov  (CARB Public Records Coordinator, Legal Office; CARB also runs a PRA request portal)
+SUBJECT: Public Records Act request - forest offset project records (ACR245, ACR246, CAR1953, CAR1783) and CCI Forest Health project quantification records (Plumas / Lassen)
+DRAFTED: 2026-09-14 (unsent; Gmail draft in spraymapca)
+
+To the CARB Public Records Coordinator:
+
+I work with the Plumas Grassroots Collective on spraymapca.org, a public, noncommercial map of pesticide use and water data for Plumas County and the Northern Sierra.
+
+Under the California Public Records Act (Gov. Code section 7920.000 et seq.), please provide copies of the following records.
+
+A. Compliance Offset Program - forest projects on Northern Sierra burn scars. For ACR245 ("Storrie Fire Reforestation," Red River Forests), ACR246 ("Devil Fire"), CAR1953 ("Dixie Refo," Sierra Pacific Industries) and CAR1783 ("Bear Refo," Sierra Pacific Industries):
+  1. The listing and registration documents and each Offset Project Data Report submitted to CARB.
+  2. Verification reports, verification statements, and CARB's determinations or findings.
+  3. Project area maps, boundary descriptions, or GIS files.
+  4. Any correspondence, notices, or determinations regarding reversals, Forest Buffer Account contributions, or wildfire impacts, including the 2021 Dixie Fire and the 2024 Park Fire.
+
+B. California Climate Investments reporting - CAL FIRE Forest Health grants:
+  1. The complete project record, including the Forest Restoration and Management (FRM) GHG Benefits Calculator inputs and outputs as submitted by the grantee and as accepted by CARB, for: "Collins Almanor Forest Dixie Fire Restoration" (Collins Pine Company, Plumas County, $4,965,493, as listed in the 2026 CCI All Implemented Projects dataset); "Dixie Fire Restoration Project" (TWC, Corp. / Collins Pine, Lassen and Plumas, Grant Agreement 8GG22613); and "Dixie Fire Humbug Area Reforestation Project" (Lassen Forest IV Humbug, LLC, Plumas County).
+  2. Records sufficient to explain the negative GHG-reduction values reported for Forest Health projects in Butte County in the 2026 All Implemented Projects dataset.
+  3. The current status of the draft Forest Restoration and Management Quantification Methodology and Benefits Calculator dated November 5, 2025 (whether it has been finalized), and any public-comment log or response-to-comments document.
+
+The purpose is to let the public see whether the same acres are earning carbon credit and being treated with herbicide, and how herbicide treatment is scored under the state's own methodology. Electronic, machine-readable formats (native .xlsx, CSV, GIS files, PDF) are ideal. This request is noncommercial and in the public interest; please waive fees if possible and contact me first if costs would exceed $25. Under Gov. Code section 7922.535, please let me know within 10 days whether responsive records exist. If any portion is withheld, please cite the specific exemption.
+
+Sincerely,
+Taylor Durgan
+Plumas Grassroots Collective / SprayMap California
+spraymapca@gmail.com - spraymapca.org

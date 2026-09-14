@@ -1,0 +1,32 @@
+SUBMIT VIA: CAL FIRE Records Center (GovQA portal) - https://calfire.govqa.us/WEBAPP/_rs/SupportHome.aspx
+CAL FIRE's public-records page says requests should go through that portal, or by mail to
+CAL FIRE Legal Office, PO Box 944246, Sacramento, CA 94244-2460. There is no email intake, so this is
+a portal submission, not a Gmail draft. Paste the subject and body below into the portal form.
+SUBJECT: Public Records Act request - Forest Health grant records for four Dixie Fire reforestation projects (Plumas / Lassen): agreements, GHG Benefits Calculator inputs, treated-unit maps
+DRAFTED: 2026-09-14 (unsent; portal submission)
+
+To the CAL FIRE Public Records Coordinator:
+
+I work with the Plumas Grassroots Collective on spraymapca.org, a public, noncommercial map of pesticide use and water data for Plumas County and the Northern Sierra.
+
+Under the California Public Records Act (Gov. Code section 7920.000 et seq.), please provide copies of the following records for each of these CAL FIRE Forest Health Program grants:
+
+  a. TWC, Corp., "Dixie Fire Restoration Project" - FY 2022-23 Forest Health award, Application 45824220, Grant Agreement 8GG22613 (Lassen and Plumas counties; Collins Almanor Forest, Moonlight and Mud Lake landscapes)
+  b. Lassen Forest IV Humbug, LLC, "Dixie Fire Humbug Area Reforestation Project" - FY 2022-23 Post-Fire Reforestation and Regeneration award, Application 47202699 (Plumas County)
+  c. Collins Pine Company, "Collins Almanor Forest Dixie Fire Restoration" - FY 2021-22 Forest Health award, Project 21-FH-LMU-004 (Plumas County)
+  d. Feather River Resource Conservation District, "Plumas EFRT Phase II" - FY 2022-23 Forest Health award, Application 45313508
+
+For each grant:
+
+1. The executed grant agreement and any amendments, including the scope of work, budget, and the project area map attached to the agreement.
+2. The completed Forest Restoration and Management (FRM) GHG Benefits Calculator workbook(s) submitted with the application and with any progress or final report, in native .xlsx form. We are specifically interested in the values entered on the Reforestation worksheet for "Area subject to reforestation," "Area subject to site preparation," "Area subject to herbicide treatment," "Level of brush cover," and "Land cover type," and the resulting GHG benefit figures.
+3. Progress reports and any final report, including treated acreage by treatment type (site preparation, herbicide treatment, planting), and any invoices, activity logs, or contractor reports that identify herbicide products, active ingredients, application rates, and application dates.
+4. Treated-unit maps or GIS files (shapefile, KML/KMZ, or geodatabase) for the project area and treatment units.
+5. Any CEQA documentation prepared for or submitted with the project, if not already posted on CEQAnet.
+
+The purpose is to let the public see, on a map, where climate-investment money paid for herbicide treatment and how that treatment was scored for carbon. Electronic, machine-readable formats (native .xlsx, CSV, GIS files, PDF) are ideal. This request is noncommercial and in the public interest; please waive fees if possible and contact me first if costs would exceed $25. Under Gov. Code section 7922.535, please let me know within 10 days whether responsive records exist. If any portion is withheld, please cite the specific exemption.
+
+Sincerely,
+Taylor Durgan
+Plumas Grassroots Collective / SprayMap California
+spraymapca@gmail.com - spraymapca.org

@@ -329,11 +329,11 @@
       "channel": "email",
       "ref": null,
       "sent": "2026-08-03",
-      "status": "delivered",
+      "status": "ingested",
       "received": "2026-08-12",
       "outcome": "County Counsel (Prentice Long PC) sent a response letter ('SprayMap Response.pdf') and a redacted operator roster ('SprayMap California PRA data_redacted.xlsx') on 2026-08-12.",
-      "effect": null,
-      "notes": "The Aug 12 response arrived from the county's outside counsel rather than the Ag Department and was mis-filed as a Sierra County water reply, so this row wrongly showed no answer and a follow-up went out 2026-09-13. Tehama's Deputy Ag Commissioner re-sent both files 2026-09-14 and asked for a receipt (reply drafted, unsent). We had already acknowledged the Aug 12 delivery on 2026-08-24. Needs normalize + ingest."
+      "effect": "Operator names on the site for Tehama: 99.9% of mapped Tehama applications now carry a name (139,730 of 139,929).",
+      "notes": "The Aug 12 response arrived from the county's outside counsel rather than the Ag Department and was mis-filed as a Sierra County water reply, so this row wrongly showed no answer and a follow-up went out 2026-09-13. Tehama's Deputy Ag Commissioner re-sent both files 2026-09-14 and asked for a receipt (reply drafted, unsent). We had already acknowledged the Aug 12 delivery on 2026-08-24.  Normalized 2026-09-14 (604 permits, data/incoming/2026-09/tehama-2020-2026.csv) and loaded via enrich_operator_names.py; the county retained names and redacted only contact details under Gov. Code 7922.000."
     },
     {
       "id": "sacramento",
@@ -628,6 +628,34 @@
       "outcome": null,
       "effect": null,
       "notes": "Drafted 2026-08."
+    },
+    {
+      "id": "calfire-forest-health-grants",
+      "agency": "CAL FIRE - Forest Health Program (via CAL FIRE Records Center)",
+      "county": "Plumas / Lassen",
+      "program": "Forest Health grant records - four Dixie Fire reforestation grants: agreements, GHG Benefits Calculator inputs (site-prep vs herbicide acres), treated-unit maps",
+      "channel": "GovQA portal",
+      "ref": null,
+      "sent": null,
+      "status": "drafted",
+      "received": null,
+      "outcome": null,
+      "effect": null,
+      "notes": "Drafted 2026-09-14 (records-requests/outbox/carbon-2026-09/01). CAL FIRE accepts PRA requests only through its GovQA portal or by mail, so this is a portal submission; not yet submitted. Follows the carbon-angle memo: the state calculator debits understory carbon only against site-preparation acres, so the question is what each grantee entered."
+    },
+    {
+      "id": "carb-offsets-cci",
+      "agency": "California Air Resources Board - Public Records Coordinator",
+      "county": "Plumas / Lassen / Butte",
+      "program": "Forest offset project records (ACR245, ACR246, CAR1953, CAR1783) + CCI Forest Health quantification records",
+      "channel": "email",
+      "ref": null,
+      "sent": null,
+      "status": "drafted",
+      "received": null,
+      "outcome": null,
+      "effect": null,
+      "notes": "Drafted 2026-09-14 (records-requests/outbox/carbon-2026-09/02), Gmail draft in spraymapca; unsent. Asks whether the same acres are earning offset credit and being sprayed, and for the calculator inputs CARB accepted for three Collins / Humbug grants."
     },
     {
       "id": "dpr-pur-2023",
