@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-07",
+  "updated": "2026-09-14",
   "about": "Public-records paper trail for SprayMap California. One row per request to a public agency: what we asked, when, what came back, and whether it is on the site yet. Agencies are named at office level; individual staff are not published. Dates are day-precise where confirmed from the spraymapca inbox, month-precise (YYYY-MM) where reconstructed. 'sent'/'acknowledged' rows with no reply after 30 days are shown as follow-up due. Maintained by the monthly data-asks task; humans commit.",
   "status_legend": {
     "drafted": "letter written, not yet sent",
@@ -179,7 +179,7 @@
       "received": null,
       "outcome": null,
       "effect": null,
-      "notes": "Follow-up drafted 2026-09-05 (unsent, in spraymapca Drafts)."
+      "notes": "Follow-up drafted 2026-09-05 (unsent, in spraymapca Drafts). Follow-up sent 2026-09-13."
     },
     {
       "id": "santa-clara-26-1420",
@@ -235,7 +235,7 @@
       "received": "2026-08",
       "outcome": "Partial production: 'Ag PUR 2020 - July 2026.xlsx' and 'Sites 2020-2026.xlsx'. This is application-level use data through July 2026, not just a name roster. Alameda says more responsive records are still under review.",
       "effect": null,
-      "notes": "NOT YET PULLED. The emailed document links expired 2026-09-07; the files are still retrievable by signing in at alamedacountyca.nextrequest.com/requests/26-763. An acknowledgement reply sits unsent in Drafts. Needs download, normalize and ingest - and note the PUR file may feed applications, not only operator_names."
+      "notes": "Alameda (2026-09-14) confirms all documents are uploaded and visible in the portal: RMP/OPIDs 2026, Sites 2020-present, PUR 2020-present. Retrieval needs the portal sign-in (alamedacountyca.nextrequest.com/requests/26-763). Needs download, normalize and ingest; the PUR file may feed applications, not only operator_names. Acknowledgement sent via the portal thread 2026-09-12."
     },
     {
       "id": "solano",
@@ -314,12 +314,12 @@
       "program": "Operator names",
       "channel": "email",
       "ref": null,
-      "sent": null,
-      "status": "drafted",
+      "sent": "2026-09-13",
+      "status": "sent",
       "received": null,
       "outcome": null,
       "effect": null,
-      "notes": "Letter was written 2026-08-03 but never actually sent (no thread in Sent). New request drafted 2026-09-05, in Drafts (recipient/subject re-verified 2026-09-06)."
+      "notes": "Letter was written 2026-08-03 but never actually sent (no thread in Sent). New request drafted 2026-09-05, in Drafts (recipient/subject re-verified 2026-09-06). Sent 2026-09-13."
     },
     {
       "id": "tehama",
@@ -329,11 +329,11 @@
       "channel": "email",
       "ref": null,
       "sent": "2026-08-03",
-      "status": "sent",
-      "received": null,
-      "outcome": null,
+      "status": "delivered",
+      "received": "2026-08-12",
+      "outcome": "County Counsel (Prentice Long PC) sent a response letter ('SprayMap Response.pdf') and a redacted operator roster ('SprayMap California PRA data_redacted.xlsx') on 2026-08-12.",
       "effect": null,
-      "notes": "Follow-up drafted 2026-09-05 (unsent, in spraymapca Drafts)."
+      "notes": "The Aug 12 response arrived from the county's outside counsel rather than the Ag Department and was mis-filed as a Sierra County water reply, so this row wrongly showed no answer and a follow-up went out 2026-09-13. Tehama's Deputy Ag Commissioner re-sent both files 2026-09-14 and asked for a receipt (reply drafted, unsent). We had already acknowledged the Aug 12 delivery on 2026-08-24. Needs normalize + ingest."
     },
     {
       "id": "sacramento",
@@ -347,7 +347,7 @@
       "received": null,
       "outcome": null,
       "effect": null,
-      "notes": "Follow-up drafted 2026-09-05 (unsent, in spraymapca Drafts)."
+      "notes": "Follow-up drafted 2026-09-05 (unsent, in spraymapca Drafts). Follow-up sent 2026-09-13."
     },
     {
       "id": "glenn",
@@ -361,7 +361,7 @@
       "received": null,
       "outcome": null,
       "effect": null,
-      "notes": "Follow-up drafted 2026-09-05 (unsent, in spraymapca Drafts)."
+      "notes": "Follow-up drafted 2026-09-05 (unsent, in spraymapca Drafts). Follow-up sent 2026-09-13."
     },
     {
       "id": "kings",
@@ -398,12 +398,12 @@
       "program": "Operator names",
       "channel": "email",
       "ref": null,
-      "sent": null,
-      "status": "drafted",
+      "sent": "2026-09-13",
+      "status": "sent",
       "received": null,
       "outcome": null,
       "effect": null,
-      "notes": "PRA drafted 2026-09-05, Gmail draft in spraymapca; unsent. Same operator-ID-to-name ask as the other counties (county code 23)."
+      "notes": "PRA drafted 2026-09-05, Gmail draft in spraymapca. Same operator-ID-to-name ask as the other counties (county code 23). Sent 2026-09-13."
     },
     {
       "id": "cvrwqcb-r5-nps",
@@ -417,7 +417,21 @@
       "received": "2026-07",
       "outcome": "Dixie Fire / Greenville watershed sampling results, station locations, USFS herbicide-operation notices, Plumas NF monitoring reports 2023-2025",
       "effect": "Science tab: 'Is the water tested for these herbicides? Not yet.' + 3 stations on the map",
-      "notes": "Finding: monitored for post-fire indicators and metals, not for any herbicide. Broader follow-up (all Plumas County surface-water stations + data, and whether any herbicide analyte has ever been run) drafted in-thread 2026-09-05 with the Region 5 PRA inbox copied; in Drafts, unsent."
+      "notes": "Finding: monitored for post-fire indicators and metals, not for any herbicide. Broader follow-up (all Plumas County surface-water stations + data, and whether any herbicide analyte has ever been run) sent in-thread 2026-09-13 - tracked as its own row (cvrwqcb-r5-all-stations)."
+    },
+    {
+      "id": "cvrwqcb-r5-all-stations",
+      "agency": "Central Valley Regional Water Quality Control Board (Region 5)",
+      "county": "Plumas",
+      "program": "Water monitoring - all Plumas County surface-water stations + herbicide-analyte question",
+      "channel": "email (in-thread, Region 5 PRA inbox copied)",
+      "ref": null,
+      "sent": "2026-09-13",
+      "status": "sent",
+      "received": null,
+      "outcome": null,
+      "effect": null,
+      "notes": "Broadens the Dixie/Greenville ask to every Region 5 station in Plumas County, and asks whether any herbicide analyte has ever been run. Sent 2026-09-13."
     },
     {
       "id": "sierra-county-water",
@@ -454,12 +468,12 @@
       "program": "Water monitoring",
       "channel": "email",
       "ref": null,
-      "sent": null,
-      "status": "drafted",
+      "sent": "2026-09-13",
+      "status": "sent",
       "received": null,
       "outcome": null,
       "effect": null,
-      "notes": "Drafted 2026-08-06; Gmail draft created in spraymapca Drafts 2026-09-05 (recipient + subject verified 2026-09-06). Waiting on a human to send."
+      "notes": "Drafted 2026-08-06; Gmail draft created in spraymapca Drafts 2026-09-05 (recipient + subject verified 2026-09-06). Sent 2026-09-13. Automatic reply from the CSD mailbox 2026-09-13; not an acknowledgement."
     },
     {
       "id": "city-of-portola",
@@ -468,12 +482,12 @@
       "program": "Water monitoring",
       "channel": "email",
       "ref": null,
-      "sent": null,
-      "status": "drafted",
+      "sent": "2026-09-13",
+      "status": "sent",
       "received": null,
       "outcome": null,
       "effect": null,
-      "notes": "Drafted 2026-08-06; Gmail draft created in spraymapca Drafts 2026-09-05 (recipient + subject verified 2026-09-06). Waiting on a human to send."
+      "notes": "Drafted 2026-08-06; Gmail draft created in spraymapca Drafts 2026-09-05 (recipient + subject verified 2026-09-06). Sent 2026-09-13."
     },
     {
       "id": "chester-pud",
@@ -482,12 +496,12 @@
       "program": "Water monitoring",
       "channel": "email",
       "ref": null,
-      "sent": null,
-      "status": "drafted",
+      "sent": "2026-09-13",
+      "status": "sent",
       "received": null,
       "outcome": null,
       "effect": null,
-      "notes": "Drafted 2026-08-06; Gmail draft created in spraymapca Drafts 2026-09-05 (recipient + subject verified 2026-09-06). Waiting on a human to send."
+      "notes": "Drafted 2026-08-06; Gmail draft created in spraymapca Drafts 2026-09-05 (recipient + subject verified 2026-09-06). Sent 2026-09-13."
     },
     {
       "id": "state-ddw-d62",
@@ -496,12 +510,12 @@
       "program": "Water monitoring",
       "channel": "email",
       "ref": null,
-      "sent": null,
-      "status": "drafted",
+      "sent": "2026-09-13",
+      "status": "sent",
       "received": null,
       "outcome": null,
       "effect": null,
-      "notes": "Drafted 2026-08-06; Gmail draft created in spraymapca Drafts 2026-09-05 (recipient + subject verified 2026-09-06). Waiting on a human to send."
+      "notes": "Drafted 2026-08-06; Gmail draft created in spraymapca Drafts 2026-09-05 (recipient + subject verified 2026-09-06). Sent 2026-09-13."
     },
     {
       "id": "plumas-env-health",
@@ -510,12 +524,12 @@
       "program": "Water monitoring",
       "channel": "email",
       "ref": null,
-      "sent": null,
-      "status": "drafted",
+      "sent": "2026-09-13",
+      "status": "sent",
       "received": null,
       "outcome": null,
       "effect": null,
-      "notes": "Drafted 2026-08-06; Gmail draft created in spraymapca Drafts 2026-09-05 (recipient + subject verified 2026-09-06). Waiting on a human to send."
+      "notes": "Drafted 2026-08-06; Gmail draft created in spraymapca Drafts 2026-09-05 (recipient + subject verified 2026-09-06). Sent 2026-09-13."
     },
     {
       "id": "sierra-valley-gmd",
@@ -524,12 +538,12 @@
       "program": "Water monitoring (groundwater wells, analytes, results)",
       "channel": "email",
       "ref": null,
-      "sent": null,
-      "status": "drafted",
+      "sent": "2026-09-13",
+      "status": "sent",
       "received": null,
       "outcome": null,
       "effect": null,
-      "notes": "Referred here by County of Sierra (2026-08-06). PRA drafted 2026-09-05, Gmail draft in spraymapca; unsent. Asks for well list, analytes, results 2018-present, and whether any forestry/rangeland herbicide has ever been screened."
+      "notes": "Referred here by County of Sierra (2026-08-06). PRA drafted 2026-09-05, Gmail draft in spraymapca. Asks for well list, analytes, results 2018-present, and whether any forestry/rangeland herbicide has ever been screened. Sent 2026-09-13."
     },
     {
       "id": "caltrans-d2",
@@ -538,12 +552,12 @@
       "program": "Roadside herbicide application records (route + postmile)",
       "channel": "email (GovQA portal preferred)",
       "ref": null,
-      "sent": null,
-      "status": "drafted",
+      "sent": "2026-09-13",
+      "status": "sent",
       "received": null,
       "outcome": null,
       "effect": null,
-      "notes": "PRA drafted 2026-09-05, Gmail draft in spraymapca; unsent. Caltrans prefers its public-records portal; the email offers to resubmit there. Purpose: put highway roadside spraying on the map by location."
+      "notes": "PRA drafted 2026-09-05, Gmail draft in spraymapca. Caltrans prefers its public-records portal; the email offers to resubmit there. Purpose: put highway roadside spraying on the map by location. Sent 2026-09-13."
     },
     {
       "id": "plumas-public-works",
@@ -552,12 +566,12 @@
       "program": "Roadside herbicide application records (county roads)",
       "channel": "email",
       "ref": null,
-      "sent": null,
-      "status": "drafted",
+      "sent": "2026-09-13",
+      "status": "sent",
       "received": null,
       "outcome": null,
       "effect": null,
-      "notes": "PRA drafted 2026-09-05, Gmail draft in spraymapca (recipient verified 2026-09-06); unsent. Asks for road-level application records, PURs filed with the Ag Commissioner, contracts, and no-spray records."
+      "notes": "PRA drafted 2026-09-05, Gmail draft in spraymapca (recipient verified 2026-09-06). Asks for road-level application records, PURs filed with the Ag Commissioner, contracts, and no-spray records. Sent 2026-09-13. Automatic (out-of-office) reply from the director's mailbox 2026-09-13; not an acknowledgement."
     },
     {
       "id": "blm-ca-foia",
@@ -585,7 +599,7 @@
       "received": null,
       "outcome": null,
       "effect": null,
-      "notes": "Federal FOIA; acknowledged, no records yet. Status/ETA follow-up drafted 2026-09-05 (unsent, in Drafts)."
+      "notes": "Federal FOIA; acknowledged, no records yet. Status/ETA follow-up drafted 2026-09-05 . Status/ETA inquiry sent 2026-09-13."
     },
     {
       "id": "usfs-r5-working-forests",
