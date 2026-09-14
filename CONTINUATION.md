@@ -69,15 +69,32 @@ Connect: `source C:/Users/ryanv/.pg_dburl` (sets `$DBURL`; **secret — never ec
 ## Local files (gitignored — needed for re-loads)
 `data/raw/cpra/`: `dpr_data.csv` (108 MB, CDPR extract 2020–2024, 5 NS counties), `dpr_vukich_spraymap_26-637.xlsx`, `fresno_permits.csv`, `applications_dpr_2023_2024.csv`, `acres_backfill.csv`, the coord backups, `ns_plss_centroids.csv`. `data/incoming/2026-07/` keeps the **normalized CSVs + README + `normalize.py`** in git; the raw `.xlsx`/`.zip` are ignored.
 
-## Open / pending
+## Open / pending (refreshed 2026-09-14)
 1. **Enable Web Analytics** in the Vercel dashboard (script is live; no data until then).
-2. **Donations** — flip `DONATE_CONFIG.comingSoon=false` + set a Givebutter/Donorbox URL. **Do not add tax-deductible wording** without an IRS 501(c)(3) determination letter.
-3. **Gmail filters** — import `gmail-filters-spraymapca.xml` manually (agent upload is sandbox-blocked). Buckets: Records / Community / Finance / Press / Legal.
-4. **Remaining CPRA gaps** — Ventura, Imperial, Madera(+) drafts sit in `records-requests/outbox/`; Los Angeles has no prepared letter. Statewide PUR is still **2020–2022** outside the NS spine.
-5. **Statewide acres** — only NS has `acres`; a statewide re-derive needs the PUR archives (heavy).
-6. **FRAP/parcel ownership** — only USFS point-in-polygon is done; CAL FIRE FRAP + assessor-parcel owner names are unbuilt (parcel owner names are **PII** — the project's stance is class-not-name).
-7. **Ledger bookkeeping** — founder-paid domain as expense vs in-kind; whether to list shared Vercel hosting.
-8. **Held cleanup (needs confirm)** — `build/process.py`, `build/facts.py`, old sync scripts, stub PDFs in `data/receipts/`, stale `data/agg/` offline fallback.
+2. **Donations** are LIVE (PayPal, three hosted buttons, real-time IPN + daily reconcile). Still open, all user-side:
+   set `PAYPAL_CLIENT_ID`/`PAYPAL_CLIENT_SECRET` in Vercel to enable the daily API backfill; CT-1 charitable
+   registration; the 501(c)(3) application. **No tax-deductible wording until the IRS letter.**
+3. **Gmail filters** - import `gmail-filters-spraymapca.xml` manually (agent upload is sandbox-blocked).
+4. **Records requests** - 47 rows in `data/records_requests.json`. User-side actions:
+   - SEND the CARB draft (in spraymapca Drafts) and the Tehama receipt reply (also in Drafts).
+   - PORTALS, text ready in `records-requests/outbox/`: CAL FIRE Forest Health grant records (GovQA), BLM
+     California FOIA (FOIA.gov), San Benito / San Luis Obispo / Ventura operator names.
+   - Email Solano's filled PRA form; Los Angeles needs a signed form.
+   - Sign in to Alameda's NextRequest portal (#26-763): PUR 2020-present, Sites 2020-present, RMP/OPIDs 2026
+     are uploaded and waiting. The PUR file may feed `applications`, not only operator_names.
+   - Kings and Yuba operator-name letters still need verified recipients.
+   - Follow up DPR's Groundwater Protection Program referral if nothing arrives by early October.
+5. **Statewide acres** - 2023 carries acres for every county. 2020-2022 backfill from the CDPR archives
+   (`build/backfill_pur_acres.py`) run 2026-09-14; see the section at the bottom for the result.
+6. **CDPR PUR 2024** - not published (`pur2024.zip` 404s as of 2026-09-14). Check monthly.
+7. **FRAP/parcel ownership** - only USFS point-in-polygon is done; CAL FIRE FRAP + assessor-parcel owner names
+   are unbuilt (parcel owner names are **PII** - the project's stance is class-not-name).
+8. **Ledger bookkeeping** - founder-paid domain as expense vs in-kind; whether to list shared Vercel hosting.
+9. **Held cleanup (needs confirm)** - `build/process.py`, `build/facts.py`, old sync scripts, stub PDFs in
+   `data/receipts/`, stale `data/agg/` offline fallback.
+10. **Carbon angle** - internal memo `program/carbon-angle-first-take.md`. The central accounting claim was
+    verified cell-by-cell in CARB's own calculator on 2026-09-14 (understory debit keyed to site-prep acres
+    only). Not site copy; publish only as an accounting-transparency piece, never a tonnage or dollar figure.
 
 ## Constraints (persist)
 DB password **only** in `C:/Users/ryanv/.pg_dburl` — never commit or echo. Only the anon key in client HTML. **Never destructively mutate the shared DB; never duplicate data** (dedup by `app_id` / upsert on `operator_id`). The Transparency page stays honest — no fabricated figures, every ledger entry ties to a real receipt, and **no claim of tax-exempt status until it exists**. Sending email, submitting portals, and downloading files are **permission-gated** — prepare and ask.
@@ -166,3 +183,21 @@ Northern-Sierra-only because CDPR has not published `pur2024.zip` yet (it 404s -
   note explains 2024 is the Northern-Sierra year, and `CELLS_KEY` is **v11-pur2023**.
 - Partially closes open item 5 (statewide acres): 2023 carries `acre_treated` for 79.6% of rows.
   2020-2022 still have acres only for the Northern Sierra.
+
+## Statewide acres backfilled for 2020-2022 (2026-09-14)
+`build/backfill_pur_acres.py 2020 2021 2022 --load` filled `acres` from the CDPR year archives
+(`pur_archives/pur{YEAR}.zip`, 160-190 MB each, kept under `data/raw/pur/`, gitignored). Only
+`acre_treated` rows with `unit_treated = 'A'` count; only NULLs are filled, so the Northern-Sierra
+rows that already had acres are untouched and a re-run is a no-op.
+
+| year | rows with acres | share |
+|---|---|---|
+| 2020 | 3,435,033 of 4,204,326 | 81.7% |
+| 2021 | 3,189,667 of 3,968,669 | 80.4% |
+| 2022 | 2,929,752 of 3,660,707 | 80.0% |
+| 2023 | 3,122,920 of 3,922,636 | 79.6% (from the Sept 7 load) |
+
+Each year ran as one UPDATE (about 25 minutes per year through the pooler; a county-by-county retry
+exists if the connection drops). `map_agg` refreshed afterwards - it is the only view that carries
+acres. Open item 5 is closed; the remaining ~20% per year are applications the state reports in
+square feet, cubic feet, pounds or units rather than acres.
