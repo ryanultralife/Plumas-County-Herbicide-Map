@@ -364,6 +364,48 @@
       "notes": "File spraymap request.xlsx downloaded from spraymapca inbox 2026-09-18 and loaded via enrich_operator_names.py --only incoming_local."
     },
     {
+      "id": "el-dorado",
+      "agency": "El Dorado County Agricultural Commissioner",
+      "county": "El Dorado / Alpine",
+      "program": "Operator names",
+      "channel": "email",
+      "ref": null,
+      "sent": null,
+      "status": "drafted",
+      "received": null,
+      "outcome": null,
+      "effect": null,
+      "notes": "Drafted 2026-09-19. El Dorado handles Alpine pesticide permitting (CalAgPermits). Recipient eldcag@edcgov.us (LeeAnne Mila). County codes 09 and 02. El Dorado 29.5% named; Alpine 25% named. Unsent Gmail draft + letter 26-el-dorado-alpine.md."
+    },
+    {
+      "id": "placer",
+      "agency": "Placer County Agricultural Commissioner",
+      "county": "Placer",
+      "program": "Operator names",
+      "channel": "email",
+      "ref": null,
+      "sent": null,
+      "status": "drafted",
+      "received": null,
+      "outcome": null,
+      "effect": null,
+      "notes": "Drafted 2026-09-19. Recipient PlacerAg@placer.ca.gov (Josh Huntsinger). County code 31. 5.4% named. Unsent Gmail draft + letter 27-placer.md."
+    },
+    {
+      "id": "nevada",
+      "agency": "Nevada County Agricultural Commissioner",
+      "county": "Nevada",
+      "program": "Operator names",
+      "channel": "email",
+      "ref": null,
+      "sent": null,
+      "status": "drafted",
+      "received": null,
+      "outcome": null,
+      "effect": null,
+      "notes": "Drafted 2026-09-19. Recipient agdept@nevadacountyca.gov (Chris deNijs). County code 29. 9.6% named. Unsent Gmail draft + letter 28-nevada.md."
+    },
+    {
       "id": "kings",
       "agency": "Kings County Agricultural Commissioner",
       "county": "Kings",

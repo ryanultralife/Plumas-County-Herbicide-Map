@@ -1,8 +1,8 @@
 {
  "generated": null,
  "statewide": {
-  "apps": 13086952,
-  "named": 11049984,
+  "apps": 13093068,
+  "named": 11050133,
   "pct": 84.4,
   "public_counties": [
    "Colusa",
@@ -222,9 +222,9 @@
    "access": "download"
   },
   "Nevada": {
-   "apps": 1742,
+   "apps": 2580,
    "named": 168,
-   "pct": 9.6,
+   "pct": 6.5,
    "region": "central-sierra",
    "access": "request"
   },
@@ -236,9 +236,9 @@
    "access": "request"
   },
   "Placer": {
-   "apps": 14446,
-   "named": 783,
-   "pct": 5.4,
+   "apps": 19724,
+   "named": 932,
+   "pct": 4.7,
    "region": "central-sierra",
    "access": "request"
   },
