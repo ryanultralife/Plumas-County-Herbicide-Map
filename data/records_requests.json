@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-14",
+  "updated": "2026-09-19",
   "about": "Public-records paper trail for SprayMap California. One row per request to a public agency: what we asked, when, what came back, and whether it is on the site yet. Agencies are named at office level; individual staff are not published. Dates are day-precise where confirmed from the spraymapca inbox, month-precise (YYYY-MM) where reconstructed. 'sent'/'acknowledged' rows with no reply after 30 days are shown as follow-up due. Maintained by the monthly data-asks task; humans commit.",
   "status_legend": {
     "drafted": "letter written, not yet sent",
@@ -173,13 +173,13 @@
       "county": "Orange",
       "program": "Operator names",
       "channel": "email",
-      "ref": null,
+      "ref": "#26-6410",
       "sent": "2026-07-23",
-      "status": "sent",
-      "received": null,
-      "outcome": null,
-      "effect": null,
-      "notes": "Follow-up drafted 2026-09-05 (unsent, in spraymapca Drafts). Follow-up sent 2026-09-13."
+      "status": "ingested",
+      "received": "2026-09-14",
+      "outcome": "Box folder PRA 26-6410 (https://ocgov.box.com/s/77huhgfztm1hgl2so3krj1vv17a8f771) downloaded 2026-09-19: MonthySummaryResults (7).xlsx (158 unique permittees), ProdAgMonthlySummary, PermitUseReport. NextRequest #26-6410 Documents tab was empty.",
+      "effect": "Orange mapped apps 34.5% -> 61.9% named (9,056 of 14,632). 6-digit Orange permits join CDPR GROWER_IDs via year-digit + permit (10-char owners).",
+      "notes": "Closed as NextRequest #26-6410. Staff emailed a Box link because Monthly Summary Results was too large for Gmail. Names loaded via enrich_operator_names.py --only incoming_local from data/incoming/2026-09/orange-monthly.csv."
     },
     {
       "id": "santa-clara-26-1420",
@@ -231,11 +231,11 @@
       "channel": "portal",
       "ref": "#26-763",
       "sent": "2026-08-03",
-      "status": "delivered",
-      "received": "2026-08",
-      "outcome": "Partial production: 'Ag PUR 2020 - July 2026.xlsx' and 'Sites 2020-2026.xlsx'. This is application-level use data through July 2026, not just a name roster. Alameda says more responsive records are still under review.",
-      "effect": null,
-      "notes": "Alameda (2026-09-14) confirms all documents are uploaded and visible in the portal: RMP/OPIDs 2026, Sites 2020-present, PUR 2020-present. Retrieval needs the portal sign-in (alamedacountyca.nextrequest.com/requests/26-763). Needs download, normalize and ingest; the PUR file may feed applications, not only operator_names. Acknowledgement sent via the portal thread 2026-09-12."
+      "status": "ingested",
+      "received": "2026-08-07",
+      "outcome": "Portal files downloaded 2026-09-19: RMP/OPIDs All History through 8-5-2026.xlsx (414 permits), Sites 2020-2026.xlsx (366), Ag PUR 2020-July 2026.xlsx (47,963 use rows / 111 permittees). Names loaded from the RMP roster.",
+      "effect": "Alameda named 0.6% -> 35.1% (45,559 of 129,775 applications). Also loaded 15,829 2024-2026 use rows as source pur-cac-alameda (6,773 / 5,384 / 3,672).",
+      "notes": "Closed on NextRequest. Names from RMP roster; current-year dots from Ag PUR 2024-2026 only (2020-2023 already in statewide PUR). Ingest: build/ingest_alameda_cac_pur.py --load."
     },
     {
       "id": "solano",
@@ -315,11 +315,11 @@
       "channel": "email",
       "ref": null,
       "sent": "2026-09-13",
-      "status": "sent",
-      "received": null,
-      "outcome": null,
-      "effect": null,
-      "notes": "Letter was written 2026-08-03 but never actually sent (no thread in Sent). New request drafted 2026-09-05, in Drafts (recipient/subject re-verified 2026-09-06). Sent 2026-09-13."
+      "status": "ingested",
+      "received": "2026-09-14",
+      "outcome": "CalAgPermits Permits/Sites/Commodities export 2020-2026 (1,145 permits) from Sonia Zarate.",
+      "effect": "Butte named 10.5% -> 86.6% (220,960 of 255,268 applications).",
+      "notes": "File 2020-2026 Butte Permit.xlsx downloaded from spraymapca inbox 2026-09-18 and loaded via enrich_operator_names.py --only incoming_local."
     },
     {
       "id": "tehama",
@@ -340,14 +340,14 @@
       "agency": "Sacramento County Agricultural Commissioner",
       "county": "Sacramento",
       "program": "Operator names",
-      "channel": "email",
-      "ref": null,
+      "channel": "portal",
+      "ref": "#26-6531",
       "sent": "2026-08-03",
-      "status": "sent",
-      "received": null,
-      "outcome": null,
-      "effect": null,
-      "notes": "Follow-up drafted 2026-09-05 (unsent, in spraymapca Drafts). Follow-up sent 2026-09-13."
+      "status": "ingested",
+      "received": "2026-09-15",
+      "outcome": "NextRequest #26-6531 PERMIT QUERY workbooks for 2020-2026 downloaded 2026-09-19 (document ids 70401599, 70401597, 70401595, 70401594, 70401592, 70401589, 70401587). 793 unique permits, 681 with home-county prefix 34.",
+      "effect": "Sacramento named 63.4% -> 99.9% (151,318 of 151,501 mapped applications).",
+      "notes": "Closed on saccounty.nextrequest.com. Same CalAgPermits PERMIT QUERY export Mendocino had sent (prefix 34, not 23). Names loaded via enrich_operator_names.py --only incoming_local from data/incoming/2026-09/sacramento/. SITES QUERY files were listed on the request but not ingested; the names roster is PERMIT QUERY."
     },
     {
       "id": "glenn",
@@ -357,11 +357,11 @@
       "channel": "email",
       "ref": null,
       "sent": "2026-08-03",
-      "status": "sent",
-      "received": null,
-      "outcome": null,
-      "effect": null,
-      "notes": "Follow-up drafted 2026-09-05 (unsent, in spraymapca Drafts). Follow-up sent 2026-09-13."
+      "status": "ingested",
+      "received": "2026-09-14",
+      "outcome": "CalAgPermits permit search export (973 permits) from Janessa Morris, agcommr@countyofglenn.net.",
+      "effect": "Glenn named 23.6% -> 95.0% (158,705 of 167,051 applications).",
+      "notes": "File spraymap request.xlsx downloaded from spraymapca inbox 2026-09-18 and loaded via enrich_operator_names.py --only incoming_local."
     },
     {
       "id": "kings",
@@ -399,11 +399,11 @@
       "channel": "email",
       "ref": null,
       "sent": "2026-09-13",
-      "status": "sent",
-      "received": null,
-      "outcome": null,
+      "status": "delivered",
+      "received": "2026-09-15",
+      "outcome": "Seven PERMIT QUERY Excel files (2020-2026). 793 unique permits, but 681 start with 34 (Sacramento) and none start with 23 (Mendocino). Mendocino named coverage unchanged at 4.1%.",
       "effect": null,
-      "notes": "PRA drafted 2026-09-05, Gmail draft in spraymapca. Same operator-ID-to-name ask as the other counties (county code 23). Sent 2026-09-13."
+      "notes": "Need a follow-up asking for Mendocino-issued (county code 23) permits. Files loaded anyway; they helped name Sacramento operators."
     },
     {
       "id": "cvrwqcb-r5-nps",
