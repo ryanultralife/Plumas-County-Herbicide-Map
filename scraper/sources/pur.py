@@ -94,7 +94,7 @@ def pull(region_key, region):
                     "product": prod.get(prodno, prodno),
                     "active_ingredient": chem.get(chemcd, chemcd),
                     "amount": _col(row, "lbs_chm_used", "lbs_prd_used"),
-                    "unit": "lbs", "method": _col(row, "applic_method"),
+                    "unit": "lbs", "method": lib.applic_method(_col(row, "aer_gnd_ind", "applic_method")),
                     "activity": site, "project": None, "status": "completed",
                     "url": "https://calpip.cdpr.ca.gov/", "pulled": pulled})
         print(f"  [pur] {year}: {sum(1 for r in rows if r['year']==year)} region records")

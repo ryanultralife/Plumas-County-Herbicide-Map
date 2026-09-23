@@ -46,6 +46,7 @@ COLS = ["app_id", "source", "region", "date", "year", "lat", "lon", "county",
 # dpr_data.csv column indices (37-col DPR extract)
 I = {"YEAR": 0, "USE_NO": 1, "GROWER_ID": 4, "SITE_CODE": 6, "SITE_NAME": 7,
      "PRODUCT_NAME": 9, "CHEMNAME": 21, "LBS_CHM_USED": 22,
+     "AER_GND_IND": 25,
      "APPLIC_START_DT": 27, "APPLIC_END_DT": 28, "COUNTY": 32, "COMTRS": 33}
 
 
@@ -101,7 +102,8 @@ def transform():
                 "owner": owner, "product": row[I["PRODUCT_NAME"]],
                 "active_ingredient": row[I["CHEMNAME"]],
                 "amount": to_f(row[I["LBS_CHM_USED"]]), "unit": "lbs",
-                "method": None, "activity": row[I["SITE_CODE"]], "project": None,
+                "method": lib.applic_method(row[I["AER_GND_IND"]] if len(row) > I["AER_GND_IND"] else None),
+                "activity": row[I["SITE_CODE"]], "project": None,
                 "status": "completed", "url": "https://calpip.cdpr.ca.gov/",
                 "pulled": time.strftime("%Y-%m-%d")}
             best[key] = (lbs, rec)

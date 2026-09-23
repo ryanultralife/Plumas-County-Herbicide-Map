@@ -8,7 +8,8 @@ statewide rows.
 
 Row shape is matched field-for-field against an existing pur:2022 row:
   app_id = pur:{year}:{use_no}      source = 'pur'      unit = 'lbs'
-  owner  = grower_id (11-char GROWER_ID)    activity = site_code    method = NULL
+  owner  = grower_id (11-char GROWER_ID)    activity = site_code
+  method = AER_GND_IND (A/G/F/C/O -> Aerial/Ground/Fumigation/Chemigation/Other)
   date   = MM/DD/YYYY               status = 'completed'
   lat/lon= PLSS section centroid (lib.comtrs_centroid), NULL when the section is missing
   acres  = acre_treated, only when unit_treated = 'A'
@@ -119,7 +120,8 @@ def transform(year, outpath):
                     (row.get("product_name") or "").strip(),
                     (row.get("chemname") or "").strip(),
                     to_f(row.get("lbs_chm_used")), "lbs",
-                    None, (row.get("site_code") or "").strip() or None,
+                    lib.applic_method(row.get("aer_gnd_ind")),
+                    (row.get("site_code") or "").strip() or None,
                     None, "completed", "https://calpip.cdpr.ca.gov/", pulled, acres,
                 ])
         print("  [" + os.path.basename(path) + "] scanned=" + format(scanned, ",")

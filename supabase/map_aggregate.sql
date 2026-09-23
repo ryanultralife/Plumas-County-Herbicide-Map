@@ -4,7 +4,11 @@
 --   src = source -> [cnt,lbs]                       (drives source layers: pur/facts/thp)
 --   ai  = top-5 active ingredients [name,cnt]
 --   owners = top-5 owners/applicators [name,cnt]
--- Re-run after each load.
+--   meth = application type -> [cnt,lbs]
+--          aerial | ground | fumigation | chemigation | other | unknown
+--          unknown = blank method, plus USFS FACTS "Chemical" (not an aerial/ground code)
+-- Re-run after each load. A live swap builds this as map_agg_next first
+-- (build/backfill_pur_method.py --refresh-map) so the public map stays up.
 
 drop materialized view if exists public.map_agg;
 
@@ -47,13 +51,42 @@ own_ranked as (
   from public.applications where lat is not null and lon is not null and year between 2020 and 2026 and owner is not null and owner<>''
   group by 1,2,3
 ),
-own_top as (select lat, lon, jsonb_agg(jsonb_build_array(owner,c) order by c desc) filter (where rn<=5) owners from own_ranked group by lat, lon)
+own_top as (select lat, lon, jsonb_agg(jsonb_build_array(owner,c) order by c desc) filter (where rn<=5) owners from own_ranked group by lat, lon),
+meth_agg as (
+  select lat, lon, jsonb_object_agg(mk, arr) meth from (
+    select round(lat::numeric,3) lat, round(lon::numeric,3) lon,
+      case lower(btrim(coalesce(method,'')))
+        when '' then 'unknown'
+        when 'a' then 'aerial'
+        when 'aerial' then 'aerial'
+        when 'aircraft' then 'aerial'
+        when 'air' then 'aerial'
+        when 'g' then 'ground'
+        when 'ground' then 'ground'
+        when 'f' then 'fumigation'
+        when 'fumigation' then 'fumigation'
+        when 'c' then 'chemigation'
+        when 'chemigation' then 'chemigation'
+        when 'o' then 'other'
+        when 'other' then 'other'
+        when 'chemical' then 'unknown'
+        else 'other'
+      end as mk,
+      array[count(*)::numeric,
+            round(sum(case when unit='lbs' then coalesce(amount,0) else 0 end)::numeric,1)] arr
+    from public.applications
+    where lat is not null and lon is not null and year between 2020 and 2026
+    group by 1,2,3
+  ) m group by lat, lon
+)
 select a.lat, a.lon, a.county, a.region, a.n, a.lbs, a.acres, a.c,
-       coalesce(t.ai,'[]'::jsonb) ai, coalesce(s.src,'{}'::jsonb) src, coalesce(o.owners,'[]'::jsonb) owners
+       coalesce(t.ai,'[]'::jsonb) ai, coalesce(s.src,'{}'::jsonb) src,
+       coalesce(o.owners,'[]'::jsonb) owners, coalesce(mm.meth,'{}'::jsonb) meth
 from agg a
   left join ai_top  t using (lat, lon)
   left join src_agg s using (lat, lon)
-  left join own_top o using (lat, lon);
+  left join own_top o using (lat, lon)
+  left join meth_agg mm using (lat, lon);
 
 create unique index if not exists map_agg_ll on public.map_agg (lat, lon);
 grant select on public.map_agg to anon;  -- raw applications table stays RLS-private

@@ -13,6 +13,24 @@ COLUMNS = [
     "method", "activity", "project", "status", "url", "pulled",
 ]
 
+# CDPR PUR field AER_GND_IND, plus the words already stored from county exports.
+# Blank stays None so "not reported" stays distinct from Other.
+_METHOD_LABEL = {
+    "A": "Aerial", "AERIAL": "Aerial", "AIRCRAFT": "Aerial", "AIR": "Aerial",
+    "G": "Ground", "GROUND": "Ground",
+    "F": "Fumigation", "FUMIGATION": "Fumigation",
+    "C": "Chemigation", "CHEMIGATION": "Chemigation",
+    "O": "Other", "OTHER": "Other",
+}
+
+
+def applic_method(raw):
+    """Canonical application-type label, or None when the record omits it."""
+    key = str(raw or "").strip().upper()
+    if not key:
+        return None
+    return _METHOD_LABEL.get(key, key.title())
+
 DDL = """
 CREATE TABLE IF NOT EXISTS applications (
   app_id TEXT PRIMARY KEY,
