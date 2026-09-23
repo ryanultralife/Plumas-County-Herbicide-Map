@@ -1,0 +1,273 @@
+{
+  "generated": "2026-09-22",
+  "source": "State Water Resources Control Board, Division of Drinking Water - EDT Library (SDWIS extracts SDWIS3 2019-2022, SDWIS4 2023-2025, SDWIS5 2026-present, downloaded 2026-09-22), filtered to Plumas County systems",
+  "how_we_got_here": "Our records request to DDW District 62 (PRA ID #638) was answered on 2026-09-17 by pointing to these public bulk files rather than producing a county extract; we pulled and filtered them ourselves.",
+  "rows": 15037,
+  "systems": 184,
+  "date_range": [
+    "2019-01-02",
+    "2026-07-01"
+  ],
+  "distinct_analytes": 174,
+  "top_analytes": [
+    [
+      "NITRATE",
+      1414
+    ],
+    [
+      "ARSENIC",
+      561
+    ],
+    [
+      "COPPER, FREE",
+      526
+    ],
+    [
+      "LEAD",
+      492
+    ],
+    [
+      "NITRITE",
+      484
+    ],
+    [
+      "IRON",
+      279
+    ],
+    [
+      "MANGANESE",
+      272
+    ],
+    [
+      "PERCHLORATE",
+      184
+    ],
+    [
+      "GROSS ALPHA PARTICLE ACTIVITY",
+      153
+    ],
+    [
+      "NITRATE-NITRITE",
+      138
+    ],
+    [
+      "CHLOROFORM",
+      130
+    ],
+    [
+      "BROMODICHLOROMETHANE",
+      130
+    ],
+    [
+      "BROMOFORM",
+      130
+    ],
+    [
+      "DIBROMOCHLOROMETHANE",
+      130
+    ],
+    [
+      "TTHM",
+      126
+    ],
+    [
+      "COMBINED URANIUM",
+      111
+    ],
+    [
+      "CONDUCTIVITY @ 25 C UMHOS/CM",
+      104
+    ],
+    [
+      "RADIUM-228",
+      104
+    ],
+    [
+      "FLUORIDE",
+      98
+    ],
+    [
+      "ALKALINITY, TOTAL",
+      92
+    ],
+    [
+      "BENZENE",
+      92
+    ],
+    [
+      "HYDROXIDE AS CALCIUM CARBONATE",
+      91
+    ],
+    [
+      "ALKALINITY, CARBONATE",
+      91
+    ],
+    [
+      "ALKALINITY, BICARBONATE",
+      91
+    ],
+    [
+      "1,2-DICHLOROETHANE",
+      90
+    ]
+  ],
+  "herbicides": {
+    "glyphosate": {
+      "analyte_names": [
+        "GLYPHOSATE"
+      ],
+      "samples": 14,
+      "systems_tested": 1,
+      "first_sample": "2019-11-12",
+      "last_sample": "2025-01-27",
+      "detections_above_reporting_level": 0,
+      "detections": [],
+      "mcl_values_seen": [
+        "700"
+      ],
+      "dlr_values_seen": [
+        "25"
+      ]
+    },
+    "atrazine": {
+      "analyte_names": [
+        "ATRAZINE"
+      ],
+      "samples": 14,
+      "systems_tested": 1,
+      "first_sample": "2019-11-12",
+      "last_sample": "2025-02-25",
+      "detections_above_reporting_level": 0,
+      "detections": [],
+      "mcl_values_seen": [
+        "1"
+      ],
+      "dlr_values_seen": [
+        ".5"
+      ]
+    },
+    "simazine": {
+      "analyte_names": [
+        "SIMAZINE"
+      ],
+      "samples": 14,
+      "systems_tested": 1,
+      "first_sample": "2019-11-12",
+      "last_sample": "2025-02-25",
+      "detections_above_reporting_level": 0,
+      "detections": [],
+      "mcl_values_seen": [
+        "4"
+      ],
+      "dlr_values_seen": [
+        "1"
+      ]
+    },
+    "2,4-D": {
+      "analyte_names": [
+        "2,4-D"
+      ],
+      "samples": 14,
+      "systems_tested": 1,
+      "first_sample": "2019-11-12",
+      "last_sample": "2025-01-27",
+      "detections_above_reporting_level": 0,
+      "detections": [],
+      "mcl_values_seen": [
+        "70"
+      ],
+      "dlr_values_seen": [
+        "10"
+      ]
+    }
+  },
+  "herbicides_never_tested": [
+    "AMPA",
+    "hexazinone",
+    "imazapyr",
+    "aminopyralid",
+    "triclopyr",
+    "clopyralid",
+    "sulfometuron-methyl",
+    "indaziflam",
+    "oxyfluorfen",
+    "diuron",
+    "bromacil",
+    "picloram",
+    "dicamba",
+    "alachlor",
+    "metolachlor",
+    "dalapon",
+    "dinoseb",
+    "pentachlorophenol",
+    "bentazon",
+    "molinate",
+    "thiobencarb"
+  ],
+  "named_systems": {
+    "CA3210009": {
+      "label": "Chester PUD",
+      "in_records": true,
+      "system_name": "CHESTER PUBLIC U.D.",
+      "samples": 837,
+      "distinct_analytes": 139,
+      "herbicides": {}
+    },
+    "CA3210003": {
+      "label": "City of Portola",
+      "in_records": true,
+      "system_name": "CITY OF PORTOLA",
+      "samples": 497,
+      "distinct_analytes": 135,
+      "herbicides": {}
+    },
+    "CA3210001": {
+      "label": "Indian Valley CSD (Greenville)",
+      "in_records": true,
+      "system_name": "IVCSD-GREENVILLE",
+      "samples": 343,
+      "distinct_analytes": 109,
+      "herbicides": {}
+    },
+    "CA3210004": {
+      "label": "American Valley CSD (Quincy)",
+      "in_records": true,
+      "system_name": "AMERICAN VALLEY CSD",
+      "samples": 1645,
+      "distinct_analytes": 136,
+      "herbicides": {}
+    },
+    "CA3210008": {
+      "label": "East Quincy Services District",
+      "in_records": true,
+      "system_name": "EAST QUINCY SERVICES DISTRICT",
+      "samples": 1,
+      "distinct_analytes": 1,
+      "herbicides": {}
+    },
+    "CA3210005": {
+      "label": "Graeagle Water Company",
+      "in_records": true,
+      "system_name": "GRAEAGLE WATER COMPANY",
+      "samples": 390,
+      "distinct_analytes": 55,
+      "herbicides": {}
+    },
+    "CA3210006": {
+      "label": "Lake Almanor Country Club MWC",
+      "in_records": true,
+      "system_name": "LAKE ALMANOR COUNTRY CLUB MWC",
+      "samples": 355,
+      "distinct_analytes": 114,
+      "herbicides": {}
+    },
+    "CA3210010": {
+      "label": "Hamilton Branch CSD",
+      "in_records": true,
+      "system_name": "HAMILTON BRANCH CSD",
+      "samples": 494,
+      "distinct_analytes": 140,
+      "herbicides": {}
+    }
+  }
+}

@@ -525,10 +525,10 @@
       "channel": "email",
       "ref": null,
       "sent": "2026-09-13",
-      "status": "delivered",
+      "status": "ingested",
       "received": "2026-09-17",
       "outcome": "City Manager answered with the public sources for Portola water data: the State SDWIS system record for the City system, and the eSMR wastewater discharge and receiving-water dataset on data.ca.gov. No standalone records produced.",
-      "effect": null,
+      "effect": "Portola (CA3210003) is in the state compliance pull: 497 results, 135 analytes, no herbicide ever tested. Covered by the Science-tab compliance-records paragraph.",
       "notes": "Response also logged in the City's online records system. We thanked them 2026-09-21. Portola drinking-water results are covered by the DDW EDT pull."
     },
     {
@@ -553,11 +553,11 @@
       "channel": "email",
       "ref": "PRA ID #638",
       "sent": "2026-09-13",
-      "status": "delivered",
+      "status": "ingested",
       "received": "2026-09-17",
       "outcome": "DDW answered by pointing to the public sources: the EDT Library bulk downloads (SDWIS TAB files, 2011-present) for water-quality analytical results, and Drinking Water Watch for compliance and source-water monitoring. No county-specific extract was produced.",
-      "effect": null,
-      "notes": "Assigned PRA ID #638. We replied 2026-09-21 that we would pull the Plumas County compliance and source-water monitoring data ourselves from those sources; pulled 2026-09-22 (see data/incoming/2026-09/edt-plumas)."
+      "effect": "Science tab: \"And the state's compliance records, 2019-2026\" - 15,037 results for 184 Plumas systems; glyphosate tested 14 times at one system (Plumas Eureka CSD), all non-detect; no forestry herbicide ever tested anywhere in the county.",
+      "notes": "Assigned PRA ID #638. We replied 2026-09-21 that we would pull the Plumas County compliance and source-water monitoring data ourselves from those sources; Pulled 2026-09-22: SDWIS3/4/5 (2019-2026) streamed and filtered to Plumas systems by build/gen_edt_plumas.py; evidence at data/incoming/2026-09/edt-plumas/."
     },
     {
       "id": "plumas-env-health",

@@ -225,3 +225,13 @@ A 200 with a `meth` object means the Type filter is live; a 400 "column map_agg.
 means the page is on its fallback. `CELLS_KEY` is already `v14-method`; browsers that cached the
 fallback under the v13 key pick up the real data on their next load without a key bump.
 
+
+## State drinking-water compliance records for Plumas (2026-09-22)
+DDW answered PRA #638 by pointing to its public EDT Library bulk files instead of producing a county
+extract, so we pulled them: `SDWIS3.zip` (2019-2022), `SDWIS4.zip` (2023-2025), `SDWIS5.zip` (2026-),
+about 800 MB, under `data/raw/edt/` (git-ignored; re-download from the EDT Library page). A streaming
+filter on "Principal County Served" = PLUMAS or system number `CA32*` gives 15,037 rows
+(`data/incoming/2026-09/edt-plumas/plumas_sdwis_2019_2026.tsv`, committed); `build/gen_edt_plumas.py`
+writes `summary.json`. Findings on the Science tab: 184 systems, 174 analytes, glyphosate tested 14 times
+at one system (Plumas Eureka CSD, all below the 25 ppb reporting level), no other forestry herbicide
+ever tested in the county. Re-run when SDWIS5 is refreshed (roughly quarterly).
