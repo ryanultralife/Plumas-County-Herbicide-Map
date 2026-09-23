@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-22",
+  "updated": "2026-09-23",
   "about": "Public-records paper trail for SprayMap California. One row per request to a public agency: what we asked, when, what came back, and whether it is on the site yet. Agencies are named at office level; individual staff are not published. Dates are day-precise where confirmed from the spraymapca inbox, month-precise (YYYY-MM) where reconstructed. 'sent'/'acknowledged' rows with no reply after 30 days are shown as follow-up due. Maintained by the monthly data-asks task; humans commit.",
   "status_legend": {
     "drafted": "letter written, not yet sent",
@@ -712,6 +712,104 @@
       "outcome": "Statewide PUR 2023 (pur2023.zip, all 58 counties) published by CDPR as a free download",
       "effect": "Loaded 2026-09-07: +3,842,377 applications, so the statewide map and Data & Trends now run 2020-2023 for every county instead of 2020-2022. 2024 remains Northern-Sierra only (obtained by public-records request); CDPR has not published 2024 yet.",
       "notes": "Loaded with build/ingest_pur_statewide.py, one row per application (largest-AI collapse), ON CONFLICT (app_id) DO NOTHING. 99.1% of the Northern-Sierra 2023 rows already existed from the CPRA extract and were correctly skipped; 723 were new. Re-check for pur2024.zip on each monthly run."
+    },
+    {
+      "id": "dpr-pur-2024-2025",
+      "agency": "CA Dept of Pesticide Regulation (DPR)",
+      "county": "Statewide (58 counties)",
+      "program": "PUR years 2024, 2025 and 2026-to-date (pre-publication extract)",
+      "channel": "NextRequest portal",
+      "ref": null,
+      "sent": null,
+      "status": "drafted",
+      "received": null,
+      "outcome": null,
+      "effect": null,
+      "notes": "Drafted 2026-09-23 (records-requests/outbox/cdpr-statewide-2026-09/01). Same channel and layout as #26-637, which released 2020-2024 for five counties on 2026-07-08 before the 2024 archive was published; this asks for the remaining counties and 2025/2026 as entered, with an extraction date and completeness note. Portal submission; not yet filed."
+    },
+    {
+      "id": "kern-pur-current",
+      "agency": "Kern County Dept of Agriculture and Measurement Standards",
+      "county": "Kern",
+      "program": "PUR use reports 2021-2026 (application-level, yearly zips)",
+      "channel": "published",
+      "ref": null,
+      "sent": null,
+      "status": "self_serve",
+      "received": null,
+      "outcome": null,
+      "effect": null,
+      "notes": "Self-serve: {YEAR}_kern_use.zip per year; 2025 and 2026 refreshed 2026-08-21. Product and quantity but no AI pounds, so derive from product rates as the Plumas load does. Verified by download 2026-09-23. URL: http://www.kernag.com/ep/permit-use/permit-use.asp"
+    },
+    {
+      "id": "stanislaus-pur-current",
+      "agency": "Stanislaus County Agricultural Commissioner (GIS open-data hub)",
+      "county": "Stanislaus",
+      "program": "PUR use reports 2021-2026 with AI pounds (ArcGIS feature service)",
+      "channel": "published",
+      "ref": null,
+      "sent": null,
+      "status": "self_serve",
+      "received": null,
+      "outcome": null,
+      "effect": null,
+      "notes": "Self-serve REST: 626,240 rows including 2024=128,075, 2025=140,409, 2026=82,608 (to Jul 2026); carries chem_code, chem_name and pounds per active ingredient, the closest to CDPR layout of any county. Verified live 2026-09-23. URL: https://services.arcgis.com/EeYBJFxLdUojipYa/arcgis/rest/services/Pesticide_Use_Reports/FeatureServer/2"
+    },
+    {
+      "id": "contra-costa-pur-current",
+      "agency": "Contra Costa County Dept of Agriculture / Weights and Measures",
+      "county": "Contra Costa",
+      "program": "PUR use reports 2021-2026 (CalAgPermits PermitUseReport exports)",
+      "channel": "published",
+      "ref": null,
+      "sent": null,
+      "status": "self_serve",
+      "received": null,
+      "outcome": null,
+      "effect": null,
+      "notes": "Self-serve: three xlsx per year (production-ag PUR, monthly summary, permittees), 2021-2026. The 2026 file was opened and verified 2026-09-23. URL: https://www.contracosta.ca.gov/6242/Pesticide-Use-Reporting-and-Data"
+    },
+    {
+      "id": "santa-barbara-pur-current",
+      "agency": "Santa Barbara County Agricultural Commissioner",
+      "county": "Santa Barbara",
+      "program": "PUR use and permit data 2017-2026 (public Box folder, quarterly)",
+      "channel": "published",
+      "ref": null,
+      "sent": null,
+      "status": "self_serve",
+      "received": null,
+      "outcome": null,
+      "effect": null,
+      "notes": "Self-serve Box folder CalagData with year folders; 2023-2026 updated 2026-07-29. Contents not yet opened. Verified as described 2026-09-23. URL: https://cosantabarbara.app.box.com/s/jdt95fy7gst3g8649l9t3ukrorr5xeh9"
+    },
+    {
+      "id": "riverside-pur-current",
+      "agency": "Riverside County Agricultural Commissioner",
+      "county": "Riverside",
+      "program": "PUR use reports by year (updated monthly)",
+      "channel": "published",
+      "ref": null,
+      "sent": null,
+      "status": "self_serve",
+      "received": null,
+      "outcome": null,
+      "effect": null,
+      "notes": "Self-serve Excel per year under Public Records and Database (Cloudflare: open in a browser). Fields not yet verified. Seen on page 2026-09-23. URL: https://rivcoawm.org/resources/publications-databases"
+    },
+    {
+      "id": "imperial-pur-current",
+      "agency": "Imperial County Agricultural Commissioner",
+      "county": "Imperial",
+      "program": "Agricultural pesticide use records, annual xlsx 2013-2025",
+      "channel": "published",
+      "ref": null,
+      "sent": null,
+      "status": "self_serve",
+      "received": null,
+      "outcome": null,
+      "effect": null,
+      "notes": "Self-serve annual files posted after year end (2025 file dated 2026-01-27); the page shortcode is broken but direct file links work. Seen on page 2026-09-23. URL: https://agcom.imperialcounty.org/pesticide-use-records/"
     }
   ]
 }

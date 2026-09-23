@@ -1,0 +1,69 @@
+SUBMIT VIA: CDPR NextRequest portal - https://cdprca.nextrequest.com (New request). This is the same
+channel as our request #26-637 (closed 2026-07-08), which is the precedent cited below. Paste the
+subject and body into the portal form. If CDPR's Public Records Coordinator also accepts email, the
+same text can go there; the portal is the route that worked.
+SUBJECT: Public Records Act request - Pesticide Use Report data, calendar years 2024 and 2025 (and 2026 to date), all 58 counties, in the Department's annual-archive record layout
+DRAFTED: 2026-09-23 (unsent; portal submission)
+
+To the Public Records Coordinator, California Department of Pesticide Regulation:
+
+I work with the Plumas Grassroots Collective on spraymapca.org, a free, noncommercial public map
+built from the Department's Pesticide Use Report (PUR) data. The map now carries the Department's
+published PUR for every county from 2020 through 2023. The Department has not yet published 2024,
+and 2025 will follow it by about a year, so the most recent three years of pesticide use in
+California are invisible to the public outside the handful of counties that release their own
+records.
+
+Under the California Public Records Act (Gov. Code section 7920.000 et seq.), please provide copies
+of the following records as they exist in the Department's PUR database on the date of your
+response:
+
+1. Pesticide Use Report data for calendar year 2024, all 58 counties.
+2. Pesticide Use Report data for calendar year 2025, all 58 counties.
+3. Pesticide Use Report data for January 1, 2026 to the date of your response, all 58 counties, to
+   the extent it has been entered.
+
+Preferred record layout: the same layout as the Department's published annual PUR archives
+(the per-county comprehensive-use text files, "udcYY_CC.txt", with the standard fields: use_no,
+prodno, product_name, chem_code, chemname, prodchem_pct, lbs_chm_used, lbs_prd_used, amt_prd_used,
+unit_of_meas, acre_planted, unit_planted, acre_treated, unit_treated, applic_cnt, applic_dt,
+applic_time, county_cd, county, base_ln_mer, township, tship_dir, range, range_dir, section,
+site_loc_id, grower_id, license_no, planting_seq, aer_gnd_ind, site_code, site_name, qualify_cd,
+batch_no, document_no, summary_cd, record_id, comtrs, error_flag), together with that year's
+product, chemical, site and county lookup tables. If that is not practical, the 37-column extract
+layout the Department produced for request #26-637 ("vukich_spraymap_26-637.xlsx") is equally
+useful, extended to all counties.
+
+Precedent, and why this is a records request rather than a data-products request: on request
+#26-637 the Department released 2020 through 2024 PUR data for five Northern Sierra counties on
+July 8, 2026, before the 2024 year was published. That extract has been on the public map since,
+labelled as preliminary. We are asking for the same records for the remaining counties, on the same
+terms.
+
+Preliminary data: we understand that 2024 has not completed the Department's publication review
+and that 2025 and 2026 are still being entered. We ask for the data as it currently exists,
+together with (a) the extraction date and (b) any note the Department can provide on counties,
+months, or record types known to be incomplete, so the map can label the data honestly. We accept
+the data with any such caveats. If publication of the 2024 archive is imminent, please tell us the
+expected posting date and we will withdraw item 1.
+
+Format and delivery: machine-readable (tab- or comma-delimited text, or Excel) in a zip archive.
+A NextRequest upload, a download link, or an SFTP location are all fine; file sizes on the order of
+the Department's own annual archives (a few hundred megabytes per year) present no difficulty.
+
+Confidentiality: these are the same records the Department publishes annually. We are not
+requesting personal information beyond the coded permit and site identifiers the archives already
+contain.
+
+Fees: this request serves the public interest in government transparency and is noncommercial;
+please waive fees if possible. If costs would exceed $25, please contact me first with an estimate.
+
+Under Gov. Code section 7922.535, please let me know within 10 days whether responsive records
+exist and when they will be produced. If any portion is withheld, please cite the specific
+exemption.
+
+Thank you,
+
+Taylor Durgan
+Plumas Grassroots Collective / SprayMap California
+spraymapca@gmail.com - spraymapca.org
