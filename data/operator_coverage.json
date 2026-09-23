@@ -2,8 +2,8 @@
  "generated": null,
  "statewide": {
   "apps": 13093068,
-  "named": 11080219,
-  "pct": 84.6,
+  "named": 11100369,
+  "pct": 84.8,
   "public_counties": [
    "Colusa",
    "Contra Costa",
@@ -34,8 +34,8 @@
   },
   "Alpine": {
    "apps": 48,
-   "named": 12,
-   "pct": 25.0,
+   "named": 44,
+   "pct": 91.7,
    "region": "central-sierra",
    "access": "request"
   },
@@ -83,8 +83,8 @@
   },
   "El Dorado": {
    "apps": 26539,
-   "named": 7835,
-   "pct": 29.5,
+   "named": 25568,
+   "pct": 96.3,
    "region": "central-sierra",
    "access": "request"
   },
@@ -223,8 +223,8 @@
   },
   "Nevada": {
    "apps": 2580,
-   "named": 168,
-   "pct": 6.5,
+   "named": 2553,
+   "pct": 99.0,
    "region": "central-sierra",
    "access": "request"
   },

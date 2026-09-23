@@ -371,11 +371,11 @@
       "channel": "email -> county records portal",
       "ref": "P010066-092126",
       "sent": "2026-09-21",
-      "status": "acknowledged",
-      "received": null,
-      "outcome": null,
-      "effect": null,
-      "notes": "Sent by email 2026-09-21; El Dorado County logged it in its records portal the same day as P010066-092126. Covers Alpine (county code 02) as well as El Dorado (09) because El Dorado handles Alpine pesticide permitting."
+      "status": "ingested",
+      "received": "2026-09-23",
+      "outcome": "Two CalAgPermits exports (El Dorado 11,967 site rows; Alpine 115 site rows) released by Corrie Larsen, Assistant Ag Commissioner, through the county Public Records Center on 2026-09-23, with a formal 7922.535 determination letter.",
+      "effect": "784 El Dorado and 9 Alpine permit records normalized (data/incoming/2026-09/el-dorado-2020-2026.csv, alpine-2020-2026.csv) and loaded; El Dorado 793 of 794 IDs named (99.9%, was 4), Alpine 12 of 13 (was 1). Statewide operator coverage 84.6% -> 84.8%.",
+      "notes": "Sent by email 2026-09-21; El Dorado County logged it in its records portal the same day as P010066-092126. Covers Alpine (county code 02) as well as El Dorado (09) because El Dorado handles Alpine pesticide permitting. Delivered 2026-09-23. Thank-you / close-out reply drafted 2026-09-23 (outbox/2026-09-23/14)."
     },
     {
       "id": "placer",
@@ -399,11 +399,11 @@
       "channel": "email -> county GovQA portal",
       "ref": "C008183-092226",
       "sent": "2026-09-21",
-      "status": "acknowledged",
-      "received": null,
-      "outcome": null,
-      "effect": null,
-      "notes": "Sent by email 2026-09-21; Nevada County logged it in its GovQA Records Center 2026-09-22 as C008183-092226 (Community Development). County code 29."
+      "status": "ingested",
+      "received": "2026-09-23",
+      "outcome": "CalAgPermits 'Permits, Sites and Commodities' export (3,568 site rows, 2020-2026) delivered by Luci Wilson, Deputy Ag Commissioner, via the GovQA Records Center on 2026-09-23.",
+      "effect": "447 permit records normalized (data/incoming/2026-09/nevada-2020-2026.csv) and loaded via enrich_operator_names.py; 334 of 339 Nevada GROWER_IDs on the map now carry a name (98.5%, was 2).",
+      "notes": "Sent by email 2026-09-21; Nevada County logged it in its GovQA Records Center 2026-09-22 as C008183-092226 (Community Development). County code 29. Delivered 2026-09-23 (2 days after filing). Thank-you / close-out reply drafted 2026-09-23 (outbox/2026-09-23/13)."
     },
     {
       "id": "kings",
@@ -417,21 +417,21 @@
       "received": null,
       "outcome": null,
       "effect": null,
-      "notes": "Letter written 2026-08-04; recipient address still to verify."
+      "notes": "Letter written 2026-08-04; recipient address still to verify. Recipient verified 2026-09-23 against the county's Agricultural Commissioner page (agstaff@co.kings.ca.us, Commissioner Jimmy Hook); request re-drafted as a Gmail draft (outbox/2026-09-23/07). The county's public permit map already names 343 of 2,756 Kings IDs; the roster is for the rest."
     },
     {
       "id": "yuba",
       "agency": "Yuba County Agricultural Commissioner",
       "county": "Yuba",
       "program": "Operator names",
-      "channel": "email",
+      "channel": "NextRequest portal",
       "ref": null,
       "sent": null,
       "status": "drafted",
       "received": null,
       "outcome": null,
       "effect": null,
-      "notes": "Letter written 2026-08-04; recipient address still to verify."
+      "notes": "Letter written 2026-08-04; recipient address still to verify. 2026-09-23: the Agricultural Commissioner's page routes Public Records Act requests to yubacountyca.nextrequest.com and shows no department email, so the request is a portal submission; text drafted as a [PORTAL] note in Gmail Drafts (outbox/2026-09-23/08). 183 of 969 Yuba IDs are already named via Sutter's permit layer."
     },
     {
       "id": "mendocino",
@@ -473,7 +473,7 @@
       "received": null,
       "outcome": null,
       "effect": null,
-      "notes": "Broadens the Dixie/Greenville ask to every Region 5 station in Plumas County, and asks whether any herbicide analyte has ever been run. Sent 2026-09-13."
+      "notes": "Broadens the Dixie/Greenville ask to every Region 5 station in Plumas County, and asks whether any herbicide analyte has ever been run. Sent 2026-09-13. No determination by the 10-day mark (2026-09-23); follow-up drafted 2026-09-23 as an in-thread Gmail draft, unsent (records-requests/outbox/2026-09-23/04)."
     },
     {
       "id": "sierra-county-water",
@@ -515,7 +515,7 @@
       "received": null,
       "outcome": null,
       "effect": null,
-      "notes": "Drafted 2026-08-06; Gmail draft created in spraymapca Drafts 2026-09-05 (recipient + subject verified 2026-09-06). Sent 2026-09-13. Automatic reply from the CSD mailbox 2026-09-13; not an acknowledgement."
+      "notes": "Drafted 2026-08-06; Gmail draft created in spraymapca Drafts 2026-09-05 (recipient + subject verified 2026-09-06). Sent 2026-09-13. Automatic reply from the CSD mailbox 2026-09-13; not an acknowledgement. No determination by the 10-day mark (2026-09-23); follow-up drafted 2026-09-23 as an in-thread Gmail draft (the Sep 13 letter went to cslagter@indianvalleycsd.com, so the reply does too), unsent (records-requests/outbox/2026-09-23/05)."
     },
     {
       "id": "city-of-portola",
@@ -571,7 +571,7 @@
       "received": null,
       "outcome": null,
       "effect": null,
-      "notes": "Drafted 2026-08-06; Gmail draft created in spraymapca Drafts 2026-09-05 (recipient + subject verified 2026-09-06). Sent 2026-09-13."
+      "notes": "Drafted 2026-08-06; Gmail draft created in spraymapca Drafts 2026-09-05 (recipient + subject verified 2026-09-06). Sent 2026-09-13. No determination by the 10-day mark (2026-09-23); follow-up drafted 2026-09-23 as an in-thread Gmail draft (the Sep 13 letter went to RobRobinette@countyofplumas.com, so the reply does too), unsent (records-requests/outbox/2026-09-23/03)."
     },
     {
       "id": "sierra-valley-gmd",
@@ -585,7 +585,7 @@
       "received": null,
       "outcome": null,
       "effect": null,
-      "notes": "Referred here by County of Sierra (2026-08-06). PRA drafted 2026-09-05, Gmail draft in spraymapca. Asks for well list, analytes, results 2018-present, and whether any forestry/rangeland herbicide has ever been screened. Sent 2026-09-13."
+      "notes": "Referred here by County of Sierra (2026-08-06). PRA drafted 2026-09-05, Gmail draft in spraymapca. Asks for well list, analytes, results 2018-present, and whether any forestry/rangeland herbicide has ever been screened. Sent 2026-09-13. No determination by the 10-day mark (2026-09-23); follow-up drafted 2026-09-23 as an in-thread Gmail draft, unsent (records-requests/outbox/2026-09-23/02)."
     },
     {
       "id": "caltrans-d2",
@@ -599,7 +599,7 @@
       "received": null,
       "outcome": null,
       "effect": null,
-      "notes": "PRA drafted 2026-09-05, Gmail draft in spraymapca. Caltrans prefers its public-records portal; the email offers to resubmit there. Purpose: put highway roadside spraying on the map by location. Sent 2026-09-13."
+      "notes": "PRA drafted 2026-09-05, Gmail draft in spraymapca. Caltrans prefers its public-records portal; the email offers to resubmit there. Purpose: put highway roadside spraying on the map by location. Sent 2026-09-13. No determination by the 10-day mark (2026-09-23); follow-up drafted 2026-09-23 as an in-thread Gmail draft, unsent (records-requests/outbox/2026-09-23/06)."
     },
     {
       "id": "plumas-public-works",
@@ -613,7 +613,7 @@
       "received": null,
       "outcome": null,
       "effect": null,
-      "notes": "PRA drafted 2026-09-05, Gmail draft in spraymapca (recipient verified 2026-09-06). Asks for road-level application records, PURs filed with the Ag Commissioner, contracts, and no-spray records. Sent 2026-09-13. Automatic (out-of-office) reply from the director's mailbox 2026-09-13; not an acknowledgement."
+      "notes": "PRA drafted 2026-09-05, Gmail draft in spraymapca (recipient verified 2026-09-06). Asks for road-level application records, PURs filed with the Ag Commissioner, contracts, and no-spray records. Sent 2026-09-13. Automatic (out-of-office) reply from the director's mailbox 2026-09-13; not an acknowledgement. No determination by the 10-day mark (2026-09-23); follow-up drafted 2026-09-23 as an in-thread Gmail draft, unsent (records-requests/outbox/2026-09-23/01)."
     },
     {
       "id": "blm-ca-foia",
@@ -641,7 +641,21 @@
       "received": null,
       "outcome": null,
       "effect": null,
-      "notes": "Federal FOIA; acknowledged, no records yet. Status/ETA follow-up drafted 2026-09-05 . Status/ETA inquiry sent 2026-09-13."
+      "notes": "Federal FOIA; acknowledged, no records yet. Status/ETA follow-up drafted 2026-09-05 . Status/ETA inquiry sent 2026-09-13. No reply to the 2026-09-13 status inquiry; second status request drafted 2026-09-23 (outbox/2026-09-23/10), asking for a completion date or the USDA FOIA Public Liaison contact."
+    },
+    {
+      "id": "usfs-r5-pesticide-use-2023-2026",
+      "agency": "USDA Forest Service, Pacific Southwest Region (R5) - FOIA Service Center",
+      "county": "Statewide (all 18 Region 5 national forests)",
+      "program": "Pesticide-Use Proposals (FS-2100-2), annual pesticide-use reports (FSM 2150 / FSH 2109.14) and FACTS chemical-treatment records, FY2023-FY2026",
+      "channel": "FOIA email",
+      "ref": null,
+      "sent": null,
+      "status": "drafted",
+      "received": null,
+      "outcome": null,
+      "effect": null,
+      "notes": "Drafted 2026-09-23 (records-requests/outbox/2026-09-23/09) as a Gmail draft, unsent. Fills the federal-land hole: PUR does not cover federal applicators on federal land, and FACTS chemical records held so far run FY2023+ only for R5 (about 2,042 rows). Region-wide and separate from 2026-FS-R5-05799-F (Plumas only)."
     },
     {
       "id": "usfs-r5-working-forests",
@@ -691,13 +705,13 @@
       "county": "Plumas / Lassen / Butte",
       "program": "Forest offset project records (ACR245, ACR246, CAR1953, CAR1783) + CCI Forest Health quantification records",
       "channel": "email",
-      "ref": null,
+      "ref": "#26-332",
       "sent": "2026-09-15",
-      "status": "sent",
+      "status": "acknowledged",
       "received": null,
       "outcome": null,
       "effect": null,
-      "notes": "Drafted 2026-09-14 (records-requests/outbox/carbon-2026-09/02), Sent by email 2026-09-15 to prareqst@arb.ca.gov; no acknowledgement as of 2026-09-23 (10-day determination due 2026-09-25). Asks whether the same acres are earning offset credit and being sprayed, and for the calculator inputs CARB accepted for three Collins / Humbug grants."
+      "notes": "Drafted 2026-09-14 (records-requests/outbox/carbon-2026-09/02). Sent by email 2026-09-15 to prareqst@arb.ca.gov; CARB's NextRequest portal logged it the same evening as #26-332 (carb.nextrequest.com/requests/26-332; auto-acknowledgement 2026-09-15 8:46 PM, found 2026-09-23). 10-day determination due 2026-09-25. Asks whether the same acres are earning offset credit and being sprayed, and for the calculator inputs CARB accepted for three Collins / Humbug grants."
     },
     {
       "id": "dpr-pur-2023",

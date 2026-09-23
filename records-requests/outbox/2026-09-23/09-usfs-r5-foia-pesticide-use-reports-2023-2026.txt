@@ -1,0 +1,28 @@
+TO: SM.FS.R5FOIA@usda.gov
+SUBJECT: FOIA request - Pesticide-Use Proposals (FS-2100-2) and annual pesticide-use reports, all Region 5 national forests, FY2023 to present
+CHANNEL: Gmail draft in spraymapca (new)
+DRAFTED: 2026-09-23 (unsent; user reviews and sends)
+
+--- body ---
+To the Region 5 FOIA Service Center,
+
+Under the Freedom of Information Act, 5 U.S.C. section 552, I request electronic copies of the following records for every national forest in the Pacific Southwest Region (Region 5), for fiscal years 2023, 2024, 2025 and 2026 to the date of your search:
+
+1. All Pesticide-Use Proposals (Form FS-2100-2) approved or implemented, with the active ingredient(s), product name and EPA registration number, target pest, treatment acreage, application method, quantity applied and treatment location (project or unit name, ranger district, and any spatial data held).
+
+2. The annual pesticide-use reports compiled for each forest and the Region 5 rollup under FSM 2150 / FSH 2109.14 (the Forest Service's annual pesticide use reporting), in whatever form they exist: spreadsheets, database exports or the reports as submitted to the Washington Office.
+
+3. FACTS (Forest Service Activity Tracking System) records for chemical vegetation-control and chemical site-preparation or release activities completed in those fiscal years, with the activity polygons or their attributes (activity code, acres, completion date, forest, district) if the export is practical.
+
+Why this is asked: California's Pesticide Use Report does not cover applications made by federal employees on federal land, so the Forest Service's own reporting is the only public record of herbicide use across a fifth of the state. Our public, noncommercial map at https://www.spraymapca.org carries the state data through 2023 and the FACTS records already released to us; the fiscal years above are the gap. This request is Region-wide and separate from our pending Plumas National Forest request 2026-FS-R5-05799-F.
+
+Format: machine-readable exports (CSV, Excel, or shapefile/geodatabase for spatial data) are preferred over PDF. If a records search is easier per forest, a rolling release by forest is welcome.
+
+Fee waiver: I request a waiver of fees under 5 U.S.C. section 552(a)(4)(A)(iii). Disclosure is in the public interest because it will contribute significantly to public understanding of the operations and activities of the government, namely where and how much herbicide the Forest Service applies on public land in California, and the information will be published free of charge on a public map. The request is not for commercial use. If fees are not waived, please notify me before incurring costs above $50.
+
+Please acknowledge the request with a tracking number and, per 5 U.S.C. section 552(a)(6)(A), provide a determination within 20 working days.
+
+Thank you,
+Taylor Durgan
+Plumas Grassroots Collective / SprayMap California
+spraymapca@gmail.com - spraymapca.org

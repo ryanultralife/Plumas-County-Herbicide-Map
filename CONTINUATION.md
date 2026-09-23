@@ -259,3 +259,33 @@ static tags keep a rounded fallback ("13 million") - do not hand-edit it to a pr
 Test: `curl -A facebookexternalhit/1.1 https://www.spraymapca.org/ -D -` and look for
 `X-Spraymap-Live-Count`. Facebook and X cache previews: after a data load, re-scrape the URL in the
 Facebook Sharing Debugger / X Card Validator to refresh what they show.
+
+## Inbox pass, roster loads and the follow-up draft set (2026-09-23)
+Mailbox rule: records and network mail are handled from **spraymapca@gmail.com (Gmail u/1 in Chrome)**.
+The Gmail connector in this session is bound to the personal account (ryanvukich) and returns nothing
+for spraymapca, so it is not usable for this work; Chrome only. Gmail's list DOM keeps stale views in
+the page, so filter `tr.zA` rows by `getBoundingClientRect().height>0`; after `navigate` to a `#all/<id>`
+hash wait 4-5 s before reading; if screenshots start timing out the tab is wedged - close it and open a
+fresh one (`tabs_create_mcp`). GovQA / mycusthelp "attachments" are SendGrid links in the body, not Gmail
+attachments: strip `target` from the anchor and `click()` it and the file lands in `~/Downloads`.
+
+Delivered and loaded: **Nevada** (C008183-092226, 447 permits) and **El Dorado + Alpine** (P010066-092126,
+784 + 9 permits), both CalAgPermits "Permits, Sites and Commodities" exports, normalized by
+`data/incoming/2026-09/normalize_nevada_eldorado.py` (same reduction as the Mendocino script) and loaded
+with `enrich_operator_names.py --only incoming_local`. Named IDs: El Dorado 793/794, Nevada 334/339,
+Alpine 12/13; statewide coverage 84.8% (`gen_operator_coverage.py` re-run). CARB's portal had logged the
+carbon PRA as **#26-332** on Sep 15 (10-day due Sep 25).
+
+Drafts (all unsent, mirrored in `records-requests/outbox/2026-09-23/`): 10-day follow-ups to Plumas
+Public Works, Sierra Valley GMD, Plumas Environmental Health, Central Valley Water Board R5, Indian Valley
+CSD and Caltrans D2 (all sent Sep 13, none answered); new Kings PRA (email verified) and Yuba PRA (portal
+note - Yuba routes PRAs to yubacountyca.nextrequest.com); a Region-wide USFS R5 FOIA for FS-2100-2
+proposals, annual pesticide-use reports and FACTS chemical records FY2023-2026; a second status request
+on 2026-FS-R5-05799-F; replies to Dante Gasser (Friends of Plumas Wilderness) and Willo Vieira (CAC,
+reply-all adding Kane Russell and Tracy Schohr of UCANR); close-out thanks to Nevada and El Dorado.
+
+Network contact list: **`C:/Users/ryanv/spraymap-private/network_contacts.csv`**, outside the repo on
+purpose (everything under `data/` is served by the site). Columns added, name, email, organization, role,
+lists, source, notes. The site's Join form is a mailto to spraymapca with subject "Add me to the SprayMap
+network"; each such email is appended here (first entry 2026-09-23). Meeting-notice contacts from the
+Community Perspective series are kept in the same file.

@@ -1,0 +1,26 @@
+TO: agstaff@co.kings.ca.us
+SUBJECT: California Public Records Act request - pesticide permit holder names (Kings county code 16)
+CHANNEL: Gmail draft in spraymapca (new)
+DRAFTED: 2026-09-23 (unsent; user reviews and sends)
+
+--- body ---
+Dear Commissioner Hook,
+
+Under the California Public Records Act (Gov. Code section 7920.000 et seq.), I request copies of the following public records held by your office:
+
+1. The roster of Operator Identification Numbers / Restricted Materials Permit numbers issued by Kings County (county code 16), together with the permittee / operator name (business or individual) and mailing city/ZIP for each, for permits active at any time during 2020-2026.
+
+2. If maintained as such, your "Permits, Sites, and Commodities" export or the equivalent CalAgPermits PERMIT QUERY covering the same period.
+
+The purpose is to attach real operator names to California Pesticide Use Report records, which CDPR publishes only as coded permit numbers. We map this data at https://www.spraymapca.org. We are not requesting confidential application-site detail beyond what is already public in the PUR, only the operator-ID to name correspondence. Your department's public permit map already gives us names for a few hundred Kings County permits; the full roster would let us name the rest, which is most of them.
+
+Preferred format: a machine-readable file (CSV or Excel). A column of operator/permit IDs and a column of names is sufficient. Several counties have provided exactly this as a CalAgPermits "Permits, Sites and Commodities" export, which takes a few minutes to run.
+
+Fee waiver / costs: this request serves the public interest in government transparency; please waive duplication fees if possible. If costs will exceed $25, please contact me first with an estimate.
+
+Please let me know within the 10-day statutory period (Gov. Code section 7922.535) whether the records exist and when they will be produced. If any portion is withheld, please cite the specific exemption.
+
+Thank you,
+Taylor Durgan
+Plumas Grassroots Collective / SprayMap California
+spraymapca@gmail.com - spraymapca.org
