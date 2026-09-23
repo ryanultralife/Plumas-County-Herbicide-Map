@@ -235,3 +235,16 @@ filter on "Principal County Served" = PLUMAS or system number `CA32*` gives 15,0
 writes `summary.json`. Findings on the Science tab: 184 systems, 174 analytes, glyphosate tested 14 times
 at one system (Plumas Eureka CSD, all below the 25 ppb reporting level), no other forestry herbicide
 ever tested in the county. Re-run when SDWIS5 is refreshed (roughly quarterly).
+
+## Plumas public water systems on the map (2026-09-22)
+Layer "Public water systems - state test records (Plumas)", on by default, built from
+`data/water_systems_plumas.json` (loader `loadWaterSystems()`, builder registered next to the
+Water Board station layer in `buildMap()`). One entry per system in the state compliance pull
+(175 of 184 located): **42 at the centroid of the state's mapped service area** (SWRCB "California
+Drinking Water System Area Boundaries" FeatureServer, `service_area_centroid`, with area_km2) and
+**133 with no public boundary grouped into one marker per town** (`town_centroid_approx`, OSM place
+centroid via Nominatim). Nine systems had no public address at all and are listed under `unlocated`
+in the JSON, deliberately not placed. Popups carry each system's test record from
+`data/incoming/2026-09/edt-plumas/systems.json` (results, analytes, date span, herbicide tests).
+The builder is async-from-cache and idempotent, so `rebuildLayers()` is safe. Regenerate by
+re-running the EDT summary, then re-merging stats into the JSON (see the 2026-09-22 session notes).
