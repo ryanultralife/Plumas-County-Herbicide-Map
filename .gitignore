@@ -56,3 +56,6 @@ data/incoming/**/*.pdf
 # PWF geometry pilot caches
 program/data/pwf_facts_plumas_cache.geojson
 
+
+# Filtered per-county water rows from build/edt_water.py --keep-rows (large)
+data/water/rows/

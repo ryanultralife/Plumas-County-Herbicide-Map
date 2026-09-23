@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-22",
+  "updated": "2026-09-23",
   "about": "Public-records paper trail for SprayMap California. One row per request to a public agency: what we asked, when, what came back, and whether it is on the site yet. Agencies are named at office level; individual staff are not published. Dates are day-precise where confirmed from the spraymapca inbox, month-precise (YYYY-MM) where reconstructed. 'sent'/'acknowledged' rows with no reply after 30 days are shown as follow-up due. Maintained by the monthly data-asks task; humans commit.",
   "status_legend": {
     "drafted": "letter written, not yet sent",
@@ -712,6 +712,104 @@
       "outcome": "Statewide PUR 2023 (pur2023.zip, all 58 counties) published by CDPR as a free download",
       "effect": "Loaded 2026-09-07: +3,842,377 applications, so the statewide map and Data & Trends now run 2020-2023 for every county instead of 2020-2022. 2024 remains Northern-Sierra only (obtained by public-records request); CDPR has not published 2024 yet.",
       "notes": "Loaded with build/ingest_pur_statewide.py, one row per application (largest-AI collapse), ON CONFLICT (app_id) DO NOTHING. 99.1% of the Northern-Sierra 2023 rows already existed from the CPRA extract and were correctly skipped; 723 were new. Re-check for pur2024.zip on each monthly run."
+    },
+    {
+      "id": "lahontan-r6-tahoe",
+      "agency": "Lahontan Regional Water Quality Control Board (Region 6)",
+      "county": "Placer / El Dorado / Alpine / Nevada",
+      "program": "Water monitoring",
+      "channel": "email (RB6S-PRA@waterboards.ca.gov)",
+      "ref": null,
+      "sent": null,
+      "status": "drafted",
+      "received": null,
+      "outcome": null,
+      "effect": null,
+      "notes": "Drafted 2026-09-23 (records-requests/outbox/2026-09-23-tahoe-water/01). Tahoe basin, Truckee, Carson and Walker watersheds: any herbicide analyte in surface/lake/groundwater monitoring, Tahoe Keys aquatic-herbicide test monitoring, aquatic-weed permit notices. Recipient from the Board's public-records page."
+    },
+    {
+      "id": "tahoe-water-suppliers",
+      "agency": "Tahoe Water Suppliers Association",
+      "county": "Placer / El Dorado",
+      "program": "Water monitoring",
+      "channel": "email (informal request, not a PRA)",
+      "ref": null,
+      "sent": null,
+      "status": "drafted",
+      "received": null,
+      "outcome": null,
+      "effect": null,
+      "notes": "Drafted 2026-09-23 (outbox 2026-09-23-tahoe-water/02). Raw lake-intake testing for herbicides and any Tahoe Keys test monitoring at intakes. To the TWSA inbox (drinktahoetap@ivgid.org)."
+    },
+    {
+      "id": "cvrwqcb-r5-tahoe-counties",
+      "agency": "Central Valley Regional Water Quality Control Board (Region 5) - Nonpoint Source Unit",
+      "county": "Placer / Nevada / El Dorado / Alpine",
+      "program": "Water monitoring",
+      "channel": "email",
+      "ref": null,
+      "sent": null,
+      "status": "drafted",
+      "received": null,
+      "outcome": null,
+      "effect": null,
+      "notes": "Drafted 2026-09-23 (outbox 2026-09-23-tahoe-water/03), to the Nonpoint Source contact that answered the Plumas request. West-slope herbicide analytes, post-fire (Caldor, Mosquito) and timber-order herbicide notices, SWAMP station analyte lists."
+    },
+    {
+      "id": "pcwa",
+      "agency": "Placer County Water Agency",
+      "county": "Placer",
+      "program": "Water monitoring",
+      "channel": "email (Clerk to the Board)",
+      "ref": null,
+      "sent": null,
+      "status": "drafted",
+      "received": null,
+      "outcome": null,
+      "effect": null,
+      "notes": "Drafted 2026-09-23 (outbox 2026-09-23-tahoe-water/04). Raw/source-water herbicide testing, watershed sanitary survey pesticide sections, herbicide-application notices. Treated-water results come from the state EDT pull, so not asked for."
+    },
+    {
+      "id": "nid",
+      "agency": "Nevada Irrigation District",
+      "county": "Nevada / Placer",
+      "program": "Water monitoring",
+      "channel": "email (general inbox, to route to the District Secretary)",
+      "ref": null,
+      "sent": null,
+      "status": "drafted",
+      "received": null,
+      "outcome": null,
+      "effect": null,
+      "notes": "Drafted 2026-09-23 (outbox 2026-09-23-tahoe-water/05). Raw/source-water herbicide testing, watershed sanitary survey pesticide sections, herbicide-application notices. Treated-water results come from the state EDT pull, so not asked for."
+    },
+    {
+      "id": "eid",
+      "agency": "El Dorado Irrigation District",
+      "county": "El Dorado",
+      "program": "Water monitoring",
+      "channel": "email (public-records inbox) or JustFOIA portal",
+      "ref": null,
+      "sent": null,
+      "status": "drafted",
+      "received": null,
+      "outcome": null,
+      "effect": null,
+      "notes": "Drafted 2026-09-23 (outbox 2026-09-23-tahoe-water/06). Raw/source-water herbicide testing, watershed sanitary survey pesticide sections, herbicide-application notices. Treated-water results come from the state EDT pull, so not asked for."
+    },
+    {
+      "id": "stpud",
+      "agency": "South Tahoe Public Utility District",
+      "county": "El Dorado",
+      "program": "Water monitoring",
+      "channel": "email (Clerk of the Board)",
+      "ref": null,
+      "sent": null,
+      "status": "drafted",
+      "received": null,
+      "outcome": null,
+      "effect": null,
+      "notes": "Drafted 2026-09-23 (outbox 2026-09-23-tahoe-water/07). Raw/source-water herbicide testing, watershed sanitary survey pesticide sections, herbicide-application notices. Treated-water results come from the state EDT pull, so not asked for."
     }
   ]
 }

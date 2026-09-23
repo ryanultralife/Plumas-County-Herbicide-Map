@@ -259,3 +259,20 @@ static tags keep a rounded fallback ("13 million") - do not hand-edit it to a pr
 Test: `curl -A facebookexternalhit/1.1 https://www.spraymapca.org/ -D -` and look for
 `X-Spraymap-Live-Count`. Facebook and X cache previews: after a data load, re-scrape the URL in the
 Facebook Sharing Debugger / X Card Validator to refresh what they show.
+
+## New-data bubble (2026-09-23)
+- Floating pill above the donate bubble; follows the "Showing:" county/region. Shows the latest load for that area with a **NEW** tag while under 7 days old; tapping it lists recent loads plus the records requests still open for the area.
+- Source: **`data/ingest_log.json`** (committed, like `records_requests.json`). Started with the week of Sep 17-23 only; no older backfill by decision.
+- **After every load that changes the site, append a row:** `python build/log_ingest.py --county <County> --kind applications|names|water|fix --source "..." --rows N --summary "..." [--request <tracker id>]`. Real numbers only.
+
+## Water data, county by county (2026-09-23)
+- **`build/edt_water.py`** generalizes the Plumas drinking-water pull to any county (`--county X`, repeatable, or `--all`). One pass over the SDWIS zips in `data/raw/edt/`; writes `data/water/<county>.json` + a rollup `data/water/coverage.json` (which tracked herbicides were ever tested, per county). Shares the analyte list with `gen_edt_plumas.py`; verified to reproduce the Plumas summary exactly (15,037 results / 184 systems / same herbicide counts).
+- **Not run yet on real Tahoe data**: the cloud session cannot reach waterboards.ca.gov. Run locally: `python build/edt_water.py --county Placer --county Nevada --county "El Dorado" --county Alpine`, then the rest of the Northern Sierra (Butte, Tehama, Lassen, Sierra), then `--all`. Log each run with `build/log_ingest.py --kind water`.
+- **Tahoe water letters** (7) drafted in `records-requests/outbox/2026-09-23-tahoe-water/`: Lahontan R6, Tahoe Water Suppliers Association, Central Valley R5 west slope, PCWA, NID, EID, South Tahoe PUD; tracker rows `drafted`. `compose.html` there opens each as a filled Gmail compose in spraymapca (u/1). They ask for surface/lake/source-water and permit monitoring, since treated-water results come from the EDT pull.
+- Not on the site yet: nothing in index.html reads `data/water/`. Next step once real county files exist is a statewide "tested for herbicides?" layer or table.
+
+## Network sign-ups go to Supabase (2026-09-23)
+- **Table `public.network_signups`** (private: RLS on, no policies, all anon/authenticated privileges revoked). One row per email (lower-cased), `lists` = `mailing` / `action`, `source` = site / email / event / manual, `unsubscribed_at` instead of deleting. Upserts go through `public.network_signup(...)`, which merges lists, keeps the first sign-up, and never re-adds someone who unsubscribed.
+- **Apply once:** `psql "$DBURL" -f build/network_signups_schema.sql`. Until then the site form falls back to the old pre-filled email, so nobody is lost.
+- **Site form** (Donate / Contact / Network modal) POSTs to **`/api/network-signup`** (Edge, uses the existing `SUPABASE_SERVICE_ROLE_KEY`; origin check + honeypot). On any server failure it opens the pre-filled email to spraymapca@gmail.com as before.
+- **People who email in, sign up at events, or sent the old "Add me to the SprayMap network" emails:** `DBURL=... python build/network_signup.py --email x@y --name "..." --list mailing --list action --source email`, or `--csv file.csv` (email,name,lists,source,note). The monthly inbox pass should search spraymapca for subject "Add me to the SprayMap network" and import any not yet added. `--unsubscribe x@y`, `--export network.csv` for the mailing tool.
