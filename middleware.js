@@ -14,7 +14,7 @@ export const config = { matcher: ['/'] };
 const BOT = /facebookexternalhit|Facebot|Twitterbot|LinkedInBot|Slackbot|Discordbot|WhatsApp|TelegramBot|Pinterestbot|redditbot|Embedly|Applebot|Googlebot|bingbot|DuckDuckBot|Mastodon|Bluesky|SkypeUriPreview|iMessage/i;
 
 const SB_URL = (typeof process !== 'undefined' && process.env && process.env.SUPABASE_URL) || 'https://aykhwsermojstiyrfcnv.supabase.co';
-const SB_KEY = (typeof process !== 'undefined' && process.env && process.env.SUPABASE_ANON_KEY) || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImF5a2h3c2VybW9qc3RpeXJmY252Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTA3OTY3NTcsImV4cCI6MjA2NjM3Mjc1N30.CNnnHXW3Xhl48cmRTvnyaaQcjLwc6itaFbeT2Zs-Awk';
+const SB_KEY = (typeof process !== 'undefined' && process.env && process.env.SUPABASE_ANON_KEY) || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImF5a2h3c2VybW9qc3RpeXJmY252Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODIzNTU3MDIsImV4cCI6MjA5NzkzMTcwMn0.XPBmdHPv0CswsHFynPwhjj3DatzlWIXY2DSPGJOz_WQ';
 
 let cache = { at: 0, mapped: 0 };
 const TTL_MS = 60 * 60 * 1000;

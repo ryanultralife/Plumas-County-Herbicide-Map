@@ -248,3 +248,14 @@ in the JSON, deliberately not placed. Popups carry each system's test record fro
 `data/incoming/2026-09/edt-plumas/systems.json` (results, analytes, date span, herbicide tests).
 The builder is async-from-cache and idempotent, so `rebuildLayers()` is safe. Regenerate by
 re-running the EDT summary, then re-merging stats into the JSON (see the 2026-09-22 session notes).
+
+## Live share-preview count (2026-09-23)
+`middleware.js` (Vercel middleware, matcher `/` only) rewrites the `description` and `og:description`
+meta tags with the live mapped-application total for link-preview and search bots only (UA regex);
+humans get the static file. The number comes from `public.map_totals()` (see `supabase/map_totals.sql`),
+a read-only function over `map_agg` that anon may call: `POST /rest/v1/rpc/map_totals` -> `{mapped, cells,
+lbs, as_of}`. Cached in the edge instance for an hour; any failure falls open to the static page. The
+static tags keep a rounded fallback ("13 million") - do not hand-edit it to a precise figure again.
+Test: `curl -A facebookexternalhit/1.1 https://www.spraymapca.org/ -D -` and look for
+`X-Spraymap-Live-Count`. Facebook and X cache previews: after a data load, re-scrape the URL in the
+Facebook Sharing Debugger / X Card Validator to refresh what they show.
