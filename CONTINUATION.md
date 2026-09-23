@@ -201,3 +201,27 @@ Each year ran as one UPDATE (about 25 minutes per year through the pooler; a cou
 exists if the connection drops). `map_agg` refreshed afterwards - it is the only view that carries
 acres. Open item 5 is closed; the remaining ~20% per year are applications the state reports in
 square feet, cubic feet, pounds or units rather than acres.
+
+## Map "Type" filter (aerial / ground / fumigation / other) - 2026-09-22
+The scopebar above the map has a **Type** select (`#scopeMethod`, `onScopeMethod`, deep link `?method=aerial`).
+It filters on `map_agg.meth`, a per-cell jsonb of application type -> [count, lbs] built from
+`applications.method` (canonical labels from CDPR `AER_GND_IND`, backfilled by `build/backfill_pur_method.py`).
+
+**Why it looked broken:** the page code shipped (commit 60d49e2) before the database view was rebuilt.
+The client requests `map_agg?select=...,meth`; when that column is missing PostgREST answers 400 and the
+page *silently* falls back to the old column set, so the map renders, the Type menu shows, and choosing
+Aerial does nothing (the map stat says "application type is still loading" forever). Nothing in the
+console makes this obvious. **Any change to `supabase/map_aggregate.sql` must be followed by a rebuild:**
+
+    DBURL=... python build/backfill_pur_method.py --refresh-map
+
+That builds `map_agg_next`, then swaps it in inside one transaction (drop old, rename, rename index,
+re-grant select to anon), so the public map never goes dark. A plain `refresh materialized view` is NOT
+enough when columns change. Verify from the public side, not just psql:
+
+    curl "$SB_URL/rest/v1/map_agg?select=lat,lon,meth&limit=1" -H "apikey: $SB_KEY" -H "Authorization: Bearer $SB_KEY"
+
+A 200 with a `meth` object means the Type filter is live; a 400 "column map_agg.meth does not exist"
+means the page is on its fallback. `CELLS_KEY` is already `v14-method`; browsers that cached the
+fallback under the v13 key pick up the real data on their next load without a key bump.
+
