@@ -574,7 +574,7 @@ function liveCount(url){ /* row count only: Range 0-0 + exact count header */
    real completion, and clear it on failure so a transient error can be retried later. */
 var CELLS_URL_BASE=SB_URL+'/rest/v1/map_agg?select=lat,lon,county,region,n,lbs,acres,c,ai,src,owners';
 var CELLS_URL=CELLS_URL_BASE+',meth';
-var CELLS_KEY='map_agg:v14-method:n,lbs,acres,c,ai,src,owners,meth';
+var CELLS_KEY='map_agg:v15-plumas-method:n,lbs,acres,c,ai,src,owners,meth';
 var CELLS_KEY_BASE='map_agg:v13-tahoe2022:n,lbs,acres,c,ai,src,owners';
 var CELLS_P=null, CELLS_PARTIAL=null, CELLS_FALLBACK=false;
 function rowsHaveMethod(rows){return !!(rows&&rows.length&&rows[0]&&rows[0].meth);}
