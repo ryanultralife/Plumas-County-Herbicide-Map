@@ -40,7 +40,17 @@
    "sampling_points": 1,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 0,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 7
+   }
   },
   {
    "pwsid": "CA3200006",
@@ -59,7 +69,17 @@
    "sampling_points": 1,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 1,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 9
+   }
   },
   {
    "pwsid": "CA3200007",
@@ -77,7 +97,19 @@
    "sampling_points": 1,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 0,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": [
+     "Stream"
+    ]
+   },
+   "sampled": {
+    "WL": 3
+   }
   },
   {
    "pwsid": "CA3200008",
@@ -96,7 +128,17 @@
    "sampling_points": 2,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 0,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 9
+   }
   },
   {
    "pwsid": "CA3200009",
@@ -114,7 +156,17 @@
    "sampling_points": 1,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 2,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 11
+   }
   },
   {
    "pwsid": "CA3200010",
@@ -133,7 +185,17 @@
    "sampling_points": 1,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 0,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 7
+   }
   },
   {
    "pwsid": "CA3200011",
@@ -152,7 +214,17 @@
    "sampling_points": 1,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 0,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 7
+   }
   },
   {
    "pwsid": "CA3200015",
@@ -171,7 +243,17 @@
    "sampling_points": 1,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 1,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 8
+   }
   },
   {
    "pwsid": "CA3200016",
@@ -190,7 +272,17 @@
    "sampling_points": 1,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 1,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 17
+   }
   },
   {
    "pwsid": "CA3200017",
@@ -209,7 +301,17 @@
    "sampling_points": 1,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 1,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 17
+   }
   },
   {
    "pwsid": "CA3200018",
@@ -228,7 +330,18 @@
    "sampling_points": 2,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 2,
+    "springs": 1,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "SP": 18,
+    "WL": 4
+   }
   },
   {
    "pwsid": "CA3200019",
@@ -247,7 +360,20 @@
    "sampling_points": 1,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 2,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": [
+     "Tollgate Creek",
+     "Treatment Plant (Fe & Mn)"
+    ]
+   },
+   "sampled": {
+    "WL": 10
+   }
   },
   {
    "pwsid": "CA3200020",
@@ -265,7 +391,17 @@
    "sampling_points": 1,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 1,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 11
+   }
   },
   {
    "pwsid": "CA3200021",
@@ -284,7 +420,17 @@
    "sampling_points": 1,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 1,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 9
+   }
   },
   {
    "pwsid": "CA3200022",
@@ -302,7 +448,17 @@
    "sampling_points": 1,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 1,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 11
+   }
   },
   {
    "pwsid": "CA3200024",
@@ -321,7 +477,17 @@
    "sampling_points": 1,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 2,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 11
+   }
   },
   {
    "pwsid": "CA3200030",
@@ -340,7 +506,17 @@
    "sampling_points": 1,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "spring",
+   "sources": {
+    "ground": 1,
+    "springs": 1,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "SP": 8
+   }
   },
   {
    "pwsid": "CA3200031",
@@ -359,7 +535,18 @@
    "sampling_points": 2,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 2,
+    "springs": 1,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 11,
+    "SP": 1
+   }
   },
   {
    "pwsid": "CA3200032",
@@ -378,7 +565,17 @@
    "sampling_points": 1,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "spring",
+   "sources": {
+    "ground": 1,
+    "springs": 1,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "SP": 10
+   }
   },
   {
    "pwsid": "CA3200033",
@@ -397,7 +594,17 @@
    "sampling_points": 1,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 1,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 5
+   }
   },
   {
    "pwsid": "CA3200034",
@@ -416,7 +623,17 @@
    "sampling_points": 1,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 1,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 9
+   }
   },
   {
    "pwsid": "CA3200036",
@@ -435,7 +652,17 @@
    "sampling_points": 1,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 1,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 5
+   }
   },
   {
    "pwsid": "CA3200037",
@@ -454,7 +681,17 @@
    "sampling_points": 1,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 1,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 5
+   }
   },
   {
    "pwsid": "CA3200038",
@@ -473,7 +710,17 @@
    "sampling_points": 1,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 1,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 5
+   }
   },
   {
    "pwsid": "CA3200039",
@@ -492,7 +739,17 @@
    "sampling_points": 1,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "spring",
+   "sources": {
+    "ground": 1,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "SP": 5
+   }
   },
   {
    "pwsid": "CA3200040",
@@ -511,7 +768,17 @@
    "sampling_points": 1,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 1,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 3
+   }
   },
   {
    "pwsid": "CA3200046",
@@ -530,7 +797,18 @@
    "sampling_points": 2,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 2,
+    "springs": 1,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "SP": 3,
+    "WL": 2
+   }
   },
   {
    "pwsid": "CA3200047",
@@ -549,7 +827,17 @@
    "sampling_points": 1,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 0,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 4
+   }
   },
   {
    "pwsid": "CA3200048",
@@ -568,7 +856,18 @@
    "sampling_points": 2,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 1,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 84,
+    "DS": 30
+   }
   },
   {
    "pwsid": "CA3200049",
@@ -586,7 +885,18 @@
    "sampling_points": 2,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 1,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 49,
+    "DS": 10
+   }
   },
   {
    "pwsid": "CA3200050",
@@ -605,7 +915,17 @@
    "sampling_points": 1,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 1,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 12
+   }
   },
   {
    "pwsid": "CA3200051",
@@ -624,7 +944,17 @@
    "sampling_points": 2,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 3,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 11
+   }
   },
   {
    "pwsid": "CA3200052",
@@ -643,7 +973,17 @@
    "sampling_points": 1,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 0,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 7
+   }
   },
   {
    "pwsid": "CA3200053",
@@ -662,7 +1002,17 @@
    "sampling_points": 1,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 1,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 11
+   }
   },
   {
    "pwsid": "CA3200054",
@@ -680,7 +1030,17 @@
    "sampling_points": 1,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "spring",
+   "sources": {
+    "ground": 1,
+    "springs": 1,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "SP": 6
+   }
   },
   {
    "pwsid": "CA3200056",
@@ -699,7 +1059,17 @@
    "sampling_points": 1,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 1,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 7
+   }
   },
   {
    "pwsid": "CA3200058",
@@ -718,7 +1088,17 @@
    "sampling_points": 1,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "spring",
+   "sources": {
+    "ground": 1,
+    "springs": 1,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "SP": 8
+   }
   },
   {
    "pwsid": "CA3200059",
@@ -737,7 +1117,17 @@
    "sampling_points": 1,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 0,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 7
+   }
   },
   {
    "pwsid": "CA3200060",
@@ -756,7 +1146,17 @@
    "sampling_points": 1,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 1,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 12
+   }
   },
   {
    "pwsid": "CA3200061",
@@ -775,7 +1175,17 @@
    "sampling_points": 1,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 1,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 22
+   }
   },
   {
    "pwsid": "CA3200062",
@@ -794,7 +1204,17 @@
    "sampling_points": 1,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 1,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 11
+   }
   },
   {
    "pwsid": "CA3200063",
@@ -812,7 +1232,17 @@
    "sampling_points": 1,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 2,
+    "springs": 1,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 16
+   }
   },
   {
    "pwsid": "CA3200064",
@@ -831,7 +1261,17 @@
    "sampling_points": 1,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 0,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 1
+   }
   },
   {
    "pwsid": "CA3200065",
@@ -850,7 +1290,17 @@
    "sampling_points": 1,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 1,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 5
+   }
   },
   {
    "pwsid": "CA3200066",
@@ -869,7 +1319,17 @@
    "sampling_points": 1,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 1,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 13
+   }
   },
   {
    "pwsid": "CA3200067",
@@ -888,7 +1348,17 @@
    "sampling_points": 1,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 0,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 2
+   }
   },
   {
    "pwsid": "CA3200068",
@@ -907,7 +1377,17 @@
    "sampling_points": 1,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 1,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 2
+   }
   },
   {
    "pwsid": "CA3200069",
@@ -926,7 +1406,17 @@
    "sampling_points": 1,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 1,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 3
+   }
   },
   {
    "pwsid": "CA3200071",
@@ -945,7 +1435,17 @@
    "sampling_points": 2,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 2,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 14
+   }
   },
   {
    "pwsid": "CA3200072",
@@ -964,7 +1464,17 @@
    "sampling_points": 2,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 2,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 25
+   }
   },
   {
    "pwsid": "CA3200073",
@@ -983,7 +1493,17 @@
    "sampling_points": 1,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 2,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 21
+   }
   },
   {
    "pwsid": "CA3200075",
@@ -1002,7 +1522,17 @@
    "sampling_points": 1,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 1,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 3
+   }
   },
   {
    "pwsid": "CA3200076",
@@ -1021,7 +1551,18 @@
    "sampling_points": 2,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 2,
+    "springs": 1,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "SP": 2,
+    "WL": 1
+   }
   },
   {
    "pwsid": "CA3200078",
@@ -1039,7 +1580,20 @@
    "sampling_points": 3,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 3,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": [
+     "Feather River Tributary"
+    ]
+   },
+   "sampled": {
+    "DS": 42,
+    "WL": 111
+   }
   },
   {
    "pwsid": "CA3200079",
@@ -1058,7 +1612,17 @@
    "sampling_points": 1,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 1,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 1
+   }
   },
   {
    "pwsid": "CA3200083",
@@ -1077,7 +1641,17 @@
    "sampling_points": 4,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 4,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 61
+   }
   },
   {
    "pwsid": "CA3200084",
@@ -1096,7 +1670,17 @@
    "sampling_points": 2,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 2,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 34
+   }
   },
   {
    "pwsid": "CA3200085",
@@ -1115,7 +1699,17 @@
    "sampling_points": 1,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 2,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 12
+   }
   },
   {
    "pwsid": "CA3200088",
@@ -1134,7 +1728,17 @@
    "sampling_points": 1,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 0,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 6
+   }
   },
   {
    "pwsid": "CA3200094",
@@ -1153,7 +1757,17 @@
    "sampling_points": 1,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 0,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 11
+   }
   },
   {
    "pwsid": "CA3200095",
@@ -1172,7 +1786,17 @@
    "sampling_points": 1,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 0,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 1
+   }
   },
   {
    "pwsid": "CA3200097",
@@ -1191,7 +1815,17 @@
    "sampling_points": 1,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "spring",
+   "sources": {
+    "ground": 1,
+    "springs": 1,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "SP": 10
+   }
   },
   {
    "pwsid": "CA3200098",
@@ -1210,7 +1844,17 @@
    "sampling_points": 1,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 1,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 10
+   }
   },
   {
    "pwsid": "CA3200099",
@@ -1229,7 +1873,17 @@
    "sampling_points": 1,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 0,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 7
+   }
   },
   {
    "pwsid": "CA3200100",
@@ -1248,7 +1902,17 @@
    "sampling_points": 2,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 1,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 52
+   }
   },
   {
    "pwsid": "CA3200101",
@@ -1266,7 +1930,20 @@
    "sampling_points": 2,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 0,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": [
+     "Stream"
+    ]
+   },
+   "sampled": {
+    "WL": 57,
+    "IN": 1
+   }
   },
   {
    "pwsid": "CA3200102",
@@ -1284,7 +1961,20 @@
    "sampling_points": 3,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "surface",
+   "sources": {
+    "ground": 0,
+    "springs": 0,
+    "surface_active": [
+     "Mckenzie Creek / West Stream"
+    ],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "IN": 103,
+    "DS": 110
+   }
   },
   {
    "pwsid": "CA3200104",
@@ -1302,7 +1992,18 @@
    "sampling_points": 3,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 3,
+    "springs": 1,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "DS": 16,
+    "WL": 338
+   }
   },
   {
    "pwsid": "CA3200105",
@@ -1321,7 +2022,19 @@
    "sampling_points": 1,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "surface",
+   "sources": {
+    "ground": 1,
+    "springs": 0,
+    "surface_active": [
+     "Jackass Creek"
+    ],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 3
+   }
   },
   {
    "pwsid": "CA3200106",
@@ -1340,7 +2053,20 @@
    "sampling_points": 1,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 1,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": [
+     "Stream",
+     "Treatment Plant (Precautionary Cl)"
+    ]
+   },
+   "sampled": {
+    "WL": 1
+   }
   },
   {
    "pwsid": "CA3200107",
@@ -1358,7 +2084,18 @@
    "sampling_points": 2,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 2,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 201,
+    "DS": 18
+   }
   },
   {
    "pwsid": "CA3200108",
@@ -1377,7 +2114,17 @@
    "sampling_points": 1,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 1,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 1
+   }
   },
   {
    "pwsid": "CA3200109",
@@ -1396,7 +2143,17 @@
    "sampling_points": 2,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 2,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 20
+   }
   },
   {
    "pwsid": "CA3200111",
@@ -1415,7 +2172,18 @@
    "sampling_points": 4,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 5,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 129,
+    "DS": 53
+   }
   },
   {
    "pwsid": "CA3200114",
@@ -1433,7 +2201,18 @@
    "sampling_points": 2,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 1,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 151,
+    "DS": 23
+   }
   },
   {
    "pwsid": "CA3200116",
@@ -1452,7 +2231,17 @@
    "sampling_points": 2,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 0,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 4
+   }
   },
   {
    "pwsid": "CA3200117",
@@ -1471,7 +2260,17 @@
    "sampling_points": 1,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 1,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 1
+   }
   },
   {
    "pwsid": "CA3200118",
@@ -1490,7 +2289,17 @@
    "sampling_points": 2,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 2,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 22
+   }
   },
   {
    "pwsid": "CA3200120",
@@ -1509,7 +2318,17 @@
    "sampling_points": 1,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 0,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 8
+   }
   },
   {
    "pwsid": "CA3200122",
@@ -1528,7 +2347,17 @@
    "sampling_points": 1,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 1,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 12
+   }
   },
   {
    "pwsid": "CA3200123",
@@ -1547,7 +2376,17 @@
    "sampling_points": 1,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 1,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 10
+   }
   },
   {
    "pwsid": "CA3200126",
@@ -1566,7 +2405,17 @@
    "sampling_points": 3,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 3,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 47
+   }
   },
   {
    "pwsid": "CA3200127",
@@ -1584,7 +2433,18 @@
    "sampling_points": 2,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 2,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "DS": 26,
+    "WL": 111
+   }
   },
   {
    "pwsid": "CA3200129",
@@ -1603,7 +2463,17 @@
    "sampling_points": 1,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 0,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 2
+   }
   },
   {
    "pwsid": "CA3200130",
@@ -1621,7 +2491,17 @@
    "sampling_points": 1,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 1,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 7
+   }
   },
   {
    "pwsid": "CA3200134",
@@ -1639,7 +2519,18 @@
    "sampling_points": 2,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "spring",
+   "sources": {
+    "ground": 1,
+    "springs": 1,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "SP": 108,
+    "DS": 19
+   }
   },
   {
    "pwsid": "CA3200135",
@@ -1658,7 +2549,17 @@
    "sampling_points": 1,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 1,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 8
+   }
   },
   {
    "pwsid": "CA3200138",
@@ -1676,7 +2577,18 @@
    "sampling_points": 5,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 4,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 224,
+    "DS": 20
+   }
   },
   {
    "pwsid": "CA3200139",
@@ -1695,7 +2607,17 @@
    "sampling_points": 1,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 1,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 14
+   }
   },
   {
    "pwsid": "CA3200141",
@@ -1714,7 +2636,18 @@
    "sampling_points": 2,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 1,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "DS": 20,
+    "WL": 105
+   }
   },
   {
    "pwsid": "CA3200142",
@@ -1733,7 +2666,19 @@
    "sampling_points": 1,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 0,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": [
+     "Creek"
+    ]
+   },
+   "sampled": {
+    "WL": 8
+   }
   },
   {
    "pwsid": "CA3200143",
@@ -1752,7 +2697,17 @@
    "sampling_points": 1,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 0,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 10
+   }
   },
   {
    "pwsid": "CA3200148",
@@ -1770,7 +2725,18 @@
    "sampling_points": 3,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 2,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 281,
+    "DS": 11
+   }
   },
   {
    "pwsid": "CA3200149",
@@ -1789,7 +2755,17 @@
    "sampling_points": 1,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 1,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 4
+   }
   },
   {
    "pwsid": "CA3200150",
@@ -1808,7 +2784,18 @@
    "sampling_points": 3,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 2,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "DS": 28,
+    "WL": 166
+   }
   },
   {
    "pwsid": "CA3200151",
@@ -1827,7 +2814,17 @@
    "sampling_points": 1,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 0,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 8
+   }
   },
   {
    "pwsid": "CA3200152",
@@ -1846,7 +2843,17 @@
    "sampling_points": 1,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 1,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 6
+   }
   },
   {
    "pwsid": "CA3200153",
@@ -1865,7 +2872,19 @@
    "sampling_points": 1,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 1,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": [
+     "Creek"
+    ]
+   },
+   "sampled": {
+    "WL": 10
+   }
   },
   {
    "pwsid": "CA3200155",
@@ -1883,7 +2902,18 @@
    "sampling_points": 2,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 1,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "DS": 20,
+    "WL": 115
+   }
   },
   {
    "pwsid": "CA3200156",
@@ -1902,7 +2932,17 @@
    "sampling_points": 1,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 0,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 7
+   }
   },
   {
    "pwsid": "CA3200157",
@@ -1921,7 +2961,17 @@
    "sampling_points": 1,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 1,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 5
+   }
   },
   {
    "pwsid": "CA3200159",
@@ -1940,7 +2990,17 @@
    "sampling_points": 1,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 1,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 3
+   }
   },
   {
    "pwsid": "CA3200162",
@@ -1959,7 +3019,17 @@
    "sampling_points": 1,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 1,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 8
+   }
   },
   {
    "pwsid": "CA3200163",
@@ -1978,7 +3048,17 @@
    "sampling_points": 1,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "spring",
+   "sources": {
+    "ground": 1,
+    "springs": 1,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "SP": 6
+   }
   },
   {
    "pwsid": "CA3200165",
@@ -1996,7 +3076,17 @@
    "sampling_points": 1,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 1,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 8
+   }
   },
   {
    "pwsid": "CA3200166",
@@ -2015,7 +3105,18 @@
    "sampling_points": 2,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 0,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "DS": 30,
+    "WL": 113
+   }
   },
   {
    "pwsid": "CA3200167",
@@ -2034,7 +3135,17 @@
    "sampling_points": 1,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 0,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 50
+   }
   },
   {
    "pwsid": "CA3200171",
@@ -2053,7 +3164,17 @@
    "sampling_points": 1,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 2,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 11
+   }
   },
   {
    "pwsid": "CA3200172",
@@ -2072,7 +3193,19 @@
    "sampling_points": 1,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "surface",
+   "sources": {
+    "ground": 0,
+    "springs": 0,
+    "surface_active": [
+     "Thompson Lake"
+    ],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "IN": 8
+   }
   },
   {
    "pwsid": "CA3200173",
@@ -2090,7 +3223,17 @@
    "sampling_points": 1,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 1,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 6
+   }
   },
   {
    "pwsid": "CA3200174",
@@ -2109,7 +3252,17 @@
    "sampling_points": 1,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 0,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 8
+   }
   },
   {
    "pwsid": "CA3200175",
@@ -2128,7 +3281,18 @@
    "sampling_points": 4,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 5,
+    "springs": 5,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 18,
+    "SP": 12
+   }
   },
   {
    "pwsid": "CA3200176",
@@ -2147,7 +3311,17 @@
    "sampling_points": 1,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 0,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 42
+   }
   },
   {
    "pwsid": "CA3200178",
@@ -2166,7 +3340,17 @@
    "sampling_points": 1,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 2,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 10
+   }
   },
   {
    "pwsid": "CA3200180",
@@ -2185,7 +3369,17 @@
    "sampling_points": 1,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 1,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 2
+   }
   },
   {
    "pwsid": "CA3200181",
@@ -2204,7 +3398,17 @@
    "sampling_points": 1,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 0,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 10
+   }
   },
   {
    "pwsid": "CA3200185",
@@ -2223,7 +3427,17 @@
    "sampling_points": 1,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 0,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 10
+   }
   },
   {
    "pwsid": "CA3200186",
@@ -2242,7 +3456,17 @@
    "sampling_points": 2,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "spring",
+   "sources": {
+    "ground": 2,
+    "springs": 2,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "SP": 14
+   }
   },
   {
    "pwsid": "CA3200187",
@@ -2261,7 +3485,17 @@
    "sampling_points": 1,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 0,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 3
+   }
   },
   {
    "pwsid": "CA3200188",
@@ -2279,7 +3513,18 @@
    "sampling_points": 4,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 5,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "DS": 38,
+    "WL": 262
+   }
   },
   {
    "pwsid": "CA3200189",
@@ -2297,7 +3542,18 @@
    "sampling_points": 2,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 1,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 193,
+    "DS": 20
+   }
   },
   {
    "pwsid": "CA3200193",
@@ -2316,7 +3572,17 @@
    "sampling_points": 1,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 1,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 10
+   }
   },
   {
    "pwsid": "CA3200194",
@@ -2335,7 +3601,17 @@
    "sampling_points": 1,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 0,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 6
+   }
   },
   {
    "pwsid": "CA3200195",
@@ -2353,7 +3629,18 @@
    "sampling_points": 2,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 1,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "DS": 20,
+    "WL": 110
+   }
   },
   {
    "pwsid": "CA3200196",
@@ -2372,7 +3659,17 @@
    "sampling_points": 1,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 0,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 5
+   }
   },
   {
    "pwsid": "CA3200197",
@@ -2391,7 +3688,17 @@
    "sampling_points": 1,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 0,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 7
+   }
   },
   {
    "pwsid": "CA3200198",
@@ -2410,7 +3717,17 @@
    "sampling_points": 1,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 0,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 8
+   }
   },
   {
    "pwsid": "CA3200199",
@@ -2429,7 +3746,17 @@
    "sampling_points": 1,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 0,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 4
+   }
   },
   {
    "pwsid": "CA3200202",
@@ -2448,7 +3775,17 @@
    "sampling_points": 1,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 0,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 2
+   }
   },
   {
    "pwsid": "CA3200205",
@@ -2467,7 +3804,17 @@
    "sampling_points": 2,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 1,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 16
+   }
   },
   {
    "pwsid": "CA3200206",
@@ -2486,7 +3833,17 @@
    "sampling_points": 1,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 0,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 7
+   }
   },
   {
    "pwsid": "CA3200207",
@@ -2505,7 +3862,18 @@
    "sampling_points": 2,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 1,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 149,
+    "DS": 10
+   }
   },
   {
    "pwsid": "CA3200208",
@@ -2523,7 +3891,17 @@
    "sampling_points": 1,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 1,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 1
+   }
   },
   {
    "pwsid": "CA3200209",
@@ -2542,7 +3920,17 @@
    "sampling_points": 1,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 1,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 25
+   }
   },
   {
    "pwsid": "CA3200211",
@@ -2561,7 +3949,17 @@
    "sampling_points": 2,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 0,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 10
+   }
   },
   {
    "pwsid": "CA3200212",
@@ -2580,7 +3978,17 @@
    "sampling_points": 1,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 1,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 5
+   }
   },
   {
    "pwsid": "CA3200213",
@@ -2599,7 +4007,17 @@
    "sampling_points": 1,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 1,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 13
+   }
   },
   {
    "pwsid": "CA3200216",
@@ -2618,7 +4036,17 @@
    "sampling_points": 1,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 1,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 36
+   }
   },
   {
    "pwsid": "CA3200217",
@@ -2637,7 +4065,17 @@
    "sampling_points": 1,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 0,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 25
+   }
   },
   {
    "pwsid": "CA3200219",
@@ -2656,7 +4094,17 @@
    "sampling_points": 1,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 1,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 23
+   }
   },
   {
    "pwsid": "CA3200221",
@@ -2675,7 +4123,18 @@
    "sampling_points": 2,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 0,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 126,
+    "DS": 10
+   }
   },
   {
    "pwsid": "CA3200225",
@@ -2693,7 +4152,17 @@
    "sampling_points": 1,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 0,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 18
+   }
   },
   {
    "pwsid": "CA3200300",
@@ -2712,7 +4181,17 @@
    "sampling_points": 1,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 2,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 3
+   }
   },
   {
    "pwsid": "CA3200301",
@@ -2731,7 +4210,17 @@
    "sampling_points": 1,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 1,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 12
+   }
   },
   {
    "pwsid": "CA3200406",
@@ -2750,7 +4239,17 @@
    "sampling_points": 1,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "spring",
+   "sources": {
+    "ground": 0,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "SP": 43
+   }
   },
   {
    "pwsid": "CA3200505",
@@ -2769,7 +4268,19 @@
    "sampling_points": 1,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "surface",
+   "sources": {
+    "ground": 0,
+    "springs": 0,
+    "surface_active": [
+     "spring under surface influence"
+    ],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "IN": 11
+   }
   },
   {
    "pwsid": "CA3200507",
@@ -2788,7 +4299,17 @@
    "sampling_points": 2,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "spring",
+   "sources": {
+    "ground": 2,
+    "springs": 2,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "SP": 18
+   }
   },
   {
    "pwsid": "CA3200509",
@@ -2806,7 +4327,18 @@
    "sampling_points": 2,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "spring",
+   "sources": {
+    "ground": 1,
+    "springs": 1,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "SP": 94,
+    "DS": 18
+   }
   },
   {
    "pwsid": "CA3200510",
@@ -2824,7 +4356,20 @@
    "sampling_points": 5,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 2,
+    "springs": 1,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "DS": 42,
+    "SP": 102,
+    "WL": 112,
+    "TP": 30
+   }
   },
   {
    "pwsid": "CA3200610",
@@ -2843,7 +4388,17 @@
    "sampling_points": 1,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 0,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 7
+   }
   },
   {
    "pwsid": "CA3200611",
@@ -2862,7 +4417,17 @@
    "sampling_points": 1,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 0,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 8
+   }
   },
   {
    "pwsid": "CA3200612",
@@ -2881,7 +4446,17 @@
    "sampling_points": 1,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 0,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 59
+   }
   },
   {
    "pwsid": "CA3200617",
@@ -2899,7 +4474,17 @@
    "sampling_points": 1,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 1,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 11
+   }
   },
   {
    "pwsid": "CA3200618",
@@ -2917,7 +4502,17 @@
    "sampling_points": 2,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 0,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 15
+   }
   },
   {
    "pwsid": "CA3200704",
@@ -2936,7 +4531,17 @@
    "sampling_points": 1,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 1,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 146
+   }
   },
   {
    "pwsid": "CA3200718",
@@ -2955,7 +4560,17 @@
    "sampling_points": 1,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 1,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 8
+   }
   },
   {
    "pwsid": "CA3205001",
@@ -2973,7 +4588,18 @@
    "sampling_points": 2,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 2,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "DS": 28,
+    "WL": 150
+   }
   },
   {
    "pwsid": "CA3205003",
@@ -2991,7 +4617,18 @@
    "sampling_points": 6,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 2,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 1244,
+    "DS": 18
+   }
   },
   {
    "pwsid": "CA3205005",
@@ -3010,7 +4647,18 @@
    "sampling_points": 4,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 6,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "DS": 63,
+    "WL": 287
+   }
   },
   {
    "pwsid": "CA3205006",
@@ -3028,7 +4676,19 @@
    "sampling_points": 7,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 4,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 802,
+    "DS": 63,
+    "TP": 84
+   }
   },
   {
    "pwsid": "CA3205007",
@@ -3047,7 +4707,17 @@
    "sampling_points": 1,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 1,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 8
+   }
   },
   {
    "pwsid": "CA3205009",
@@ -3066,7 +4736,17 @@
    "sampling_points": 1,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 1,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 11
+   }
   },
   {
    "pwsid": "CA3205011",
@@ -3085,7 +4765,17 @@
    "sampling_points": 1,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 1,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 9
+   }
   },
   {
    "pwsid": "CA3210001",
@@ -3103,7 +4793,20 @@
    "sampling_points": 4,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "surface",
+   "sources": {
+    "ground": 4,
+    "springs": 0,
+    "surface_active": [
+     "surface-water intake"
+    ],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 278,
+    "DS": 65
+   }
   },
   {
    "pwsid": "CA3210002",
@@ -3122,7 +4825,20 @@
    "sampling_points": 2,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "surface",
+   "sources": {
+    "ground": 0,
+    "springs": 0,
+    "surface_active": [
+     "Lake Davis"
+    ],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "IN": 3,
+    "TP": 3
+   }
   },
   {
    "pwsid": "CA3210003",
@@ -3140,7 +4856,23 @@
    "sampling_points": 7,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "surface",
+   "sources": {
+    "ground": 2,
+    "springs": 1,
+    "surface_active": [
+     "Lake Davis",
+     "Willow Creek Springs"
+    ],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "SP": 90,
+    "WL": 222,
+    "DS": 157,
+    "CC": 28
+   }
   },
   {
    "pwsid": "CA3210004",
@@ -3158,7 +4890,21 @@
    "sampling_points": 13,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 7,
+    "springs": 1,
+    "surface_active": [],
+    "surface_inactive": [
+     "Plant"
+    ]
+   },
+   "sampled": {
+    "DS": 77,
+    "WL": 1483,
+    "SP": 85
+   }
   },
   {
    "pwsid": "CA3210005",
@@ -3176,7 +4922,20 @@
    "sampling_points": 3,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "surface",
+   "sources": {
+    "ground": 0,
+    "springs": 0,
+    "surface_active": [
+     "creek intake"
+    ],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "DS": 307,
+    "TP": 83
+   }
   },
   {
    "pwsid": "CA3210006",
@@ -3194,7 +4953,18 @@
    "sampling_points": 3,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 5,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 316,
+    "DS": 39
+   }
   },
   {
    "pwsid": "CA3210007",
@@ -3212,7 +4982,18 @@
    "sampling_points": 5,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 4,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 666,
+    "DS": 20
+   }
   },
   {
    "pwsid": "CA3210008",
@@ -3231,7 +5012,17 @@
    "sampling_points": 1,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 6,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 1
+   }
   },
   {
    "pwsid": "CA3210009",
@@ -3249,7 +5040,18 @@
    "sampling_points": 5,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 4,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 814,
+    "DS": 23
+   }
   },
   {
    "pwsid": "CA3210010",
@@ -3267,7 +5069,19 @@
    "sampling_points": 5,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 2,
+    "springs": 2,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 292,
+    "SP": 141,
+    "DS": 61
+   }
   },
   {
    "pwsid": "CA3210011",
@@ -3290,7 +5104,19 @@
     "2,4-D": 14
    },
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "well",
+   "sources": {
+    "ground": 4,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "DS": 72,
+    "TP": 661,
+    "SS": 96
+   }
   },
   {
    "pwsid": "CA3210300",
@@ -3309,7 +5135,17 @@
    "sampling_points": 1,
    "herbicide_samples": {},
    "herbicide_detections": 0,
-   "forest_herbicide_samples": 0
+   "forest_herbicide_samples": 0,
+   "kind": "spring",
+   "sources": {
+    "ground": 1,
+    "springs": 1,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "SP": 7
+   }
   }
  ],
  "unlocated": [
@@ -3317,56 +5153,153 @@
    "pwsid": "CA3200014",
    "name": "CHANDLER HILLS COUNTRY CLUB",
    "pop": 24,
-   "reason": "WATSYS row has no city"
+   "reason": "WATSYS row has no city",
+   "kind": "well",
+   "sources": {
+    "ground": 0,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 9
+   }
   },
   {
    "pwsid": "CA3200026",
    "name": "LNF DOMINGO SPRINGS CG",
    "pop": 24,
-   "reason": "mailing address is Susanville (Lassen County); no Plumas address available"
+   "reason": "mailing address is Susanville (Lassen County); no Plumas address available",
+   "kind": "well",
+   "sources": {
+    "ground": 0,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 144
+   }
   },
   {
    "pwsid": "CA3200057",
    "name": "DORADO INN",
    "pop": 14,
-   "reason": "WATSYS row has no city"
+   "reason": "WATSYS row has no city",
+   "kind": "well",
+   "sources": {
+    "ground": 0,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 7
+   }
   },
   {
    "pwsid": "CA3200113",
    "name": "DEERWOOD LODGE",
    "pop": 15,
-   "reason": "WATSYS row has no city"
+   "reason": "WATSYS row has no city",
+   "kind": "well",
+   "sources": {
+    "ground": 0,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 7
+   }
   },
   {
    "pwsid": "CA3200192",
    "name": "WHITE SULFUR SPRINGS RANCH",
    "pop": 12,
-   "reason": "WATSYS row has no city"
+   "reason": "WATSYS row has no city",
+   "kind": "well",
+   "sources": {
+    "ground": 0,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 3
+   }
   },
   {
    "pwsid": "CA3200200",
    "name": "FRENCHMAN VILLAGE MWC",
    "pop": 24,
-   "reason": "WATSYS row has no city (ZIP 96121 is Lassen County)"
+   "reason": "WATSYS row has no city (ZIP 96121 is Lassen County)",
+   "kind": "well",
+   "sources": {
+    "ground": 0,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 3
+   }
   },
   {
    "pwsid": "CA3200214",
    "name": "TAYLORSVLLE SWIM POOL",
    "pop": 24,
-   "reason": "no public mailing/physical address found (not in WATSYS extract or active PDWW listing)"
+   "reason": "no public mailing/physical address found (not in WATSYS extract or active PDWW listing)",
+   "kind": "well",
+   "sources": {
+    "ground": 0,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 3
+   }
   },
   {
    "pwsid": "CA3200215",
    "name": "SCHRAMEL WATER SYSTEM",
    "pop": 100,
-   "reason": "WATSYS row has no city"
+   "reason": "WATSYS row has no city",
+   "kind": "well",
+   "sources": {
+    "ground": 0,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "DS": 24,
+    "WL": 36
+   }
   },
   {
    "pwsid": "CA3200218",
    "name": "LOST MARBLES RANCH",
    "pop": 24,
-   "reason": "no public mailing/physical address found (not in WATSYS extract or active PDWW listing)"
+   "reason": "no public mailing/physical address found (not in WATSYS extract or active PDWW listing)",
+   "kind": "well",
+   "sources": {
+    "ground": 0,
+    "springs": 0,
+    "surface_active": [],
+    "surface_inactive": []
+   },
+   "sampled": {
+    "WL": 4
+   }
   }
  ],
- "stats_source": "data/incoming/2026-09/edt-plumas/summary.json (State Water Board EDT Library SDWIS extracts 2019-2026)"
+ "stats_source": "data/incoming/2026-09/edt-plumas/summary.json (State Water Board EDT Library SDWIS extracts 2019-2026)",
+ "kind_legend": {
+  "surface": "an active creek, lake or reservoir source in the state source table, or 3+ surface-intake samples on file",
+  "spring": "samples on file come from springs, no wells",
+  "well": "well-fed; samples come from wells",
+  "unsampled": "no source sample on file"
+ }
 }
