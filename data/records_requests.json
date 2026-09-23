@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-19",
+  "updated": "2026-09-22",
   "about": "Public-records paper trail for SprayMap California. One row per request to a public agency: what we asked, when, what came back, and whether it is on the site yet. Agencies are named at office level; individual staff are not published. Dates are day-precise where confirmed from the spraymapca inbox, month-precise (YYYY-MM) where reconstructed. 'sent'/'acknowledged' rows with no reply after 30 days are shown as follow-up due. Maintained by the monthly data-asks task; humans commit.",
   "status_legend": {
     "drafted": "letter written, not yet sent",
@@ -368,14 +368,14 @@
       "agency": "El Dorado County Agricultural Commissioner",
       "county": "El Dorado / Alpine",
       "program": "Operator names",
-      "channel": "email",
-      "ref": null,
-      "sent": null,
-      "status": "drafted",
+      "channel": "email -> county records portal",
+      "ref": "P010066-092126",
+      "sent": "2026-09-21",
+      "status": "acknowledged",
       "received": null,
       "outcome": null,
       "effect": null,
-      "notes": "Drafted 2026-09-19. El Dorado handles Alpine pesticide permitting (CalAgPermits). Recipient eldcag@edcgov.us (LeeAnne Mila). County codes 09 and 02. El Dorado 29.5% named; Alpine 25% named. Unsent Gmail draft + letter 26-el-dorado-alpine.md."
+      "notes": "Sent by email 2026-09-21; El Dorado County logged it in its records portal the same day as P010066-092126. Covers Alpine (county code 02) as well as El Dorado (09) because El Dorado handles Alpine pesticide permitting."
     },
     {
       "id": "placer",
@@ -384,26 +384,26 @@
       "program": "Operator names",
       "channel": "email",
       "ref": null,
-      "sent": null,
-      "status": "drafted",
+      "sent": "2026-09-21",
+      "status": "sent",
       "received": null,
       "outcome": null,
       "effect": null,
-      "notes": "Drafted 2026-09-19. Recipient PlacerAg@placer.ca.gov (Josh Huntsinger). County code 31. 5.4% named. Unsent Gmail draft + letter 27-placer.md."
+      "notes": "Sent by email 2026-09-21 to the Placer Agricultural Commissioner (county code 31). No acknowledgement yet."
     },
     {
       "id": "nevada",
       "agency": "Nevada County Agricultural Commissioner",
       "county": "Nevada",
       "program": "Operator names",
-      "channel": "email",
-      "ref": null,
-      "sent": null,
-      "status": "drafted",
+      "channel": "email -> county GovQA portal",
+      "ref": "C008183-092226",
+      "sent": "2026-09-21",
+      "status": "acknowledged",
       "received": null,
       "outcome": null,
       "effect": null,
-      "notes": "Drafted 2026-09-19. Recipient agdept@nevadacountyca.gov (Chris deNijs). County code 29. 9.6% named. Unsent Gmail draft + letter 28-nevada.md."
+      "notes": "Sent by email 2026-09-21; Nevada County logged it in its GovQA Records Center 2026-09-22 as C008183-092226 (Community Development). County code 29."
     },
     {
       "id": "kings",
@@ -439,13 +439,13 @@
       "county": "Mendocino",
       "program": "Operator names",
       "channel": "email",
-      "ref": null,
+      "ref": "#26-2419",
       "sent": "2026-09-13",
-      "status": "delivered",
-      "received": "2026-09-15",
-      "outcome": "Seven PERMIT QUERY Excel files (2020-2026). 793 unique permits, but 681 start with 34 (Sacramento) and none start with 23 (Mendocino). Mendocino named coverage unchanged at 4.1%.",
-      "effect": null,
-      "notes": "Need a follow-up asking for Mendocino-issued (county code 23) permits. Files loaded anyway; they helped name Sacramento operators."
+      "status": "ingested",
+      "received": "2026-09-22",
+      "outcome": "Follow-up filed on the county NextRequest portal (received 9-14) for Mendocino-issued (code 23) permits. County released \"Mendocino Permits 2020-2026.xlsx\" on 2026-09-22.",
+      "effect": "Operator names for Mendocino: mapped applications with a name went from 2,856 to 32,132 of 35,230 (91%). Statewide named coverage 79.5% -> 84.6%.",
+      "notes": "Earlier files were Sacramento-issued (code 34) permits. Document link valid until 2026-10-22, then portal sign-in.  Normalized 2026-09-22 (641 permits, 637 Mendocino-issued; data/incoming/2026-09/mendocino-2020-2026.csv) and loaded via enrich_operator_names.py."
     },
     {
       "id": "cvrwqcb-r5-nps",
@@ -525,11 +525,11 @@
       "channel": "email",
       "ref": null,
       "sent": "2026-09-13",
-      "status": "sent",
-      "received": null,
-      "outcome": null,
+      "status": "delivered",
+      "received": "2026-09-17",
+      "outcome": "City Manager answered with the public sources for Portola water data: the State SDWIS system record for the City system, and the eSMR wastewater discharge and receiving-water dataset on data.ca.gov. No standalone records produced.",
       "effect": null,
-      "notes": "Drafted 2026-08-06; Gmail draft created in spraymapca Drafts 2026-09-05 (recipient + subject verified 2026-09-06). Sent 2026-09-13."
+      "notes": "Response also logged in the City's online records system. We thanked them 2026-09-21. Portola drinking-water results are covered by the DDW EDT pull."
     },
     {
       "id": "chester-pud",
@@ -539,11 +539,11 @@
       "channel": "email",
       "ref": null,
       "sent": "2026-09-13",
-      "status": "sent",
-      "received": null,
+      "status": "acknowledged",
+      "received": "2026-09-17",
       "outcome": null,
       "effect": null,
-      "notes": "Drafted 2026-08-06; Gmail draft created in spraymapca Drafts 2026-09-05 (recipient + subject verified 2026-09-06). Sent 2026-09-13."
+      "notes": "General Manager replied 2026-09-17: the District draws from roughly 300-foot wells, is open to a baseline herbicide screen, and \"a map would be amazing.\" No records produced; this is now a testing conversation rather than a records request."
     },
     {
       "id": "state-ddw-d62",
@@ -551,13 +551,13 @@
       "county": "Plumas",
       "program": "Water monitoring",
       "channel": "email",
-      "ref": null,
+      "ref": "PRA ID #638",
       "sent": "2026-09-13",
-      "status": "sent",
-      "received": null,
-      "outcome": null,
+      "status": "delivered",
+      "received": "2026-09-17",
+      "outcome": "DDW answered by pointing to the public sources: the EDT Library bulk downloads (SDWIS TAB files, 2011-present) for water-quality analytical results, and Drinking Water Watch for compliance and source-water monitoring. No county-specific extract was produced.",
       "effect": null,
-      "notes": "Drafted 2026-08-06; Gmail draft created in spraymapca Drafts 2026-09-05 (recipient + subject verified 2026-09-06). Sent 2026-09-13."
+      "notes": "Assigned PRA ID #638. We replied 2026-09-21 that we would pull the Plumas County compliance and source-water monitoring data ourselves from those sources; pulled 2026-09-22 (see data/incoming/2026-09/edt-plumas)."
     },
     {
       "id": "plumas-env-health",

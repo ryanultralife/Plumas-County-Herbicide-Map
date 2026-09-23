@@ -2,8 +2,8 @@
  "generated": null,
  "statewide": {
   "apps": 13093068,
-  "named": 11050133,
-  "pct": 84.4,
+  "named": 11080219,
+  "pct": 84.6,
   "public_counties": [
    "Colusa",
    "Contra Costa",
@@ -48,7 +48,7 @@
   },
   "Butte": {
    "apps": 215034,
-   "named": 213427,
+   "named": 213454,
    "pct": 99.3,
    "region": "northern-sierra",
    "access": "request"
@@ -181,8 +181,8 @@
   },
   "Mendocino": {
    "apps": 35230,
-   "named": 2856,
-   "pct": 8.1,
+   "named": 32132,
+   "pct": 91.2,
    "region": "north-coast",
    "access": "request"
   },
@@ -230,8 +230,8 @@
   },
   "Orange": {
    "apps": 14632,
-   "named": 9056,
-   "pct": 61.9,
+   "named": 9594,
+   "pct": 65.6,
    "region": "southern-california",
    "access": "request"
   },
@@ -279,7 +279,7 @@
   },
   "San Diego": {
    "apps": 332019,
-   "named": 323387,
+   "named": 323540,
    "pct": 97.4,
    "region": "southern-california",
    "access": "download"
@@ -426,8 +426,8 @@
   },
   "Yuba": {
    "apps": 62218,
-   "named": 22714,
-   "pct": 36.5,
+   "named": 22806,
+   "pct": 36.7,
    "region": "northern-sierra",
    "access": "request"
   }
