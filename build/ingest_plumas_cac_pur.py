@@ -21,6 +21,7 @@ its primary herbicide's active-ingredient pounds):
   lat/lon           = CDPR Plumas PLSS section centroid (CEN_LAT84/LONG84)
   land_type         = classified from the Permitee (landowner) name
   date              = Application Date -> MM/DD/YYYY
+  method            = Appl. Method -> Aerial / Ground / Other (canonical labels)
 
 Pounds: the county export reports raw volume (gal/oz/lb), NOT DPR-computed
 pounds. build/_regmap.json gives, per EPA reg_no, the primary active ingredient
@@ -111,6 +112,21 @@ def sec2(s):
     return s.zfill(2) if s.isdigit() else s
 
 
+def cac_method(lines):
+    """Application type for one event, from the county export's "Appl. Method"
+    column (values seen: Ground, Aircraft, Other). Canonical labels match the
+    statewide rows (CDPR AER_GND_IND -> Aerial/Ground/Fumigation/Chemigation/Other).
+    Every 2025-2026 event carried exactly one value when checked 2026-09-22
+    (464 Ground, 14 Aircraft, 3 Other); if lines ever disagree, the most common wins."""
+    import collections
+    canon = {"AIRCRAFT": "Aerial", "AERIAL": "Aerial", "AIR": "Aerial", "A": "Aerial",
+             "GROUND": "Ground", "G": "Ground", "FUMIGATION": "Fumigation", "F": "Fumigation",
+             "CHEMIGATION": "Chemigation", "C": "Chemigation", "OTHER": "Other", "O": "Other"}
+    vals = [canon.get(str(l.get("method") or "").strip().upper()) for l in lines]
+    vals = [v for v in vals if v]
+    return collections.Counter(vals).most_common(1)[0][0] if vals else None
+
+
 def lbs_per_unit(reg, unit_code):
     """lbs of active ingredient per one <unit_code> of this product, from DPR."""
     e = REG.get(reg)
@@ -165,6 +181,7 @@ def read_rows():
                 treated=to_f(r[i['Treated Amount']]),
                 treated_unit=str(r[i['Treated Units']] or '').strip().upper(),
                 applicator=(str(r[i['Applicator Name']] or '').strip() if 'Applicator Name' in i else ''),
+                method=(str(r[i['Appl. Method']] or '').strip() if 'Appl. Method' in i else ''),
             )
     rows = list(sheet("Single Job PURs", "Application Date")) + \
         list(sheet("Monthly Ag PURs", "Start Application Date"))
@@ -205,7 +222,7 @@ def transform():
             "land_type": land_type(rep['permitee']), "owner": owner,
             "product": rep['product'], "active_ingredient": rep['_ai'],
             "amount": (rep['_lbs'] if rep['_lbs'] else None), "unit": "lbs",
-            "acres": acres, "method": None, "activity": None, "project": None,
+            "acres": acres, "method": cac_method(lines), "activity": None, "project": None,
             "status": "completed", "url": "https://calpip.cdpr.ca.gov/",
             "pulled": "2026-07-22"})
         if rep['permitee']:

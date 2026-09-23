@@ -63,3 +63,13 @@ shapefile): `_regmap.json`, `_plumas_centroids.json`,
 After loading: `refresh materialized view concurrently public.map_agg;` +
 `refresh materialized view public.juris_agg;`, regenerate
 `data/operator_coverage.json`, and bump `CELLS_KEY` in `index.html`.
+
+## Application method (added 2026-09-22)
+
+The export has an **`Appl. Method`** column (values: Ground, Aircraft, Other) that the
+first load ignored, so all 481 rows sat at "Not reported" on the map's Type filter.
+Read back from the county file on 2026-09-22: **464 Ground, 14 Aircraft (stored as
+Aerial), 3 Other**; every event carried exactly one value. The database and the
+derived CSV here now carry those labels, and `build/ingest_plumas_cac_pur.py` reads the
+column on future runs (`cac_method`).
+
