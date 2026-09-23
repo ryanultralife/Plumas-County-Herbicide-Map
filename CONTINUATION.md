@@ -259,3 +259,8 @@ static tags keep a rounded fallback ("13 million") - do not hand-edit it to a pr
 Test: `curl -A facebookexternalhit/1.1 https://www.spraymapca.org/ -D -` and look for
 `X-Spraymap-Live-Count`. Facebook and X cache previews: after a data load, re-scrape the URL in the
 Facebook Sharing Debugger / X Card Validator to refresh what they show.
+
+## New-data bubble (2026-09-23)
+- Floating pill above the donate bubble; follows the "Showing:" county/region. Shows the latest load for that area with a **NEW** tag while under 7 days old; tapping it lists recent loads plus the records requests still open for the area.
+- Source: **`data/ingest_log.json`** (committed, like `records_requests.json`). Started with the week of Sep 17-23 only; no older backfill by decision.
+- **After every load that changes the site, append a row:** `python build/log_ingest.py --county <County> --kind applications|names|water|fix --source "..." --rows N --summary "..." [--request <tracker id>]`. Real numbers only.

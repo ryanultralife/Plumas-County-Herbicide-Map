@@ -1,0 +1,72 @@
+{
+  "updated": "2026-09-23",
+  "about": "One row per data load that changed what the public site shows, newest first. Feeds the 'new data' bubble on the map (index.html loadIngestLog). Append with build/log_ingest.py after every load; 'date' is the day the data went live on the site. Numbers come from the load itself or the records-request tracker, never estimates. Started 2026-09-23 with that week's loads only; earlier loads are in git history and data/records_requests.json.",
+  "kinds": {
+    "applications": "New pesticide-use rows on the map",
+    "names": "Operator names from a county roster",
+    "water": "Water-testing records",
+    "fix": "A correction or filled-in field on rows already on the map"
+  },
+  "loads": [
+    {
+      "date": "2026-09-22",
+      "counties": ["Plumas"],
+      "kind": "water",
+      "source": "State Water Board, Division of Drinking Water (EDT Library, PRA ID #638)",
+      "summary": "State drinking-water compliance results 2019-2026: 15,037 results for 184 Plumas public water systems. Glyphosate was tested 14 times at one system (Plumas Eureka CSD), all non-detect; no forestry herbicide was ever tested anywhere in the county.",
+      "rows": 15037,
+      "request_id": "state-ddw-d62"
+    },
+    {
+      "date": "2026-09-22",
+      "counties": ["Mendocino"],
+      "kind": "names",
+      "source": "Mendocino County Agricultural Commissioner (request #26-2419)",
+      "summary": "641 permits from the county's 2020-2026 roster. Mapped applications with a named operator went from 8% to 91% (32,132 of 35,230).",
+      "rows": 641,
+      "request_id": "mendocino"
+    },
+    {
+      "date": "2026-09-22",
+      "counties": ["Plumas"],
+      "kind": "fix",
+      "source": "Plumas-Sierra Agricultural Commissioner (county PUR export)",
+      "summary": "Application type filled in for the 481 county-reported 2025-2026 events: 464 ground, 14 aerial, 3 other.",
+      "rows": 481
+    },
+    {
+      "date": "2026-09-19",
+      "counties": ["Placer", "Nevada"],
+      "kind": "applications",
+      "source": "CDPR Pesticide Use Report 2022",
+      "summary": "25,062 Placer and Nevada 2022 application rows that were missing from the map. Many lack a PLSS section, so not all become map dots. Operator names still need the county rosters (requested Sep 21).",
+      "rows": 25062
+    },
+    {
+      "date": "2026-09-19",
+      "counties": ["Alameda"],
+      "kind": "applications",
+      "source": "Alameda County Agriculture (request #26-763)",
+      "summary": "15,829 county-reported application rows for 2024-2026 (6,773 / 5,384 / 3,672), plus operator names from the county's 414-permit roster.",
+      "rows": 15829,
+      "request_id": "alameda-26-763"
+    },
+    {
+      "date": "2026-09-19",
+      "counties": ["Orange"],
+      "kind": "names",
+      "source": "Orange County Agricultural Commissioner (request #26-6410)",
+      "summary": "158 permittees from the county's monthly summary. Mapped applications with a named operator went from 34.5% to 61.9% (9,056 of 14,632).",
+      "rows": 158,
+      "request_id": "orange"
+    },
+    {
+      "date": "2026-09-19",
+      "counties": ["Sacramento"],
+      "kind": "names",
+      "source": "Sacramento County Agricultural Commissioner",
+      "summary": "County permit roster. Mapped applications with a named operator went from 63.4% to 99.9% (151,318 of 151,501).",
+      "request_id": "sacramento"
+    }
+  ]
+}

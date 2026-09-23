@@ -61,6 +61,18 @@ td:first-child,th:first-child{text-align:left}tr.tot td{font-weight:bold;backgro
 .om1{color:#8a8a8a;font-size:11px;display:block}
 @media(max-width:560px){#scopebar .sl{display:none}#scopebar select{max-width:46%}#scopeMethod{max-width:46%}}
 .wfgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}@media(max-width:560px){.wfgrid{grid-template-columns:1fr}}.wfbox{border:1px solid #dcdcdc;border-radius:8px;padding:10px;font-size:13px;line-height:1.45}.wfbox h3{margin:0 0 6px;font-size:14px;color:#1d3f27}.wfbox.bad{border-left:4px solid #bd0026}.wfbox.good{border-left:4px solid #2E5E3A}.wfbox ul{margin:6px 0 0 18px;padding:0}.tagpass{display:inline-block;background:#e8f5e9;color:#1d3f27;font-size:11px;font-weight:bold;padding:2px 6px;border-radius:4px}.tagfail{display:inline-block;background:#fdecea;color:#8a1c14;font-size:11px;font-weight:bold;padding:2px 6px;border-radius:4px}.tagunk{display:inline-block;background:#fff7e6;color:#8a5a00;font-size:11px;font-weight:bold;padding:2px 6px;border-radius:4px}</style><style>#ledgerview .ltitle{font-size:20px;color:#1d3f27;margin:2px 0 2px}#ledgerview .lsub{color:#777;font-size:13px;margin:0 0 12px}.bdg{display:inline-block;font-size:11px;padding:2px 7px;border-radius:10px;color:#fff;white-space:nowrap}.bOperations{background:#2E5E3A}.bTesting{background:#2E8B8B}.bAdmin{background:#8a6d3b}#ledgerview td a,#ledgerview .src a{color:#0050b3}#ledgerview .src{color:#bbb}.lupd{font-size:12px;color:#888;margin:-6px 0 12px}</style><style>
+#newBubble{position:fixed;left:16px;bottom:74px;z-index:2400;border:0;cursor:pointer;max-width:min(360px,calc(100vw - 32px));
+  background:#fff;color:#1d3f27;font:13px Arial;padding:8px 14px;border-radius:20px;text-align:left;
+  box-shadow:0 2px 8px rgba(0,0,0,.3);display:none;align-items:center;gap:7px;border-left:4px solid #9a9a9a}
+#newBubble.fresh{border-left-color:#3fae5a}#newBubble:hover{background:#f3f7f3}
+#newBubble .nbTag{background:#3fae5a;color:#fff;font:bold 10px Arial;padding:2px 6px;border-radius:8px;letter-spacing:.4px}
+#newBubble .nbTxt{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#newPanel{display:none;position:fixed;left:16px;bottom:118px;z-index:2450;background:#fff;border-radius:10px;
+  box-shadow:0 4px 18px rgba(0,0,0,.35);width:min(400px,calc(100vw - 32px));max-height:min(60vh,520px);overflow:auto;padding:12px 14px;font:13px/1.45 Arial;color:#222}
+#newPanel h3{margin:0 0 4px;font-size:15px;color:#1d3f27}#newPanel h4{margin:12px 0 4px;font-size:13px;color:#1d3f27}
+#newPanel .nbRow{border-top:1px solid #e6e6e6;padding:6px 0}#newPanel .nbMeta{color:#777;font-size:11.5px}
+#newPanel .nbClose{float:right;border:0;background:none;font-size:20px;line-height:1;cursor:pointer;color:#666}
+@media(max-width:600px){#newBubble{left:12px;bottom:66px}#newPanel{left:12px;bottom:108px}}
 #donateBubble{position:fixed;left:16px;bottom:18px;z-index:2500;border:0;cursor:pointer;
   background:#fd8d3c;color:#fff;font:bold 15px Arial;padding:11px 18px;border-radius:30px;
   box-shadow:0 3px 10px rgba(0,0,0,.35);display:flex;align-items:center;gap:7px;transition:transform .12s,background .12s}
@@ -618,6 +630,85 @@ function loadCells(){
     .catch(function(e){CELLS_P=null;throw e;});
   return CELLS_P;
 }
+/* ----- "New data" bubble (data/ingest_log.json) -----
+   Floats above the donate bubble. Follows the "Showing:" scope: the latest load for the
+   selected county (or any county in the selected region / statewide), with a NEW tag
+   while it is under 7 days old. Tapping it lists recent loads plus the records requests
+   still open for that area, i.e. what we are still asking agencies for. */
+var INGEST=null, INGEST_P=null;
+var NB_KIND={applications:'Pesticide-use rows',names:'Operator names',water:'Water testing',fix:'Correction'};
+var NB_UNIT={applications:'use rows',names:'permits named',water:'water-test results',fix:'rows corrected'};
+function _nbDay(d){ var dt=_rrDate(d); return dt?dt.toLocaleDateString('en-US',{month:'short',day:'numeric'}):''; }
+function loadIngestLog(){ if(INGEST) return Promise.resolve(INGEST); if(INGEST_P) return INGEST_P;
+  INGEST_P=fetch('data/ingest_log.json',{cache:'no-store'}).then(function(r){if(!r.ok)throw 0;return r.json();}).then(function(j){INGEST=j;return j;}).catch(function(){INGEST_P=null;return null;});
+  return INGEST_P; }
+function _nbInScope(counties){
+  if(SCOPE.county) return counties.indexOf(SCOPE.county)>=0;
+  if(SCOPE.region) return counties.some(function(c){return COUNTY_REGION[c]===SCOPE.region;});
+  return true; }
+function _nbArea(){ return SCOPE.county?SCOPE.county:SCOPE.region?regionLabel(SCOPE.region):'California'; }
+function _nbAge(d){ var dt=_rrDate(d); return dt?Math.floor((new Date()-dt)/864e5):999; }
+function _nbReqInScope(r){ /* tracker county strings can name several ("El Dorado / Alpine") */
+  var cs=(r.county||'').split('/').map(function(c){return c.trim();}).filter(Boolean);
+  if(!cs.length) return !SCOPE.county&&!SCOPE.region;
+  return _nbInScope(cs); }
+function renderNewBubble(){
+  var b=document.getElementById('newBubble'); if(!b) return;
+  loadIngestLog().then(function(j){
+    if(!j||!j.loads){ b.style.display='none'; return; }
+    var rows=j.loads.filter(function(l){return _nbInScope(l.counties||[]);});
+    var area=_nbArea(), txt, fresh=false;
+    if(rows.length){
+      var l=rows[0]; fresh=_nbAge(l.date)<7;
+      var nWeek=rows.filter(function(x){return _nbAge(x.date)<7;}).length;
+      if(!SCOPE.county&&fresh&&nWeek>1) txt=area+': '+nWeek+' data loads this week';
+      else { var others=(l.counties||[]).filter(function(c){return c!==SCOPE.county;});
+        txt=(fresh?'':'Last update &middot; ')+_esc(area)+': '+(l.rows?'+'+l.rows.toLocaleString()+' '+(NB_UNIT[l.kind]||'rows'):_esc((NB_KIND[l.kind]||l.kind).toLowerCase()))+
+          (SCOPE.county&&others.length?' (with '+_esc(others.join(', '))+')':'')+' &middot; '+_nbDay(l.date); }
+    } else txt=_esc(area)+': no new data loaded yet';
+    b.className=fresh?'fresh':'';
+    b.innerHTML=(fresh?'<span class="nbTag">NEW</span>':'&#128229;')+'<span class="nbTxt">'+txt+'</span>';
+    b.style.display='flex';
+    var p=document.getElementById('newPanel'); if(p&&p.style.display==='block') renderNewPanel();
+  }); }
+function renderNewPanel(){
+  var p=document.getElementById('newPanel'); if(!p||!INGEST) return;
+  var area=_nbArea(), rows=INGEST.loads.filter(function(l){return _nbInScope(l.counties||[]);}).slice(0,8);
+  var h='<button class="nbClose" type="button" aria-label="Close" onclick="toggleNewPanel(false)">&times;</button><h3>New data &middot; '+_esc(area)+'</h3>';
+  if(!rows.length) h+='<p class="nbMeta" style="margin:4px 0">Nothing loaded for this area since the log started (Sep 2026).</p>';
+  rows.forEach(function(l){
+    h+='<div class="nbRow">'+(_nbAge(l.date)<7?'<span class="nbTag" style="background:#3fae5a;color:#fff;font:bold 10px Arial;padding:1px 5px;border-radius:7px">NEW</span> ':'')+
+      '<b>'+_esc(NB_KIND[l.kind]||l.kind)+'</b> &middot; '+_esc((l.counties||[]).join(', '))+'<br>'+_esc(l.summary)+
+      '<div class="nbMeta">'+_rrFmt(l.date)+' &middot; '+_esc(l.source)+'</div></div>'; });
+  h+='<h4>Still asking for</h4><div id="nbAsks" class="nbMeta">Loading records requests&hellip;</div>';
+  h+='<p class="nbMeta" style="margin:10px 0 0">Every load is logged in <code>data/ingest_log.json</code>; every request is on the Source Data tab.</p>';
+  p.innerHTML=h;
+  loadRecordsRequests().then(function(j){
+    var el=document.getElementById('nbAsks'); if(!el) return;
+    if(!j||!j.requests){ el.textContent='Records-request log unavailable.'; return; }
+    var open={drafted:1,sent:1,acknowledged:1,awaiting_us:1,delivered:1};
+    var rs=j.requests.filter(function(r){return open[r.status]&&_nbReqInScope(r);});
+    if(!rs.length){ el.innerHTML='No open records requests for this area. <a href="#" onclick="show(\'raw\');toggleNewPanel(false);return false">See all requests</a>'; return; }
+    rs.sort(function(a,b){return (b.sent||'').localeCompare(a.sent||'');});
+    el.innerHTML=rs.slice(0,8).map(function(r){
+      return '<div class="nbRow" style="color:#222"><b>'+_esc(r.agency)+'</b> &middot; '+_esc(r.program||'')+
+        '<div class="nbMeta">'+(r.status==='sent'&&r.sent?'Sent '+_rrFmt(r.sent)+', no reply yet':_esc(RR_LABEL[r.status]||r.status)+(r.sent?' &middot; sent '+_rrFmt(r.sent):''))+'</div></div>'; }).join('')+
+      (rs.length>8?'<div class="nbMeta">+'+(rs.length-8)+' more</div>':'')+
+      '<a href="#" onclick="show(\'raw\');toggleNewPanel(false);return false">See all requests</a>';
+  }); }
+function toggleNewPanel(on){
+  var p=document.getElementById('newPanel'); if(!p) return;
+  if(on==null) on=p.style.display!=='block';
+  p.style.display=on?'block':'none';
+  if(on) renderNewPanel(); }
+(function(){
+  var b=document.createElement('button'); b.id='newBubble'; b.type='button';
+  b.setAttribute('aria-label','New data loaded for this area'); b.onclick=function(){toggleNewPanel();};
+  var p=document.createElement('div'); p.id='newPanel'; p.setAttribute('role','dialog'); p.setAttribute('aria-label','New data for this area');
+  document.body.appendChild(b); document.body.appendChild(p);
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') toggleNewPanel(false); });
+  renderNewBubble();
+})();
 var JURIS_P=null;
 function loadJuris(){
   if(JURIS) return Promise.resolve(JURIS);
@@ -690,6 +781,7 @@ function populateScopeBar(){
   var note=document.getElementById('scopeNote');
   if(note) note.textContent=SCOPE.county?(SCOPE.county+' County'):SCOPE.region?regionLabel(SCOPE.region):'Statewide — all 58 counties';
   syncMethodSelect();
+  if(window.renderNewBubble) renderNewBubble();  /* regions known now */
 }
 function populateCountyOptions(){
   var cs=document.getElementById('scopeCounty'); if(!cs) return;
@@ -709,6 +801,7 @@ function setScope(region,county){
   var dv=document.getElementById('dataview'); if(dv&&dv.style.display!=='none') renderData();
   var rv=document.getElementById('rawview'); if(rv&&rv.style.display!=='none'){RAW_ROWS=null; renderRaw();}
   var sv=document.getElementById('sciview'); if(sv&&sv.style.display!=='none') renderSciScope();
+  renderNewBubble();
   try{history.replaceState(null,'',location.pathname+scopeQuery());}catch(e){}
 }
 function onScopeMethod(v){
