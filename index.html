@@ -1614,14 +1614,16 @@ window.DONATE_CONFIG = {
       '</div>'+
       '<div style="margin-top:14px">'+
       '<div style="font:bold 15px Arial;color:#1d3f27">Network</div>'+
-      '<div style="font-size:12.5px;color:#555;margin:3px 0 8px">Current events, work parties, and the action list. This opens an email to spraymapca@gmail.com so we can add you.</div>'+
+      '<div style="font-size:12.5px;color:#555;margin:3px 0 8px">Current events, work parties, and the action list. We add you to our list. Your email stays private: never published, shared or sold.</div>'+
       '<label class="donateCheck" for="netName">Name</label>'+
       '<input id="netName" class="donateField" type="text" autocomplete="name" placeholder="Your name">'+
       '<label class="donateCheck" for="netEmail">Email</label>'+
       '<input id="netEmail" class="donateField" type="email" autocomplete="email" placeholder="you@example.com">'+
       '<label class="donateCheck"><input id="netMail" type="checkbox" checked> Mailing list — events and updates</label>'+
       '<label class="donateCheck"><input id="netAction" type="checkbox" checked> Action list — work parties</label>'+
+      '<input id="netWebsite" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px">'+
       '<p id="netErr" class="donateHint" style="display:none;color:#a33;margin:6px 0"></p>'+
+      '<p id="netOk" class="donateHint" style="display:none;color:#2E5E3A;font-weight:600;margin:6px 0"></p>'+
       '<button type="button" class="donateBtn network" id="netJoin" style="margin-top:8px">Join the network</button>'+
       '</div>';
     if(_foot) _foot.style.display='';
@@ -1643,9 +1645,25 @@ window.DONATE_CONFIG = {
     if(mail) lists.push('mailing list (events and updates)');
     if(action) lists.push('action list (work parties)');
     if(!lists.length) lists.push('the network');
-    var bodyTxt='Please add me to the SprayMap network.\n\nName: '+name+'\nEmail: '+email+'\nLists: '+lists.join('; ')+'\n';
     if(err) err.style.display='none';
-    window.location.href='mailto:spraymapca@gmail.com?subject='+encodeURIComponent('Add me to the SprayMap network')+'&body='+encodeURIComponent(bodyTxt);
+    var ok=document.getElementById('netOk'), btn=document.getElementById('netJoin');
+    /* Saved straight to the private network_signups table via /api/network-signup.
+       If that fails (offline, server down), fall back to the old email so nobody is lost. */
+    function viaEmail(){
+      var bodyTxt='Please add me to the SprayMap network.\n\nName: '+name+'\nEmail: '+email+'\nLists: '+lists.join('; ')+'\n';
+      window.location.href='mailto:spraymapca@gmail.com?subject='+encodeURIComponent('Add me to the SprayMap network')+'&body='+encodeURIComponent(bodyTxt);
+    }
+    var codes=[]; if(mail) codes.push('mailing'); if(action) codes.push('action');
+    if(btn){ btn.disabled=true; btn.textContent='Adding you\u2026'; }
+    fetch('/api/network-signup',{method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({name:name,email:email,lists:codes,website:(document.getElementById('netWebsite')||{}).value||''})})
+      .then(function(r){ return r.json().then(function(j){ return {r:r,j:j}; }); })
+      .then(function(x){
+        if(!x.r.ok||!x.j||!x.j.ok){ if(x.r.status===400&&err){ err.style.display='block'; err.textContent=(x.j&&x.j.error)||'Check your name and email.'; if(btn){btn.disabled=false;btn.textContent='Join the network';} return; } throw 0; }
+        if(btn) btn.style.display='none';
+        if(ok){ ok.style.display='block'; ok.textContent=x.j.status==='unsubscribed'?'This email asked to be taken off the list earlier. Write spraymapca@gmail.com and we\u2019ll add you back.':x.j.status==='updated'?'You\u2019re already on the list. We\u2019ve updated your choices.':'You\u2019re on the list. Thank you!'; }
+      })
+      .catch(function(){ if(btn){btn.disabled=false;btn.textContent='Join the network';} viaEmail(); });
   }
   function openDonate(){ buildBody(); if(window.refreshDonationTotals){try{window.refreshDonationTotals();}catch(e){}} overlay.style.display='flex'; document.body.style.overflow='hidden'; }
   function closeDonate(){ overlay.style.display='none'; document.body.style.overflow=''; }
