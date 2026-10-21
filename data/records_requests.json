@@ -9,6 +9,7 @@
     "delivered": "records received, not yet on the site",
     "ingested": "records received AND loaded into the site",
     "refused": "agency declined or produced nothing",
+    "closed": "resolved outside the written record (for example, in a meeting); no records loaded",
     "self_serve": "no request needed - agency publishes the data",
     "published": "state published the data; no request needed"
   },
@@ -567,11 +568,11 @@
       "channel": "email",
       "ref": null,
       "sent": "2026-09-13",
-      "status": "sent",
+      "status": "closed",
       "received": null,
       "outcome": null,
       "effect": null,
-      "notes": "Drafted 2026-08-06; Gmail draft created in spraymapca Drafts 2026-09-05 (recipient + subject verified 2026-09-06). Sent 2026-09-13. No determination by the 10-day mark (2026-09-23); follow-up drafted 2026-09-23 as an in-thread Gmail draft (the Sep 13 letter went to RobRobinette@countyofplumas.com, so the reply does too), unsent (records-requests/outbox/2026-09-23/03). Gmail check 2026-10-20: the Sep 23 follow-up was sent 2026-09-24 to RobRobinette@. The Director replied 2026-09-25 denying the request as overbroad and unduly burdensome under the public-interest balancing test (cites Bertoli v. City of Sebastopol). Determination received, so no follow-up drafted. Narrowing or challenging the request is still open."
+      "notes": "Drafted 2026-08-06; Gmail draft created in spraymapca Drafts 2026-09-05 (recipient + subject verified 2026-09-06). Sent 2026-09-13. No determination by the 10-day mark (2026-09-23); follow-up drafted 2026-09-23 as an in-thread Gmail draft (the Sep 13 letter went to RobRobinette@countyofplumas.com, so the reply does too), unsent (records-requests/outbox/2026-09-23/03). Gmail check 2026-10-20: the Sep 23 follow-up was sent 2026-09-24 to RobRobinette@. The Director replied 2026-09-25 denying the request as overbroad and unduly burdensome under the public-interest balancing test (cites Bertoli v. City of Sebastopol). Determination received, so no follow-up drafted. Narrowing or challenging the request is still open. Closed per Ryan's meeting with Rob Robinette, reported 2026-10-20."
     },
     {
       "id": "sierra-valley-gmd",
