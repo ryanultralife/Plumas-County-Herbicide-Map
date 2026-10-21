@@ -20,3 +20,13 @@ Times are America/Los_Angeles.
 | 06 | Caltrans D2 | No | 9/14: Shanna LeBaron (CPRA Coordinator) asked us to use the portal; on 9/15 we said we would. No portal (caltrans.mycusthelp.com) acknowledgement in the inbox | **Yes** - `06-caltrans-d2.txt` (first follow-up) |
 
 The check covered all mail folders (`in:anywhere`, including archive and trash). The Gmail connector cannot see Spam, so Spam was not checked. Only Caltrans D2 is truly overdue.
+
+## Correspondence replies (Gmail drafts created 2026-10-20, NOT SENT)
+These three replies are saved as unsent Gmail drafts on their threads, with the signature name left blank:
+- 15-reply-laura-boles (Gmail draft r-2120647677229421495)
+- 16-reply-brennan-petersonwood (Gmail draft r-8119617129583619923)
+- 17-reply-cora-miller (Gmail draft r-7872537686227618530)
+
+## Kings County (thread 1a0d495d7e02a61d): action needed, not done here
+The form we sent on 10/6 has no signature and is dated 09/30/2026. Kings needs an e-signature on the
+form and the date it is signed. Mailing address and phone are also blank. Nothing has been signed or filled in.
