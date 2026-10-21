@@ -1,6 +1,6 @@
 # SprayMap California — Continuation / Handoff
 
-_Snapshot: **2026-08-02**. `main` tip **`7045041`**; main checkout, the claude worktree and `origin/main` are all in sync. Deploys via Vercel from `main`._
+_Snapshot: **2026-10-20**. `main` tip **`7045041`**; main checkout, the claude worktree and `origin/main` are all in sync. Deploys via Vercel from `main`._
 
 ## What this is
 A single static **`index.html`** (Leaflet + 5 tabs) backed by **Supabase Postgres**, mapping California's reported pesticide use. Spine = **Plumas + the Northern Sierra** (Butte, Tehama, Lassen, Plumas, Sierra); statewide context around it. Run by the **Plumas Grassroots Collective** — a **registered CA nonprofit** (state filing + EIN, July 2026). Transparency is the point: name the operators, show pounds/acres, and publish the org's own spending.
@@ -10,7 +10,7 @@ A single static **`index.html`** (Leaflet + 5 tabs) backed by **Supabase Postgre
 - **Vercel Web Analytics** is wired (first-party `<script defer src="/_vercel/insights/script.js">` + `window.va` stub, PR #2 → `4b1b12b`). ⚠️ It only collects once **Analytics is Enabled in the Vercel dashboard** — verify that.
 
 ## Backend — source of truth is Supabase, NOT git
-Connect: `source C:/Users/ryanv/.pg_dburl` (sets `$DBURL`; **secret — never echo/commit**), then `psql "$DBURL"`. Only the public anon key lives in `index.html` (read-only views).
+Connect with the DB connection string (held by Ryan, not in repo; **secret — never echo/commit**), e.g. `psql "$DBURL"`. Only the public anon key lives in `index.html` (read-only views).
 
 | Object | State |
 |---|---|
@@ -46,7 +46,7 @@ Connect: `source C:/Users/ryanv/.pg_dburl` (sets `$DBURL`; **secret — never ec
 - Don't `print()` non-ASCII on Windows (cp1252 `UnicodeEncodeError`); put emoji in HTML as entities (`&#127794;`) rather than `\uXXXX` escapes in JS.
 
 **Gmail (spraymapca@gmail.com)**
-- The **Gmail MCP connector is bound to the wrong account** (`ryan@mechanical-battery.com`). Reach spraymapca only via **Chrome (claude-in-chrome) at `mail.google.com/mail/u/1/`** — u/0 is ryanvukich@gmail.com — and **verify the account in the tab title before acting**.
+- The Gmail connector now reaches **spraymapca@gmail.com** directly (2026-10-20); the old "connector bound to the wrong account, Chrome only" blocker is resolved. Still confirm the account before acting.
 - The Gmail tab **freezes under automation** (screenshots time out, submit clicks get eaten). Reload before each compose, use the **inline** Compose (not `?view=cm`), and re-open a draft to confirm it saved.
 - `file_upload` only accepts files **the user shared** — an agent-generated file can't be uploaded (this blocked automating the Gmail filter import; `gmail-filters-spraymapca.xml` is in the main repo for manual import via Settings → Filters → Import filters).
 
@@ -64,7 +64,7 @@ Connect: `source C:/Users/ryanv/.pg_dburl` (sets `$DBURL`; **secret — never ec
 - **Org rename** — Plumas Grassroots **Collective**; site says "a registered California nonprofit" and **deliberately makes no 501(c)(3) / tax-deductible claim**.
 
 ## Automation
-**`spraymap-data-asks-monthly`** (SKILL.md at `C:\Users\ryanv\.claude\scheduled-tasks\spraymap-data-asks-monthly\`) runs the **1st of each month, 9am**. It finds coverage gaps, scans the spraymapca inbox via **Chrome** (verifying the account), and **DRAFTS** the next CPRA asks + a summary — **never sends, never mutates the DB, never ingests**. Falls back to `records-requests/outbox/`. Its July run produced the Tulare/Madera/San Joaquin deliveries. (The 4 older `scrape-*` tasks are unrelated grocery scrapers, disabled since April.)
+**`spraymap-data-asks-monthly`** (task definition held locally by Ryan, not in repo) runs the **1st of each month, 9am**. It finds coverage gaps, scans the spraymapca inbox via **Chrome** (verifying the account), and **DRAFTS** the next CPRA asks + a summary — **never sends, never mutates the DB, never ingests**. Falls back to `records-requests/outbox/`. Its July run produced the Tulare/Madera/San Joaquin deliveries. (The 4 older `scrape-*` tasks are unrelated grocery scrapers, disabled since April.)
 
 ## Local files (gitignored — needed for re-loads)
 `data/raw/cpra/`: `dpr_data.csv` (108 MB, CDPR extract 2020–2024, 5 NS counties), `dpr_vukich_spraymap_26-637.xlsx`, `fresno_permits.csv`, `applications_dpr_2023_2024.csv`, `acres_backfill.csv`, the coord backups, `ns_plss_centroids.csv`. `data/incoming/2026-07/` keeps the **normalized CSVs + README + `normalize.py`** in git; the raw `.xlsx`/`.zip` are ignored.
@@ -97,7 +97,7 @@ Connect: `source C:/Users/ryanv/.pg_dburl` (sets `$DBURL`; **secret — never ec
     only). Not site copy; publish only as an accounting-transparency piece, never a tonnage or dollar figure.
 
 ## Constraints (persist)
-DB password **only** in `C:/Users/ryanv/.pg_dburl` — never commit or echo. Only the anon key in client HTML. **Never destructively mutate the shared DB; never duplicate data** (dedup by `app_id` / upsert on `operator_id`). The Transparency page stays honest — no fabricated figures, every ledger entry ties to a real receipt, and **no claim of tax-exempt status until it exists**. Sending email, submitting portals, and downloading files are **permission-gated** — prepare and ask.
+DB connection string (held by Ryan, not in repo) — never commit or echo. Only the anon key in client HTML. **Never destructively mutate the shared DB; never duplicate data** (dedup by `app_id` / upsert on `operator_id`). The Transparency page stays honest — no fabricated figures, every ledger entry ties to a real receipt, and **no claim of tax-exempt status until it exists**. Sending email, submitting portals, and downloading files are **permission-gated** — prepare and ask.
 
 ## Plumas Working Forests (2026-08-02)
 - **Program docs:** `program/` (README, full program, prescription standard, economics with pass/fail tests, stakeholders, pilot, policy asks, sources).
@@ -262,12 +262,11 @@ Facebook Sharing Debugger / X Card Validator to refresh what they show.
 
 ## Inbox pass, roster loads and the follow-up draft set (2026-09-23)
 Mailbox rule: records and network mail are handled from **spraymapca@gmail.com (Gmail u/1 in Chrome)**.
-The Gmail connector in this session is bound to the personal account (ryanvukich) and returns nothing
-for spraymapca, so it is not usable for this work; Chrome only. Gmail's list DOM keeps stale views in
+(As of 2026-10-20 the Gmail connector reaches spraymapca directly; the Chrome notes below are a fallback.) Gmail's list DOM keeps stale views in
 the page, so filter `tr.zA` rows by `getBoundingClientRect().height>0`; after `navigate` to a `#all/<id>`
 hash wait 4-5 s before reading; if screenshots start timing out the tab is wedged - close it and open a
 fresh one (`tabs_create_mcp`). GovQA / mycusthelp "attachments" are SendGrid links in the body, not Gmail
-attachments: strip `target` from the anchor and `click()` it and the file lands in `~/Downloads`.
+attachments: strip `target` from the anchor and `click()` it and the file lands in the local downloads folder.
 
 Delivered and loaded: **Nevada** (C008183-092226, 447 permits) and **El Dorado + Alpine** (P010066-092126,
 784 + 9 permits), both CalAgPermits "Permits, Sites and Commodities" exports, normalized by
@@ -284,8 +283,40 @@ proposals, annual pesticide-use reports and FACTS chemical records FY2023-2026; 
 on 2026-FS-R5-05799-F; replies to Dante Gasser (Friends of Plumas Wilderness) and Willo Vieira (CAC,
 reply-all adding Kane Russell and Tracy Schohr of UCANR); close-out thanks to Nevada and El Dorado.
 
-Network contact list: **`C:/Users/ryanv/spraymap-private/network_contacts.csv`**, outside the repo on
+Network contact list: a private CSV held by Ryan (not in repo), outside the repo on
 purpose (everything under `data/` is served by the site). Columns added, name, email, organization, role,
 lists, source, notes. The site's Join form is a mailto to spraymapca with subject "Add me to the SprayMap
 network"; each such email is appended here (first entry 2026-09-23). Meeting-notice contacts from the
 Community Perspective series are kept in the same file.
+
+## Coordination (2026-10-20)
+Coordination notes live in this repo's issues and PRs; Ryan signs all merges and outgoing email.
+
+## Since 9/23 (not yet in records_requests.json)
+Agency replies received after the last tracker update (`data/records_requests.json`, `updated: 2026-09-23`);
+**inbox triage pending**, so the tracker rows have not been changed yet:
+
+| Agency | Reply received |
+|---|---|
+| Kings County Agricultural Commissioner | 2026-09-24 |
+| USDA Forest Service R5 (FOIA) | 2026-09-24 |
+| Indian Valley Community Services District | 2026-09-25 |
+| California Air Resources Board (#26-332) | 2026-09-27 |
+| Placer County Agricultural Commissioner | 2026-09-28 |
+| State Water Board (PRA) | 2026-10-07 |
+
+Unconfirmed: whether the 9/23 follow-up drafts were actually sent. `records-requests/outbox/2026-09-23/_drafts.json`
+still marks them unsent; check the spraymapca Sent folder before updating the tracker.
+
+## PR #5 status (2026-10-20)
+PR #5 (`claude/weekly-data-ingestion-indicator-o7l7dr`, head `77c012e`) is **4 ahead and 3 behind `main`** (`db74a87`).
+- **Needs a rebase.** Main's `9a83d70`, `adb996b` and `db74a87` also edit `data/records_requests.json` and
+  `CONTINUATION.md`, so expect conflicts in both. Merge the 7 Tahoe tracker rows by hand and keep main's Sep 23 updates.
+- **Apply `build/network_signups_schema.sql` to Supabase before deploy**, or `/api/network-signup` fails (the form
+  falls back to the pre-filled email).
+- **Spam / rate limit:** the endpoint accepts any `*.vercel.app` origin or a missing Origin header, with only a honeypot
+  and no rate limit. Tighten or add a rate limit before or soon after launch.
+- `data/ingest_log.json` exists **only on the PR branch**; it is not on `main`.
+- The network sign-ups CSV is **not committed** (local only, by design). It needs to be loaded into Supabase
+  `public.network_signups` (via `build/network_signup.py --csv`, once the schema is applied) or held until then.
+- Ryan signs the merge.
