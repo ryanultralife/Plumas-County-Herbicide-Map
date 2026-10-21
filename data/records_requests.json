@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-23",
+  "updated": "2026-10-20",
   "about": "Public-records paper trail for SprayMap California. One row per request to a public agency: what we asked, when, what came back, and whether it is on the site yet. Agencies are named at office level; individual staff are not published. Dates are day-precise where confirmed from the spraymapca inbox, month-precise (YYYY-MM) where reconstructed. 'sent'/'acknowledged' rows with no reply after 30 days are shown as follow-up due. Maintained by the monthly data-asks task; humans commit.",
   "status_legend": {
     "drafted": "letter written, not yet sent",
@@ -473,7 +473,7 @@
       "received": null,
       "outcome": null,
       "effect": null,
-      "notes": "Broadens the Dixie/Greenville ask to every Region 5 station in Plumas County, and asks whether any herbicide analyte has ever been run. Sent 2026-09-13. No determination by the 10-day mark (2026-09-23); follow-up drafted 2026-09-23 as an in-thread Gmail draft, unsent (records-requests/outbox/2026-09-23/04)."
+      "notes": "Broadens the Dixie/Greenville ask to every Region 5 station in Plumas County, and asks whether any herbicide analyte has ever been run. Sent 2026-09-13. No determination by the 10-day mark (2026-09-23); follow-up drafted 2026-09-23 as an in-thread Gmail draft, unsent (records-requests/outbox/2026-09-23/04). Gmail check 2026-10-20: the Sep 23 follow-up was sent 2026-10-06 to Courtney.Kasich@. The R5 PRA inbox replied 2026-10-06 with the Nonpoint Source records (CEDEN export PRA_633, Dixie Fire draft results, lab PDFs), then sent an FTP link 2026-10-07 (expires 2026-11-12). The WDR-unit records were still being digitized, with no date given. Partial production, so no follow-up drafted."
     },
     {
       "id": "sierra-county-water",
@@ -571,7 +571,7 @@
       "received": null,
       "outcome": null,
       "effect": null,
-      "notes": "Drafted 2026-08-06; Gmail draft created in spraymapca Drafts 2026-09-05 (recipient + subject verified 2026-09-06). Sent 2026-09-13. No determination by the 10-day mark (2026-09-23); follow-up drafted 2026-09-23 as an in-thread Gmail draft (the Sep 13 letter went to RobRobinette@countyofplumas.com, so the reply does too), unsent (records-requests/outbox/2026-09-23/03)."
+      "notes": "Drafted 2026-08-06; Gmail draft created in spraymapca Drafts 2026-09-05 (recipient + subject verified 2026-09-06). Sent 2026-09-13. No determination by the 10-day mark (2026-09-23); follow-up drafted 2026-09-23 as an in-thread Gmail draft (the Sep 13 letter went to RobRobinette@countyofplumas.com, so the reply does too), unsent (records-requests/outbox/2026-09-23/03). Gmail check 2026-10-20: the Sep 23 follow-up was sent 2026-09-24 to RobRobinette@. The Director replied 2026-09-25 denying the request as overbroad and unduly burdensome under the public-interest balancing test (cites Bertoli v. City of Sebastopol). Determination received, so no follow-up drafted. Narrowing or challenging the request is still open."
     },
     {
       "id": "sierra-valley-gmd",
@@ -585,7 +585,7 @@
       "received": null,
       "outcome": null,
       "effect": null,
-      "notes": "Referred here by County of Sierra (2026-08-06). PRA drafted 2026-09-05, Gmail draft in spraymapca. Asks for well list, analytes, results 2018-present, and whether any forestry/rangeland herbicide has ever been screened. Sent 2026-09-13. No determination by the 10-day mark (2026-09-23); follow-up drafted 2026-09-23 as an in-thread Gmail draft, unsent (records-requests/outbox/2026-09-23/02)."
+      "notes": "Referred here by County of Sierra (2026-08-06). PRA drafted 2026-09-05, Gmail draft in spraymapca. Asks for well list, analytes, results 2018-present, and whether any forestry/rangeland herbicide has ever been screened. Sent 2026-09-13. No determination by the 10-day mark (2026-09-23); follow-up drafted 2026-09-23 as an in-thread Gmail draft, unsent (records-requests/outbox/2026-09-23/02). Gmail check 2026-10-20: the Sep 23 follow-up was not sent; the District sent records 2026-09-23 (5 attachments: monitoring locations, Jan and Feb 2026 water-quality data, cross-section analysis, UCANR 2021 report). On 2026-10-14 it answered our 10/6 questions: Jan/Feb 2026 were one-off grant rounds and none are planned; showing the data on the map needs Board approval, possibly with Counsel. It asked for links. No CPRA follow-up needed."
     },
     {
       "id": "caltrans-d2",
@@ -599,7 +599,7 @@
       "received": null,
       "outcome": null,
       "effect": null,
-      "notes": "PRA drafted 2026-09-05, Gmail draft in spraymapca. Caltrans prefers its public-records portal; the email offers to resubmit there. Purpose: put highway roadside spraying on the map by location. Sent 2026-09-13. No determination by the 10-day mark (2026-09-23); follow-up drafted 2026-09-23 as an in-thread Gmail draft, unsent (records-requests/outbox/2026-09-23/06)."
+      "notes": "PRA drafted 2026-09-05, Gmail draft in spraymapca. Caltrans prefers its public-records portal; the email offers to resubmit there. Purpose: put highway roadside spraying on the map by location. Sent 2026-09-13. No determination by the 10-day mark (2026-09-23); follow-up drafted 2026-09-23 as an in-thread Gmail draft, unsent (records-requests/outbox/2026-09-23/06). Gmail check 2026-10-20: the Sep 23 follow-up was never sent. The only reply is 2026-09-14 from the D2 CPRA coordinator asking us to use the portal; we said on 2026-09-15 that we would. The inbox has no portal acknowledgement. A first follow-up was drafted 2026-10-20, unsent (records-requests/outbox/2026-10-20/06-caltrans-d2.txt, thread 1a09dd06af14f4f1)."
     },
     {
       "id": "plumas-public-works",
@@ -613,7 +613,7 @@
       "received": null,
       "outcome": null,
       "effect": null,
-      "notes": "PRA drafted 2026-09-05, Gmail draft in spraymapca (recipient verified 2026-09-06). Asks for road-level application records, PURs filed with the Ag Commissioner, contracts, and no-spray records. Sent 2026-09-13. Automatic (out-of-office) reply from the director's mailbox 2026-09-13; not an acknowledgement. No determination by the 10-day mark (2026-09-23); follow-up drafted 2026-09-23 as an in-thread Gmail draft, unsent (records-requests/outbox/2026-09-23/01)."
+      "notes": "PRA drafted 2026-09-05, Gmail draft in spraymapca (recipient verified 2026-09-06). Asks for road-level application records, PURs filed with the Ag Commissioner, contracts, and no-spray records. Sent 2026-09-13. Automatic (out-of-office) reply from the director's mailbox 2026-09-13; not an acknowledgement. No determination by the 10-day mark (2026-09-23); follow-up drafted 2026-09-23 as an in-thread Gmail draft, unsent (records-requests/outbox/2026-09-23/01). Gmail check 2026-10-20: the Sep 23 follow-up was sent 2026-09-23 (in-thread, to robthorman@). Director replied 2026-09-24 with the PRA response (PDF attached) and said the Road Department doesn't have the resources to spray herbicide. Substantive reply, so no new follow-up."
     },
     {
       "id": "blm-ca-foia",
