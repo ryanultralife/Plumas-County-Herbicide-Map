@@ -74,6 +74,7 @@
      "qa_flag": "QA-flagged: the lab batch's spike-recovery checks (matrix spike/duplicate and lab control sample, CEDEN batch comment \"QAO: MS/MSD and LCS %R out\") were out of range, so this trace is low-confidence",
      "lab_batch": "NCL_SPI_41918_W_PEST",
      "batch_comment": "QAO: MS/MSD and LCS %R out",
+     "qa_source": "data/water/ceden_pra633_benner_qa.csv",
      "mdl": "0.001",
      "rl": "0.005",
      "unit": "ug/L",

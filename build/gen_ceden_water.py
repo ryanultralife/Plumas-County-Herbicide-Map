@@ -8,9 +8,16 @@ OUT = os.path.join(ROOT, "data/water/ceden_plumas.json")
 rd = lambda f: list(csv.DictReader(open(os.path.join(D, f), encoding="utf-8")))
 res, st, herb = rd("ceden_plumas_results.csv"), rd("ceden_stations.csv"), rd("ceden_herbicide_results.csv")
 dx, dxs = rd("dixie_fire_DRAFT_results_long.csv"), rd("dixie_fire_DRAFT_stations.csv")
-# QA notes not carried in the normalized CSV; verified against CEDEN_export_PRA_633.xlsx (LABBATCH/BATCHCOMMENTS).
+# QA notes not carried in the normalized CSV; source: data/water/ceden_pra633_benner_qa.csv (verbatim extract of
+# CEDEN_export_PRA_633.xlsx LABBATCH/BATCHCOMMENTS). Asserted against that CSV below so the flag stays checkable.
 QA_NOTES = {("518BENNER", "2022-10-03", "hexazinone"): {"qa_flag": 'QA-flagged: the lab batch\'s spike-recovery checks (matrix spike/duplicate and lab control sample, CEDEN batch comment "QAO: MS/MSD and LCS %R out") were out of range, so this trace is low-confidence',
     "lab_batch": "NCL_SPI_41918_W_PEST", "batch_comment": "QAO: MS/MSD and LCS %R out"}}
+_qa = [r for r in csv.reader(open(os.path.join(ROOT, "data/water/ceden_pra633_benner_qa.csv"), encoding="utf-8")) if r and not r[0].startswith("#")]
+_qa = [dict(zip(_qa[0], r)) for r in _qa[1:]]
+for (_sc, _dt, _k), _n in QA_NOTES.items():
+    assert any(r["STATIONCODE"] == _sc and r["SAMPLEDATE"].startswith(_dt) and r["LABBATCH"] == _n["lab_batch"]
+               and r["BATCHCOMMENTS"] == _n["batch_comment"] for r in _qa), (_sc, _dt, _k)
+    _n["qa_source"] = "data/water/ceden_pra633_benner_qa.csv"
 hs = defaultdict(list)
 for h in herb:
     hs[h["STATIONCODE"]].append({"date": h["SAMPLEDATE"], "analyte": h["ANALYTE"], "key": h["herbicide_key"],
