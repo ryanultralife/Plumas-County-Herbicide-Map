@@ -13,7 +13,7 @@ Mostly field parameters, nutrients, ions and solids. `detect_status` comes from 
 (`=`/`>=`/`<=` detect, ND non-detect, DNQ/JF detect-estimated, NR not-reported). Field measurements count as "detect".
 
 **Herbicide rows: 4, all Sierra Pacific Industries Research 2022, Benner Creek ~2.5 km above Lake Almanor (40.33099, -121.2355), 2022-10-03:**
-glyphosate ND (MDL 2.1 / RL 5 ug/L), imazapyr ND (0.46/1), aminopyralid ND (0.025/0.1), **hexazinone DNQ 0.0013 ug/L**
+glyphosate ND (MDL 2.1 / RL 5 ug/L), imazapyr ND (0.46/1), aminopyralid ND (0.025/0.1), **hexazinone DNQ 0.0013 ug/L** (QA-flagged, low-confidence: batch NCL_SPI_41918_W_PEST comment "QAO: MS/MSD and LCS %R out" - spike recoveries out of range)
 (detected below the RL of 0.005). Also paraquat ND x2 (ILRP / Sacramento Valley Coalition, MF Feather above Grizzly Cr, 2021-03/04).
 `herbicide_key` does not flag paraquat because it is not in TARGET.
 No triclopyr or 2,4-D anywhere.
