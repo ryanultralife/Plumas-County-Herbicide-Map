@@ -1,6 +1,6 @@
 # SprayMap California — Continuation / Handoff
 
-_Snapshot: **2026-10-20**. `main` tip **`7045041`**; main checkout, the claude worktree and `origin/main` are all in sync. Deploys via Vercel from `main`._
+_Snapshot: **2026-10-22**. `main` tip **`ffbb736`** (merge of #13; #12 itself lands on top). Deploys via Vercel from `main`._
 
 ## What this is
 A single static **`index.html`** (Leaflet + 5 tabs) backed by **Supabase Postgres**, mapping California's reported pesticide use. Spine = **Plumas + the Northern Sierra** (Butte, Tehama, Lassen, Plumas, Sierra); statewide context around it. Run by the **Plumas Grassroots Collective** — a **registered CA nonprofit** (state filing + EIN, July 2026). Transparency is the point: name the operators, show pounds/acres, and publish the org's own spending.
@@ -308,18 +308,26 @@ Agency replies received after the last tracker update (`data/records_requests.js
 Unconfirmed: whether the 9/23 follow-up drafts were actually sent. `records-requests/outbox/2026-09-23/_drafts.json`
 still marks them unsent; check the spraymapca Sent folder before updating the tracker.
 
-## PR #5 status (2026-10-20)
-PR #5 (`claude/weekly-data-ingestion-indicator-o7l7dr`, head `77c012e`) is **4 ahead and 3 behind `main`** (`db74a87`).
-- **Needs a rebase.** Main's `9a83d70`, `adb996b` and `db74a87` also edit `data/records_requests.json` and
-  `CONTINUATION.md`, so expect conflicts in both. Merge the 7 Tahoe tracker rows by hand and keep main's Sep 23 updates.
-- **Apply `build/network_signups_schema.sql` to Supabase before deploy**, or `/api/network-signup` fails (the form
-  falls back to the pre-filled email).
-- **Spam / rate limit:** the endpoint accepts any `*.vercel.app` origin or a missing Origin header, with only a honeypot
-  and no rate limit. Tighten or add a rate limit before or soon after launch.
-- `data/ingest_log.json` exists **only on the PR branch**; it is not on `main`.
-- The network sign-ups CSV is **not committed** (local only, by design). It needs to be loaded into Supabase
-  `public.network_signups` (via `build/network_signup.py --csv`, once the schema is applied) or held until then.
-- Ryan signs the merge.
+## PR queue (2026-10-22)
+- **#5 is done.** Rebased as #10 and merged to `main` (`2c67373`), along with #8 (October CEDEN + DPR well-kit
+  normalizers) and #9 (Water Board herbicide sampling copy correction). `data/ingest_log.json` is now on `main`.
+- **Merged 2026-10-22** (Ryan signed all): **#14** Benner Creek hexazinone trace marked QA-flagged (`efda77a`),
+  **#7** inbox intake 2026-10-20, 10 tracker rows updated (`dd744b2`), **#11** Supabase RLS lockdown (`5e8ade9`),
+  **#13** records sweep 2026-10-21, three follow-up drafts (`ffbb736`), then this refresh (#12).
+  #7 supersedes the "Since 9/23" table above. Still watch: Kings needs an e-signed form, and the Central Valley R5
+  partial delivery link expires **2026-11-12**.
+
+### Outstanding
+- **`public.spatial_ref_sys` is still anon-writable** (owned by `supabase_admin`, so the #11 lockdown could not
+  cover it). Needs a Supabase support ticket.
+- **Network sign-ups schema is NOT applied.** `public.network_signups` and `public.network_signup(...)` do not exist,
+  so `/api/network-signup` fails and the form falls back to the pre-filled email. Apply
+  `build/network_signups_schema.sql` (Ryan holds the DB connection), then load held sign-ups with
+  `build/network_signup.py --csv`.
+- **Spam / rate limit still open:** the endpoint accepts any `*.vercel.app` origin or a missing Origin header, with
+  only a honeypot and no rate limit. Tighten before announcing the form.
+- **FTP files are held** (not loaded or committed) pending review.
+- Ryan signs every merge.
 
 ## New-data bubble (2026-09-23)
 - Floating pill above the donate bubble; follows the "Showing:" county/region. Shows the latest load for that area with a **NEW** tag while under 7 days old; tapping it lists recent loads plus the records requests still open for the area.
