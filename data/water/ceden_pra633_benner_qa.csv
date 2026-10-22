@@ -1,0 +1,3 @@
+# Extract (1 row, selected columns, values copied verbatim) from CEDEN_export_PRA_633.xlsx, sheet CEDEN_query_PRA_633 - CPRA 633 response from the Central Valley Regional Water Quality Control Board (R5). Full xlsx is held, not committed.
+STATIONNAME,STATIONCODE,SAMPLEDATE,PROGRAM,ANALYTE,UNIT,RESULT,MDL,RL,RESULTQUALCODE,QACODE,BATCHVERIFICATION,LABBATCH,LABSAMPLEID,METHODNAME,BATCHCOMMENTS,RESULTSCOMMENTS,LABAGENCY,SUBMITTINGAGENCY,SAMPLEAGENCY,ISQA
+Benner Creek about 2.5 km above Lake Almanor,518BENNER,2022-10-03 00:00:00,Sierra Pacific Industries Research,"Hexazinone, Total",ug/L,0.0013,0.001,0.005,DNQ,,VAC,NCL_SPI_41918_W_PEST,2210067-01C,NCL ME 321,QAO: MS/MSD and LCS %R out,,NCL,NCL,MPSL-MLML,0
