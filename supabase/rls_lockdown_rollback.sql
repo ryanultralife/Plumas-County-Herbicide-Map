@@ -1,0 +1,33 @@
+-- rls_lockdown_rollback.sql | reverts rls_lockdown.sql
+BEGIN;
+-- operator_names: pre-lockdown grants were SELECT only; nothing to re-grant.
+DROP POLICY IF EXISTS "operator_names_public_read" ON public."operator_names";
+ALTER TABLE public."operator_names" DISABLE ROW LEVEL SECURITY;
+GRANT INSERT, UPDATE, DELETE, TRUNCATE, TRIGGER, REFERENCES ON public."_water_raw" TO anon, authenticated;
+DROP POLICY IF EXISTS "_water_raw_public_read" ON public."_water_raw";
+ALTER TABLE public."_water_raw" DISABLE ROW LEVEL SECURITY;
+GRANT INSERT, UPDATE, DELETE, TRUNCATE, TRIGGER, REFERENCES ON public."_water" TO anon, authenticated;
+DROP POLICY IF EXISTS "_water_public_read" ON public."_water";
+ALTER TABLE public."_water" DISABLE ROW LEVEL SECURITY;
+GRANT INSERT, UPDATE, DELETE, TRUNCATE, TRIGGER, REFERENCES ON public."_fix" TO anon, authenticated;
+DROP POLICY IF EXISTS "_fix_public_read" ON public."_fix";
+ALTER TABLE public."_fix" DISABLE ROW LEVEL SECURITY;
+GRANT INSERT, UPDATE, DELETE, TRUNCATE, TRIGGER, REFERENCES ON public."_places" TO anon, authenticated;
+DROP POLICY IF EXISTS "_places_public_read" ON public."_places";
+ALTER TABLE public."_places" DISABLE ROW LEVEL SECURITY;
+GRANT INSERT, UPDATE, DELETE, TRUNCATE, TRIGGER, REFERENCES ON public."_conf" TO anon, authenticated;
+DROP POLICY IF EXISTS "_conf_public_read" ON public."_conf";
+ALTER TABLE public."_conf" DISABLE ROW LEVEL SECURITY;
+GRANT INSERT, UPDATE, DELETE, TRUNCATE, TRIGGER, REFERENCES ON public."_fix3" TO anon, authenticated;
+DROP POLICY IF EXISTS "_fix3_public_read" ON public."_fix3";
+ALTER TABLE public."_fix3" DISABLE ROW LEVEL SECURITY;
+GRANT INSERT, UPDATE, DELETE, TRUNCATE, TRIGGER, REFERENCES ON public."_null_sect" TO anon, authenticated;
+DROP POLICY IF EXISTS "_null_sect_public_read" ON public."_null_sect";
+ALTER TABLE public."_null_sect" DISABLE ROW LEVEL SECURITY;
+GRANT INSERT, UPDATE, DELETE, TRUNCATE, TRIGGER, REFERENCES ON public."donation_baseline" TO anon, authenticated;
+DROP POLICY IF EXISTS "donation_baseline_public_read" ON public."donation_baseline";
+ALTER TABLE public."donation_baseline" DISABLE ROW LEVEL SECURITY;
+GRANT INSERT, UPDATE, DELETE, TRUNCATE, TRIGGER, REFERENCES ON public."_fix_new" TO anon, authenticated;
+DROP POLICY IF EXISTS "_fix_new_public_read" ON public."_fix_new";
+ALTER TABLE public."_fix_new" DISABLE ROW LEVEL SECURITY;
+COMMIT;
