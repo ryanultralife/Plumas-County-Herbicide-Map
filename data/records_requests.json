@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-20",
+  "updated": "2026-10-26",
   "about": "Public-records paper trail for SprayMap California. One row per request to a public agency: what we asked, when, what came back, and whether it is on the site yet. Agencies are named at office level; individual staff are not published. Dates are day-precise where confirmed from the spraymapca inbox, month-precise (YYYY-MM) where reconstructed. 'sent'/'acknowledged' rows with no reply after 30 days are shown as follow-up due. Maintained by the monthly data-asks task; humans commit.",
   "status_legend": {
     "drafted": "letter written, not yet sent",
@@ -39,7 +39,7 @@
       "received": "2026-08-07",
       "outcome": "Full Well Kit analyte list (94 compounds) plus the Well Inventory Database and PLSS layer links. Finding: the screen covers hexazinone and triclopyr (the latter marked marginal), but not glyphosate, AMPA, imazapyr, aminopyralid, clopyralid or sulfometuron-methyl - the herbicides most used in Northern Sierra forestry.",
       "effect": null,
-      "notes": "DPR asked us to write a short passage on our glyphosate concerns so they could route us to the right staff; sent 2026-08-24. Awaiting that referral - follow up if nothing by early October. Analyte list saved verbatim at data/dpr_well_kit_analytes.json."
+      "notes": "DPR asked us to write a short passage on our glyphosate concerns so they could route us to the right staff; sent 2026-08-24. Awaiting that referral - follow up if nothing by early October. Analyte list saved verbatim at data/dpr_well_kit_analytes.json. Follow-up on the Aug 24 referral sent 2026-10-24 (in-thread to the DPR staff contact; draft records-requests/outbox/2026-10-21/03). Awaiting reply. [sweep 2026-10-26]"
     },
     {
       "id": "plumas-cac-pur",
@@ -473,7 +473,7 @@
       "received": "2026-10-06",
       "outcome": "PARTIAL: Nonpoint Source Unit records delivered 2026-10-06 (CEDEN export + query for PRA 633, CEDEN instructions, Dixie Fire WQ monitoring DRAFT results, Snake Lake and Gopher Hill lab reports). Additional records posted to the Water Board FTP 2026-10-07 (link expires after 2026-11-12). WDR Unit records still being digitized.",
       "effect": null,
-      "notes": "Broadens the Dixie/Greenville ask to every Region 5 station in Plumas County, and asks whether any herbicide analyte has ever been run. Sent 2026-09-13. No determination by the 10-day mark (2026-09-23); follow-up drafted 2026-09-23 as an in-thread Gmail draft, unsent (records-requests/outbox/2026-09-23/04). Follow-up sent 2026-10-06; agency replied same day. WDR-unit portion outstanding; herbicide-analyte question not yet answered. [intake 2026-10-20]"
+      "notes": "Broadens the Dixie/Greenville ask to every Region 5 station in Plumas County, and asks whether any herbicide analyte has ever been run. Sent 2026-09-13. No determination by the 10-day mark (2026-09-23); follow-up drafted 2026-09-23 as an in-thread Gmail draft, unsent (records-requests/outbox/2026-09-23/04). Follow-up sent 2026-10-06; agency replied same day. WDR-unit portion outstanding; herbicide-analyte question not yet answered. [intake 2026-10-20] Status follow-up sent 2026-10-24 to RB5R-pra@waterboards.ca.gov (draft records-requests/outbox/2026-10-21/02), asking whether the Oct 7 FTP posting completes the WDR portion and re-asking the herbicide-analyte question. Awaiting reply. [sweep 2026-10-26]"
     },
     {
       "id": "sierra-county-water",
@@ -585,7 +585,7 @@
       "received": "2026-09-23",
       "outcome": "Five files: draft cross-sectional analysis, UCANR 2021 Sierra Valley water quality report, WQ monitoring locations, Jan 2026 and Feb 2026 water-quality results (Feb 2026 herbicide panel, all non-detect)",
       "effect": null,
-      "notes": "Referred here by County of Sierra (2026-08-06). PRA drafted 2026-09-05, Gmail draft in spraymapca. Asks for well list, analytes, results 2018-present, and whether any forestry/rangeland herbicide has ever been screened. Sent 2026-09-13. No determination by the 10-day mark (2026-09-23); follow-up drafted 2026-09-23 as an in-thread Gmail draft, unsent (records-requests/outbox/2026-09-23/02). District replied 2026-10-14: Jan/Feb 2026 sampling was grant-funded for recharge projects, not routine; no other historic data and no planned repeat. Mapping the sites publicly needs Board approval; District asked for links to the site/map. [intake 2026-10-20]"
+      "notes": "Referred here by County of Sierra (2026-08-06). PRA drafted 2026-09-05, Gmail draft in spraymapca. Asks for well list, analytes, results 2018-present, and whether any forestry/rangeland herbicide has ever been screened. Sent 2026-09-13. No determination by the 10-day mark (2026-09-23); follow-up drafted 2026-09-23 as an in-thread Gmail draft, unsent (records-requests/outbox/2026-09-23/02). District replied 2026-10-14: Jan/Feb 2026 sampling was grant-funded for recharge projects, not routine; no other historic data and no planned repeat. Mapping the sites publicly needs Board approval; District asked for links to the site/map. [intake 2026-10-20] Reply with site and map links sent 2026-10-24 (draft records-requests/outbox/2026-10-21/01). Awaiting the District Board's decision on mapping its sites. [sweep 2026-10-26]"
     },
     {
       "id": "caltrans-d2",
