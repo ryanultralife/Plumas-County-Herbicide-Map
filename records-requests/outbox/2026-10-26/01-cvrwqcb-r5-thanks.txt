@@ -1,0 +1,20 @@
+TO: Central Valley RWQCB Region 5 public-records inbox (in-thread)
+Thread: "RE: Public Records Act Request/WDR Unit Response" (in-thread reply to the Board's 2026-10-26 message)
+Tracker row: cvrwqcb-r5-all-stations
+CHANNEL: Gmail draft in spraymapca (in-thread reply)
+DRAFTED: 2026-10-26 (unsent; Ryan reviews and sends)
+PUBLIC REPO: staff names are replaced with office-level placeholders here; the Gmail draft carries the exact text.
+Source for the Benner Creek row: data/water/ceden_pra633_benner_qa.csv (verbatim extract, PROGRAM = "Sierra Pacific Industries Research").
+
+Dear [Region 5 records analyst],
+
+Thank you for confirming that the October 7 FTP posting includes all the records responsive to our request, and for getting answers from both the WDR and Non-Point Source units on the herbicide question. We have downloaded the posting and will work through it before the November 11 review date.
+
+One small clarification, so we describe the data accurately: the CEDEN export in the PRA 633 response includes one hexazinone result at Benner Creek about 2.5 km above Lake Almanor (station 518BENNER) on October 3, 2022, listed under the program "Sierra Pacific Industries Research." We understand that is not WDR or Non-Point Source unit sampling. If you can tell us which program or office oversees that monitoring, we would appreciate it, but no further search is needed if not.
+
+Thank you again for your help with this request.
+
+[SprayMap signer, as in thread]
+Plumas Grassroots Collective / SprayMap California
+spraymapca@gmail.com
+https://www.spraymapca.org/
