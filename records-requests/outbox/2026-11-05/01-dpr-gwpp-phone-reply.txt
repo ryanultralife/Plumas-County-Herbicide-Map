@@ -1,19 +1,16 @@
-STATUS: DRAFT / UNSENT — BLOCKED on phone confirmation (do not create Gmail draft until Lead/Ryan confirms)
+STATUS: UNSENT DRAFT — Gmail draftId r-3121543126949990023 (thread 19fdd666938edd63 / reply to 1a1ad1891628f22f)
 To: Nicolas.Pereira@cdpr.ca.gov
 Subject: RE: Well Kit Project Pesticide List and Well Inventory Database
-In reply to: Gmail message 1a1ad1891628f22f (thread 19fdd666938edd63), 2026-11-05 11:03 AM PT
+In reply to: Gmail message 1a1ad1891628f22f (thread 19fdd666938edd63), 2026-11-05 11:03 AM PT (America/Los_Angeles)
+PLACEHOLDERS FOR RYAN/TAYLOR: phone confirmation line; signer name left blank after "Thank you,"
 
 Hi Nicolas,
 
-Thank you for forwarding our note to your management, and for checking on the best way to reach us.
+Thank you for forwarding our latest note — and the additional herbicide list — to your management. We really appreciate you keeping this moving.
 
-Email at spraymapca@gmail.com is reliable and is the best way for your management to contact us (or to CC us so nothing lands only in spam).
+[Yes, the number you have on file is best / Please use XXX-XXX-XXXX instead]
 
-[PHONE CONFIRMATION NEEDED — Lead/Ryan: Nicolas has (530) 616-5161 on file and asked whether that is the best number or whether we prefer another. That number does not appear in the SprayMap repo. Confirm, correct, or say email-only before this draft is saved to Gmail.]
+Copying or emailing spraymapca@gmail.com alongside a call is also welcome, so nothing is missed.
 
-Thank you again for your help connecting us with the right contact.
+Thank you,
 
-Sincerely,
-Taylor Durgan
-Plumas Grassroots Collective
-SprayMapCA.org
