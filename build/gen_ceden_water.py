@@ -8,6 +8,14 @@ OUT = os.path.join(ROOT, "data/water/ceden_plumas.json")
 rd = lambda f: list(csv.DictReader(open(os.path.join(D, f), encoding="utf-8")))
 res, st, herb = rd("ceden_plumas_results.csv"), rd("ceden_stations.csv"), rd("ceden_herbicide_results.csv")
 dx, dxs = rd("dixie_fire_DRAFT_results_long.csv"), rd("dixie_fire_DRAFT_stations.csv")
+# Note on the Benner Creek herbicide event. Region 5 Water Board PRA reply, 2026-11-10
+# (logged in PR #23): this result came from research done independently by Sierra Pacific
+# Industries; the Board cannot confirm a link to any program or permit.
+BENNER_NOTE = (
+    "This result came from research done independently by Sierra Pacific Industries. "
+    "The Region 5 Water Board cannot confirm a link to any program or permit. "
+    "Source: Region 5 Water Board PRA reply, 2026-11-10 (logged in PR #23)."
+)
 # QA notes not carried in the normalized CSV; source: data/water/ceden_pra633_benner_qa.csv (verbatim extract of
 # CEDEN_export_PRA_633.xlsx LABBATCH/BATCHCOMMENTS). Asserted against that CSV below so the flag stays checkable.
 QA_NOTES = {("518BENNER", "2022-10-03", "hexazinone"): {"qa_flag": 'QA-flagged: the lab batch\'s spike-recovery checks (matrix spike/duplicate and lab control sample, CEDEN batch comment "QAO: MS/MSD and LCS %R out") were out of range, so this trace is low-confidence',
@@ -20,10 +28,13 @@ for (_sc, _dt, _k), _n in QA_NOTES.items():
     _n["qa_source"] = "data/water/ceden_pra633_benner_qa.csv"
 hs = defaultdict(list)
 for h in herb:
-    hs[h["STATIONCODE"]].append({"date": h["SAMPLEDATE"], "analyte": h["ANALYTE"], "key": h["herbicide_key"],
+    row = {"date": h["SAMPLEDATE"], "analyte": h["ANALYTE"], "key": h["herbicide_key"],
         "result": float(h["RESULT"]) if h["RESULT"] else None, "qual": h["RESULTQUALCODE"], "detect_status": h["detect_status"],
         **QA_NOTES.get((h["STATIONCODE"], h["SAMPLEDATE"], h["herbicide_key"]), {}),
-        "mdl": h["MDL"] or None, "rl": h["RL"] or None, "unit": h["UNIT"], "program": h["PROGRAM"]})
+        "mdl": h["MDL"] or None, "rl": h["RL"] or None, "unit": h["UNIT"], "program": h["PROGRAM"]}
+    if h["STATIONCODE"] == "518BENNER" and h["SAMPLEDATE"] == "2022-10-03":
+        row["note"] = BENNER_NOTE
+    hs[h["STATIONCODE"]].append(row)
 stations = [{"code": s["STATIONCODE"], "name": s["STATIONNAME"], "lat": float(s["lat"]), "lon": float(s["lon"]),
              "results": int(s["results"]), "first": s["first"], "last": s["last"], "programs": s["programs"],
              "herbicide_tested": s["STATIONCODE"] in hs, "herbicide_results": hs.get(s["STATIONCODE"], []), "draft": False}
@@ -41,6 +52,7 @@ out = {"source": "Central Valley Regional Water Quality Control Board (R5) PRA r
                    "herbicide_results": len(herb), "herbicide_sampling_events": len({(h["STATIONCODE"], h["SAMPLEDATE"]) for h in herb}),
                    "herbicide_detects": sum(h["detect_status"] != "non-detect" for h in herb),
                    "never_tested": ["triclopyr", "2,4-D"],
+                   "herbicide_sampling_note": BENNER_NOTE,
                    "dixie_draft": {"draft": True, "results": len(dx), "herbicide_results": sum(bool(r["herbicide_key"]) for r in dx)}},
        "stations": stations}
 os.makedirs(os.path.dirname(OUT), exist_ok=True)
