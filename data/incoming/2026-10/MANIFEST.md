@@ -14,5 +14,5 @@ only records what was received, from which agency, and when.
 | CA DPR Groundwater Protection Program | 2026-08-07 | DPR GW Screens_well kits - consolidated.xlsx |
 
 Not included as files:
-- Central Valley RWQCB R5 FTP posting of 2026-10-07 (not downloaded; posting expires after 2026-11-12).
+- Central Valley RWQCB R5 FTP posting of 2026-10-07: downloaded 2026-10-21 (94 files) and held, not committed, not ingested; details and hashes in [cvrwqcb-r5/MANIFEST.md](cvrwqcb-r5/MANIFEST.md).
 - American Valley CSD reply of 2026-07-14 carried no data attachment; it pointed to the State Water Board Drinking Water Watch page.
