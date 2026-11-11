@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-20",
+  "updated": "2026-10-28",
   "about": "Public-records paper trail for SprayMap California. One row per request to a public agency: what we asked, when, what came back, and whether it is on the site yet. Agencies are named at office level; individual staff are not published. Dates are day-precise where confirmed from the spraymapca inbox, month-precise (YYYY-MM) where reconstructed. 'sent'/'acknowledged' rows with no reply after 30 days are shown as follow-up due. Maintained by the monthly data-asks task; humans commit.",
   "status_legend": {
     "drafted": "letter written, not yet sent",
@@ -711,7 +711,7 @@
       "received": null,
       "outcome": null,
       "effect": null,
-      "notes": "Drafted 2026-09-14 (records-requests/outbox/carbon-2026-09/02). Sent by email 2026-09-15 to prareqst@arb.ca.gov; CARB's NextRequest portal logged it the same evening as #26-332 (carb.nextrequest.com/requests/26-332; auto-acknowledgement 2026-09-15 8:46 PM, found 2026-09-23). 10-day determination due 2026-09-25. Asks whether the same acres are earning offset credit and being sprayed, and for the calculator inputs CARB accepted for three Collins / Humbug grants. Portal message 2026-09-26 (#26-332): CARB determined the request seeks disclosable records; expects to respond in about 30 days (~2026-10-26). [intake 2026-10-20]"
+      "notes": "Drafted 2026-09-14 (records-requests/outbox/carbon-2026-09/02). Sent by email 2026-09-15 to prareqst@arb.ca.gov; CARB's NextRequest portal logged it the same evening as #26-332 (carb.nextrequest.com/requests/26-332; auto-acknowledgement 2026-09-15 8:46 PM, found 2026-09-23). 10-day determination due 2026-09-25. Asks whether the same acres are earning offset credit and being sprayed, and for the calculator inputs CARB accepted for three Collins / Humbug grants. Portal message 2026-09-26 (#26-332): CARB determined the request seeks disclosable records; expects to respond in about 30 days (~2026-10-26). [intake 2026-10-20] No records or extension notice by 2026-10-28; status follow-up drafted 2026-10-28 as an in-thread Gmail draft, unsent (records-requests/outbox/2026-10-28/01). [sweep 2026-10-28]"
     },
     {
       "id": "dpr-pur-2023",
