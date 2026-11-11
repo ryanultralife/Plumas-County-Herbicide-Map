@@ -22,6 +22,7 @@
    "triclopyr",
    "2,4-D"
   ],
+  "herbicide_sampling_note": "This result came from research done independently by Sierra Pacific Industries. The Region 5 Water Board cannot confirm a link to any program or permit. Source: Region 5 Water Board PRA reply, 2026-11-10 (logged in PR #23).",
   "dixie_draft": {
    "draft": true,
    "results": 1045,
@@ -50,7 +51,8 @@
      "mdl": "0.025",
      "rl": "0.1",
      "unit": "ug/L",
-     "program": "Sierra Pacific Industries Research"
+     "program": "Sierra Pacific Industries Research",
+     "note": "This result came from research done independently by Sierra Pacific Industries. The Region 5 Water Board cannot confirm a link to any program or permit. Source: Region 5 Water Board PRA reply, 2026-11-10 (logged in PR #23)."
     },
     {
      "date": "2022-10-03",
@@ -62,7 +64,8 @@
      "mdl": "0.46",
      "rl": "1.0",
      "unit": "ug/L",
-     "program": "Sierra Pacific Industries Research"
+     "program": "Sierra Pacific Industries Research",
+     "note": "This result came from research done independently by Sierra Pacific Industries. The Region 5 Water Board cannot confirm a link to any program or permit. Source: Region 5 Water Board PRA reply, 2026-11-10 (logged in PR #23)."
     },
     {
      "date": "2022-10-03",
@@ -78,7 +81,8 @@
      "mdl": "0.001",
      "rl": "0.005",
      "unit": "ug/L",
-     "program": "Sierra Pacific Industries Research"
+     "program": "Sierra Pacific Industries Research",
+     "note": "This result came from research done independently by Sierra Pacific Industries. The Region 5 Water Board cannot confirm a link to any program or permit. Source: Region 5 Water Board PRA reply, 2026-11-10 (logged in PR #23)."
     },
     {
      "date": "2022-10-03",
@@ -90,7 +94,8 @@
      "mdl": "2.1",
      "rl": "5.0",
      "unit": "ug/L",
-     "program": "Sierra Pacific Industries Research"
+     "program": "Sierra Pacific Industries Research",
+     "note": "This result came from research done independently by Sierra Pacific Industries. The Region 5 Water Board cannot confirm a link to any program or permit. Source: Region 5 Water Board PRA reply, 2026-11-10 (logged in PR #23)."
     }
    ],
    "draft": false
