@@ -911,18 +911,78 @@ function buildMap(){
       bindCell(L.circleMarker([p.lat,p.lon],{renderer:canvas,radius:rAmt(sl),color:SRC_META[sk].color,weight:2.5,fill:false,opacity:.95}),p).addTo(g);});});
   });
   reg('▦ Total intensity (all products)', function(g){drawSet().forEach(function(p){var st=methStats(p,SCOPE.method);if(!st[0])return;bindCell(L.circleMarker([p.lat,p.lon],{renderer:canvas,radius:rAmt(SCOPE.method?st[1]:(+p.lbs||0)),weight:0.6,color:'#ffffff',opacity:.45,fillColor:'#ff5a1f',fillOpacity:.62}),p).addTo(g);});}, false);
-  /* Water-quality monitoring stations (Central Valley RWQCB, Dixie Fire / Greenville). APPROXIMATE
-     road-level locations - the Board provided road descriptions, not coordinates. Distinct blue
+  /* Water-quality monitoring stations (Central Valley RWQCB, Dixie Fire / Greenville). Coordinates
+     from the Board's DRAFT results sheet (R5 PRA #633, Oct 2026); earlier road-description estimates replaced. Distinct blue
      diamond so it reads as a monitoring site, never a spray dot. On by default so the
      monitoring-vs-spraying contrast is visible; full finding is in the Herbicides & Science tab. */
   var WATER_STATIONS=[
-    {id:'DF-1',lat:40.152,lon:-120.962,loc:'Setzer Camp Creek / Greenville-Wolf Creek Rd'},
-    {id:'DF-2',lat:40.141,lon:-120.949,loc:'Spirit Springs Rd / Greenville WWTP'},
-    {id:'DF-3',lat:40.131,lon:-120.938,loc:'Stampfli Rd'}];
-  reg('◆ Water-monitoring stations (approx.)', function(g){WATER_STATIONS.forEach(function(s){
+    /* Coordinates from the Board's own 'Sampling Locations' sheet (Dixie Fire DRAFT results, R5 PRA #633,
+       Oct 2026; data/incoming/2026-10/cvrwqcb-r5/dixie_fire_DRAFT_stations.csv). They replace the earlier
+       road-description estimates, which were up to ~4 km off. */
+    {id:'DF-1',lat:40.16937,lon:-120.96896,loc:'Seltzer Camp Creek Rd / Greenville-Wolf Creek Rd'},
+    {id:'DF-2',lat:40.13875,lon:-120.93636,loc:'Spirit Springs Rd / Greenville WWTP'},
+    {id:'DF-3',lat:40.10691,lon:-120.89922,loc:'Stampfli Rd'}];
+  reg('◆ Dixie Fire water-monitoring stations', function(g){WATER_STATIONS.forEach(function(s){
     L.marker([s.lat,s.lon],{icon:L.divIcon({className:'wqicon',html:'<div style="font-size:20px;line-height:18px;text-align:center;color:#1e63c7;text-shadow:0 0 2px #fff,0 0 3px #fff,0 0 4px #fff">&#9670;</div>',iconSize:[20,20],iconAnchor:[10,10]}),title:'Water-monitoring station '+s.id})
-      .bindPopup('<b>Dixie Fire water-monitoring station '+s.id+'</b><br><span style="color:#666">'+s.loc+' - approximate location</span><br><br>Sampled about monthly by the <b>Central Valley Regional Water Quality Control Board</b> for post-fire recovery: sediment/turbidity, nutrients, bacteria, and metals.<br><br><b>Not tested for any herbicide</b> applied in this watershed (hexazinone, imazapyr, glyphosate, aminopyralid). Shown in the same blue as the creek- and lake-fed water systems. The only glyphosate tests in the county are at Plumas Eureka CSD&rsquo;s wells near Graeagle, the orange marker. See the Herbicides &amp; Science tab.',{maxWidth:300}).addTo(g);
+      .bindPopup('<b>Dixie Fire water-monitoring station '+s.id+'</b><br><span style="color:#666">'+s.loc+' - location from the Board&rsquo;s sampling sheet</span><br><br>Sampled about monthly by the <b>Central Valley Regional Water Quality Control Board</b> for post-fire recovery: sediment/turbidity, nutrients, bacteria, and metals.<br><br><b>Not tested for any herbicide</b> applied in this watershed (hexazinone, imazapyr, glyphosate, aminopyralid). Shown in the same blue as the creek- and lake-fed water systems. The only glyphosate tests in the county are at Plumas Eureka CSD&rsquo;s wells near Graeagle, the orange marker. See the Herbicides &amp; Science tab.',{maxWidth:300}).addTo(g);
     });}, true);
+  /* Water Board sampling stations from CEDEN (Central Valley Water Board / Region 5 PRA #633 reply, Oct 2026):
+     all 47 Plumas stations, 2018-2026, at the coordinates CEDEN reports. Blue rings; orange = a herbicide or
+     pesticide result on file (Benner Creek 2022, research done independently by Sierra Pacific Industries,
+     hexazinone trace QA-flagged; Middle Fork Feather above Grizzly Creek 2021, paraquat not detected x2).
+     Dixie DF-1..3 stay in their own layer above. Data: data/water/ceden_plumas.json (build/gen_ceden_water.py). */
+  function _esc(v){return String(v==null?'':v).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+  function _jsonOnce(url){var c=null;return function(){if(c)return Promise.resolve(c);return fetch(url,{cache:'no-store'}).then(function(r){if(!r.ok)throw 0;return r.json();}).then(function(j){c=j;return j;}).catch(function(){return null;});};}
+  var loadCeden=_jsonOnce('data/water/ceden_plumas.json'), loadR5Wdr=_jsonOnce('data/water/r5_wdr_facilities.json');
+  reg('&#9678; Water Board sampling stations &mdash; CEDEN (Plumas)', function(g){
+    loadCeden().then(function(d){
+      if(!d||!d.stations||!map.hasLayer(g)) return;
+      g.clearLayers();
+      function resLine(h){
+        return _esc(h.analyte)+' ('+_esc(h.date)+'): <b>'+_esc(h.qual||h.detect_status)+'</b>'+(h.result==null?'':' '+h.result+' '+_esc(h.unit))+
+          ((h.mdl||h.rl)?' <span style="color:#666">(MDL '+_esc(h.mdl||'-')+', RL '+_esc(h.rl||'-')+' '+_esc(h.unit)+')</span>':'')+
+          (h.qa_flag?'<br><span style="color:#b45309">'+_esc(h.qa_flag)+'.</span>':'');
+      }
+      d.stations.forEach(function(s){
+        if(s.draft) return;
+        var hr=(s.herbicide_results||[]).concat(s.other_pesticide_results||[]), notes={};
+        hr.forEach(function(h){if(h.note)notes[h.note]=1;});
+        var html='<b>'+_esc(s.name)+'</b> <span style="color:#666">('+_esc(s.code)+')</span><br>'+
+          (+s.results||0).toLocaleString()+' CEDEN result'+(s.results==1?'':'s')+', '+_esc(s.first)+(s.last&&s.last!==s.first?' to '+_esc(s.last):'')+
+          '<br><span style="color:#666">'+_esc(s.programs)+'</span><br><br>'+
+          (hr.length?('<b>Herbicide / pesticide results:</b><ul style="margin:4px 0 0 16px;padding:0">'+hr.map(function(h){return '<li>'+resLine(h)+'</li>';}).join('')+'</ul>'+
+             Object.keys(notes).map(function(n){return '<div style="margin-top:6px">'+_esc(n)+'</div>';}).join(''))
+           :'<b>No herbicide or pesticide test</b> in this station&rsquo;s CEDEN record.')+
+          '<br><span style="font-size:11px;color:#666">Source: CEDEN export in the Central Valley Water Board (Region 5) reply to PRA #633, Oct 2026. ND = not detected; DNQ = detected below the reporting limit, not quantified. Location as reported in CEDEN.</span>';
+        L.circleMarker([s.lat,s.lon],{radius:hr.length?7:5,weight:2.5,color:hr.length?'#e65100':'#1e63c7',fillColor:'#ffffff',fillOpacity:.9})
+          .bindPopup(html,{maxWidth:330}).addTo(g);
+      });
+    });
+  }, true);
+  /* Wastewater permits (Central Valley Water Board, Region 5 PRA #633 FTP production, Oct 2026): the two
+     permitted small wastewater plants whose monitoring files the Board produced. Located at the PLSS section(s)
+     named in each Board Notice of Applicability (BLM CadNSDI centroids), so approximate to ~half a mile.
+     These are wastewater records, not spray records: no herbicide or pesticide appears in any of them.
+     Data: data/water/r5_wdr_facilities.json (build/gen_r5_ftp_records.py over the held raw files). */
+  reg('&#9635; Wastewater permits &mdash; Water Board records (Plumas)', function(g){
+    loadR5Wdr().then(function(d){
+      if(!d||!d.facilities||!map.hasLayer(g)) return;
+      g.clearLayers();
+      d.facilities.forEach(function(f){
+        var r=f.records||{}, dk=r.doc_kinds||{};
+        var kinds=Object.keys(dk).map(function(k){return dk[k]+' '+_esc(k)+(dk[k]>1?'s':'');}).join(', ');
+        var html='<b>'+_esc(f.short)+'</b> <span style="color:#666">(WDID '+_esc(f.id)+', near '+_esc(f.near)+')</span><br>'+
+          _esc(f.order)+'.<br>'+_esc(f.discharge)+'.<br><br>'+
+          '<b>'+(+r.files||0)+' monitoring files</b>'+(r.unique_files&&r.unique_files<r.files?' ('+(r.files-r.unique_files)+' exact duplicate)':'')+(r.years?', '+_esc(r.years[0])+'&ndash;'+_esc(r.years[1]):'')+': '+kinds+'.<br>'+
+          'Measures: '+_esc((r.parameters||[]).join(', '))+'.<br><br>'+
+          '<b>No herbicide or pesticide</b> appears in these records: no test results, no application records.<br>'+
+          (f.related?_esc(f.related)+'<br>':'')+'<span style="color:#666">'+_esc(f.geom_note)+'</span><br>'+
+          '<span style="font-size:11px;color:#666">Source: Central Valley Water Board (Region 5) PRA #633 production, Oct 2026 (file list: <a href="data/incoming/2026-10/cvrwqcb-r5/ftp_inventory.csv" target="_blank" rel="noopener">ftp_inventory.csv</a>); location from the <a href="'+_esc(f.noa_url)+'" target="_blank" rel="noopener">Board&rsquo;s notice</a>.</span>';
+        L.marker([f.lat,f.lon],{icon:L.divIcon({className:'wqicon',html:'<div style="font-size:18px;line-height:18px;text-align:center;color:#6d4c41;text-shadow:0 0 2px #fff,0 0 3px #fff,0 0 4px #fff">&#9635;</div>',iconSize:[20,20],iconAnchor:[10,10]}),title:'Wastewater permit: '+f.short})
+          .bindPopup(html,{maxWidth:330}).addTo(g);
+      });
+    });
+  }, true);
   /* Public water systems - the State Water Board's compliance test records (EDT Library, 2019-2026), one
      point per Plumas system. 42 sit at the centroid of the state's mapped service area; the rest have no
      public boundary and are grouped at their town centre, marked approximate. Teal hexagons so they read as

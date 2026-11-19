@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-23",
+  "updated": "2026-11-19",
   "about": "One row per data load that changed what the public site shows, newest first. Feeds the 'new data' bubble on the map (index.html loadIngestLog). Append with build/log_ingest.py after every load; 'date' is the day the data went live on the site. Numbers come from the load itself or the records-request tracker, never estimates. Started 2026-09-23 with that week's loads only; earlier loads are in git history and data/records_requests.json.",
   "kinds": {
     "applications": "New pesticide-use rows on the map",
@@ -9,8 +9,21 @@
   },
   "loads": [
     {
+      "date": "2026-11-19",
+      "counties": [
+        "Plumas"
+      ],
+      "kind": "water",
+      "source": "Central Valley Water Board (Region 5), PRA #633 production (CEDEN export + FTP WDR/NPS files)",
+      "summary": "47 Water Board sampling stations (2,066 CEDEN results, 2018-2026) and 2 permitted wastewater plants added to the map. The only herbicide or pesticide tests in the whole production are at Benner Creek in 2022 (research done independently by Sierra Pacific Industries) and two paraquat non-detects on the Middle Fork Feather in 2021; the 86 wastewater files contain none.",
+      "rows": 2066,
+      "request_id": "cvrwqcb-r5-all-stations"
+    },
+    {
       "date": "2026-09-22",
-      "counties": ["Plumas"],
+      "counties": [
+        "Plumas"
+      ],
       "kind": "water",
       "source": "State Water Board, Division of Drinking Water (EDT Library, PRA ID #638)",
       "summary": "State drinking-water compliance results 2019-2026: 15,037 results for 184 Plumas public water systems. Glyphosate was tested 14 times at one system (Plumas Eureka CSD), all non-detect; no forestry herbicide was ever tested anywhere in the county.",
@@ -19,7 +32,9 @@
     },
     {
       "date": "2026-09-22",
-      "counties": ["Mendocino"],
+      "counties": [
+        "Mendocino"
+      ],
       "kind": "names",
       "source": "Mendocino County Agricultural Commissioner (request #26-2419)",
       "summary": "641 permits from the county's 2020-2026 roster. Mapped applications with a named operator went from 8% to 91% (32,132 of 35,230).",
@@ -28,7 +43,9 @@
     },
     {
       "date": "2026-09-22",
-      "counties": ["Plumas"],
+      "counties": [
+        "Plumas"
+      ],
       "kind": "fix",
       "source": "Plumas-Sierra Agricultural Commissioner (county PUR export)",
       "summary": "Application type filled in for the 481 county-reported 2025-2026 events: 464 ground, 14 aerial, 3 other.",
@@ -36,7 +53,10 @@
     },
     {
       "date": "2026-09-19",
-      "counties": ["Placer", "Nevada"],
+      "counties": [
+        "Placer",
+        "Nevada"
+      ],
       "kind": "applications",
       "source": "CDPR Pesticide Use Report 2022",
       "summary": "25,062 Placer and Nevada 2022 application rows that were missing from the map. Many lack a PLSS section, so not all become map dots. Operator names still need the county rosters (requested Sep 21).",
@@ -44,7 +64,9 @@
     },
     {
       "date": "2026-09-19",
-      "counties": ["Alameda"],
+      "counties": [
+        "Alameda"
+      ],
       "kind": "applications",
       "source": "Alameda County Agriculture (request #26-763)",
       "summary": "15,829 county-reported application rows for 2024-2026 (6,773 / 5,384 / 3,672), plus operator names from the county's 414-permit roster.",
@@ -53,7 +75,9 @@
     },
     {
       "date": "2026-09-19",
-      "counties": ["Orange"],
+      "counties": [
+        "Orange"
+      ],
       "kind": "names",
       "source": "Orange County Agricultural Commissioner (request #26-6410)",
       "summary": "158 permittees from the county's monthly summary. Mapped applications with a named operator went from 34.5% to 61.9% (9,056 of 14,632).",
@@ -62,7 +86,9 @@
     },
     {
       "date": "2026-09-19",
-      "counties": ["Sacramento"],
+      "counties": [
+        "Sacramento"
+      ],
       "kind": "names",
       "source": "Sacramento County Agricultural Commissioner",
       "summary": "County permit roster. Mapped applications with a named operator went from 63.4% to 99.9% (151,318 of 151,501).",
