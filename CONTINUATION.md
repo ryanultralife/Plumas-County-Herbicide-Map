@@ -356,3 +356,15 @@ still marks them unsent; check the spraymapca Sent folder before updating the tr
 - `gen_ceden_water.py` now also writes `other_pesticide_results` (paraquat) per station; the published `herbicide_*` counts are unchanged.
 - Dixie DF-1..3 now use the Board's own coordinates (DRAFT sheet) instead of road-description estimates.
 - Raw files stay off-repo. Keep the hashed file name redacted (`REDACT_SHA` in the generator).
+
+## Home page (2026-11-19, proposal PR)
+- New first nav tab **Home** (`#homeview`, `show('home')`). Bare visits to `/` land on it; any deep link (`?tab=`, `?county=`,
+  `?region=`, `?ll=`, `?method=`, `?donate=`) skips it, and `?tab=home` opens it. Home is an **overlay above `#mapview`**
+  (z-index 1950, under the nav), so the map still builds at full size underneath and `CELLS_KEY` caching is untouched.
+- Stats are live: `rpc/map_totals` (mapped, lbs, cells, as_of), the count of `sent` rows in `data/records_requests.json`,
+  and the water finding from `data/water/ceden_plumas.json` (`summary` + the Benner note). Nothing is hard-coded; a failed
+  source shows a dash.
+- The inset is a non-interactive Leaflet map (Esri light-gray tiles) with the 3,000 highest-pound cells from `loadCells()`
+  (shared promise, no extra request). Clicking it opens the map.
+- Carto `light_all` tiles now return an "API KEY REQUIRED" image (checked 2026-11-19); the main map still offers that basemap.
+
