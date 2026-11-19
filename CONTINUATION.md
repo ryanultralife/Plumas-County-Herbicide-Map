@@ -43,6 +43,7 @@ Connect with the DB connection string (held by Ryan, not in repo; **secret — n
 **Editing `index.html` (≈370 KB, CRLF)**
 - The Read tool refuses it; use Grep to locate and Python to patch. Match with `\r\n` in multi-line patterns.
 - **`open(path,'w')` truncates before writing — a mid-write exception leaves the file EMPTY** (this happened; recovered via `git checkout`). Always write to `path+".tmp"` then `os.replace`.
+- **One canvas only on the main map.** The map uses `preferCanvas:true`, so any `L.circleMarker`/vector added WITHOUT `renderer:canvas` lands on Leaflet's default renderer: a second full-map canvas stacked above the cells' canvas that swallows every click on the spray dots (this shipped in #25 and was fixed 2026-11-19). Use DOM markers (`L.marker` + `divIcon`) for point layers, or pass the shared `canvas` renderer. Check: `document.querySelectorAll('.leaflet-overlay-pane canvas').length` must be 1.
 - Don't `print()` non-ASCII on Windows (cp1252 `UnicodeEncodeError`); put emoji in HTML as entities (`&#127794;`) rather than `\uXXXX` escapes in JS.
 
 **Gmail (spraymapca@gmail.com)**
