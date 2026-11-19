@@ -366,5 +366,5 @@ still marks them unsent; check the spraymapca Sent folder before updating the tr
   source shows a dash.
 - The inset is a non-interactive Leaflet map (Esri light-gray tiles) with the 3,000 highest-pound cells from `loadCells()`
   (shared promise, no extra request). Clicking it opens the map.
-- Carto `light_all` tiles now return an "API KEY REQUIRED" image (checked 2026-11-19); the main map still offers that basemap.
+- Carto `light_all` tiles now return an "API KEY REQUIRED" image (checked 2026-11-19). The main map's Streets basemap was switched to Esri World Street Map (keyless, same server as Satellite).
 
