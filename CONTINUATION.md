@@ -345,3 +345,14 @@ still marks them unsent; check the spraymapca Sent folder before updating the tr
 - **Apply once:** `psql "$DBURL" -f build/network_signups_schema.sql`. Until then the site form falls back to the old pre-filled email, so nobody is lost.
 - **Site form** (Donate / Contact / Network modal) POSTs to **`/api/network-signup`** (Edge, uses the existing `SUPABASE_SERVICE_ROLE_KEY`; origin check + honeypot). On any server failure it opens the pre-filled email to spraymapca@gmail.com as before.
 - **People who email in, sign up at events, or sent the old "Add me to the SprayMap network" emails:** `DBURL=... python build/network_signup.py --email x@y --name "..." --list mailing --list action --source email`, or `--csv file.csv` (email,name,lists,source,note). The monthly inbox pass should search spraymapca for subject "Add me to the SprayMap network" and import any not yet added. `--unsubscribe x@y`, `--export network.csv` for the mailing tool.
+
+## Region 5 PRA #633 production on the map (2026-11-19)
+- Ryan asked to "load all to map". All 94 held FTP files were inventoried (`build/gen_r5_ftp_records.py`, `SRC_DIR=` the held folder;
+  needs poppler, tesseract, pandoc, openpyxl). Only the CEDEN export has pesticide/herbicide rows (Benner Creek 2022; paraquat ND x2 2021).
+  WDR files = wastewater monitoring for Plumas Eureka CSD and Whitehawk Ranch; NPS lab PDFs = metals. **No `map_agg` change, no CELLS_KEY bump.**
+- New map layers (both on by default, async-from-cache like the water-systems layer): **"Water Board sampling stations - CEDEN (Plumas)"**
+  from `data/water/ceden_plumas.json` (47 stations; DF-1..3 skipped there because they have their own layer) and
+  **"Wastewater permits - Water Board records (Plumas)"** from `data/water/r5_wdr_facilities.json`.
+- `gen_ceden_water.py` now also writes `other_pesticide_results` (paraquat) per station; the published `herbicide_*` counts are unchanged.
+- Dixie DF-1..3 now use the Board's own coordinates (DRAFT sheet) instead of road-description estimates.
+- Raw files stay off-repo. Keep the hashed file name redacted (`REDACT_SHA` in the generator).

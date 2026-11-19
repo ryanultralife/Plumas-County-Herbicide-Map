@@ -1,0 +1,168 @@
+{
+ "generated": "2026-11-19",
+ "source": "Central Valley Regional Water Quality Control Board (Region 5), PRA #633 production posted to the Water Board FTP 2026-10-07 (downloaded 2026-10-21; agency confirmed complete 2026-10-26). Raw files held off-repo; sha256 in data/incoming/2026-10/cvrwqcb-r5/MANIFEST.md; per-file inventory in ftp_inventory.csv.",
+ "finding": "None of the 94 files contains a pesticide or herbicide result, application record, pounds or acres, apart from the CEDEN export (already on the site: Benner Creek 2022 and two paraquat non-detects in 2021). The WDR files are small-wastewater-plant monitoring reports; the two NPS lab reports are metals tests.",
+ "confidence": "HIGH for contents (read from the Board's own files); MEDIUM for facility points (PLSS section centroids from the Board's Notice of Applicability legal description, not surveyed plant locations)",
+ "facilities": [
+  {
+   "id": "5A320104004",
+   "name": "Plumas Eureka Community Services District wastewater treatment plants #6 and #7",
+   "short": "Plumas Eureka CSD WWTP #6/#7",
+   "near": "Blairsden / Graeagle, Poplar Valley Road",
+   "related": "Separate record: Plumas Eureka CSD's drinking-water system is where the county's only glyphosate tests were run (14, all below the reporting level; Public water systems layer).",
+   "order": "General Order 2014-0153-DWQ-R5332 (small domestic wastewater systems); previously WDRs Order 98-007",
+   "discharge": "Treated domestic wastewater to leachfields (community leachfield 'Dynamite Hill' plus two backup leachfields); drainage to the Feather River",
+   "lat": 39.7922,
+   "lon": -120.6459,
+   "geom": "plss_section_centroid_mean",
+   "geom_note": "Mean of the BLM CadNSDI centroids of Sections 4, 5, 8 and 9, T22N R12E MDB&M, the sections the Board's 2020 Notice of Applicability names for the plants and leachfields (the notice prints the range as 'R12W'; Plumas County lies east of the Mount Diablo meridian, so R12E). Approximate to about half a mile.",
+   "noa_url": "https://www.waterboards.ca.gov/centralvalley/board_decisions/adopted_orders/general_orders/2014-0153-dwq_noas/2014-0153-dwq-r5332.pdf",
+   "records": {
+    "files": 31,
+    "unique_files": 31,
+    "doc_kinds": {
+     "monthly monitoring report": 6,
+     "quarterly monitoring report": 25
+    },
+    "years": [
+     "2015",
+     "2026"
+    ],
+    "parameters": [
+     "flow",
+     "suspended solids",
+     "nitrate",
+     "turbidity",
+     "coliform bacteria",
+     "specific conductance",
+     "total nitrogen",
+     "chlorine residual",
+     "dissolved oxygen",
+     "water temperature",
+     "groundwater elevation / depth",
+     "BOD",
+     "pH",
+     "total dissolved solids",
+     "chloride",
+     "enterococci",
+     "E. coli",
+     "settleable solids",
+     "sludge hauling"
+    ],
+    "pesticide_terms_found": []
+   }
+  },
+  {
+   "id": "5A321018001",
+   "name": "Whitehawk Ranch Mutual Water Company wastewater treatment and disposal system",
+   "short": "Whitehawk Ranch WWTP",
+   "near": "Clio",
+   "order": "General Order 2014-0153-DWQ-R5194 (small domestic wastewater systems, notice of 2015-12-09); previously WDRs Order 92-127",
+   "discharge": "Treated domestic wastewater to subsurface disposal and a land-application area; surface-water checks on Sulphur Creek up- and downstream",
+   "lat": 39.7245,
+   "lon": -120.56,
+   "geom": "plss_section_centroid",
+   "geom_note": "BLM CadNSDI centroid of Section 31, T22N R13E MDB&M, the section the Board's 2015 Notice of Applicability names. Approximate to about half a mile.",
+   "noa_url": "https://www.waterboards.ca.gov/centralvalley/board_decisions/adopted_orders/general_orders/2014-0153-dwq_noas/2014-0153-dwq-r5194.pdf",
+   "records": {
+    "files": 55,
+    "unique_files": 54,
+    "doc_kinds": {
+     "annual report": 14,
+     "quarterly monitoring report": 39,
+     "groundwater monitoring report": 2
+    },
+    "years": [
+     "2017",
+     "2026"
+    ],
+    "parameters": [
+     "flow",
+     "sodium",
+     "sludge hauling",
+     "coliform bacteria",
+     "E. coli",
+     "enterococci",
+     "BOD",
+     "suspended solids",
+     "nitrate",
+     "chloride",
+     "pH",
+     "groundwater elevation / depth",
+     "turbidity",
+     "rainfall",
+     "total dissolved solids",
+     "chlorine residual"
+    ],
+    "pesticide_terms_found": []
+   }
+  }
+ ],
+ "unlocated": [
+  {
+   "name": "Snake Lake Shooting Range",
+   "records": {
+    "files": 1,
+    "unique_files": 1,
+    "doc_kinds": {
+     "lab report (metals, water)": 1
+    },
+    "years": null,
+    "parameters": [
+     "arsenic",
+     "copper",
+     "lead",
+     "zinc",
+     "antimony"
+    ],
+    "pesticide_terms_found": []
+   },
+   "sampled": "2024-03-26",
+   "note": "Board Redding Branch water samples WC-1, WC-2 (Babcock Laboratories): arsenic, copper, lead, antimony, zinc, total and dissolved. No pesticide analytes. Not placed: the report gives no coordinates."
+  },
+  {
+   "name": "Gopher Hill",
+   "records": {
+    "files": 2,
+    "unique_files": 2,
+    "doc_kinds": {
+     "lab report (metals, water)": 2
+    },
+    "years": null,
+    "parameters": [
+     "mercury",
+     "arsenic",
+     "copper",
+     "lead",
+     "zinc",
+     "antimony",
+     "hardness",
+     "calcium",
+     "magnesium"
+    ],
+    "pesticide_terms_found": []
+   },
+   "sampled": "2024-05-29",
+   "note": "Board Redding Branch water samples WC-1, WC-2, SP-1..3 (Babcock Laboratories, amended 2024-08-15; mercury by EPA 1631E): metals and hardness. No pesticide analytes. Not placed: the report gives no coordinates."
+  }
+ ],
+ "counts": {
+  "files": 94,
+  "bytes": 42693978,
+  "by_unit": {
+   "NPS": 8,
+   "WDR": 86
+  },
+  "by_type": {
+   "pdf": 60,
+   "docx": 1,
+   "xlsx": 31,
+   "png": 1,
+   "db": 1
+  },
+  "duplicates": 1,
+  "files_with_pesticide_terms": [
+   "NPS/CEDEN_export_PRA_633.xlsx"
+  ]
+ }
+}

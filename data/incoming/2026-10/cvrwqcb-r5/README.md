@@ -32,3 +32,26 @@ Babcock / State Board R5 Redding Branch, project RWB5-R_FY22/23_General: Snake L
 Gopher Hill (2024-05-29, mercury plus an amended report). These look like shooting-range and mine-site metals; no herbicides seen in text grep.
 
 Regenerate: `python normalize_cvrwqcb_ceden.py` (env `SRC_DIR=`).
+
+## 4. FTP production, all 94 files (inventoried 2026-11-19; confidence: HIGH for contents)
+Raw files held off-repo; sha256 in `MANIFEST.md`. `build/gen_r5_ftp_records.py` (run with `SRC_DIR=` the held folder) reads every
+file (pdftotext; tesseract OCR for the 3 scanned PDFs; openpyxl; pandoc) and writes `ftp_inventory.csv` and `data/water/r5_wdr_facilities.json`.
+It checks every file against the MANIFEST hashes and the 94-file / 42,693,978-byte total.
+
+| Group | Files | What it is |
+|---|---:|---|
+| NPS | 8 | CEDEN export + query screenshot + instructions (section 1 above), Dixie Fire DRAFT workbook (section 2), 3 lab PDFs (section 3), 1 `Thumbs.db` (not a record) |
+| WDR / Plumas Eureka CSD (WDID 5A320104004) | 31 | 25 quarterly + 6 monthly wastewater monitoring reports, 2015-2026 (30 xlsx, 2 PDF incl. 1 scanned) |
+| WDR / Whitehawk Ranch MWC (WDID 5A321018001) | 55 | 39 quarterly, 14 annual, 2 groundwater monitoring reports, 2017-2026 (all PDF; 2 scanned; 1 exact duplicate: `2026/Jan 2026 Reporting.pdf` = `2025/2025 Annual Report to CRWQCB.pdf`) |
+
+**Pesticide / herbicide search** (23 terms incl. herbicide, pesticide, glyphosate, triclopyr, 2,4-D, imazapyr, hexazinone, aminopyralid,
+paraquat, atrazine, diuron, algaecide, spray): hits in **one file only**, the CEDEN export (Benner Creek 2022 x4, paraquat 2021 x2, both
+already described above). The WDR reports measure flow, BOD, suspended/settleable/dissolved solids, nitrogen/nitrate, chloride, sodium, pH,
+turbidity, chlorine residual, coliform/E. coli/enterococci, conductance, DO, temperature, groundwater levels and sludge hauling.
+Snake Lake Shooting Range (2024-03-26) and Gopher Hill (2024-05-29) are metals tests (arsenic, copper, lead, antimony, zinc; mercury by EPA 1631E).
+**No pounds, acres or application records anywhere, so nothing goes into `map_agg`.**
+
+**On the map:** the 47 CEDEN stations at their CEDEN coordinates (orange ring = herbicide/pesticide result on file); the two WDR plants at the
+PLSS section(s) named in each Board Notice of Applicability (BLM CadNSDI centroids, about half a mile; the Plumas Eureka notice prints
+"R12W", corrected to R12E); Dixie DF-1..3 moved to the Board's own sheet coordinates. Snake Lake and Gopher Hill are **not placed**: the lab
+reports give no coordinates. Private names: none published; one file name is shown only as `<redacted-private-name>` (matched by hash).

@@ -1,11 +1,13 @@
 # Hash manifest - CVRWQCB Region 5 PRA FTP posting (2026-10-07)
 
-**Status:** received; agency confirmed complete 2026-10-26; HELD, not committed, not ingested.
+**Status:** received; agency confirmed complete 2026-10-26; raw files HELD off-repo (not committed). Inventoried 2026-11-19 and the
+derived summaries loaded to the map (see `ftp_inventory.csv`, `data/water/r5_wdr_facilities.json`, README section 4).
 
 - **Source:** Central Valley Regional Water Quality Control Board (Region 5) PRA FTP posting of 2026-10-07.
 - **Downloaded:** 2026-10-21 08:26 PDT. The agency removes the posting after 2026-11-11/12.
 - **Raw files:** held off-repo (box-only). None of the files below are committed to git.
-- **Derived data in this repo:** only `data/water/ceden_pra633_benner_qa.csv`.
+- **Derived data in this repo:** `data/water/ceden_pra633_benner_qa.csv`; `ftp_inventory.csv` (one row per file: type, facility,
+  period, parameters found, pesticide terms found); `data/water/r5_wdr_facilities.json` (map layer). Built by `build/gen_r5_ftp_records.py`.
 - **Hashes:** SHA-256 and byte sizes recomputed 2026-10-26 from the held copies; all 94 match the intake hold record.
 - **Redactions:** 1 path with what looks like a private individual's name in the file name is shown as a
   `<redacted-private-name>` placeholder. Its bytes and sha256 are unchanged.
