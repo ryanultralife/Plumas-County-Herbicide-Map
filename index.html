@@ -613,6 +613,7 @@ function cellPopup(p){
   if(p.src&&Object.keys(p.src).length){var sm=[];Object.keys(p.src).forEach(function(k){sm.push(_esc(SRC_META[k]?SRC_META[k].label.replace(/ -.*/,''):k)+' '+_num(p.src[k]).toLocaleString());});h+='<b>Source:</b> '+sm.join(' · ')+'<br>';}
   if(p.owners&&p.owners.length){h+='<b title="California PUR names the permittee &mdash; the grower/landowner who holds the site permit &mdash; not the applicator who physically sprayed. For the forest spine these are the timberland owners.">Landowner / permittee:</b><br><span style="color:#444">'+mergeOwners(p.owners).slice(0,5).map(function(o){return _esc(o.label)+' ('+o.n.toLocaleString()+')'+ownerChip(o.label)+(o.agent?'<br><span style="color:#777;font-size:11px">&nbsp;&nbsp;↳ agent of record: '+_esc(o.agent)+'</span>':'');}).join('<br>')+'</span>';}
   h+=buildContacts(p.county||'', !!(p.src&&p.src.facts));
+  h+='<div style="margin-top:6px;font-size:12px">More: <a href="?tab=data" onclick="show(\'data\');return false;">'+(SCOPE.county?_esc(SCOPE.county)+' totals':'Totals')+' in Data &amp; Trends</a> &middot; <a href="?tab=raw" onclick="show(\'raw\');return false;">Source data &amp; downloads</a></div>';
   return h;
 }
 
@@ -1031,7 +1032,10 @@ function buildMap(){
              Object.keys(notes).map(function(n){return '<div style="margin-top:6px">'+_esc(n)+'</div>';}).join(''))
            :'<b>No herbicide or pesticide test</b> in this station&rsquo;s CEDEN record.')+
           '<br><span style="font-size:11px;color:#666">Source: CEDEN export in the Central Valley Water Board (Region 5) reply to PRA #633, Oct 2026. ND = not detected; DNQ = detected below the reporting limit, not quantified. Location as reported in CEDEN.</span>';
-        L.circleMarker([s.lat,s.lon],{radius:hr.length?7:5,weight:2.5,color:hr.length?'#e65100':'#1e63c7',fillColor:'#ffffff',fillOpacity:.9})
+        /* A DOM marker, not a circleMarker: with preferCanvas a circleMarker lands on the map's DEFAULT canvas, a second
+           full-map canvas stacked above the cells' canvas, which swallowed every click on the spray dots (2026-11-19). */
+        var sz=hr.length?14:10, col=hr.length?'#e65100':'#1e63c7';
+        L.marker([s.lat,s.lon],{icon:L.divIcon({className:'wqicon',html:'<div style="width:'+sz+'px;height:'+sz+'px;box-sizing:border-box;border-radius:50%;border:2.5px solid '+col+';background:rgba(255,255,255,.9)"></div>',iconSize:[sz,sz],iconAnchor:[sz/2,sz/2]}),title:'Water Board sampling station: '+s.name})
           .bindPopup(html,{maxWidth:330}).addTo(g);
       });
     });
