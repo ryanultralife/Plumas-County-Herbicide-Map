@@ -631,7 +631,33 @@
    "programs": "Irrigated Lands Regulatory Program",
    "herbicide_tested": false,
    "herbicide_results": [],
-   "draft": false
+   "draft": false,
+   "other_pesticide_results": [
+    {
+     "date": "2021-03-30",
+     "analyte": "Paraquat, Total",
+     "result": null,
+     "qual": "ND",
+     "detect_status": "non-detect",
+     "mdl": "3.5",
+     "rl": "4.0",
+     "unit": "ug/L",
+     "method": "EPA 549.2",
+     "program": "Irrigated Lands Regulatory Program"
+    },
+    {
+     "date": "2021-04-28",
+     "analyte": "Paraquat, Total",
+     "result": null,
+     "qual": "ND",
+     "detect_status": "non-detect",
+     "mdl": "0.15",
+     "rl": "0.4",
+     "unit": "ug/L",
+     "method": "EPA 549.2M",
+     "program": "Irrigated Lands Regulatory Program"
+    }
+   ]
   },
   {
    "code": "518YCDS01",

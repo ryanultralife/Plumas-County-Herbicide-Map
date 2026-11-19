@@ -39,6 +39,17 @@ stations = [{"code": s["STATIONCODE"], "name": s["STATIONNAME"], "lat": float(s[
              "results": int(s["results"]), "first": s["first"], "last": s["last"], "programs": s["programs"],
              "herbicide_tested": s["STATIONCODE"] in hs, "herbicide_results": hs.get(s["STATIONCODE"], []), "draft": False}
             for s in st]
+# Pesticides CEDEN reports in Plumas that are outside the forestry-herbicide TARGET list (only paraquat, ILRP 2021).
+# Kept separate so herbicide_* counts above stay exactly as published; the map popup lists these too.
+OTHER_PEST = ("paraquat",)
+op = defaultdict(list)
+for r in res:
+    if any(k in r["ANALYTE"].lower() for k in OTHER_PEST):
+        op[r["STATIONCODE"]].append({"date": r["SAMPLEDATE"], "analyte": r["ANALYTE"], "result": float(r["RESULT"]) if r["RESULT"] else None,
+            "qual": r["RESULTQUALCODE"], "detect_status": r["detect_status"], "mdl": r["MDL"] or None, "rl": r["RL"] or None,
+            "unit": r["UNIT"], "method": r["METHODNAME"], "program": r["PROGRAM"]})
+for s in stations:
+    if s["code"] in op: s["other_pesticide_results"] = sorted(op[s["code"]], key=lambda x: x["date"])
 dcount = Counter(r["station"] for r in dx)
 for s in dxs:
     stations.append({"code": s["Sample Location"], "name": s["Location Description"], "lat": float(s["Lat"]), "lon": float(s["Long"]),
