@@ -947,7 +947,9 @@ function drawSet(){
 
 function buildMap(){
   var topo=L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png',{maxZoom:17,attribution:'&copy; OpenTopoMap (CC-BY-SA), OpenStreetMap'});
-  var carto=L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',{attribution:'&copy; OpenStreetMap &copy; CARTO'});
+  /* CARTO's keyless basemaps now return an 'API KEY REQUIRED' tile (2026-11), so Streets uses Esri's keyless
+     World Street Map (same server as Satellite). Variable kept as 'carto' to keep the diff small. */
+  var carto=L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}',{maxZoom:19,attribution:'Tiles &copy; Esri &mdash; Esri, HERE, Garmin, USGS, &copy; OpenStreetMap contributors'});
   var sat=L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',{attribution:'Esri'});
   map=L.map('map',{center:[37.6,-119.6],zoom:6,preferCanvas:true,layers:[sat]});
   var canvas=L.canvas({padding:0.5});
@@ -1135,7 +1137,7 @@ function buildMap(){
   });
   /* Rolled up to the tap/hover icon by default so it stays out of the way; expands on
      interaction (both desktop + mobile). */
-  var lyrctl=L.control.layers({'Streets (CARTO)':carto,'Topographic':topo,'Satellite':sat},overlays,{collapsed:true});
+  var lyrctl=L.control.layers({'Streets (Esri)':carto,'Topographic':topo,'Satellite':sat},overlays,{collapsed:true});
   lyrctl.addTo(map);
   /* explicit collapse arrow in the top-right of the layers panel (its own toggle, separate from the map-stat arrow) */
   (function(){var cont=lyrctl.getContainer();if(!cont)return;var ar=L.DomUtil.create('span','lyr-collapse',cont);ar.innerHTML='&#9656;';ar.title='Collapse layers';L.DomEvent.disableClickPropagation(ar);L.DomEvent.on(ar,'click',function(){lyrctl.collapse();});})();
