@@ -345,3 +345,15 @@ still marks them unsent; check the spraymapca Sent folder before updating the tr
 - **Apply once:** `psql "$DBURL" -f build/network_signups_schema.sql`. Until then the site form falls back to the old pre-filled email, so nobody is lost.
 - **Site form** (Donate / Contact / Network modal) POSTs to **`/api/network-signup`** (Edge, uses the existing `SUPABASE_SERVICE_ROLE_KEY`; origin check + honeypot). On any server failure it opens the pre-filled email to spraymapca@gmail.com as before.
 - **People who email in, sign up at events, or sent the old "Add me to the SprayMap network" emails:** `DBURL=... python build/network_signup.py --email x@y --name "..." --list mailing --list action --source email`, or `--csv file.csv` (email,name,lists,source,note). The monthly inbox pass should search spraymapca for subject "Add me to the SprayMap network" and import any not yet added. `--unsubscribe x@y`, `--export network.csv` for the mailing tool.
+
+## Home page (2026-11-19, proposal PR)
+- New first nav tab **Home** (`#homeview`, `show('home')`). Bare visits to `/` land on it; any deep link (`?tab=`, `?county=`,
+  `?region=`, `?ll=`, `?method=`, `?donate=`) skips it, and `?tab=home` opens it. Home is an **overlay above `#mapview`**
+  (z-index 1950, under the nav), so the map still builds at full size underneath and `CELLS_KEY` caching is untouched.
+- Stats are live: `rpc/map_totals` (mapped, lbs, cells, as_of), the count of `sent` rows in `data/records_requests.json`,
+  and the water finding from `data/water/ceden_plumas.json` (`summary` + the Benner note). Nothing is hard-coded; a failed
+  source shows a dash.
+- The inset is a non-interactive Leaflet map (Esri light-gray tiles) with the 3,000 highest-pound cells from `loadCells()`
+  (shared promise, no extra request). Clicking it opens the map.
+- Carto `light_all` tiles now return an "API KEY REQUIRED" image (checked 2026-11-19); the main map still offers that basemap.
+
