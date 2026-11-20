@@ -1,0 +1,21 @@
+STATUS: UNSENT DRAFT — Gmail draftId r5841446628518879152 (thread 1a1f9d0cd140982d)
+TO: [DPR GWPP staff]
+Subject: Re: Well Kit Project Pesticide List and Well Inventory Database
+In reply to: thread 1a1f9d0cd140982d; [DPR GWPP staff] reply received 2026-11-20 8:36 AM PST (America/Los_Angeles)
+tracker row: dpr-gwpp-wellkit
+PUBLIC REPO: individual staff names and addresses are replaced with office-level placeholders here; the Gmail draft in spraymapca carries the exact text.
+PLACEHOLDER: signer name left blank after "Thank you again,"
+
+Dear [DPR GWPP staff],
+
+Thank you for the detailed reply and for the links to the Well Inventory Database and the Annual Well Sampling Report. It is especially helpful to know that DPR sampled for aminopyralid in 2023 and sulfometuron-methyl in 2025, that other agencies' data for sulfometuron-methyl, glyphosate and clopyralid are in the database, and that no groundwater data currently exist for AMPA and imazapyr.
+
+We will use these sources and cite them as published by DPR. If DPR later adds monitoring for AMPA or imazapyr, we would be glad to hear of it.
+
+Thank you again,
+
+
+--
+SprayMap California
+Pesticide & herbicide transparency — public data + waterway testing
+spraymapca@gmail.com · spraymapca.org
